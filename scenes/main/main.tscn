@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dt1hh84lovq45"]
+
+[ext_resource type="PackedScene" uid="uid://bu4sfbhb1lyqp" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://cwcmwih7tclyh" path="res://scripts/main/main.gd" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://ci201s104vhtk" path="res://scenes/main/stats_panel.tscn" id="3_k2fmo"]
+
+[node name="Main" type="Control" unique_id=487311497]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iuonh")
+
+[node name="UI" type="Control" parent="." unique_id=159778214]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatsPanel" parent="UI" unique_id=2057260839 instance=ExtResource("3_k2fmo")]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 523.0
+offset_right = 667.0
+offset_bottom = 627.0
+
+[node name="PlayerVisual" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
+position = Vector2(599, 444)
