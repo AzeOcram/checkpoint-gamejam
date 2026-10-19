@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ccp0tr68v6ii3"]
+
+[ext_resource type="Script" uid="uid://bfjpcub18f3s0" path="res://scripts/energy/energy_feedback.gd" id="1_hg3mm"]
+
+[node name="EnergyFeedback" type="Label" unique_id=181749581]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+ Energy"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_hg3mm")

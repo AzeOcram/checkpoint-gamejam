@@ -5,6 +5,7 @@ var energy_per_tap: int = 1
 var luck: int = 0
 var hp: int = 3
 var max_hp: int = 3
+var energy: int = 0
 
 #Main Functions
 
@@ -27,6 +28,9 @@ func upgrade_max_hp(amount: int = 1) -> void:
 	max_hp += amount
 	hp += amount
 
+func add_energy(amount: int) -> void:
+	energy += amount
+
 #Getters
 func get_energy_per_tap() -> int:
 	return energy_per_tap
@@ -39,3 +43,6 @@ func get_hp() -> int:
 
 func get_max_hp() -> int:
 	return max_hp
+
+func get_energy() -> int:
+	return energy

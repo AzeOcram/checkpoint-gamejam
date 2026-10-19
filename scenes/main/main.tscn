@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bu4sfbhb1lyqp" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://cwcmwih7tclyh" path="res://scripts/main/main.gd" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://ci201s104vhtk" path="res://scenes/main/stats_panel.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://b2i8fygag633i" path="res://scenes/energy/energy_system.tscn" id="5_6q06x"]
+[ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
 
 [node name="Main" type="Control" unique_id=487311497]
 layout_mode = 3
@@ -13,6 +15,7 @@ script = ExtResource("1_iuonh")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="StatsPanel" parent="UI" unique_id=2057260839 instance=ExtResource("3_k2fmo")]
 layout_mode = 0
@@ -21,22 +24,12 @@ offset_top = 523.0
 offset_right = 667.0
 offset_bottom = 627.0
 
+[node name="Systems" type="Node" parent="." unique_id=2118144932]
+
+[node name="GameInput" type="Node" parent="Systems" unique_id=1107179277]
+script = ExtResource("6_ow5a4")
+
+[node name="EnergySystem" parent="Systems" unique_id=819066042 instance=ExtResource("5_6q06x")]
+
 [node name="PlayerVisual" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
 position = Vector2(599, 444)
-
-[node name="EnergyLabel" type="Label" parent="." unique_id=1316589368]
-layout_mode = 0
-offset_left = 476.0
-offset_top = 40.0
-offset_right = 676.0
-offset_bottom = 70.0
-text = "Energy: 0"
-horizontal_alignment = 1
-
-[node name="EnergyButton" type="Button" parent="." unique_id=43349686]
-layout_mode = 0
-offset_left = 501.0
-offset_top = 90.0
-offset_right = 651.0
-offset_bottom = 140.0
-text = "TAP"
