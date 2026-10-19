@@ -14,11 +14,14 @@ func _ready() -> void:
 # Returns the player's current Social Battery.
 func get_amount() -> int:
 	return Player.get_social_battery()
+	
+func get_max() -> int:
+	return Player.get_max_social_battery()
 
 
 # Adds Social Battery to the player.
 func add(amount: int) -> void:
-	Player.social_battery += amount
+	Player.add_social_battery(amount)
 	update_social_battery_ui()
 
 
@@ -36,11 +39,11 @@ func spend(amount: int) -> bool:
 # Checks whether the player can afford an amount
 # without changing their Social Battery.
 func can_afford(amount: int) -> bool:
-	return Player.social_battery >= amount
+	return Player.get_social_battery() >= amount
 
 # Updates the Social Battery UI. #NOTE: Update this function as well
 func update_social_battery_ui() -> void:
-	social_battery_label.text = "Social Battery: " + str(get_amount())
+	social_battery_label.text = "Social Battery: " + str(get_amount()) + "/" + str(get_max())
 
 # TODO:
 # Implement Social Battery generation here.
@@ -53,4 +56,9 @@ func update_social_battery_ui() -> void:
 # Do not directly modify Player.social_battery
 # from the generation implementation.
 func generate() -> void:
-	pass
+	if (get_amount() <= get_max()):
+		add(Player.get_social_battery_per_second())
+
+
+func _on_social_battery_timer_timeout() -> void:
+	generate()

@@ -7,10 +7,12 @@ var energy_per_tap: int = 1
 var luck: int = 0
 var hp: int = 3
 var max_hp: int = 3
+var social_battery_per_second: int = 1
+var max_social_battery: int = 100
 
 # Consumables
 var energy: int = 0
-var social_battery: int = 100
+var social_battery: int = 0
 
 
 # Main Functions
@@ -34,6 +36,8 @@ func upgrade_max_hp(amount: int = 1) -> void:
 	max_hp += amount
 	hp += amount
 
+func add_social_battery(amount: int = 0) -> void:
+	social_battery += amount
 
 # Getters
 func get_energy_per_tap() -> int:
@@ -53,3 +57,9 @@ func get_energy() -> int:
 
 func get_social_battery() -> int:
 	return social_battery
+	
+func get_max_social_battery() -> int:
+	return max_social_battery
+	
+func get_social_battery_per_second() -> int:
+	return social_battery_per_second
