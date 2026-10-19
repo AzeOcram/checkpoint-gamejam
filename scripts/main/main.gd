@@ -1,9 +1,9 @@
+#Main must be responsible for putting together all systems
 extends Control
 
-#Nodes
-@onready var energy_per_tap_label = $UI/StatsPanel/VBoxContainer/EnergyPerTapLabel
-@onready var luck_label = $UI/StatsPanel/VBoxContainer/LuckLabel
-@onready var hp_label = $UI/StatsPanel/VBoxContainer/HpLabel
+# Nodes
+@onready var game_input = $Systems/GameInput
+@onready var energy_system = $Systems/EnergySystem
 
 const FRIEND_SCENE = preload("res://scenes/friends/friend.tscn")
 const FRIEND_COST: int = 25
@@ -64,3 +64,4 @@ func _on_buy_friend_button_pressed() -> void:
 func update_ui() -> void:
 	social_battery_label.text = "Social Battery: %d (+%d/s)" % [social_battery, get_total_sb_generation()]
 	buy_friend_button.disabled = social_battery < FRIEND_COST
+	game_input.tapped.connect(energy_system._on_tapped)
