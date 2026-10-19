@@ -23,3 +23,20 @@ offset_bottom = 627.0
 
 [node name="PlayerVisual" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
 position = Vector2(599, 444)
+
+[node name="EnergyLabel" type="Label" parent="." unique_id=1316589368]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 40.0
+offset_right = 676.0
+offset_bottom = 70.0
+text = "Energy: 0"
+horizontal_alignment = 1
+
+[node name="EnergyButton" type="Button" parent="." unique_id=43349686]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 90.0
+offset_right = 651.0
+offset_bottom = 140.0
+text = "TAP"
