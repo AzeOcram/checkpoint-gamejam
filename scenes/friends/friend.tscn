@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cjwlh8h2v3r66"]
+
+[ext_resource type="Script" uid="uid://c1v6ptfhn726w" path="res://scripts/friend/friend.gd" id="1_ugumg"]
+
+[node name="Friend" type="PanelContainer" unique_id=1347383331]
+custom_minimum_size = Vector2(0, 60)
+offset_right = 40.0
+offset_bottom = 104.0
+script = ExtResource("1_ugumg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=876506087]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=69571776]
+layout_mode = 2
+
+[node name="MoodLabel" type="Label" parent="VBoxContainer" unique_id=435804608]
+layout_mode = 2
+
+[node name="ConnectionLabel" type="Label" parent="VBoxContainer" unique_id=90817911]
+layout_mode = 2
+
+[node name="GenerationLabel" type="Label" parent="VBoxContainer" unique_id=326627968]
+layout_mode = 2
