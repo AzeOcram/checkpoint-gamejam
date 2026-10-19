@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bs6y4k30lyphl"]
+
+[ext_resource type="Script" uid="uid://c5ktth8rywk88" path="res://scripts/main/friends_panel.gd" id="1_7jyo1"]
+
+[node name="FriendsPanel" type="PanelContainer" unique_id=4352755]
+offset_right = 147.0
+offset_bottom = 40.0
+script = ExtResource("1_7jyo1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
+layout_mode = 2
+
+[node name="FriendList" type="VBoxContainer" parent="VBoxContainer" unique_id=171448405]
+layout_mode = 2
+
+[node name="BuyFriendButton" type="Button" parent="VBoxContainer" unique_id=1009859634]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy Friend (25 SB)"

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdpxj05qumq84"]
+
+[ext_resource type="Script" uid="uid://dkvnyamyord7v" path="res://scripts/social_battery/social_battery_system.gd" id="1_ssfca"]
+
+[node name="SocialBatterySystem" type="Node" unique_id=257091885]
+script = ExtResource("1_ssfca")
+
+[node name="SocialBatteryLabel" type="Label" parent="." unique_id=1786502703]
+offset_left = -3.0
+offset_top = 361.0
+offset_right = 108.0
+offset_bottom = 384.0
+text = "Social Battery:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SocialBatteryTimer" type="Timer" parent="." unique_id=1098402953]

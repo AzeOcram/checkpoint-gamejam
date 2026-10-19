@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cjwlh8h2v3r66"]
 
-[ext_resource type="Script" uid="uid://c1v6ptfhn726w" path="res://scripts/friend/friend.gd" id="1_ugumg"]
+[ext_resource type="Script" uid="uid://c1v6ptfhn726w" path="res://scripts/friends/friend.gd" id="1_ugumg"]
 
 [node name="Friend" type="PanelContainer" unique_id=1347383331]
 custom_minimum_size = Vector2(0, 60)
@@ -22,3 +22,5 @@ layout_mode = 2
 
 [node name="GenerationLabel" type="Label" parent="VBoxContainer" unique_id=326627968]
 layout_mode = 2
+
+[node name="FriendSprite" type="Sprite2D" parent="VBoxContainer" unique_id=1026074851]

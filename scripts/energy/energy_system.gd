@@ -11,14 +11,46 @@ func _ready() -> void:
 	update_energy_ui()
 
 
+# Energy API
+#
+# Use these functions for all Energy-related operations.
+# The actual Energy value is stored in Player.
+
+
+# Returns the player's current Energy.
+func get_amount() -> int:
+	return Player.get_energy()
+
+
+# Adds Energy to the player.
+func add(amount: int) -> void:
+	Player.energy += amount
+
+
+# Attempts to spend Energy.
+# Returns true if the player had enough Energy.
+func spend(amount: int) -> bool:
+	if not can_afford(amount):
+		return false
+
+	Player.energy -= amount
+	return true
+
+
+# Checks whether the player can afford an amount
+# without changing their Energy.
+func can_afford(amount: int) -> bool:
+	return Player.energy >= amount
+
+
 func _on_tapped(position: Vector2) -> void:
-	Player.add_energy(Player.get_energy_per_tap())
+	add(Player.get_energy_per_tap())
 	update_energy_ui()
 	spawn_energy_feedback(position)
 
 
 func update_energy_ui() -> void:
-	energy_label.text = "Energy: " + str(Player.get_energy())
+	energy_label.text = "Energy: " + str(get_amount())
 
 
 func spawn_energy_feedback(position: Vector2) -> void:

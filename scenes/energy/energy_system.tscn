@@ -2,13 +2,9 @@
 
 [ext_resource type="Script" uid="uid://sl70sbmfpq1l" path="res://scripts/energy/energy_system.gd" id="1_piqoi"]
 
-[node name="EnergySystem" type="Control" unique_id=819066042]
+[node name="EnergySystem" type="Control" unique_id=1746223679]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_piqoi")
 
 [node name="EnergyLabel" type="Label" parent="." unique_id=1223879756]

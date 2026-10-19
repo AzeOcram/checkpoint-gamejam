@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bhxj7p3jcoghi"]
+
+[ext_resource type="Script" uid="uid://deakgg3w67513" path="res://scripts/friends/recruitment_system.gd" id="1_cyjp4"]
+
+[node name="RecruitmentSystem" type="Node" unique_id=1191812297]
+script = ExtResource("1_cyjp4")
