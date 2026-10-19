@@ -6,12 +6,15 @@
 script = ExtResource("1_ssfca")
 
 [node name="SocialBatteryLabel" type="Label" parent="." unique_id=1786502703]
-offset_left = -3.0
+offset_left = 1.0
 offset_top = 361.0
-offset_right = 108.0
+offset_right = 112.0
 offset_bottom = 384.0
 text = "Social Battery:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SocialBatteryTimer" type="Timer" parent="." unique_id=1098402953]
+autostart = true
+
+[connection signal="timeout" from="SocialBatteryTimer" to="." method="_on_social_battery_timer_timeout"]
