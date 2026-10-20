@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cmtqoudrqp4wi"]
+
+[ext_resource type="Script" uid="uid://dnph6ml8yg3hk" path="res://scripts/social_battery/social_battery_feedback.gd" id="1_eorla"]
+
+[node name="SocialBatteryFeedback" type="Label" unique_id=1914082054]
+text = "+Social Battery"
+script = ExtResource("1_eorla")

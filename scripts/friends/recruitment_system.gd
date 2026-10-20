@@ -21,9 +21,14 @@ var friends: Array[FriendNode] = []
 # Reference to the Social Battery system.
 @onready var social_battery_system = get_node("../SocialBatterySystem")
 
+# Reference to the Buy Friend button.
+@onready var buy_friend_button: Button = $"../../UI/FriendsPanel/VBoxContainer/BuyFriendButton"
+
 
 func _ready() -> void:
 	load_friend_data()
+	social_battery_system.social_battery_changed.connect(update_recruit_button)
+	update_recruit_button()
 
 
 # Loads all FriendData resources from the friends folder.
@@ -79,3 +84,8 @@ func recruit_friend() -> FriendNode:
 	friends.append(friend_instance)
 
 	return friend_instance
+
+
+# Updates whether the player can currently recruit a friend.
+func update_recruit_button() -> void:
+	buy_friend_button.disabled = not can_recruit()
