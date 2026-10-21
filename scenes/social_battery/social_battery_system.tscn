@@ -7,10 +7,11 @@
 script = ExtResource("1_ssfca")
 
 [node name="SocialBatteryLabel" type="Label" parent="." unique_id=1786502703]
-offset_left = 539.0
-offset_top = 348.0
-offset_right = 650.0
-offset_bottom = 371.0
+visible = false
+offset_left = 137.0
+offset_top = 47.0
+offset_right = 248.0
+offset_bottom = 70.0
 text = "Social Battery:"
 horizontal_alignment = 1
 vertical_alignment = 1

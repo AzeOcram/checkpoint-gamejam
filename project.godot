@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 Player="*uid://dy2fa1g4nauj7"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
 [input]
 
 tap={
@@ -34,6 +42,10 @@ tap={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/stretch/mode="viewport"
+textures/size/window_height_override=720
+textures/size/window_width_override=1280
