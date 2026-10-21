@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdpxj05qumq84" path="res://scenes/social_battery/social_battery_system.tscn" id="5_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://bhxj7p3jcoghi" path="res://scenes/friends/recruitment_system.tscn" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
+[ext_resource type="AudioStream" uid="uid://dhs7li674d5dt" path="res://assets/audio/checkpoint_bgm_(sample2).ogg" id="10_a8run"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
 texture = ExtResource("2_b1x3f")
@@ -337,3 +338,8 @@ visible = false
 [node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
 visible = false
 position = Vector2(599, 444)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=304929106]
+stream = ExtResource("10_a8run")
+autoplay = true
+parameters/looping = true
