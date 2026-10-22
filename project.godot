@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Player="*uid://dy2fa1g4nauj7"
+MCPRuntime="*uid://vm45gif4yrcf"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 
 [display]
 
