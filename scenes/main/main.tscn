@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dhs7li674d5dt" path="res://assets/audio/checkpoint_bgm_(sample2).ogg" id="10_a8run"]
 [ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
 [ext_resource type="PackedScene" uid="uid://cs7j61ssisf55" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
+[ext_resource type="Script" uid="uid://b31o8nxjquepm" path="res://tests/test_qte.gd" id="13_th5th"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
 texture = ExtResource("2_b1x3f")
@@ -352,3 +353,6 @@ scale = Vector2(0.2, 0.2)
 stream = ExtResource("10_a8run")
 autoplay = true
 parameters/looping = true
+
+[node name="TestQTE" type="Node" parent="." unique_id=1154957079]
+script = ExtResource("13_th5th")

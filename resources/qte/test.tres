@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QTEData" format=3 uid="uid://cqgtqj46ygc5d"]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_ie0qx"]
+
+[resource]
+script = ExtResource("1_ie0qx")
+title = "Test"
+description = "Testing"
+duration = 3.0
+metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

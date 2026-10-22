@@ -9,10 +9,6 @@ const ENERGY_FEEDBACK = preload("res://scenes/energy/energy_feedback.tscn")
 
 
 func _ready() -> void:
-	print("========== ENERGY DEBUG ==========")
-	print("EnergySystem path: ", get_path())
-	print("EnergySystem parent: ", get_parent().get_path())
-	print("==================================")
 	update_energy_ui()
 
 
