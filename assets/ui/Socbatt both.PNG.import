@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yiu7e2gbq28n"
-path="res://.godot/imported/Socbatt both.jpg-b5ba1359209a315f367d84d07bfc70cf.ctex"
+uid="uid://cs44ms4qgfnvk"
+path="res://.godot/imported/Socbatt both.PNG-60cf8bc5c1dc6df5a3c2cf41ffc18027.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Socbatt both.jpg"
-dest_files=["res://.godot/imported/Socbatt both.jpg-b5ba1359209a315f367d84d07bfc70cf.ctex"]
+source_file="res://assets/ui/Socbatt both.PNG"
+dest_files=["res://.godot/imported/Socbatt both.PNG-60cf8bc5c1dc6df5a3c2cf41ffc18027.ctex"]
 
 [params]
 

@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://cmtqoudrqp4wi"]
 
+[ext_resource type="Texture2D" uid="uid://cguhxxjmwl5cv" path="res://assets/ui/SocBatt icon.png" id="1_0y06i"]
 [ext_resource type="Script" uid="uid://dnph6ml8yg3hk" path="res://scripts/social_battery/social_battery_feedback.gd" id="1_eorla"]
 
-[node name="SocialBatteryFeedback" type="Label" unique_id=1914082054]
-text = "+Social Battery"
+[node name="SocialBatteryFeedback" type="Sprite2D" unique_id=1448001231]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_0y06i")
 script = ExtResource("1_eorla")
+
+[node name="Label" type="Label" parent="." unique_id=1147591622]
+offset_left = 15.0
+offset_top = -7.0000005
+offset_right = 135.0
+offset_bottom = 16.0
+scale = Vector2(0.4, 0.4)
+text = "+ Social Battery"

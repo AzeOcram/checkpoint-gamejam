@@ -80,8 +80,6 @@ func generate() -> void:
 func spawn_social_battery_feedback() -> void:
 	var feedback = SOCIAL_BATTERY_FEEDBACK.instantiate()
 
-	feedback.text = "+" + str(Player.social_battery_per_second) + " SB"
-
 	# Position the feedback at the right tip of the progress bar.
 	feedback.position = Vector2(
 		generation_progress_bar.position.x + generation_progress_bar.size.x,

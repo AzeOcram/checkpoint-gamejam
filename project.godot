@@ -20,17 +20,17 @@ config/icon="res://icon.svg"
 Player="*uid://dy2fa1g4nauj7"
 MCPRuntime="*uid://vm45gif4yrcf"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
-
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 

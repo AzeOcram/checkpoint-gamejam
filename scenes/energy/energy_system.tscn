@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://b2i8fygag633i"]
 
 [ext_resource type="Script" uid="uid://sl70sbmfpq1l" path="res://scripts/energy/energy_system.gd" id="1_piqoi"]
+[ext_resource type="Texture2D" uid="uid://la24w0afoc7q" path="res://assets/ui/Energy both.PNG" id="2_mf7cw"]
 
 [node name="EnergySystem" type="Control" unique_id=1746223679]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_piqoi")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1810642663]
+position = Vector2(271, 14)
+texture = ExtResource("2_mf7cw")
+
 [node name="EnergyLabel" type="Label" parent="." unique_id=1223879756]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 33.0
-offset_right = 335.0
-offset_bottom = 63.0
+offset_left = 239.0
+offset_top = 7.0
+offset_right = 439.0
+offset_bottom = 37.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Energy: 0"
 horizontal_alignment = 1
 

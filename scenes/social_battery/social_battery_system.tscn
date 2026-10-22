@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://bdpxj05qumq84"]
 
 [ext_resource type="Script" uid="uid://dkvnyamyord7v" path="res://scripts/social_battery/social_battery_system.gd" id="1_ssfca"]
-[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="2_05jmf"]
+[ext_resource type="Texture2D" uid="uid://6q2cx6jrmm2u" path="res://assets/ui/Socbatt bar.png" id="2_05jmf"]
+[ext_resource type="Texture2D" uid="uid://cs44ms4qgfnvk" path="res://assets/ui/Socbatt both.PNG" id="2_jrpxo"]
 
 [node name="SocialBatterySystem" type="Node" unique_id=257091885]
 script = ExtResource("1_ssfca")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1350718138]
+position = Vector2(29, 12)
+texture = ExtResource("2_jrpxo")
+
 [node name="SocialBatteryLabel" type="Label" parent="." unique_id=1786502703]
-visible = false
-offset_left = 137.0
-offset_top = 47.0
-offset_right = 248.0
-offset_bottom = 70.0
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 139.0
+offset_bottom = 31.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Social Battery:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -29,10 +35,10 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="GenerationProgressBar" type="TextureProgressBar" parent="." unique_id=1452698933]
-offset_left = 533.0
-offset_top = 187.0
-offset_right = 661.0
-offset_bottom = 315.0
+offset_left = 125.0
+offset_top = 81.0
+offset_right = 189.0
+offset_bottom = 113.0
 texture_progress = ExtResource("2_05jmf")
 
 [connection signal="timeout" from="SocialBatteryTimer" to="." method="_on_social_battery_timer_timeout"]
