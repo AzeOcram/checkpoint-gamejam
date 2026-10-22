@@ -33,6 +33,12 @@ func _on_toggle_pressed() -> void:
 	shop_panel.visible = not shop_panel.visible
 
 
+# Press S to open or close the shop.
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.pressed and not event.echo and event.keycode == KEY_S:
+		_on_toggle_pressed()
+
+
 func _add_row(stat_id: String) -> void:
 	var row := HBoxContainer.new()
 	var label := Label.new()

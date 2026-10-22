@@ -83,6 +83,14 @@ func _initialize() -> void:
 	player.luck = 0
 	player.energy = 0
 	stats.stats_changed.emit()
+	shop.get_node("ShopPanel").visible = false
+	await _click(shop.get_node("ToggleButton"))
+	check(shop.get_node("ShopPanel").visible, "real mouse click opens shop")
+	await _press_s()
+	check(not shop.get_node("ShopPanel").visible, "S key closes shop")
+	await _press_s()
+	check(shop.get_node("ShopPanel").visible, "S key opens shop")
+
 	var luck_button: Button = shop._rows["luck"].button
 	check(luck_button.disabled, "luck button disabled without energy")
 	energy.add(25)
@@ -94,3 +102,25 @@ func _initialize() -> void:
 
 	print("stats tests: %s" % ("PASS" if failures == 0 else "%d FAILED" % failures))
 	quit(failures)
+
+
+func _click(button: Control) -> void:
+	# Window pixels differ from canvas pixels because of viewport stretch.
+	var pos: Vector2 = root.get_final_transform() * button.get_global_rect().get_center()
+	for pressed in [true, false]:
+		var click := InputEventMouseButton.new()
+		click.button_index = MOUSE_BUTTON_LEFT
+		click.position = pos
+		click.global_position = pos
+		click.pressed = pressed
+		root.push_input(click)
+		await process_frame
+
+
+func _press_s() -> void:
+	for pressed in [true, false]:
+		var key := InputEventKey.new()
+		key.keycode = KEY_S
+		key.pressed = pressed
+		root.push_input(key)
+		await process_frame
