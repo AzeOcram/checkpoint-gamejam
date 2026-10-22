@@ -38,7 +38,11 @@ const STATS := {
 # Each Luck point gives this chance to skip a QTE.
 const LUCK_CHANCE_PER_POINT := 0.01
 
-@onready var energy_system = get_node("../EnergySystem")
+var energy_system
+
+
+func setup(energy_system_ref) -> void:
+	energy_system = energy_system_ref
 
 
 func get_stat_ids() -> Array:
@@ -69,12 +73,18 @@ func is_maxed(stat_id: String) -> bool:
 
 
 func can_upgrade(stat_id: String) -> bool:
+	if energy_system == null:
+		return false
+
 	return not is_maxed(stat_id) and energy_system.can_afford(get_cost(stat_id))
 
 
 # Attempts to buy one upgrade.
 # Returns true if the stat was upgraded.
 func upgrade(stat_id: String) -> bool:
+	if energy_system == null:
+		return false
+
 	if is_maxed(stat_id):
 		return false
 

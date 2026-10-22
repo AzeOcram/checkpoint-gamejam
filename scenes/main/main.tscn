@@ -309,7 +309,6 @@ tile_map_data = PackedByteArray("AAACAAEAAAACAAQAAAACAAIAAAACAAUAAAADAAEAAAADAAQ
 tile_set = SubResource("TileSet_blune")
 
 [node name="UI" type="Control" parent="." unique_id=159778214]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -317,12 +316,19 @@ mouse_filter = 2
 
 [node name="StatsPanel" parent="UI" unique_id=2057260839 instance=ExtResource("3_k2fmo")]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 523.0
-offset_right = 667.0
-offset_bottom = 627.0
+offset_left = 245.0
+offset_top = 103.0
+offset_right = 379.0
+offset_bottom = 207.0
 
 [node name="FriendsPanel" parent="UI" unique_id=4352755 instance=ExtResource("3_yyfjg")]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 11.0
+offset_right = 274.0
+offset_bottom = 51.0
+
+[node name="StatsShop" parent="UI" unique_id=475658977 instance=ExtResource("12_statshop")]
 layout_mode = 0
 
 [node name="Systems" type="Node" parent="." unique_id=2118144932]
@@ -338,17 +344,9 @@ script = ExtResource("6_ow5a4")
 
 [node name="StatsSystem" parent="Systems" unique_id=1200181088 instance=ExtResource("11_statsys")]
 
-[node name="StatsShop" parent="." unique_id=475658977 instance=ExtResource("12_statshop")]
-visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 5.0
-
 [node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
-visible = false
-position = Vector2(599, 444)
+position = Vector2(161, 129)
+scale = Vector2(0.2, 0.2)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=304929106]
 stream = ExtResource("10_a8run")
