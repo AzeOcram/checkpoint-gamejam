@@ -6,6 +6,7 @@ extends PanelContainer
 @onready var hp_label: Label = $VBoxContainer/HpLabel
 
 func _ready() -> void:
+	get_node("../../Systems/StatsSystem").stats_changed.connect(update_stats_ui)
 	update_stats_ui()
 
 # Stats Functions

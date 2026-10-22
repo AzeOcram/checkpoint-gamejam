@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bdpxj05qumq84" path="res://scenes/social_battery/social_battery_system.tscn" id="5_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://bhxj7p3jcoghi" path="res://scenes/friends/recruitment_system.tscn" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
+[ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
+[ext_resource type="PackedScene" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
 [ext_resource type="AudioStream" uid="uid://dhs7li674d5dt" path="res://assets/audio/checkpoint_bgm_(sample2).ogg" id="10_a8run"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
@@ -334,6 +336,10 @@ visible = false
 [node name="SocialBatterySystem" parent="Systems" unique_id=351034360 instance=ExtResource("5_ow5a4")]
 
 [node name="RecruitmentSystem" parent="Systems" unique_id=1191812297 instance=ExtResource("6_hujxm")]
+
+[node name="StatsSystem" parent="Systems" instance=ExtResource("11_statsys")]
+
+[node name="StatsShop" parent="." instance=ExtResource("12_statshop")]
 
 [node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
 visible = false

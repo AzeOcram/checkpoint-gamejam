@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/stats/stats_shop.gd" id="1_shop"]
+
+[node name="StatsShop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_shop")
+
+[node name="ToggleButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 24.0
+text = "Shop"
+
+[node name="ShopPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 28.0
+offset_right = 164.0
+offset_bottom = 88.0
+
+[node name="Rows" type="VBoxContainer" parent="ShopPanel"]
+layout_mode = 2

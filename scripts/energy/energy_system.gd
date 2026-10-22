@@ -1,5 +1,6 @@
 extends Control
 
+signal energy_changed
 
 const ENERGY_FEEDBACK = preload("res://scenes/energy/energy_feedback.tscn")
 
@@ -25,6 +26,7 @@ func get_amount() -> int:
 # Adds Energy to the player.
 func add(amount: int) -> void:
 	Player.energy += amount
+	energy_changed.emit()
 
 
 # Attempts to spend Energy.
@@ -34,6 +36,8 @@ func spend(amount: int) -> bool:
 		return false
 
 	Player.energy -= amount
+	update_energy_ui()
+	energy_changed.emit()
 	return true
 
 
