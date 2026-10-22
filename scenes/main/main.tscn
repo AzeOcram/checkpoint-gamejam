@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://cwcmwih7tclyh" path="res://scripts/main/main.gd" id="1_iuonh"]
 [ext_resource type="Texture2D" uid="uid://ivdeidsjya1c" path="res://assets/art/tilemaps/clasroom.PNG" id="2_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://ci201s104vhtk" path="res://scenes/main/stats_panel.tscn" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://bs6y4k30lyphl" path="res://scenes/main/friends_panel.tscn" id="3_yyfjg"]
+[ext_resource type="PackedScene" path="res://scenes/main/friends_panel.tscn" id="3_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://b2i8fygag633i" path="res://scenes/energy/energy_system.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://bdpxj05qumq84" path="res://scenes/social_battery/social_battery_system.tscn" id="5_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://bhxj7p3jcoghi" path="res://scenes/friends/recruitment_system.tscn" id="6_hujxm"]
-[ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
-[ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
-[ext_resource type="PackedScene" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
+[ext_resource type="Script" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
 [ext_resource type="AudioStream" uid="uid://dhs7li674d5dt" path="res://assets/audio/checkpoint_bgm_(sample2).ogg" id="10_a8run"]
+[ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
+[ext_resource type="PackedScene" uid="uid://cs7j61ssisf55" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
 texture = ExtResource("2_b1x3f")
@@ -331,15 +331,23 @@ layout_mode = 0
 script = ExtResource("6_ow5a4")
 
 [node name="EnergySystem" parent="Systems" unique_id=819066042 instance=ExtResource("5_6q06x")]
-visible = false
+offset_left = -75.0
+offset_top = 46.0
+offset_right = -75.0
+offset_bottom = 46.0
 
 [node name="SocialBatterySystem" parent="Systems" unique_id=351034360 instance=ExtResource("5_ow5a4")]
 
 [node name="RecruitmentSystem" parent="Systems" unique_id=1191812297 instance=ExtResource("6_hujxm")]
 
-[node name="StatsSystem" parent="Systems" instance=ExtResource("11_statsys")]
+[node name="StatsSystem" parent="Systems" unique_id=1200181088 instance=ExtResource("11_statsys")]
 
-[node name="StatsShop" parent="." instance=ExtResource("12_statshop")]
+[node name="StatsShop" parent="." unique_id=475658977 instance=ExtResource("12_statshop")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 5.0
+offset_bottom = 5.0
 
 [node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
 visible = false

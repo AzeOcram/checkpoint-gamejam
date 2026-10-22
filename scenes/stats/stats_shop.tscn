@@ -1,28 +1,31 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cs7j61ssisf55"]
 
-[ext_resource type="Script" path="res://scripts/stats/stats_shop.gd" id="1_shop"]
+[ext_resource type="Script" uid="uid://slt0vor014hj" path="res://scripts/stats/stats_shop.gd" id="1_shop"]
 
-[node name="StatsShop" type="Control"]
+[node name="StatsShop" type="Control" unique_id=1259275654]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_shop")
 
-[node name="ToggleButton" type="Button" parent="."]
+[node name="ToggleButton" type="Button" parent="." unique_id=1873237064]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
 offset_bottom = 24.0
-text = "Shop"
+scale = Vector2(0.6799997, 0.52)
+text = "Shop (S)"
 
-[node name="ShopPanel" type="PanelContainer" parent="."]
+[node name="ShopPanel" type="PanelContainer" parent="." unique_id=413615759]
 visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 28.0
 offset_right = 164.0
 offset_bottom = 88.0
+scale = Vector2(0.76, 0.5200006)
 
-[node name="Rows" type="VBoxContainer" parent="ShopPanel"]
+[node name="Rows" type="VBoxContainer" parent="ShopPanel" unique_id=274208398]
+visible = false
 layout_mode = 2
