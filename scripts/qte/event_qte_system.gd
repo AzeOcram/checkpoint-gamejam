@@ -1,6 +1,7 @@
 extends Node
 class_name EventQTESystem
 
+# This is set in the Main scene
 @export var recruitment_system: Node
 
 @onready var timer: Node = $Timer
