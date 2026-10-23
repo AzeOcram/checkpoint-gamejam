@@ -89,3 +89,7 @@ func recruit_friend() -> FriendNode:
 # Updates whether the player can currently recruit a friend.
 func update_recruit_button() -> void:
 	buy_friend_button.disabled = not can_recruit()
+
+# Utils
+func get_friends_amount() -> int:
+	return friends.size()

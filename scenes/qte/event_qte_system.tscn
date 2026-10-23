@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dn1fwhj4kf13w"]
+
+[ext_resource type="Script" uid="uid://pxyvm48csssw" path="res://scripts/qte/event_qte_system.gd" id="1_45rbj"]
+
+[node name="EventQTESystem" type="Node" unique_id=492177173]
+script = ExtResource("1_45rbj")
+
+[node name="Timer" type="Timer" parent="." unique_id=1616258773]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
