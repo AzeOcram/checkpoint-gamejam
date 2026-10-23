@@ -14,9 +14,15 @@ var social_battery: int = 0
 var max_social_battery: int = 100
 var social_battery_per_second: int = 1
 
+# Game Stats
+var play_time: float = 0.0 # MINUTES
+var progress_score: float = 0.0
+
 
 # Main Functions
-
+func _process(delta: float) -> void:
+	play_time += delta / 60.0 # in minutes
+	
 # HP Functions
 func take_damage(amount: int) -> void:
 	hp = max(hp - amount, 0)
@@ -52,3 +58,9 @@ func get_max_hp() -> int:
 
 func get_energy() -> int:
 	return energy
+	
+func get_play_time() -> int:
+	return play_time
+	
+# Setters
+func set_player_score
