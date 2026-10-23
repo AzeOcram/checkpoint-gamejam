@@ -24,3 +24,5 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="FriendSprite" type="Sprite2D" parent="VBoxContainer" unique_id=1026074851]
+
+[node name="MoodCheckTimer" type="Timer" parent="." unique_id=270263739]
