@@ -6,9 +6,23 @@ class_name EventQTESystem
 @onready var timer: Node = $Timer
 var active_qte: BaseQTE = null
 
+
+# Utils
+func friends_amount() -> int:
+	return recruitment_system.get_friends_amount()
+
+func play_time() -> float:
+	return Player.get_play_time()
+
+func calculate_interval() -> float:
+	return lerp(30, 15, Player.progress_score)
+
+
+# Start the cycle
 func _ready() -> void:
 	set_next_qte_cycle()
 	
+# Update player progress score and start timer with new interval
 func set_next_qte_cycle() -> void:
 	if active_qte != null:
 		return
@@ -18,13 +32,9 @@ func set_next_qte_cycle() -> void:
 	
 func _on_timer_timeout() -> void:
 	spawn_random_qte()
+	
 
-func friends_amount() -> int:
-	return recruitment_system.get_friends_amount()
-
-func play_time() -> float:
-	return Player.get_play_time()
-
+# Currently directly updating player's fields
 func update_progress() -> void:
 	if not Player or not recruitment_system:
 		return
@@ -33,10 +43,9 @@ func update_progress() -> void:
 	var friends_factor = min(float(friends_amount()) / 10.0, 1.0) * 0.4
 	
 	Player.progress_score = clamp(play_time_factor + friends_factor, 0.0, 1.0)
-	
-func calculate_interval() -> float:
-	return lerp(30, 15, Player.progress_score)
 
+# spawn and add to tree new qte
+# uses base_qte and qte_data api
 func spawn_random_qte() -> void:
 	if active_qte != null:
 		return
@@ -53,6 +62,7 @@ func spawn_random_qte() -> void:
 	get_tree().root.add_child(active_qte)
 	active_qte.start(qte_data)
 
+# connects to BaseQTe's finished signal
 func on_qte_finish(result: QTEData.Result) -> void:
 	if result == QTEData.Result.SUCCESS:
 		# grant energy
