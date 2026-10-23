@@ -22,11 +22,25 @@ func _on_upgrade_pressed() -> void:
 
 
 func update_ui() -> void:
-	stat_label.text = "%s: %d (Lv %d)" % [
-		stats_system.get_stat_name(stat_id),
-		stats_system.get_value(stat_id),
-		stats_system.get_level(stat_id),
-	]
+	var stat_value = stats_system.get_value(stat_id)
+	var stat_name = stats_system.get_stat_name(stat_id)
+
+	if stat_id == "max_hp":
+		stat_name = "HP"
+		stat_value = Player.hp
+
+		stat_label.text = "%s: %d/%d (Lv %d)" % [
+			stat_name,
+			stat_value,
+			stats_system.get_value(stat_id),
+			stats_system.get_level(stat_id),
+		]
+	else:
+		stat_label.text = "%s: %d (Lv %d)" % [
+			stat_name,
+			stat_value,
+			stats_system.get_level(stat_id),
+		]
 
 	if stats_system.is_maxed(stat_id):
 		upgrade_button.text = "MAX"

@@ -3,6 +3,7 @@ class_name FriendData
 
 # Friend identity
 @export var friend_name: String = "Friend"
+@export var desc: String = "Friend"
 
 # Recruitment
 @export var recruitment_cost: int = 25
@@ -11,13 +12,12 @@ class_name FriendData
 @export var mood: int = 100
 @export var connection: int = 100
 @export var social_battery_generation: int = 1
+@export var luck: int = 0
 
-# Mood Decrease rate
+# Friend interaction
 @export var mood_decrease_rate: float = 1.0
+@export var connection_gain: int = 1
 
 # Friend appearance
 @export var sprite: Texture2D
-
-# Future:
-# - Sprite
-# - Other friend-specific stats
+@export var sprite2: Texture2D

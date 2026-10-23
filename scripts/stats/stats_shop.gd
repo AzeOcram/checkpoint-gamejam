@@ -3,20 +3,24 @@ extends Control
 
 # Stats Shop
 #
-# Lets the player open the shop and spend Energy on stat upgrades.
+# Displays stat upgrades and lets the player spend Energy.
 # All upgrade rules live in StatsSystem; this only shows them.
 # Placeholder UI, the final visual design is not part of this scope.
 
 const STATS_SHOP_ROW = preload("res://scenes/stats/stats_shop_row.tscn")
 
-@onready var toggle_button: Button = $ToggleButton
-@onready var shop_panel: PanelContainer = $ShopPanel
-@onready var rows: VBoxContainer = $ShopPanel/Rows
+@onready var rows: VBoxContainer = $ShopPanel/VBoxContainer/Rows
+@onready var close_button: Button = $ShopPanel/VBoxContainer/CloseButton
 
 var stats_system
 var energy_system
 
 var _rows := {}
+
+
+func _ready() -> void:
+	close_button.pressed.connect(_on_close_pressed)
+	Player.hp_changed.connect(update_ui)
 
 
 func setup(stats_system_ref, energy_system_ref) -> void:
@@ -32,20 +36,6 @@ func setup(stats_system_ref, energy_system_ref) -> void:
 	update_ui()
 
 
-func _ready() -> void:
-	toggle_button.pressed.connect(_on_toggle_pressed)
-
-
-func _on_toggle_pressed() -> void:
-	shop_panel.visible = not shop_panel.visible
-
-
-# Press S to open or close the shop.
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event.pressed and not event.echo and event.keycode == KEY_S:
-		_on_toggle_pressed()
-
-
 func _add_row(stat_id: String) -> void:
 	var row = STATS_SHOP_ROW.instantiate()
 
@@ -58,3 +48,7 @@ func _add_row(stat_id: String) -> void:
 func update_ui() -> void:
 	for stat_id in _rows:
 		_rows[stat_id].update_ui()
+
+
+func _on_close_pressed() -> void:
+	get_parent().hide()

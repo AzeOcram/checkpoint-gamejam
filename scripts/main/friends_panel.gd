@@ -29,3 +29,7 @@ func _on_buy_friend_button_pressed() -> void:
 # Updates the recruitment UI.
 func update_ui() -> void:
 	buy_friend_button.disabled = not recruitment_system.can_recruit()
+
+
+func _on_close_pressed() -> void:
+	hide()

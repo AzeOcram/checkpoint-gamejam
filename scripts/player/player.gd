@@ -2,6 +2,8 @@ extends Node2D
 
 # Attributes
 
+signal hp_changed
+
 # Stats
 var energy_per_tap: int = 1
 var luck: int = 0
@@ -26,10 +28,12 @@ func _process(delta: float) -> void:
 # HP Functions
 func take_damage(amount: int) -> void:
 	hp = max(hp - amount, 0)
+	hp_changed.emit()
+
 
 func heal(amount: int) -> void:
 	hp = min(hp + amount, max_hp)
-
+	hp_changed.emit()
 
 # Stat Upgrade Functions
 func upgrade_energy_per_tap(amount: int = 1) -> void:
@@ -41,6 +45,7 @@ func upgrade_luck(amount: int = 1) -> void:
 func upgrade_max_hp(amount: int = 1) -> void:
 	max_hp += amount
 	hp += amount
+	hp_changed.emit()
 
 
 # Getters
@@ -61,6 +66,3 @@ func get_energy() -> int:
 	
 func get_play_time() -> int:
 	return play_time
-	
-# Setters
-func set_player_score

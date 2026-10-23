@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bkyiouepfm3r8"]
+
+[ext_resource type="Script" uid="uid://cmx240j35pu6x" path="res://scripts/main_menu/main_menu.gd" id="1_fsom3"]
+
+[node name="MainMenu" type="Control" unique_id=1657732778]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fsom3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2019212656]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1909876483]
+layout_mode = 2
+text = "Friends We Made"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=295300122]
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=743543158]
+layout_mode = 2
+text = "Quit"

@@ -18,3 +18,9 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Buy Friend (25 SB)"
+
+[node name="Close" type="Button" parent="VBoxContainer" unique_id=950500556]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

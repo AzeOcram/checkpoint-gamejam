@@ -5,24 +5,22 @@
 [node name="StatsShop" type="Control" unique_id=1259275654]
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(0.3, 0.3)
 mouse_filter = 2
 script = ExtResource("1_shop")
 
-[node name="ToggleButton" type="Button" parent="." unique_id=1873237064]
-layout_mode = 0
-offset_left = 265.0
-offset_top = 157.0
-offset_right = 335.0
-offset_bottom = 188.0
-scale = Vector2(0.6799997, 0.52)
-text = "Shop (S)"
-
 [node name="ShopPanel" type="PanelContainer" parent="." unique_id=413615759]
 layout_mode = 0
-offset_top = 113.00001
 offset_right = 160.0
-offset_bottom = 173.0
+offset_bottom = 59.999985
 scale = Vector2(0.76, 0.5200006)
 
-[node name="Rows" type="VBoxContainer" parent="ShopPanel" unique_id=274208398]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel" unique_id=318188948]
 layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="ShopPanel/VBoxContainer" unique_id=274208398]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="ShopPanel/VBoxContainer" unique_id=888411410]
+layout_mode = 2
+text = "Close"

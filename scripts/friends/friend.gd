@@ -57,16 +57,10 @@ func _on_mood_check_timer_timeout() -> void:
 
 
 func trigger_mood_decrease() -> void:
-	# 1. Decrease mood BEFORE the QTE (per design doc rules)
-	data.mood -= 1
-	
-	# 2. Update the UI so the player immediately sees the mood drop
-	update_display()
-	
-	# 3. Pause the timer so they don't trigger another QTE while this one is active
+	# 1. Pause the timer so they don't trigger another QTE while this one is active
 	check_timer.stop() 
 	
-	# 4. Tell the manager to spawn the QTE
+	# 2. Tell the manager to spawn the QTE
 	request_friend_qte.emit(self)
 
 

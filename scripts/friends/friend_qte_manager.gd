@@ -18,14 +18,14 @@ func _on_friend_request_qte(friend_node: Node) -> void:
 	qte_instance.start(qte_data)
 
 
-func _on_qte_finished(result: QTEData.Result, friend_node: Node) -> void:
+func _on_qte_finished(result: QTEData.Result, friend_node: FriendNode) -> void:
 	if result == QTEData.Result.SUCCESS:
-		friend_node.data.mood += 1
-		friend_node.data.connection += 1
+		friend_node.data.mood = min(friend_node.data.mood + 1, 100)
+		friend_node.data.connection = min(friend_node.data.connection + 1, 100)
 		print(friend_node.data.friend_name + " QTE SUCCESS! New Mood: ", friend_node.data.mood, " | New Connection: ", friend_node.data.connection)
 		
 	elif result == QTEData.Result.FAILURE:
-		friend_node.data.connection -= 1
+		friend_node.data.connection = max(friend_node.data.connection - 1, 0)
 		print(friend_node.data.friend_name + " QTE FAILED! New Mood: ", friend_node.data.mood, " | New Connection: ", friend_node.data.connection)
 	
 	friend_node.resume_monitoring()

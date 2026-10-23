@@ -8,7 +8,7 @@ extends Control
 @onready var social_battery_system = $Systems/SocialBatterySystem
 @onready var recruitment_system = $Systems/RecruitmentSystem
 @onready var stats_system = $Systems/StatsSystem
-@onready var stats_shop = $UI/StatsShop
+@onready var stats_shop = $UI/CharacterPanel/StatsShop
 
 
 func _ready() -> void:
