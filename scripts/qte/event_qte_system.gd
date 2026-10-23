@@ -56,10 +56,10 @@ func spawn_random_qte() -> void:
 func on_qte_finish(result: QTEData.Result) -> void:
 	if result == QTEData.Result.SUCCESS:
 		# grant energy
-		pass
+		Player.energy += lerp(20, 50, Player.progress_score)
 	else:
 		# deduct hp
-		pass
+		Player.hp -= 1
 		
 	active_qte = null
 	set_next_qte_cycle()
