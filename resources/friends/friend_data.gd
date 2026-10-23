@@ -12,6 +12,9 @@ class_name FriendData
 @export var connection: int = 100
 @export var social_battery_generation: int = 1
 
+# Mood Decrease rate
+@export var mood_decrease_rate: float = 1.0
+
 # Friend appearance
 @export var sprite: Texture2D
 

@@ -21,6 +21,8 @@ var friends: Array[FriendNode] = []
 # Reference to the Social Battery system.
 @onready var social_battery_system = get_node("../SocialBatterySystem")
 
+@onready var qte_manager = get_node("../FriendQTEManager")
+
 # Reference to the Buy Friend button.
 @onready var buy_friend_button: Button = $"../../UI/FriendsPanel/VBoxContainer/BuyFriendButton"
 
@@ -80,6 +82,10 @@ func recruit_friend() -> FriendNode:
 	var friend_instance: FriendNode = FRIEND_SCENE.instantiate()
 
 	friend_instance.setup(friend_data)
+	
+	# NEW: Connect this friend's QTE signal to the manager!
+	if qte_manager:
+		friend_instance.request_friend_qte.connect(qte_manager._on_friend_request_qte)
 
 	friends.append(friend_instance)
 
