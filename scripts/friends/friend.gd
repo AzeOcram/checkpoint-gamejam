@@ -18,11 +18,10 @@ var data: FriendData
 
 func _ready() -> void:
 	# Set up the timer connection but don't start it until setup() is called
-	check_timer.wait_time = 5.0
 	check_timer.timeout.connect(_on_mood_check_timer_timeout)
 	if data != null:
 		update_display()
-		check_timer.start()
+		start_mood_timer()
 
 
 # Sets the data for this friend.
@@ -32,7 +31,7 @@ func setup(friend_data: FriendData) -> void:
 	# Only update display if the node is already fully loaded in the scene tree
 	if is_node_ready():
 		update_display()
-		check_timer.start()
+		start_mood_timer()
 
 
 func update_display() -> void:
@@ -47,13 +46,24 @@ func update_display() -> void:
 
 # --- MOOD DECREASE & QTE LOGIC ---
 
+func start_mood_timer() -> void:
+	check_timer.wait_time = randf_range(
+		data.friend_qte_timer_min,
+		data.friend_qte_timer_max
+	)
+	check_timer.start()
+
+
 func _on_mood_check_timer_timeout() -> void:
 	if data == null:
 		return
-		
+	
 	# Random Mood Decrease Check using the friend's specific rate
 	if randf() <= data.mood_decrease_rate:
 		trigger_mood_decrease()
+	else:
+		# No QTE this time, so randomize the next timer
+		start_mood_timer()
 
 
 func trigger_mood_decrease() -> void:
@@ -67,5 +77,5 @@ func trigger_mood_decrease() -> void:
 func resume_monitoring() -> void:
 	# Called by the FriendQTEManager after the QTE finishes
 	# Refresh the UI in case they succeeded (Mood +1, Connection +1) or failed (Connection -1)
-	update_display() 
-	check_timer.start()
+	update_display()
+	start_mood_timer()

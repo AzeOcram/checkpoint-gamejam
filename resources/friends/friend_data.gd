@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name FriendData
 
@@ -7,6 +8,7 @@ class_name FriendData
 
 # Recruitment
 @export var recruitment_cost: int = 25
+@export var unlocked: bool = false
 
 # Friend stats
 @export var mood: int = 100
@@ -17,6 +19,8 @@ class_name FriendData
 # Friend interaction
 @export var mood_decrease_rate: float = 1.0
 @export var connection_gain: int = 1
+@export var friend_qte_timer_min: float = 3.0
+@export var friend_qte_timer_max: float = 7.0
 
 # Friend appearance
 @export var sprite: Texture2D

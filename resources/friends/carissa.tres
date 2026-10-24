@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dx2dedhg18ocq"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_0py30"]
+
+[resource]
+script = ExtResource("1_0py30")
+friend_name = "Carissa Genevieve Alfonso"
+desc = "National Bookstore"
+metadata/_custom_type_script = "uid://chluj6iek0are"

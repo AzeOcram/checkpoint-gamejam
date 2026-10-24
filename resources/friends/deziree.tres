@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bgum3c124mi30"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_y0qpp"]
+
+[resource]
+script = ExtResource("1_y0qpp")
+friend_name = "Deziree Cariaga"
+desc = "The Auditor"
+metadata/_custom_type_script = "uid://chluj6iek0are"

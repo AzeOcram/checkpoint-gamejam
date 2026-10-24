@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://lgc34eonercr"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_76toe"]
+
+[resource]
+script = ExtResource("1_76toe")
+friend_name = "Ezekiel Padilla"
+desc = "Voleyball Varsity"
+metadata/_custom_type_script = "uid://chluj6iek0are"

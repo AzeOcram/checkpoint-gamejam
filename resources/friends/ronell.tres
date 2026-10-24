@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d7necm2f1kyo"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jn87y"]
+
+[resource]
+script = ExtResource("1_jn87y")
+friend_name = "Ronell Cristobal"
+desc = "The Class Treasurer"
+metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cs1qvpxb6p41m"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nh5ws"]
+
+[resource]
+script = ExtResource("1_nh5ws")
+friend_name = "Kenneth Salvacion"
+desc = "The Class PIO"
+metadata/_custom_type_script = "uid://chluj6iek0are"

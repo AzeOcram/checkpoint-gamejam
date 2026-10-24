@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bjnd43yoasnsa"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_op5c6"]
+
+[resource]
+script = ExtResource("1_op5c6")
+friend_name = "Jhoseph Guinto"
+desc = "I wonder why he's always late.."
+metadata/_custom_type_script = "uid://chluj6iek0are"

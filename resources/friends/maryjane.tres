@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cg47jyqe8cgvp"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_3bfsn"]
+
+[resource]
+script = ExtResource("1_3bfsn")
+friend_name = "Mary Jane Portacio"
+desc = "The Class Secretary"
+metadata/_custom_type_script = "uid://chluj6iek0are"

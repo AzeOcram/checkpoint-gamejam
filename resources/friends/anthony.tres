@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_qvoxt")
-friend_name = "Sam"
+friend_name = "Anthony Pimentel"
+desc = "A Chess Varsity"
 social_battery_generation = 3
 sprite = ExtResource("2_24e31")
 metadata/_custom_type_script = "uid://chluj6iek0are"

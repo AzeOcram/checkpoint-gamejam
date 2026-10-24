@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bn3tq3sr37ayd"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_mru2a"]
+
+[resource]
+script = ExtResource("1_mru2a")
+friend_name = "Jonathan Batumbakal"
+desc = "Guitarista"
+metadata/_custom_type_script = "uid://chluj6iek0are"

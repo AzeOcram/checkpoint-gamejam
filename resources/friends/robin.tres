@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_r8pvq")
-friend_name = "Alex"
+friend_name = "Robin Tolentino"
+desc = "The Class President"
 sprite = ExtResource("2_0uyo6")
 metadata/_custom_type_script = "uid://chluj6iek0are"

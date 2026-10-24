@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="FriendCollection" format=3 uid="uid://bs5xcfs4hvnbo"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_qedly"]
+[ext_resource type="Script" uid="uid://hve8a12dl36i" path="res://resources/friends/friends_collection.gd" id="2_ln1bv"]
+[ext_resource type="Resource" uid="uid://b7eue0o1aaulr" path="res://resources/friends/angelo.tres" id="2_t8jul"]
+[ext_resource type="Resource" uid="uid://qgybiibvb8s3" path="res://resources/friends/anthony.tres" id="3_8l27y"]
+[ext_resource type="Resource" uid="uid://dx2dedhg18ocq" path="res://resources/friends/carissa.tres" id="4_c2tdr"]
+[ext_resource type="Resource" uid="uid://c1wevfv7rc7ln" path="res://resources/friends/dayana.tres" id="5_0fson"]
+[ext_resource type="Resource" uid="uid://bgum3c124mi30" path="res://resources/friends/deziree.tres" id="6_7nmrr"]
+[ext_resource type="Resource" uid="uid://lgc34eonercr" path="res://resources/friends/ezekiel.tres" id="7_qyijs"]
+[ext_resource type="Resource" uid="uid://bjnd43yoasnsa" path="res://resources/friends/jhoseph.tres" id="8_bbs85"]
+[ext_resource type="Resource" uid="uid://bn3tq3sr37ayd" path="res://resources/friends/jonathan.tres" id="9_dbts8"]
+[ext_resource type="Resource" uid="uid://dgi7xvmohfmch" path="res://resources/friends/joshua.tres" id="10_tgigm"]
+[ext_resource type="Resource" uid="uid://dmof7ki3tv4us" path="res://resources/friends/judyline.tres" id="11_fnywu"]
+[ext_resource type="Resource" uid="uid://cs1qvpxb6p41m" path="res://resources/friends/kenneth.tres" id="12_urnde"]
+[ext_resource type="Resource" uid="uid://ctejro4etk3fo" path="res://resources/friends/kiko.tres" id="13_c1vfh"]
+[ext_resource type="Resource" uid="uid://cg47jyqe8cgvp" path="res://resources/friends/maryjane.tres" id="14_xb5cd"]
+[ext_resource type="Resource" uid="uid://bud6fty83jynl" path="res://resources/friends/mikael.tres" id="15_v60ib"]
+[ext_resource type="Resource" uid="uid://d4krblfivjrhd" path="res://resources/friends/nicole.tres" id="16_2js1o"]
+[ext_resource type="Resource" uid="uid://dykq2rxtc0v11" path="res://resources/friends/ray.tres" id="17_46qqy"]
+[ext_resource type="Resource" uid="uid://cfwlyqt6btdqc" path="res://resources/friends/robin.tres" id="18_wvpw0"]
+[ext_resource type="Resource" uid="uid://d7necm2f1kyo" path="res://resources/friends/ronell.tres" id="19_xtsb6"]
+[ext_resource type="Resource" uid="uid://dv2ktf70kyn5o" path="res://resources/friends/thea.tres" id="20_rjg0m"]
+[ext_resource type="Resource" uid="uid://cjt8h7kauqfm0" path="res://resources/friends/zei.tres" id="21_x45c5"]
+
+[resource]
+script = ExtResource("2_ln1bv")
+friends = Array[ExtResource("1_qedly")]([ExtResource("2_t8jul"), ExtResource("3_8l27y"), ExtResource("4_c2tdr"), ExtResource("5_0fson"), ExtResource("6_7nmrr"), ExtResource("7_qyijs"), ExtResource("8_bbs85"), ExtResource("9_dbts8"), ExtResource("10_tgigm"), ExtResource("11_fnywu"), ExtResource("12_urnde"), ExtResource("13_c1vfh"), ExtResource("14_xb5cd"), ExtResource("15_v60ib"), ExtResource("16_2js1o"), ExtResource("17_46qqy"), ExtResource("18_wvpw0"), ExtResource("19_xtsb6"), ExtResource("20_rjg0m"), ExtResource("21_x45c5")])
+metadata/_custom_type_script = "uid://hve8a12dl36i"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b7eue0o1aaulr"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sv43k"]
+
+[resource]
+script = ExtResource("1_sv43k")
+friend_name = "Angelo Bautista"
+desc = "Loner Guy"
+metadata/_custom_type_script = "uid://chluj6iek0are"
