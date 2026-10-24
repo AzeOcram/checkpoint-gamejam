@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QTEData" format=3 uid="uid://gr1bcxugff74"]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_8k3yk"]
+
+[resource]
+script = ExtResource("1_8k3yk")
+title = "Slice the Paper!"
+description = "Follow the dotted line and cut at a steady pace."
+metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

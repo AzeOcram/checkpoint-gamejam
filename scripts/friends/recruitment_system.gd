@@ -33,6 +33,12 @@ var friends: Array[FriendNode] = []
 func _ready() -> void:
 	load_friend_data()
 
+	print("========== RECRUITMENT SYSTEM READY ==========")
+	print("QTE Manager: ", qte_manager)
+
+	if qte_manager == null:
+		push_error("FriendQTEManager NOT FOUND!")
+
 
 # Loads all FriendData resources from the friends folder.
 #
@@ -92,13 +98,17 @@ func recruit_friend(friend_data: FriendData) -> FriendNode:
 
 	var friend_instance: FriendNode = FRIEND_SCENE.instantiate()
 
-	friend_instance.setup(friend_data)
-
-	# Connect this friend's QTE signal to the manager.
+# Connect the QTE signal before adding the friend.
 	if qte_manager:
 		friend_instance.request_friend_qte.connect(
 			qte_manager._on_friend_request_qte
 		)
+
+	# Add the friend to the scene tree.
+	add_child(friend_instance)
+
+	# Now setup() will see that the node is ready.
+	friend_instance.setup(friend_data)
 
 	friends.append(friend_instance)
 

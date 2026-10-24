@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bnodx0x7f36tm"]
+
+[ext_resource type="Script" uid="uid://ch56sim8hcokk" path="res://scripts/qte/slice_qte.gd" id="1_rs3x7"]
+[ext_resource type="Resource" uid="uid://gr1bcxugff74" path="res://resources/qte/slice.tres" id="2_jo2xf"]
+[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="3_vthp2"]
+
+[node name="SlicePaperQTE" type="Control" unique_id=236236739]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rs3x7")
+qte_data = ExtResource("2_jo2xf")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1207760525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.767956, 0.49873406, 0.30676213, 1)
+
+[node name="TitleLabel" type="Label" parent="Overlay" unique_id=1486478305]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 2.0
+offset_right = 225.0
+offset_bottom = 25.0
+text = "Slice the Paper!"
+
+[node name="DescriptionLabel" type="Label" parent="Overlay" unique_id=1339290954]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 149.0
+offset_right = 207.0
+offset_bottom = 172.0
+scale = Vector2(0.5, 0.5)
+text = "Description"
+
+[node name="TimerLabel" type="Label" parent="Overlay" unique_id=1946829861]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 25.0
+scale = Vector2(0.6, 0.6)
+
+[node name="FeedbackLabel" type="Label" parent="Overlay" unique_id=569565266]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 75.0
+offset_right = 71.0
+offset_bottom = 98.0
+
+[node name="Paper" type="Node2D" parent="." unique_id=1383711183]
+position = Vector2(160, 90)
+
+[node name="PaperSprite" type="Sprite2D" parent="Paper" unique_id=1282614067]
+scale = Vector2(0.640625, 0.6953125)
+texture = ExtResource("3_vthp2")
+
+[node name="CutPath" type="Line2D" parent="Paper" unique_id=1559416952]
+
+[node name="CutLine" type="Line2D" parent="Paper" unique_id=709136248]

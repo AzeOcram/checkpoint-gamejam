@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ybdaq0j5bm5p" path="res://scripts/qte/base_qte.gd" id="1_wfc5e"]
 
-[node name="BaseQte" type="CanvasLayer" unique_id=2054064650]
+[node name="BaseQte" type="Control" unique_id=94648016]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_wfc5e")
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=1014611051]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

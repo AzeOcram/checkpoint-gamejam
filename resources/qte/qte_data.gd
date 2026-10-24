@@ -20,6 +20,3 @@ enum Result {
 @export var background_texture: Texture2D
 @export var character_texture: Texture2D
 @export var supporting_textures: Array[Texture2D] = []
-
-@export var success_button_texture: Texture2D
-@export var failure_button_texture: Texture2D

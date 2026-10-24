@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QTEData" format=3 uid="uid://c801v23lafx4f"]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_d5llg"]
+
+[resource]
+script = ExtResource("1_d5llg")
+title = "Answer!"
+description = "Type and Submit the answer"
+metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

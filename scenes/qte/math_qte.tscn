@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ckpryvitl52dr"]
+
+[ext_resource type="Script" uid="uid://bgtup4qelo6be" path="res://scripts/qte/math_qte.gd" id="1_fkh3g"]
+[ext_resource type="Resource" uid="uid://c801v23lafx4f" path="res://resources/qte/math.tres" id="2_ofvaf"]
+
+[node name="MathQte" type="Control" unique_id=157556029]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fkh3g")
+qte_data = ExtResource("2_ofvaf")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1998907079]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 182.0
+color = Color(0.06843304, 0.76349145, 0.65762126, 1)
+
+[node name="Panel" type="PanelContainer" parent="Overlay" unique_id=1495002976]
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 183.0
+
+[node name="Content" type="VBoxContainer" parent="Overlay/Panel" unique_id=511076134]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Overlay/Panel/Content" unique_id=437715233]
+layout_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="Overlay/Panel/Content" unique_id=544586550]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1223864918]
+layout_mode = 2
+
+[node name="AnswerInput" type="LineEdit" parent="Overlay/Panel/Content" unique_id=1886193395]
+layout_mode = 2
+
+[node name="SubmitButton" type="Button" parent="Overlay/Panel/Content" unique_id=1765690025]
+layout_mode = 2
+text = "Submit"
+
+[node name="FeedbackLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1465253850]
+layout_mode = 2

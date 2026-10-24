@@ -1,0 +1,140 @@
+extends BaseQTE
+class_name MathQTE
+
+
+@onready var title_label: Label = $Overlay/Panel/Content/TitleLabel
+@onready var question_label: Label = $Overlay/Panel/Content/QuestionLabel
+@onready var timer_label: Label = $Overlay/Panel/Content/TimerLabel
+
+@onready var answer_input: LineEdit = $Overlay/Panel/Content/AnswerInput
+@onready var submit_button: Button = $Overlay/Panel/Content/SubmitButton
+@onready var feedback_label: Label = $Overlay/Panel/Content/FeedbackLabel
+
+
+var correct_answer: int
+var feedback_showing: bool = false
+
+
+func _ready() -> void:
+	submit_button.pressed.connect(_on_submit_pressed)
+	answer_input.text_submitted.connect(_on_answer_submitted)
+
+	feedback_label.text = ""
+
+	super._ready()
+
+
+func start(data: QTEData) -> void:
+	qte_data = data
+	time_remaining = qte_data.duration
+	is_finished = false
+	feedback_showing = false
+
+	title_label.text = qte_data.title
+
+	feedback_label.text = ""
+
+	answer_input.clear()
+	answer_input.editable = true
+	submit_button.disabled = false
+
+	_generate_question()
+
+	_update_timer()
+
+	set_process(true)
+	answer_input.grab_focus()
+
+
+func _generate_question() -> void:
+	var first_number := randi_range(1, 9)
+	var second_number := randi_range(1, 9)
+
+	var operation := randi_range(0, 2)
+
+	match operation:
+		0:
+			correct_answer = first_number + second_number
+
+			question_label.text = "%d + %d = ?" % [
+				first_number,
+				second_number
+			]
+
+		1:
+			if second_number > first_number:
+				var temp := first_number
+				first_number = second_number
+				second_number = temp
+
+			correct_answer = first_number - second_number
+
+			question_label.text = "%d - %d = ?" % [
+				first_number,
+				second_number
+			]
+
+		2:
+			correct_answer = first_number * second_number
+
+			question_label.text = "%d × %d = ?" % [
+				first_number,
+				second_number
+			]
+
+
+func _update_qte(_delta: float) -> void:
+	_update_timer()
+
+
+func _update_timer() -> void:
+	timer_label.text = "TIME: %.1f" % time_remaining
+
+
+func _on_submit_pressed() -> void:
+	_check_answer()
+
+
+func _on_answer_submitted(_text: String) -> void:
+	_check_answer()
+
+
+func _check_answer() -> void:
+	if is_finished or feedback_showing:
+		return
+
+	var answer_text := answer_input.text.strip_edges()
+
+	if answer_text == "":
+		return
+
+	if not answer_text.is_valid_int():
+		_show_feedback(QTEData.Result.FAILURE)
+		return
+
+	var player_answer := answer_text.to_int()
+
+	if player_answer == correct_answer:
+		_show_feedback(QTEData.Result.SUCCESS)
+	else:
+		_show_feedback(QTEData.Result.FAILURE)
+
+
+func _show_feedback(result: QTEData.Result) -> void:
+	if feedback_showing:
+		return
+
+	feedback_showing = true
+	set_process(false)
+
+	answer_input.editable = false
+	submit_button.disabled = true
+
+	if result == QTEData.Result.SUCCESS:
+		feedback_label.text = "CORRECT!"
+	else:
+		feedback_label.text = "WRONG!"
+
+	await get_tree().create_timer(2.0).timeout
+
+	_finish(result)

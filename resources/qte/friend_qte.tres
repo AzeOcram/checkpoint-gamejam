@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QTEData" format=3 uid="uid://bwe13movhl1qv"]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_jjnpf"]
+
+[resource]
+script = ExtResource("1_jjnpf")
+title = "A friend needs you"
+description = "Choose the right response"
+metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

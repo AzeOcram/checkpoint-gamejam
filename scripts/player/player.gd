@@ -12,7 +12,7 @@ var max_hp: int = 3
 
 # Consumables
 var energy: int = 0
-var social_battery: int = 0
+var social_battery: int = 25
 var max_social_battery: int = 100
 var social_battery_per_second: int = 1
 
