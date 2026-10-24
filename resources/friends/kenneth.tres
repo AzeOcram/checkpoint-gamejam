@@ -6,4 +6,5 @@
 script = ExtResource("1_nh5ws")
 friend_name = "Kenneth Salvacion"
 desc = "The Class PIO"
+map_position_index = 11
 metadata/_custom_type_script = "uid://chluj6iek0are"

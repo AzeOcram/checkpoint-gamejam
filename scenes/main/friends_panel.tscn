@@ -11,16 +11,8 @@ script = ExtResource("1_7jyo1")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
 layout_mode = 2
 
-[node name="RecruitmentList" type="VBoxContainer" parent="VBoxContainer" unique_id=171448405]
+[node name="FriendList" type="VBoxContainer" parent="VBoxContainer" unique_id=171448405]
 layout_mode = 2
 
-[node name="BuyFriendButton" type="Button" parent="VBoxContainer" unique_id=1009859634]
+[node name="FriendCountLabel" type="Label" parent="VBoxContainer" unique_id=946841063]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Buy Friend (25 SB)"
-
-[node name="Close" type="Button" parent="VBoxContainer" unique_id=950500556]
-layout_mode = 2
-text = "Close"
-
-[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

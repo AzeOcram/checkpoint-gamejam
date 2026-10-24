@@ -25,3 +25,6 @@ class_name FriendData
 # Friend appearance
 @export var sprite: Texture2D
 @export var sprite2: Texture2D
+
+# Map
+@export var map_position_index: int = 0

@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cfwlyqt6btdqc"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_r8pvq"]
-[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="2_0uyo6"]
 
 [resource]
 script = ExtResource("1_r8pvq")
 friend_name = "Robin Tolentino"
 desc = "The Class President"
-sprite = ExtResource("2_0uyo6")
+map_position_index = 17
 metadata/_custom_type_script = "uid://chluj6iek0are"

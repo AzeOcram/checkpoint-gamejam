@@ -6,4 +6,5 @@
 script = ExtResource("1_whua6")
 friend_name = "Dayana Florez"
 desc = "The Class VP"
+map_position_index = 4
 metadata/_custom_type_script = "uid://chluj6iek0are"

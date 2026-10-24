@@ -6,4 +6,5 @@
 script = ExtResource("1_v31x0")
 friend_name = "Kiko Buenaventura"
 desc = "Escort"
+map_position_index = 12
 metadata/_custom_type_script = "uid://chluj6iek0are"

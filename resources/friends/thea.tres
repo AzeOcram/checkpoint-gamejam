@@ -1,12 +1,11 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dv2ktf70kyn5o"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wi3c5"]
-[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="2_eq63m"]
 
 [resource]
 script = ExtResource("1_wi3c5")
 friend_name = "Princess Thea Angeles"
 desc = "A Renowned Vlogger"
 social_battery_generation = 2
-sprite = ExtResource("2_eq63m")
+map_position_index = 19
 metadata/_custom_type_script = "uid://chluj6iek0are"

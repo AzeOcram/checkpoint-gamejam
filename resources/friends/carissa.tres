@@ -6,4 +6,5 @@
 script = ExtResource("1_0py30")
 friend_name = "Carissa Genevieve Alfonso"
 desc = "National Bookstore"
+map_position_index = 3
 metadata/_custom_type_script = "uid://chluj6iek0are"

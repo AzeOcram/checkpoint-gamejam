@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ivdeidsjya1c" path="res://assets/art/tilemaps/clasroom.PNG" id="1_6do1y"]
 [ext_resource type="Texture2D" uid="uid://ci3jjdab4igsi" path="res://assets/art/tilemaps/class_design.PNG" id="2_oqd27"]
+[ext_resource type="Script" uid="uid://f7hlt7u4i2fk" path="res://scripts/friends/friend_map.gd" id="3_av8ma"]
+[ext_resource type="Resource" uid="uid://bs5xcfs4hvnbo" path="res://resources/friends/collection.tres" id="4_diq8l"]
+[ext_resource type="PackedScene" uid="uid://6qx6wli2ucoo" path="res://scenes/friends/friend_info_panel.tscn" id="5_nbn0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
 texture = ExtResource("1_6do1y")
@@ -386,3 +389,13 @@ tile_set = SubResource("TileSet_s7wsd")
 [node name="Decos2" type="TileMapLayer" parent="." unique_id=1182007730]
 tile_map_data = PackedByteArray("AAAKAAkAAAAEAAIAAAA=")
 tile_set = SubResource("TileSet_0cvp5")
+
+[node name="FriendMap" type="Node2D" parent="." unique_id=860289986]
+script = ExtResource("3_av8ma")
+friend_collection = ExtResource("4_diq8l")
+
+[node name="FriendInfoPanel" parent="FriendMap" unique_id=109858626 instance=ExtResource("5_nbn0q")]
+offset_left = -19.0
+offset_top = -56.0
+offset_right = 19.0
+offset_bottom = 56.0

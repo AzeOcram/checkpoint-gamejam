@@ -6,4 +6,5 @@
 script = ExtResource("1_3bfsn")
 friend_name = "Mary Jane Portacio"
 desc = "The Class Secretary"
+map_position_index = 13
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -6,4 +6,5 @@
 script = ExtResource("1_jn87y")
 friend_name = "Ronell Cristobal"
 desc = "The Class Treasurer"
+map_position_index = 18
 metadata/_custom_type_script = "uid://chluj6iek0are"

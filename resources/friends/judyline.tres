@@ -6,4 +6,5 @@
 script = ExtResource("1_ngtij")
 friend_name = "Judyline Marques"
 desc = "Dancer"
+map_position_index = 10
 metadata/_custom_type_script = "uid://chluj6iek0are"

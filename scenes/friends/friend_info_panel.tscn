@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://6qx6wli2ucoo"]
+
+[ext_resource type="Script" uid="uid://bxkgug5so5mh6" path="res://scripts/friends/friend_info_panel.gd" id="1_qbpyn"]
+
+[node name="FriendInfoPanel" type="PanelContainer" unique_id=109858626]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_qbpyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17733509]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1246725817]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=108622647]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=408959326]
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=925510756]
+layout_mode = 2
+
+[node name="MoodLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1715742645]
+layout_mode = 2
+
+[node name="ConnectionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=553676790]
+layout_mode = 2
+
+[node name="GenerationLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=43887772]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1056183035]
+layout_mode = 2
+text = "Buy"

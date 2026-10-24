@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cq0vo015ekoh1"]
+
+[ext_resource type="Script" uid="uid://do80fu4y7wkwi" path="res://scripts/friends/friend_map_node.gd" id="1_c68yb"]
+
+[node name="FriendMapNode" type="Control" unique_id=338815221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c68yb")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1859450345]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
