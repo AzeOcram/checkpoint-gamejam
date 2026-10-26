@@ -16,10 +16,13 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Friends We Made"
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=295300122]
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=295300122]
 layout_mode = 2
 text = "Play"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=743543158]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=743543158]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

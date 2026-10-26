@@ -9,6 +9,8 @@ class_name EventQTESystem
 @onready var timer: Node = $Timer
 
 
+var qte_list = QTEList.new().qte_list
+
 var active_qte: BaseQTE = null
 
 # Utils
@@ -24,7 +26,7 @@ func calculate_interval() -> float:
 	var progress = Player.progress_score
 	
 	if progress < 0.2:
-		return randf_range(1.0, 3.0) #ONLY FOR TESTING
+		return randf_range(25.0, 27.0)
 	elif progress < 0.4:
 		return randf_range(20.0, 24.0)
 	elif progress < 0.6:

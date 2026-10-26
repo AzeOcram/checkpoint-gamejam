@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bdpxj05qumq84" path="res://scenes/social_battery/social_battery_system.tscn" id="5_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://bhxj7p3jcoghi" path="res://scenes/friends/recruitment_system.tscn" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://c7ns4amc38k0w" path="res://scenes/main/pause_menu.tscn" id="6_raeie"]
 [ext_resource type="Script" uid="uid://b4ml2uu6gt6lo" path="res://scripts/friends/friend_qte_manager.gd" id="11_7smn1"]
 [ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
-[ext_resource type="PackedScene" uid="uid://b71rut5ewb1sh" path="res://scenes/qte/base_qte.tscn" id="12_raeie"]
 [ext_resource type="PackedScene" uid="uid://cs7j61ssisf55" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
 [ext_resource type="PackedScene" uid="uid://dn1fwhj4kf13w" path="res://scenes/qte/event_qte_system.tscn" id="13_raeie"]
 [ext_resource type="AudioStream" uid="uid://dn0y248f3pp8j" path="res://assets/audio/checkpoint_bgm_v1.ogg" id="14_raeie"]
@@ -71,6 +71,9 @@ offset_bottom = 185.0
 scale = Vector2(0.4, 0.4)
 text = "Character"
 
+[node name="PauseMenu" parent="UI" unique_id=186705034 instance=ExtResource("6_raeie")]
+layout_mode = 0
+
 [node name="Systems" type="Node" parent="." unique_id=2118144932]
 
 [node name="GameInput" type="Node" parent="Systems" unique_id=1107179277]
@@ -86,7 +89,6 @@ script = ExtResource("6_ow5a4")
 
 [node name="FriendQTEManager" type="Node" parent="Systems" unique_id=466463394]
 script = ExtResource("11_7smn1")
-base_qte_scene = ExtResource("12_raeie")
 
 [node name="EventQTESystem" parent="Systems" unique_id=492177173 instance=ExtResource("13_raeie")]
 

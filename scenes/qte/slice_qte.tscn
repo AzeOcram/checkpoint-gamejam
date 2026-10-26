@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bnodx0x7f36tm"]
 
 [ext_resource type="Script" uid="uid://ch56sim8hcokk" path="res://scripts/qte/slice_qte.gd" id="1_rs3x7"]
-[ext_resource type="Resource" uid="uid://gr1bcxugff74" path="res://resources/qte/slice.tres" id="2_jo2xf"]
 [ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="3_vthp2"]
 
 [node name="SlicePaperQTE" type="Control" unique_id=236236739]
@@ -12,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rs3x7")
-qte_data = ExtResource("2_jo2xf")
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=1207760525]
 layout_mode = 1
