@@ -11,11 +11,6 @@ class_name EventQTESystem
 
 var active_qte: BaseQTE = null
 
-
-# Available QTEs
-var qte_list = QTEList.new().qte_list
-
-
 # Utils
 func friends_amount() -> int:
 	return recruitment_system.get_friends_amount()
