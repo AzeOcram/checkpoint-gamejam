@@ -12,7 +12,8 @@ class_name TrashQTE
 # Placeholder sprite until real trash art exists.
 const TRASH_TEXTURE: Texture2D = preload("res://icon.svg")
 
-const TRASH_COUNT: int = 5
+const MIN_TRASH_COUNT: int = 10
+const MAX_TRASH_COUNT: int = 20
 const TRASH_SCALE: float = 0.15
 
 # Spawn area, kept clear of the labels at the top.
@@ -53,9 +54,9 @@ func _spawn_trash() -> void:
 	var item_size: Vector2 = TRASH_TEXTURE.get_size() * TRASH_SCALE
 	var placed: Array[Rect2] = []
 
-	trash_left = TRASH_COUNT
+	trash_left = randi_range(MIN_TRASH_COUNT, MAX_TRASH_COUNT)
 
-	for i in TRASH_COUNT:
+	for i in trash_left:
 		var rect := Rect2(Vector2.ZERO, item_size)
 
 		# Retry a few times so items don't overlap; give up and overlap if crowded.
@@ -73,7 +74,10 @@ func _spawn_trash() -> void:
 		var trash := TextureButton.new()
 		trash.texture_normal = TRASH_TEXTURE
 		trash.scale = Vector2.ONE * TRASH_SCALE
-		trash.position = rect.position
+		# Rotate around the sprite's center so it stays inside its spawn rect.
+		trash.pivot_offset = TRASH_TEXTURE.get_size() / 2.0
+		trash.rotation = randf_range(0.0, TAU)
+		trash.position = rect.get_center() - trash.pivot_offset
 		trash.pressed.connect(_on_trash_pressed.bind(trash))
 		trash_container.add_child(trash)
 
