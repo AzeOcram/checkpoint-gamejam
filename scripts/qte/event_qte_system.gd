@@ -22,6 +22,10 @@ var qte_list = [
 	{
 		"scene": preload("res://scenes/qte/math_qte.tscn"),
 		"data": preload("res://resources/qte/math.tres")
+	},
+	{
+		"scene": preload("res://scenes/qte/trash_qte.tscn"),
+		"data": preload("res://resources/qte/trash.tres")
 	}
 ]
 
