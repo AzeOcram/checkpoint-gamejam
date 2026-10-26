@@ -74,8 +74,10 @@ func _update_qte(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if is_playing and not feedback_showing and event.is_action_pressed("ui_accept"): 
-		_check_timing()
+	# Check for left mouse button click
+	if is_playing and not feedback_showing and event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			_check_timing()
 
 
 func _check_timing() -> void:
