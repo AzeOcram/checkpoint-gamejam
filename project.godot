@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Player="*uid://dy2fa1g4nauj7"
-MCPRuntime="*uid://vm45gif4yrcf"
 
 [display]
 
