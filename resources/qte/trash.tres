@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QTEData" format=3]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_qte"]
+
+[resource]
+script = ExtResource("1_qte")
+title = "Pick up the trash!"
+description = "Click all the trash before time runs out."
+duration = 6.0
+metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

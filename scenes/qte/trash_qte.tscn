@@ -1,0 +1,63 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/qte/trash_qte.gd" id="1_trash"]
+[ext_resource type="Resource" path="res://resources/qte/trash.tres" id="2_data"]
+
+[node name="TrashQTE" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trash")
+qte_data = ExtResource("2_data")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.35, 0.5, 0.3, 1)
+
+[node name="TitleLabel" type="Label" parent="Overlay"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 200.0
+offset_bottom = 25.0
+
+[node name="DescriptionLabel" type="Label" parent="Overlay"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 200.0
+offset_bottom = 45.0
+scale = Vector2(0.5, 0.5)
+
+[node name="TimerLabel" type="Label" parent="Overlay"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 2.0
+offset_right = 320.0
+offset_bottom = 25.0
+scale = Vector2(0.6, 0.6)
+
+[node name="FeedbackLabel" type="Label" parent="Overlay"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 103.0
+
+[node name="TrashContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
