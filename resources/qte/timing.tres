@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QTEData" format=3 uid="uid://bwwfly81wrogy"]
+
+[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="1_8f54t"]
+
+[resource]
+script = ExtResource("1_8f54t")
+title = "Timing"
+description = "Press when indicator is in green!"

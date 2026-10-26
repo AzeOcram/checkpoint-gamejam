@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://jql62svbk3n2"]
+
+[ext_resource type="Script" uid="uid://cc6bkcajopw0f" path="res://scripts/qte/timing_bar_qte.gd" id="1_dlhe3"]
+
+[node name="timing_bar_qte" type="Control" unique_id=251787064]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlhe3")
+
+[node name="BackgroundBar" type="ColorRect" parent="." unique_id=215864751]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -15.0
+offset_right = 150.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9358438, 0.09241632, 0, 1)
+
+[node name="SuccessZone" type="ColorRect" parent="BackgroundBar" unique_id=332318068]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.45882353, 1, 0, 1)
+
+[node name="Indicator" type="ColorRect" parent="BackgroundBar" unique_id=683107327]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -15.0
+offset_right = 2.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9411765, 0.89411765, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1861599494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.69411767)
+
+[node name="FeedbackLabel" type="Label" parent="." unique_id=2143703082]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 49.0
+offset_right = 170.0
+offset_bottom = 72.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1114274092]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1143024250]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
