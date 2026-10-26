@@ -1,15 +1,7 @@
 [gd_scene format=3 uid="uid://cmu7g8drgrp35"]
 
 [ext_resource type="Script" uid="uid://jhykl3pr4xsy" path="res://scripts/qte/wax_qte.gd" id="1_mhtlj"]
-[ext_resource type="Script" uid="uid://b6rnq6lwahl7u" path="res://resources/qte/qte_data.gd" id="2_ceysa"]
 [ext_resource type="Shader" uid="uid://cocrxlkfmb87f" path="res://scripts/qte/paint.gdshader" id="3_r4xb2"]
-
-[sub_resource type="Resource" id="Resource_mhtlj"]
-script = ExtResource("2_ceysa")
-title = "Wax"
-description = "HEHEHEHEH"
-duration = 60.0
-metadata/_custom_type_script = "uid://b6rnq6lwahl7u"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceysa"]
 shader = ExtResource("3_r4xb2")
@@ -23,62 +15,58 @@ shader_parameter/is_drawing = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_mhtlj")
-qte_data = SubResource("Resource_mhtlj")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=298915193]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 320.0
+offset_bottom = 180.0
 
 [node name="Paint" type="SubViewport" parent="SubViewportContainer" unique_id=1425721253]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(1280, 720)
+size = Vector2i(320, 180)
 render_target_clear_mode = 2
 render_target_update_mode = 4
 
 [node name="Canvas" type="ColorRect" parent="SubViewportContainer/Paint" unique_id=71344675]
 material = SubResource("ShaderMaterial_ceysa")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.25
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Overlay" type="ColorRect" parent="." unique_id=1014611051]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="PanelContainer" parent="Overlay" unique_id=1030420319]
+[node name="Content" type="VBoxContainer" parent="." unique_id=1388488406]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Content" type="VBoxContainer" parent="Overlay/Panel" unique_id=988706708]
-layout_mode = 2
+offset_right = 154.0
+offset_bottom = 78.0
+scale = Vector2(0.8, 0.8)
 alignment = 1
 
-[node name="Background" type="TextureRect" parent="Overlay/Panel/Content" unique_id=514092166]
+[node name="TitleLabel" type="Label" parent="Content" unique_id=908863942]
 layout_mode = 2
+text = "Wax"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="DescriptionLabel" type="Label" parent="Overlay/Panel/Content" unique_id=459195849]
+[node name="DescriptionLabel" type="Label" parent="Content" unique_id=459195849]
 layout_mode = 2
+text = "Wax"
+horizontal_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Overlay/Panel/Content" unique_id=908863942]
-layout_mode = 2
-
-[node name="TimerLabel" type="Label" parent="Overlay/Panel/Content" unique_id=663374870]
-layout_mode = 2
+[node name="TimerLabel" type="Label" parent="." unique_id=663374870]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 156.0
+offset_right = 252.0
+offset_bottom = 179.0
+scale = Vector2(0.8, 0.8)
 text = "hekjfhkfjhskfjsfdhjk"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SuccessButton" type="Button" parent="Overlay/Panel/Content" unique_id=1969802923]
-layout_mode = 2
-text = "Success"
-
-[node name="FailureButton" type="Button" parent="Overlay/Panel/Content" unique_id=1932211268]
-layout_mode = 2
-text = "Failure"
+[node name="FeedbackLabel" type="Label" parent="." unique_id=135366475]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

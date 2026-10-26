@@ -11,25 +11,6 @@ class_name EventQTESystem
 
 var active_qte: BaseQTE = null
 
-
-# Available QTEs
-# Available QTEs
-var qte_list = [
-	{
-		"scene": preload("res://scenes/qte/slice_qte.tscn"),
-		"data": preload("res://resources/qte/slice.tres")
-	},
-	{
-		"scene": preload("res://scenes/qte/math_qte.tscn"),
-		"data": preload("res://resources/qte/math.tres")
-	},
-	{
-		"scene": preload("res://scenes/qte/timing_bar_qte.tscn"),
-		"data": preload("res://resources/qte/timing.tres")
-	}
-]
-
-
 # Utils
 func friends_amount() -> int:
 	return recruitment_system.get_friends_amount()
@@ -43,7 +24,7 @@ func calculate_interval() -> float:
 	var progress = Player.progress_score
 	
 	if progress < 0.2:
-		return randf_range(25.0, 27.0)
+		return randf_range(1.0, 3.0) #ONLY FOR TESTING
 	elif progress < 0.4:
 		return randf_range(20.0, 24.0)
 	elif progress < 0.6:
