@@ -5,7 +5,7 @@ class_name BaseQTE
 signal finished(result: QTEData.Result)
 
 
-@export var qte_data: QTEData
+var qte_data: QTEData
 
 
 var time_remaining: float = 0.0
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 
 	if time_remaining <= 0.0:
 		time_remaining = 0.0
-		_finish(QTEData.Result.FAILURE)
+		_on_timeout()
 		return
 
 	_update_qte(delta)
@@ -41,6 +41,10 @@ func _process(delta: float) -> void:
 
 func _update_qte(_delta: float) -> void:
 	pass
+
+
+func _on_timeout() -> void:
+	_finish(QTEData.Result.FAILURE)
 
 
 func _finish(result: QTEData.Result) -> void:
