@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bgum3c124mi30"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_y0qpp"]
+[ext_resource type="Texture2D" uid="uid://c4spleq0ps0m2" path="res://assets/art/characters/CLASSMATES/Auditor/IMG_2986.PNG" id="2_qfn75"]
+[ext_resource type="Texture2D" uid="uid://cbv3ityxok6sd" path="res://assets/art/characters/CLASSMATES/Auditor/IMG_2987.PNG" id="3_tyt0v"]
 
 [resource]
 script = ExtResource("1_y0qpp")
 friend_name = "Deziree Cariaga"
 desc = "The Auditor"
-map_position_index = 5
+sprite = ExtResource("2_qfn75")
+sprite2 = ExtResource("3_tyt0v")
+map_position_index = 10
 metadata/_custom_type_script = "uid://chluj6iek0are"

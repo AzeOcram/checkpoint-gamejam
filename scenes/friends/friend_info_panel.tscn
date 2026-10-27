@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6qx6wli2ucoo"]
 
 [ext_resource type="Script" uid="uid://bxkgug5so5mh6" path="res://scripts/friends/friend_info_panel.gd" id="1_qbpyn"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_xasgu"]
 
 [node name="FriendInfoPanel" type="PanelContainer" unique_id=109858626]
 visible = false
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
+theme = ExtResource("1_xasgu")
 script = ExtResource("1_qbpyn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=17733509]

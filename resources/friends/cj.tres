@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b3t3rsyh5uw0j"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jeaxe"]
+[ext_resource type="Texture2D" uid="uid://tgw7ahilr4o2" path="res://assets/art/characters/CLASSMATES/Gamer Guy/1.PNG" id="2_yi5at"]
+[ext_resource type="Texture2D" uid="uid://tbmesqv6ikfc" path="res://assets/art/characters/CLASSMATES/Gamer Guy/2.PNG" id="3_akrxw"]
+
+[resource]
+script = ExtResource("1_jeaxe")
+friend_name = "Christian James Lunario"
+desc = "Gamer Guy"
+sprite = ExtResource("2_yi5at")
+sprite2 = ExtResource("3_akrxw")
+map_position_index = 8
+metadata/_custom_type_script = "uid://chluj6iek0are"

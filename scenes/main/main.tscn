@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dt1hh84lovq45"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_hxu8e"]
 [ext_resource type="PackedScene" uid="uid://bu4sfbhb1lyqp" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://cwcmwih7tclyh" path="res://scripts/main/main.gd" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dhufqcdeeywjx" path="res://scenes/main/map.tscn" id="2_raeie"]
@@ -23,11 +24,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hxu8e")
 script = ExtResource("1_iuonh")
 
 [node name="Map" parent="." unique_id=516033369 instance=ExtResource("2_raeie")]
 
+[node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
+position = Vector2(184, 88)
+
 [node name="UI" type="Control" parent="." unique_id=159778214]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -91,10 +97,6 @@ script = ExtResource("6_ow5a4")
 script = ExtResource("11_7smn1")
 
 [node name="EventQTESystem" parent="Systems" unique_id=492177173 instance=ExtResource("13_raeie")]
-
-[node name="Player" parent="." unique_id=470255114 instance=ExtResource("1_hyk8p")]
-position = Vector2(161, 129)
-scale = Vector2(0.2, 0.2)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=304929106]
 stream = ExtResource("14_raeie")

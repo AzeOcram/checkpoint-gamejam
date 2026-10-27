@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bbn46tkdpkchb"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_qomk2"]
+[ext_resource type="Texture2D" uid="uid://bkf6ciniw75dv" path="res://assets/art/characters/CLASSMATES/Popular Kids #3/1.PNG" id="2_afdbf"]
+[ext_resource type="Texture2D" uid="uid://dh1adqrio4ikb" path="res://assets/art/characters/CLASSMATES/Popular Kids #3/2.PNG" id="3_y3u7p"]
+
+[resource]
+script = ExtResource("1_qomk2")
+friend_name = "Josefina Del Rosario"
+desc = "Popular Kid"
+sprite = ExtResource("2_afdbf")
+sprite2 = ExtResource("3_y3u7p")
+map_position_index = 20
+metadata/_custom_type_script = "uid://chluj6iek0are"

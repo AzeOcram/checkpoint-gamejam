@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cjt8h7kauqfm0"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_li6tl"]
+[ext_resource type="Texture2D" uid="uid://c8b7e1bm3afxi" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2974.PNG" id="2_oybd8"]
+[ext_resource type="Texture2D" uid="uid://d031bgmmkqd4g" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2975.PNG" id="3_h00w4"]
 
 [resource]
 script = ExtResource("1_li6tl")
 friend_name = "Zei Pascual"
 desc = "Lover"
-map_position_index = 20
+sprite = ExtResource("2_oybd8")
+sprite2 = ExtResource("3_h00w4")
+map_position_index = 38
 metadata/_custom_type_script = "uid://chluj6iek0are"

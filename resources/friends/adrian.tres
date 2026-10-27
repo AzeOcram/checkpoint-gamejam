@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://df6oyavgohfyd"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_pq5e7"]
+[ext_resource type="Texture2D" uid="uid://cef6ckt3s4fwy" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/1.PNG" id="2_v34go"]
+[ext_resource type="Texture2D" uid="uid://dqlcfvg8fyq7p" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/2.PNG" id="3_6giri"]
+
+[resource]
+script = ExtResource("1_pq5e7")
+friend_name = "Adrian Louis Llorca"
+desc = "Boys at the back"
+sprite = ExtResource("2_v34go")
+sprite2 = ExtResource("3_6giri")
+map_position_index = 1
+metadata/_custom_type_script = "uid://chluj6iek0are"

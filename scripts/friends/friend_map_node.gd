@@ -25,6 +25,8 @@ func setup(friend_data: FriendData) -> void:
 
 	update_appearance()
 
+	start_animation()
+
 
 func update_appearance() -> void:
 	if data == null:
@@ -34,6 +36,19 @@ func update_appearance() -> void:
 		texture_button.modulate = Color.WHITE
 	else:
 		texture_button.modulate = Color(0.35, 0.35, 0.35, 1.0)
+
+
+func start_animation() -> void:
+	while true:
+		await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
+
+		if data == null:
+			return
+
+		if randf() < 0.5:
+			texture_button.texture_normal = data.sprite
+		else:
+			texture_button.texture_normal = data.sprite2
 
 
 func _on_pressed() -> void:

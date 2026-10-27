@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://ctejro4etk3fo"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_v31x0"]
+[ext_resource type="Texture2D" uid="uid://b7sdcurv3ujfv" path="res://assets/art/characters/CLASSMATES/Escort/IMG_2982.PNG" id="2_aobaw"]
+[ext_resource type="Texture2D" uid="uid://bk006tovlf0ef" path="res://assets/art/characters/CLASSMATES/Escort/IMG_2983.PNG" id="3_jqjnc"]
 
 [resource]
 script = ExtResource("1_v31x0")
 friend_name = "Kiko Buenaventura"
 desc = "Escort"
-map_position_index = 12
+sprite = ExtResource("2_aobaw")
+sprite2 = ExtResource("3_jqjnc")
+map_position_index = 25
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://ch4jm0id2j5c3"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_r1bgl"]
+[ext_resource type="Texture2D" uid="uid://bs4k0v4qqcn6o" path="res://assets/art/characters/CLASSMATES/Bully Girl/1.PNG" id="2_euvq4"]
+[ext_resource type="Texture2D" uid="uid://jciiuy1f7omh" path="res://assets/art/characters/CLASSMATES/Bully Girl/2.PNG" id="3_p1dku"]
+
+[resource]
+script = ExtResource("1_r1bgl")
+friend_name = "Emily Francheska Garcia"
+desc = "Bully Girl"
+sprite = ExtResource("2_euvq4")
+sprite2 = ExtResource("3_p1dku")
+map_position_index = 12
+metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ci2awbvgnfkxm"]
+
+[ext_resource type="FontFile" uid="uid://nhiissv8h6wo" path="res://assets/fonts/MenuCard.ttf" id="1_x2ak3"]
+
+[resource]
+default_font = ExtResource("1_x2ak3")
+default_font_size = 10

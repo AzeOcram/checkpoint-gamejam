@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ccp0tr68v6ii3"]
 
-[ext_resource type="Texture2D" uid="uid://b4hke8bsvk6an" path="res://assets/ui/Energy icon.png" id="1_0sbg2"]
+[ext_resource type="Texture2D" uid="uid://b4hke8bsvk6an" path="res://assets/ui/icons/Energy icon.png" id="1_0sbg2"]
 [ext_resource type="Script" uid="uid://bfjpcub18f3s0" path="res://scripts/energy/energy_feedback.gd" id="1_hg3mm"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="3_0ewja"]
 
 [node name="EnergyFeedback" type="Sprite2D" unique_id=543699577]
 texture_filter = 1
@@ -14,5 +15,6 @@ offset_left = 9.0
 offset_top = -6.0
 offset_right = 75.0
 offset_bottom = 17.0
+theme = ExtResource("3_0ewja")
 theme_override_font_sizes/font_size = 8
 text = "+ Energy"

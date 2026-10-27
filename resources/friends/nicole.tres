@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d4krblfivjrhd"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_f0b53"]
+[ext_resource type="Texture2D" uid="uid://dcwbe5y2bblgh" path="res://assets/art/characters/CLASSMATES/Muse/IMG_2980.PNG" id="2_juk0n"]
+[ext_resource type="Texture2D" uid="uid://ddq4dhmj1uup1" path="res://assets/art/characters/CLASSMATES/Muse/IMG_2981.PNG" id="3_i1x28"]
 
 [resource]
 script = ExtResource("1_f0b53")
 friend_name = "Nicole Joy Santos"
 desc = "Muse"
-map_position_index = 15
+sprite = ExtResource("2_juk0n")
+sprite2 = ExtResource("3_i1x28")
+map_position_index = 32
 metadata/_custom_type_script = "uid://chluj6iek0are"

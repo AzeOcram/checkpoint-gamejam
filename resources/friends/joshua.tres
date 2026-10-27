@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dgi7xvmohfmch"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_c71ob"]
+[ext_resource type="Texture2D" uid="uid://ct6q7f2l6g8p8" path="res://assets/art/characters/CLASSMATES/Nerd Guy/IMG_2996.PNG" id="2_wcfuj"]
+[ext_resource type="Texture2D" uid="uid://cscpq0o4abeak" path="res://assets/art/characters/CLASSMATES/Nerd Guy/IMG_2997.PNG" id="3_adxw5"]
 
 [resource]
 script = ExtResource("1_c71ob")
 friend_name = "Joshua Ren Magalona"
 desc = "Nerd"
-map_position_index = 9
+sprite = ExtResource("2_wcfuj")
+sprite2 = ExtResource("3_adxw5")
+map_position_index = 21
 metadata/_custom_type_script = "uid://chluj6iek0are"

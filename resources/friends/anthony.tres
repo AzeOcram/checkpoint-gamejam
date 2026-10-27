@@ -1,13 +1,15 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://qgybiibvb8s3"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_qvoxt"]
-[ext_resource type="Texture2D" uid="uid://bs4k0v4qqcn6o" path="res://assets/art/characters/CLASSMATES/Bully Girl/1.PNG" id="2_j0rw2"]
+[ext_resource type="Texture2D" uid="uid://74k23ixkelx7" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2961.PNG" id="2_yogbl"]
+[ext_resource type="Texture2D" uid="uid://cp614rmv2hdfc" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2962.PNG" id="3_1suum"]
 
 [resource]
 script = ExtResource("1_qvoxt")
 friend_name = "Anthony Pimentel"
 desc = "A Chess Varsity"
 social_battery_generation = 3
-sprite = ExtResource("2_j0rw2")
-map_position_index = 1
+sprite = ExtResource("2_yogbl")
+sprite2 = ExtResource("3_1suum")
+map_position_index = 3
 metadata/_custom_type_script = "uid://chluj6iek0are"

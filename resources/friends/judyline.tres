@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dmof7ki3tv4us"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_ngtij"]
+[ext_resource type="Texture2D" uid="uid://bbeloy3t20yml" path="res://assets/art/characters/CLASSMATES/Dancer/IMG_2990.PNG" id="2_gyr04"]
+[ext_resource type="Texture2D" uid="uid://dtkynwy43xckt" path="res://assets/art/characters/CLASSMATES/Dancer/IMG_2991.PNG" id="3_hxqg6"]
 
 [resource]
 script = ExtResource("1_ngtij")
 friend_name = "Judyline Marques"
 desc = "Dancer"
-map_position_index = 10
+sprite = ExtResource("2_gyr04")
+sprite2 = ExtResource("3_hxqg6")
+map_position_index = 22
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bgm1fboqf1fq5"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sq6yk"]
+[ext_resource type="Texture2D" uid="uid://yvai407pmck8" path="res://assets/art/characters/CLASSMATES/Boys at the Back #1 (Class Clown)/1.PNG" id="2_kufdl"]
+[ext_resource type="Texture2D" uid="uid://ci8k2kycu3dxn" path="res://assets/art/characters/CLASSMATES/Boys at the Back #1 (Class Clown)/2.PNG" id="3_n5dqf"]
+
+[resource]
+script = ExtResource("1_sq6yk")
+friend_name = "Elias Lorenzo Dela Cruz"
+desc = "Boys at the Back"
+sprite = ExtResource("2_kufdl")
+sprite2 = ExtResource("3_n5dqf")
+map_position_index = 13
+metadata/_custom_type_script = "uid://chluj6iek0are"

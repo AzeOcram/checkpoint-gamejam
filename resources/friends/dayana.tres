@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://c1wevfv7rc7ln"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_whua6"]
+[ext_resource type="Texture2D" uid="uid://77jnu5h37jwk" path="res://assets/art/characters/CLASSMATES/Vice President/IMG_2970.PNG" id="2_n731d"]
+[ext_resource type="Texture2D" uid="uid://cedj7hfidgkno" path="res://assets/art/characters/CLASSMATES/Vice President/IMG_2971.PNG" id="3_e356n"]
 
 [resource]
 script = ExtResource("1_whua6")
 friend_name = "Dayana Florez"
 desc = "The Class VP"
-map_position_index = 4
+sprite = ExtResource("2_n731d")
+sprite2 = ExtResource("3_e356n")
+map_position_index = 9
 metadata/_custom_type_script = "uid://chluj6iek0are"

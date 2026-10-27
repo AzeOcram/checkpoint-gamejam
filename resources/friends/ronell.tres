@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d7necm2f1kyo"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jn87y"]
+[ext_resource type="Texture2D" uid="uid://cm3cowo64ra2p" path="res://assets/art/characters/CLASSMATES/Treasurer/IMG_2972.PNG" id="2_eb6dr"]
+[ext_resource type="Texture2D" uid="uid://oeshmr6bs6hn" path="res://assets/art/characters/CLASSMATES/Treasurer/IMG_2973.PNG" id="3_arl7l"]
 
 [resource]
 script = ExtResource("1_jn87y")
 friend_name = "Ronell Cristobal"
 desc = "The Class Treasurer"
-map_position_index = 18
+sprite = ExtResource("2_eb6dr")
+sprite2 = ExtResource("3_arl7l")
+map_position_index = 35
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://uce0nwy4cdjj"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2huyd"]
+[ext_resource type="Texture2D" uid="uid://cojo2hfqnpr44" path="res://assets/art/characters/CLASSMATES/Introvert Girl/1.PNG" id="2_ddv55"]
+[ext_resource type="Texture2D" uid="uid://cm77h80gpwppv" path="res://assets/art/characters/CLASSMATES/Introvert Girl/2.PNG" id="3_fgpxc"]
+
+[resource]
+script = ExtResource("1_2huyd")
+friend_name = "Kira Jacqueline Tiamzon"
+desc = "Introvert Girl"
+sprite = ExtResource("2_ddv55")
+sprite2 = ExtResource("3_fgpxc")
+map_position_index = 24
+metadata/_custom_type_script = "uid://chluj6iek0are"

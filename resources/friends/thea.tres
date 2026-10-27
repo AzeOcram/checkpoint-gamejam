@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dv2ktf70kyn5o"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wi3c5"]
+[ext_resource type="Texture2D" uid="uid://ba47cstm0d6ep" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2963.PNG" id="2_wi3c5"]
+[ext_resource type="Texture2D" uid="uid://drr77f8menm52" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2965.PNG" id="3_eq63m"]
 
 [resource]
 script = ExtResource("1_wi3c5")
 friend_name = "Princess Thea Angeles"
 desc = "A Renowned Vlogger"
 social_battery_generation = 2
-map_position_index = 19
+sprite = ExtResource("2_wi3c5")
+sprite2 = ExtResource("3_eq63m")
+map_position_index = 37
 metadata/_custom_type_script = "uid://chluj6iek0are"

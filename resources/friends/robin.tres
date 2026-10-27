@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cfwlyqt6btdqc"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_r8pvq"]
+[ext_resource type="Texture2D" uid="uid://ka5s5uo68ale" path="res://assets/art/characters/CLASSMATES/President/IMG_2959.PNG" id="2_hntb7"]
+[ext_resource type="Texture2D" uid="uid://dlxoixwxeyx8r" path="res://assets/art/characters/CLASSMATES/President/IMG_2960.PNG" id="3_20vlf"]
 
 [resource]
 script = ExtResource("1_r8pvq")
 friend_name = "Robin Tolentino"
 desc = "The Class President"
-map_position_index = 17
+sprite = ExtResource("2_hntb7")
+sprite2 = ExtResource("3_20vlf")
+map_position_index = 34
 metadata/_custom_type_script = "uid://chluj6iek0are"

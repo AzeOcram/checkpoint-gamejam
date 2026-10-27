@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cjyhyt2quxbuu"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_cfs5s"]
+[ext_resource type="Texture2D" uid="uid://bhxvg7eboaw0j" path="res://assets/art/characters/CLASSMATES/Boys at the Back #4/1.PNG" id="2_tom6p"]
+[ext_resource type="Texture2D" uid="uid://cy2bd8j8vqjqc" path="res://assets/art/characters/CLASSMATES/Boys at the Back #4/2.PNG" id="3_3barn"]
+
+[resource]
+script = ExtResource("1_cfs5s")
+friend_name = "Marc Lancelot Odon "
+desc = "Boys at the Back"
+sprite = ExtResource("2_tom6p")
+sprite2 = ExtResource("3_3barn")
+map_position_index = 27
+metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b1tf1ev68lubf"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nxyup"]
+[ext_resource type="Texture2D" uid="uid://co6lxts116gwu" path="res://assets/art/characters/CLASSMATES/Singer/1.PNG" id="2_2sa7t"]
+[ext_resource type="Texture2D" uid="uid://bqxe6oms5fefx" path="res://assets/art/characters/CLASSMATES/Singer/2.PNG" id="3_fmpy3"]
+
+[resource]
+script = ExtResource("1_nxyup")
+friend_name = "Elisha Janelle Opulencia"
+desc = "Singer"
+sprite = ExtResource("2_2sa7t")
+sprite2 = ExtResource("3_fmpy3")
+map_position_index = 11
+metadata/_custom_type_script = "uid://chluj6iek0are"

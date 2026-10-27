@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b7eue0o1aaulr"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sv43k"]
-[ext_resource type="Texture2D" uid="uid://fn48mg0fgbmt" path="res://assets/art/characters/CLASSMATES/Basketball Varsity/1.PNG" id="2_8at5u"]
+[ext_resource type="Texture2D" uid="uid://clw2605mttni8" path="res://assets/art/characters/CLASSMATES/Bully Guy/1.PNG" id="2_d02nl"]
+[ext_resource type="Texture2D" uid="uid://dmbav6ufvedy8" path="res://assets/art/characters/CLASSMATES/Bully Guy/2.PNG" id="3_d6ng0"]
 
 [resource]
 script = ExtResource("1_sv43k")
 friend_name = "Angelo Bautista"
-desc = "Loner Guy"
-sprite = ExtResource("2_8at5u")
-map_position_index = 24
+desc = "Bully Guy"
+sprite = ExtResource("2_d02nl")
+sprite2 = ExtResource("3_d6ng0")
+map_position_index = 2
 metadata/_custom_type_script = "uid://chluj6iek0are"

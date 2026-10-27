@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b3vvkwrkk0e4b"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2gws6"]
+[ext_resource type="Texture2D" uid="uid://cvu3camocfert" path="res://assets/art/characters/CLASSMATES/Introvert Guy/IMG_2998.PNG" id="2_xoos8"]
+[ext_resource type="Texture2D" uid="uid://boymlqsqd8hg4" path="res://assets/art/characters/CLASSMATES/Introvert Guy/IMG_2999.PNG" id="3_mes88"]
+
+[resource]
+script = ExtResource("1_2gws6")
+friend_name = "Eugene George Rufo"
+desc = "Introvert Guy"
+sprite = ExtResource("2_xoos8")
+sprite2 = ExtResource("3_mes88")
+map_position_index = 39
+metadata/_custom_type_script = "uid://chluj6iek0are"

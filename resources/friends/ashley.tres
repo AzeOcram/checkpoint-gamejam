@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dplvgbqoj74qn"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jrs5p"]
+[ext_resource type="Texture2D" uid="uid://c25b4vpfc2hhn" path="res://assets/art/characters/CLASSMATES/Popular Kids #1/1.PNG" id="2_8c70f"]
+[ext_resource type="Texture2D" uid="uid://dxly4cpu77t1a" path="res://assets/art/characters/CLASSMATES/Popular Kids #1/2.PNG" id="3_8y35r"]
+
+[resource]
+script = ExtResource("1_jrs5p")
+friend_name = "Ashley Corrine Sanchez"
+desc = "Popular Kid"
+sprite = ExtResource("2_8c70f")
+sprite2 = ExtResource("3_8y35r")
+map_position_index = 4
+metadata/_custom_type_script = "uid://chluj6iek0are"

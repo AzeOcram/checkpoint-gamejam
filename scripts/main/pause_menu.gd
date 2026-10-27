@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var back_button: Button = $Panel/VBoxContainer/BackButton
-@onready var quit_button: Button = $Panel/VBoxContainer/QuitButton
+@onready var back_button: Button = $VBoxContainer/BackButton
+@onready var quit_button: Button = $VBoxContainer/QuitButton
 
 
 func _ready() -> void:

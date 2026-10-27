@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bu4sfbhb1lyqp"]
 
 [ext_resource type="Script" uid="uid://dy2fa1g4nauj7" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://d52adani5bg0" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2994.PNG" id="2_dovo2"]
 
-[node name="Player" type="Node2D" unique_id=470255114]
+[node name="Player" type="Node2D" unique_id=1239961759]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=50543463]

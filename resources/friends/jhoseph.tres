@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bjnd43yoasnsa"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_op5c6"]
+[ext_resource type="Texture2D" uid="uid://bdp0wguk7654q" path="res://assets/art/characters/CLASSMATES/Laging Late/IMG_2968.PNG" id="2_8g2wd"]
+[ext_resource type="Texture2D" uid="uid://ciydpccxrnwfx" path="res://assets/art/characters/CLASSMATES/Laging Late/IMG_2969.PNG" id="3_p7881"]
 
 [resource]
 script = ExtResource("1_op5c6")
 friend_name = "Jhoseph Guinto"
 desc = "I wonder why he's always late.."
-map_position_index = 7
+sprite = ExtResource("2_8g2wd")
+sprite2 = ExtResource("3_p7881")
+map_position_index = 17
 metadata/_custom_type_script = "uid://chluj6iek0are"

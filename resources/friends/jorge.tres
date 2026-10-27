@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://oovvo5bmigb2"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_l3a3v"]
+[ext_resource type="Texture2D" uid="uid://cft4bnr8w4heq" path="res://assets/art/characters/CLASSMATES/Boys at the Back #2/1.PNG" id="2_uwg7b"]
+[ext_resource type="Texture2D" uid="uid://cp87sl1w3ftbi" path="res://assets/art/characters/CLASSMATES/Boys at the Back #2/2.PNG" id="3_u7on5"]
+
+[resource]
+script = ExtResource("1_l3a3v")
+friend_name = "Marlon Jorge Mercado "
+desc = "Boys at the back 2"
+sprite = ExtResource("2_uwg7b")
+sprite2 = ExtResource("3_u7on5")
+map_position_index = 19
+metadata/_custom_type_script = "uid://chluj6iek0are"

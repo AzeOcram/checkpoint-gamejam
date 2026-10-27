@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://c47hl1ir2ma"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_cflt8"]
+[ext_resource type="Texture2D" uid="uid://b6hfqa2t8bict" path="res://assets/art/characters/CLASSMATES/Gamer Girl/1.PNG" id="2_wmine"]
+[ext_resource type="Texture2D" uid="uid://dmoe4vrba55mn" path="res://assets/art/characters/CLASSMATES/Gamer Girl/2.PNG" id="3_xk584"]
+
+[resource]
+script = ExtResource("1_cflt8")
+friend_name = "Jasmine Marie Villanueva "
+desc = "Gamer Girl"
+sprite = ExtResource("2_wmine")
+sprite2 = ExtResource("3_xk584")
+map_position_index = 16
+metadata/_custom_type_script = "uid://chluj6iek0are"

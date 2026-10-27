@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://lgc34eonercr"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_76toe"]
+[ext_resource type="Texture2D" uid="uid://dvfuirtc37n40" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3013.PNG" id="2_3lt8k"]
+[ext_resource type="Texture2D" uid="uid://fpgupiqgk012" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3014.PNG" id="3_q03h2"]
 
 [resource]
 script = ExtResource("1_76toe")
 friend_name = "Ezekiel Padilla"
 desc = "Voleyball Varsity"
-map_position_index = 6
+sprite = ExtResource("2_3lt8k")
+sprite2 = ExtResource("3_q03h2")
+map_position_index = 14
 metadata/_custom_type_script = "uid://chluj6iek0are"

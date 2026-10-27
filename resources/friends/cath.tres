@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d0gv2cpxaqqb6"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_33h5e"]
+[ext_resource type="Texture2D" uid="uid://bsqkbi604y76r" path="res://assets/art/characters/CLASSMATES/Nerd Girl/1.PNG" id="2_qaf2e"]
+[ext_resource type="Texture2D" uid="uid://4t4yqu5aj3q2" path="res://assets/art/characters/CLASSMATES/Nerd Girl/2.PNG" id="3_yvaqy"]
+
+[resource]
+script = ExtResource("1_33h5e")
+friend_name = "Catherine Page Mendoza"
+desc = "Nerd Girl"
+sprite = ExtResource("2_qaf2e")
+sprite2 = ExtResource("3_yvaqy")
+map_position_index = 6
+metadata/_custom_type_script = "uid://chluj6iek0are"

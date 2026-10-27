@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bud6fty83jynl"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_ne72l"]
+[ext_resource type="Texture2D" uid="uid://d52adani5bg0" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2994.PNG" id="2_triay"]
+[ext_resource type="Texture2D" uid="uid://bfav0bnc3sn8v" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2995.PNG" id="3_neq63"]
 
 [resource]
 script = ExtResource("1_ne72l")
 friend_name = "Mikael dela Paz"
 desc = "Artist Girl"
-map_position_index = 14
+sprite = ExtResource("2_triay")
+sprite2 = ExtResource("3_neq63")
+map_position_index = 31
 metadata/_custom_type_script = "uid://chluj6iek0are"

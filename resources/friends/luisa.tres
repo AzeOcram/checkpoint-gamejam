@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cgor7sehn5h42"]
+
+[ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wv2vf"]
+[ext_resource type="Texture2D" uid="uid://cqdb6rrvtadlr" path="res://assets/art/characters/CLASSMATES/Fastest Campus Leaver/1.PNG" id="2_6vje7"]
+[ext_resource type="Texture2D" uid="uid://dipkys5gb433k" path="res://assets/art/characters/CLASSMATES/Fastest Campus Leaver/2.PNG" id="3_oeo4i"]
+
+[resource]
+script = ExtResource("1_wv2vf")
+friend_name = "Luisa Warde"
+desc = "Fastest Campus Leaver"
+sprite = ExtResource("2_6vje7")
+sprite2 = ExtResource("3_oeo4i")
+map_position_index = 26
+metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dykq2rxtc0v11"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_aoq54"]
+[ext_resource type="Texture2D" uid="uid://dow6m38uwgppr" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2976.PNG" id="2_2kkm7"]
+[ext_resource type="Texture2D" uid="uid://osja1gkjasu0" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2977.PNG" id="3_ox8mm"]
 
 [resource]
 script = ExtResource("1_aoq54")
 friend_name = "Ray Marquez Jr."
 desc = "Lover"
-map_position_index = 16
+sprite = ExtResource("2_2kkm7")
+sprite2 = ExtResource("3_ox8mm")
+map_position_index = 33
 metadata/_custom_type_script = "uid://chluj6iek0are"
