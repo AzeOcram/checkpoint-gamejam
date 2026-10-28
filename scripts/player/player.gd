@@ -1,8 +1,8 @@
 extends Node2D
 
 # Attributes
-
 signal hp_changed
+signal game_over # Add this new signal
 
 # Stats
 var energy_per_tap: int = 1
@@ -25,15 +25,28 @@ var progress_score: float = 0.0
 func _process(delta: float) -> void:
 	play_time += delta / 60.0 # in minutes
 	
+
 # HP Functions
 func take_damage(amount: int) -> void:
 	hp = max(hp - amount, 0)
 	hp_changed.emit()
+	
+	# Check for game over condition
+	if hp == 0:
+		game_over.emit()
+		_handle_game_over()
+
+
+func _handle_game_over() -> void:
+	print("GAME OVER - Player ran out of HP!")
+	# Option A: Change directly to a losing scene if you have one
+	get_tree().change_scene_to_file("res://scenes/main/game_over.tscn")
 
 
 func heal(amount: int) -> void:
 	hp = min(hp + amount, max_hp)
 	hp_changed.emit()
+
 
 # Stat Upgrade Functions
 func upgrade_energy_per_tap(amount: int = 1) -> void:
@@ -64,5 +77,5 @@ func get_max_hp() -> int:
 func get_energy() -> int:
 	return energy
 	
-func get_play_time() -> int:
+func get_play_time() -> float: # Note: return type matches var play_time (float)
 	return play_time

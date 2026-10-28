@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://fgmnynnh7nqb"]
+
+[ext_resource type="Script" uid="uid://mdkwd54r04d0" path="res://scripts/main/victory.gd" id="1_wti0w"]
+
+[node name="Victory" type="Control" unique_id=369921846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wti0w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1575630803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0.07016479, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1071540988]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -11.5
+offset_right = 133.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU SURVIVED 14 DAYS! YOU WIN!"
+
+[node name="PlayAgainButton" type="Button" parent="." unique_id=1163951716]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = 20.629997
+offset_right = 25.5
+offset_bottom = 51.630066
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset
+"
