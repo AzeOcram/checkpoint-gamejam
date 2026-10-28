@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ckpryvitl52dr"]
 
 [ext_resource type="Script" uid="uid://bgtup4qelo6be" path="res://scripts/qte/math_qte.gd" id="1_fkh3g"]
-[ext_resource type="Resource" uid="uid://c801v23lafx4f" path="res://resources/qte/math.tres" id="2_ofvaf"]
+[ext_resource type="Texture2D" uid="uid://8d5pu7lklfie" path="res://assets/art/qte/BlackBoard.PNG" id="2_ofvaf"]
+[ext_resource type="FontFile" uid="uid://btibya6x1ix1l" path="res://assets/fonts/Real Chalk.otf" id="3_q3hws"]
+[ext_resource type="FontFile" uid="uid://da47vsvvk8plh" path="res://assets/fonts/EraserDust.ttf" id="4_q3hws"]
 
 [node name="MathQte" type="Control" unique_id=157556029]
 layout_mode = 3
@@ -11,37 +13,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fkh3g")
-qte_data = ExtResource("2_ofvaf")
 
-[node name="Overlay" type="ColorRect" parent="." unique_id=1998907079]
+[node name="BlackBoard" type="Sprite2D" parent="." unique_id=311416148]
+position = Vector2(160.49998, 88)
+scale = Vector2(1.0906249, 1.1666666)
+texture = ExtResource("2_ofvaf")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=437715233]
 layout_mode = 0
-offset_right = 311.0
-offset_bottom = 182.0
-color = Color(0.06843304, 0.76349145, 0.65762126, 1)
+offset_left = 2.0
+offset_top = 17.0
+offset_right = 320.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_q3hws")
+theme_override_font_sizes/font_size = 15
+text = "Recitation"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Panel" type="PanelContainer" parent="Overlay" unique_id=1495002976]
+[node name="DescriptionLabel" type="Label" parent="." unique_id=1059261428]
 layout_mode = 0
-offset_right = 318.0
-offset_bottom = 183.0
+offset_left = 1.0
+offset_top = 38.0
+offset_right = 319.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("4_q3hws")
+theme_override_font_sizes/font_size = 15
+text = "Recitation"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Content" type="VBoxContainer" parent="Overlay/Panel" unique_id=511076134]
-layout_mode = 2
+[node name="QuestionLabel" type="Label" parent="." unique_id=544586550]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 303.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("4_q3hws")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Overlay/Panel/Content" unique_id=437715233]
-layout_mode = 2
+[node name="TimerLabel" type="Label" parent="." unique_id=1223864918]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 12.0
+offset_right = 314.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_q3hws")
+theme_override_font_sizes/font_size = 20
+text = "5.00"
 
-[node name="QuestionLabel" type="Label" parent="Overlay/Panel/Content" unique_id=544586550]
-layout_mode = 2
+[node name="AnswerInput" type="LineEdit" parent="." unique_id=1886193395]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 107.0
+offset_right = 302.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("4_q3hws")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Type here"
+alignment = 1
 
-[node name="TimerLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1223864918]
-layout_mode = 2
-
-[node name="AnswerInput" type="LineEdit" parent="Overlay/Panel/Content" unique_id=1886193395]
-layout_mode = 2
-
-[node name="SubmitButton" type="Button" parent="Overlay/Panel/Content" unique_id=1765690025]
-layout_mode = 2
-text = "Submit"
-
-[node name="FeedbackLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1465253850]
-layout_mode = 2
+[node name="FeedbackLabel" type="Label" parent="." unique_id=1465253850]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 144.0
+offset_right = 206.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("3_q3hws")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_d5llg")
-title = "Answer!"
-description = "Type and Submit the answer"
+title = "Recitation"
+description = "Write your answer!"
 metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

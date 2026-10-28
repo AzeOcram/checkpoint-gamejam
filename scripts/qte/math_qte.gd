@@ -2,13 +2,13 @@ extends BaseQTE
 class_name MathQTE
 
 
-@onready var title_label: Label = $Overlay/Panel/Content/TitleLabel
-@onready var question_label: Label = $Overlay/Panel/Content/QuestionLabel
-@onready var timer_label: Label = $Overlay/Panel/Content/TimerLabel
+@onready var title_label: Label = $TitleLabel
+@onready var desc_label: Label = $DescriptionLabel
+@onready var question_label: Label = $QuestionLabel
+@onready var timer_label: Label = $TimerLabel
 
-@onready var answer_input: LineEdit = $Overlay/Panel/Content/AnswerInput
-@onready var submit_button: Button = $Overlay/Panel/Content/SubmitButton
-@onready var feedback_label: Label = $Overlay/Panel/Content/FeedbackLabel
+@onready var answer_input: LineEdit = $AnswerInput
+@onready var feedback_label: Label = $FeedbackLabel
 
 
 var correct_answer: int
@@ -16,7 +16,6 @@ var feedback_showing: bool = false
 
 
 func _ready() -> void:
-	submit_button.pressed.connect(_on_submit_pressed)
 	answer_input.text_submitted.connect(_on_answer_submitted)
 
 	feedback_label.text = ""
@@ -31,12 +30,12 @@ func start(data: QTEData) -> void:
 	feedback_showing = false
 
 	title_label.text = qte_data.title
+	desc_label.text = qte_data.description
 
 	feedback_label.text = ""
 
 	answer_input.clear()
 	answer_input.editable = true
-	submit_button.disabled = false
 
 	_generate_question()
 
@@ -88,7 +87,7 @@ func _update_qte(_delta: float) -> void:
 
 
 func _update_timer() -> void:
-	timer_label.text = "TIME: %.1f" % time_remaining
+	timer_label.text = "%.1f" % time_remaining
 
 
 func _on_submit_pressed() -> void:
@@ -128,12 +127,13 @@ func _show_feedback(result: QTEData.Result) -> void:
 	set_process(false)
 
 	answer_input.editable = false
-	submit_button.disabled = true
 
 	if result == QTEData.Result.SUCCESS:
-		feedback_label.text = "CORRECT!"
+		feedback_label.text = "CORRECT"
+		feedback_label.add_theme_color_override("font_color", Color.GREEN)
 	else:
-		feedback_label.text = "WRONG!"
+		feedback_label.text = "WRONG"
+		feedback_label.add_theme_color_override("font_color", Color.RED)
 
 	await get_tree().create_timer(2.0).timeout
 

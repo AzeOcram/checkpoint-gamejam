@@ -1,7 +1,44 @@
-[gd_scene format=3 uid="uid://cmu7g8drgrp35"]
+[gd_scene format=4 uid="uid://cmu7g8drgrp35"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_3cv7c"]
 [ext_resource type="Script" uid="uid://jhykl3pr4xsy" path="res://scripts/qte/wax_qte.gd" id="1_mhtlj"]
+[ext_resource type="Texture2D" uid="uid://dklunbm4m4ljs" path="res://assets/art/qte/Bunot.PNG" id="3_gj0r0"]
 [ext_resource type="Shader" uid="uid://cocrxlkfmb87f" path="res://scripts/qte/paint.gdshader" id="3_r4xb2"]
+[ext_resource type="Texture2D" uid="uid://ivdeidsjya1c" path="res://assets/art/tilemaps/clasroom.PNG" id="4_gj0r0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cv7c"]
+texture = ExtResource("4_gj0r0")
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r4xb2"]
+sources/0 = SubResource("TileSetAtlasSource_3cv7c")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceysa"]
 shader = ExtResource("3_r4xb2")
@@ -14,52 +51,72 @@ shader_parameter/is_drawing = false
 [node name="WaxQte" type="Control" unique_id=94648016]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_3cv7c")
 script = ExtResource("1_mhtlj")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=298915193]
-layout_mode = 0
-offset_right = 320.0
-offset_bottom = 180.0
+[node name="FloorMap" type="Node2D" parent="." unique_id=887700970]
 
-[node name="Paint" type="SubViewport" parent="SubViewportContainer" unique_id=1425721253]
+[node name="TileMapLayer" type="TileMapLayer" parent="FloorMap" unique_id=1048532836]
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAYAAAAAAAEAAAAEAAcAAAABAAAAAAAFAAYAAAABAAEAAAAFAAcAAAACAAAAAAAGAAYAAAACAAEAAAAGAAcAAAADAAAAAAAHAAYAAAADAAEAAAAHAAcAAAAEAAAAAAAEAAYAAAAEAAEAAAAEAAcAAAAFAAAAAAAFAAYAAAAFAAEAAAAFAAcAAAAGAAAAAAAGAAYAAAAGAAEAAAAGAAcAAAAHAAAAAAAHAAYAAAAHAAEAAAAHAAcAAAAIAAAAAAAEAAYAAAAIAAEAAAAEAAcAAAAJAAAAAAAFAAYAAAAJAAEAAAAFAAcAAAAKAAAAAAAGAAYAAAAKAAEAAAAGAAcAAAALAAAAAAAHAAYAAAALAAEAAAAHAAcAAAAMAAAAAAAEAAYAAAAMAAEAAAAEAAcAAAANAAAAAAAFAAYAAAANAAEAAAAFAAcAAAAOAAAAAAAGAAYAAAAOAAEAAAAGAAcAAAAPAAAAAAAHAAYAAAAPAAEAAAAHAAcAAAAQAAAAAAAEAAYAAAAQAAEAAAAEAAcAAAARAAAAAAAFAAYAAAARAAEAAAAFAAcAAAASAAAAAAAGAAYAAAASAAEAAAAGAAcAAAATAAAAAAAHAAYAAAATAAEAAAAHAAcAAAAQAAIAAAAEAAYAAAAQAAMAAAAEAAcAAAARAAIAAAAFAAYAAAARAAMAAAAFAAcAAAASAAIAAAAGAAYAAAASAAMAAAAGAAcAAAATAAIAAAAHAAYAAAATAAMAAAAHAAcAAAAQAAQAAAAEAAYAAAAQAAUAAAAEAAcAAAARAAQAAAAFAAYAAAARAAUAAAAFAAcAAAASAAQAAAAGAAYAAAASAAUAAAAGAAcAAAATAAQAAAAHAAYAAAATAAUAAAAHAAcAAAAQAAYAAAAEAAYAAAAQAAcAAAAEAAcAAAARAAYAAAAFAAYAAAARAAcAAAAFAAcAAAASAAYAAAAGAAYAAAASAAcAAAAGAAcAAAATAAYAAAAHAAYAAAATAAcAAAAHAAcAAAAQAAgAAAAEAAYAAAAQAAkAAAAEAAcAAAARAAgAAAAFAAYAAAARAAkAAAAFAAcAAAASAAgAAAAGAAYAAAASAAkAAAAGAAcAAAATAAgAAAAHAAYAAAATAAkAAAAHAAcAAAAQAAoAAAAEAAYAAAAQAAsAAAAEAAcAAAARAAoAAAAFAAYAAAARAAsAAAAFAAcAAAASAAoAAAAGAAYAAAASAAsAAAAGAAcAAAATAAoAAAAHAAYAAAATAAsAAAAHAAcAAAAMAAoAAAAEAAYAAAAMAAsAAAAEAAcAAAANAAoAAAAFAAYAAAANAAsAAAAFAAcAAAAOAAoAAAAGAAYAAAAOAAsAAAAGAAcAAAAPAAoAAAAHAAYAAAAPAAsAAAAHAAcAAAAMAAgAAAAEAAYAAAAMAAkAAAAEAAcAAAANAAgAAAAFAAYAAAANAAkAAAAFAAcAAAAOAAgAAAAGAAYAAAAOAAkAAAAGAAcAAAAPAAgAAAAHAAYAAAAPAAkAAAAHAAcAAAAIAAoAAAAEAAYAAAAIAAsAAAAEAAcAAAAJAAoAAAAFAAYAAAAJAAsAAAAFAAcAAAAKAAoAAAAGAAYAAAAKAAsAAAAGAAcAAAALAAoAAAAHAAYAAAALAAsAAAAHAAcAAAAEAAoAAAAEAAYAAAAEAAsAAAAEAAcAAAAFAAoAAAAFAAYAAAAFAAsAAAAFAAcAAAAGAAoAAAAGAAYAAAAGAAsAAAAGAAcAAAAHAAoAAAAHAAYAAAAHAAsAAAAHAAcAAAAAAAoAAAAEAAYAAAAAAAsAAAAEAAcAAAABAAoAAAAFAAYAAAABAAsAAAAFAAcAAAACAAoAAAAGAAYAAAACAAsAAAAGAAcAAAADAAoAAAAHAAYAAAADAAsAAAAHAAcAAAAAAAgAAAAEAAYAAAAAAAkAAAAEAAcAAAABAAgAAAAFAAYAAAABAAkAAAAFAAcAAAACAAgAAAAGAAYAAAACAAkAAAAGAAcAAAADAAgAAAAHAAYAAAADAAkAAAAHAAcAAAAAAAYAAAAEAAYAAAAAAAcAAAAEAAcAAAABAAYAAAAFAAYAAAABAAcAAAAFAAcAAAACAAYAAAAGAAYAAAACAAcAAAAGAAcAAAADAAYAAAAHAAYAAAADAAcAAAAHAAcAAAAAAAQAAAAEAAYAAAAAAAUAAAAEAAcAAAABAAQAAAAFAAYAAAABAAUAAAAFAAcAAAACAAQAAAAGAAYAAAACAAUAAAAGAAcAAAADAAQAAAAHAAYAAAADAAUAAAAHAAcAAAAAAAIAAAAEAAYAAAAAAAMAAAAEAAcAAAABAAIAAAAFAAYAAAABAAMAAAAFAAcAAAACAAIAAAAGAAYAAAACAAMAAAAGAAcAAAADAAIAAAAHAAYAAAADAAMAAAAHAAcAAAAEAAIAAAAEAAYAAAAEAAMAAAAEAAcAAAAFAAIAAAAFAAYAAAAFAAMAAAAFAAcAAAAGAAIAAAAGAAYAAAAGAAMAAAAGAAcAAAAHAAIAAAAHAAYAAAAHAAMAAAAHAAcAAAAIAAIAAAAEAAYAAAAIAAMAAAAEAAcAAAAJAAIAAAAFAAYAAAAJAAMAAAAFAAcAAAAKAAIAAAAGAAYAAAAKAAMAAAAGAAcAAAALAAIAAAAHAAYAAAALAAMAAAAHAAcAAAAMAAIAAAAEAAYAAAAMAAMAAAAEAAcAAAANAAIAAAAFAAYAAAANAAMAAAAFAAcAAAAOAAIAAAAGAAYAAAAOAAMAAAAGAAcAAAAPAAIAAAAHAAYAAAAPAAMAAAAHAAcAAAAMAAQAAAAEAAYAAAAMAAUAAAAEAAcAAAANAAQAAAAFAAYAAAANAAUAAAAFAAcAAAAOAAQAAAAGAAYAAAAOAAUAAAAGAAcAAAAPAAQAAAAHAAYAAAAPAAUAAAAHAAcAAAAMAAYAAAAEAAYAAAAMAAcAAAAEAAcAAAANAAYAAAAFAAYAAAANAAcAAAAFAAcAAAAOAAYAAAAGAAYAAAAOAAcAAAAGAAcAAAAPAAYAAAAHAAYAAAAPAAcAAAAHAAcAAAAIAAgAAAAEAAYAAAAIAAkAAAAEAAcAAAAJAAgAAAAFAAYAAAAJAAkAAAAFAAcAAAAKAAgAAAAGAAYAAAAKAAkAAAAGAAcAAAALAAgAAAAHAAYAAAALAAkAAAAHAAcAAAAEAAYAAAAEAAYAAAAEAAcAAAAEAAcAAAAFAAYAAAAFAAYAAAAFAAcAAAAFAAcAAAAGAAYAAAAGAAYAAAAGAAcAAAAGAAcAAAAHAAYAAAAHAAYAAAAHAAcAAAAHAAcAAAAEAAgAAAAEAAYAAAAEAAkAAAAEAAcAAAAFAAgAAAAFAAYAAAAFAAkAAAAFAAcAAAAGAAgAAAAGAAYAAAAGAAkAAAAGAAcAAAAHAAgAAAAHAAYAAAAHAAkAAAAHAAcAAAAIAAYAAAAEAAYAAAAIAAcAAAAEAAcAAAAJAAYAAAAFAAYAAAAJAAcAAAAFAAcAAAAKAAYAAAAGAAYAAAAKAAcAAAAGAAcAAAALAAYAAAAHAAYAAAALAAcAAAAHAAcAAAAIAAQAAAAEAAYAAAAIAAUAAAAEAAcAAAAJAAQAAAAFAAYAAAAJAAUAAAAFAAcAAAAKAAQAAAAGAAYAAAAKAAUAAAAGAAcAAAALAAQAAAAHAAYAAAALAAUAAAAHAAcAAAAEAAQAAAAEAAYAAAAEAAUAAAAEAAcAAAAFAAQAAAAFAAYAAAAFAAUAAAAFAAcAAAAGAAQAAAAGAAYAAAAGAAUAAAAGAAcAAAAHAAQAAAAHAAYAAAAHAAUAAAAHAAcAAAA=")
+tile_set = SubResource("TileSet_r4xb2")
+
+[node name="WaxOverlay" type="Control" parent="." unique_id=2108602415]
+anchors_preset = 0
+offset_right = 321.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="WaxOverlay" unique_id=298915193]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+offset_right = -0.037017822
+
+[node name="Paint" type="SubViewport" parent="WaxOverlay/SubViewportContainer" unique_id=1425721253]
 disable_3d = true
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(320, 180)
 render_target_clear_mode = 2
 render_target_update_mode = 4
 
-[node name="Canvas" type="ColorRect" parent="SubViewportContainer/Paint" unique_id=71344675]
+[node name="Canvas" type="ColorRect" parent="WaxOverlay/SubViewportContainer/Paint" unique_id=71344675]
 material = SubResource("ShaderMaterial_ceysa")
 anchors_preset = -1
 anchor_right = 0.25
 anchor_bottom = 0.25
+offset_right = 239.0
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Content" type="VBoxContainer" parent="." unique_id=1388488406]
+[node name="TitleLabel" type="Label" parent="." unique_id=908863942]
 layout_mode = 0
-offset_right = 154.0
-offset_bottom = 78.0
-scale = Vector2(0.8, 0.8)
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="Content" unique_id=908863942]
-layout_mode = 2
-text = "Wax"
+offset_left = 74.0
+offset_top = 6.0
+offset_right = 228.0
+offset_bottom = 29.0
+text = "Wax the Floor!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DescriptionLabel" type="Label" parent="Content" unique_id=459195849]
-layout_mode = 2
-text = "Wax"
+[node name="DescriptionLabel" type="Label" parent="." unique_id=459195849]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 30.0
+offset_right = 290.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 8
+text = "Hold the button and spread the wax evenly."
 horizontal_alignment = 1
 
 [node name="TimerLabel" type="Label" parent="." unique_id=663374870]
 layout_mode = 0
-offset_left = 98.0
+offset_left = 87.0
 offset_top = 156.0
-offset_right = 252.0
+offset_right = 241.0
 offset_bottom = 179.0
 scale = Vector2(0.8, 0.8)
 text = "hekjfhkfjhskfjsfdhjk"
@@ -68,5 +125,16 @@ vertical_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="." unique_id=135366475]
 layout_mode = 0
+offset_left = 114.0
+offset_top = 81.0
+offset_right = 185.0
+offset_bottom = 104.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+
+[node name="Cursor" type="TextureRect" parent="." unique_id=974490723]
+layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+texture = ExtResource("3_gj0r0")

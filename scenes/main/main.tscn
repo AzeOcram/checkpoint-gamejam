@@ -74,7 +74,6 @@ scale = Vector2(0.4, 0.4)
 text = "Character"
 
 [node name="PauseMenu" parent="UI" unique_id=186705034 instance=ExtResource("6_raeie")]
-visible = false
 layout_mode = 0
 
 [node name="Systems" type="Node" parent="." unique_id=2118144932]
@@ -103,7 +102,6 @@ autoplay = true
 parameters/looping = true
 
 [node name="DayIntroCutscene" parent="." unique_id=1452003855 instance=ExtResource("18_ou6is")]
-visible = false
 
 [connection signal="pressed" from="UI/SocialCircleButton" to="UI" method="_on_social_circle_button_pressed"]
 [connection signal="pressed" from="UI/CharacterButton" to="UI" method="_on_character_button_pressed"]
