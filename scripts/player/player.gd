@@ -44,7 +44,7 @@ func upgrade_luck(amount: int = 1) -> void:
 
 func upgrade_max_hp(amount: int = 1) -> void:
 	max_hp += amount
-	hp += amount
+	hp = max_hp
 	hp_changed.emit()
 
 

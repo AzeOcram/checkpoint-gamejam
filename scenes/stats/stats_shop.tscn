@@ -1,26 +1,161 @@
 [gd_scene format=3 uid="uid://cs7j61ssisf55"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_rsgnd"]
 [ext_resource type="Script" uid="uid://slt0vor014hj" path="res://scripts/stats/stats_shop.gd" id="1_shop"]
+[ext_resource type="Texture2D" uid="uid://b4aqaqcvvu38y" path="res://assets/ui/Shop UI/Shop index card_ver2.png" id="2_lf6mg"]
+[ext_resource type="Texture2D" uid="uid://f0nobh7kped7" path="res://assets/ui/Shop UI/Close button.png" id="3_mlrlx"]
+[ext_resource type="Texture2D" uid="uid://b4hke8bsvk6an" path="res://assets/ui/icons/Energy icon.png" id="4_cl2yh"]
+[ext_resource type="Texture2D" uid="uid://c1greaxcblui1" path="res://assets/ui/Shop UI/Upgrade no highlight.png" id="5_wm0b3"]
+[ext_resource type="Texture2D" uid="uid://cue0cjx4acrpy" path="res://assets/ui/Shop UI/Upgrade highlighted.png" id="6_nfrj8"]
+[ext_resource type="Texture2D" uid="uid://bryg3rcjqoi80" path="res://assets/ui/icons/HP heart.png" id="7_duvil"]
 
 [node name="StatsShop" type="Control" unique_id=1259275654]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(0.3, 0.3)
 mouse_filter = 2
+theme = ExtResource("1_rsgnd")
 script = ExtResource("1_shop")
 
-[node name="ShopPanel" type="PanelContainer" parent="." unique_id=413615759]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=462069037]
+texture = ExtResource("2_lf6mg")
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=59764102]
 layout_mode = 0
-offset_right = 160.0
-offset_bottom = 59.999985
-scale = Vector2(0.76, 0.5200006)
+offset_left = -30.0
+offset_top = 23.333332
+offset_right = 31.0
+offset_bottom = 45.333332
+texture_normal = ExtResource("3_mlrlx")
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel" unique_id=318188948]
-layout_mode = 2
+[node name="EnergyStat" type="Control" parent="." unique_id=543516290]
+anchors_preset = 0
+offset_left = -3.0
+offset_top = -39.0
+offset_right = 37.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
 
-[node name="Rows" type="VBoxContainer" parent="ShopPanel/VBoxContainer" unique_id=274208398]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="EnergyStat" unique_id=779196935]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 210.0
+offset_bottom = 30.0
 
-[node name="CloseButton" type="Button" parent="ShopPanel/VBoxContainer" unique_id=888411410]
+[node name="Label" type="Label" parent="EnergyStat/HBoxContainer" unique_id=1371016454]
 layout_mode = 2
-text = "Close"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1 (Lv. 0)"
+
+[node name="CostLabel" type="Label" parent="EnergyStat/HBoxContainer" unique_id=726759743]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "25"
+
+[node name="Sprite2D" type="TextureRect" parent="EnergyStat/HBoxContainer" unique_id=142679612]
+layout_mode = 2
+texture = ExtResource("4_cl2yh")
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="EnergyStat/HBoxContainer" unique_id=371327971]
+layout_mode = 2
+texture_normal = ExtResource("5_wm0b3")
+texture_hover = ExtResource("6_nfrj8")
+
+[node name="LuckStat" type="Control" parent="." unique_id=1478096693]
+anchors_preset = 0
+offset_left = -45.0
+offset_top = -24.0
+offset_right = -5.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LuckStat" unique_id=128616343]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 253.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="LuckStat/HBoxContainer" unique_id=1962598783]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(Lv. 0)"
+
+[node name="CostLabel" type="Label" parent="LuckStat/HBoxContainer" unique_id=306862520]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "25"
+
+[node name="Sprite2D" type="TextureRect" parent="LuckStat/HBoxContainer" unique_id=1735900232]
+layout_mode = 2
+texture = ExtResource("4_cl2yh")
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="LuckStat/HBoxContainer" unique_id=571544442]
+layout_mode = 2
+texture_normal = ExtResource("5_wm0b3")
+texture_hover = ExtResource("6_nfrj8")
+
+[node name="HPStat" type="Control" parent="." unique_id=1157568229]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HPStat" unique_id=1661614118]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -22.0
+offset_right = 70.0
+offset_bottom = 18.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Heart1" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=1192851916]
+layout_mode = 2
+texture = ExtResource("7_duvil")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=1325934049]
+layout_mode = 2
+texture = ExtResource("7_duvil")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=1510737662]
+layout_mode = 2
+texture = ExtResource("7_duvil")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Heart4" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=893014846]
+layout_mode = 2
+texture = ExtResource("7_duvil")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Heart5" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=1876130818]
+layout_mode = 2
+texture = ExtResource("7_duvil")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CostLabel" type="Label" parent="HPStat/HBoxContainer" unique_id=954840407]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.97529536, 0.97529536, 0.97529536, 0)
+text = "25"
+
+[node name="Sprite2D" type="TextureRect" parent="HPStat/HBoxContainer" unique_id=860890604]
+layout_mode = 2
+texture = ExtResource("4_cl2yh")
+stretch_mode = 5
+
+[node name="TextureButton" type="TextureButton" parent="HPStat/HBoxContainer" unique_id=1777027859]
+layout_mode = 2
+texture_normal = ExtResource("5_wm0b3")
+texture_hover = ExtResource("6_nfrj8")

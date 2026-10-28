@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var friends_panel: PanelContainer = $FriendsPanel
-@onready var character_panel: PanelContainer = $CharacterPanel
+@onready var character_panel: Control = $StatsShop
 
 
 func _ready() -> void:
