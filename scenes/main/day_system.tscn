@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://csfdcauwigc5m"]
 
 [ext_resource type="Script" uid="uid://dgt04bu6ox588" path="res://scripts/main/day_system.gd" id="1_nrl73"]
+[ext_resource type="Texture2D" uid="uid://c0ua7w6qegt6b" path="res://assets/ui/main_menu/Buttons/Base3.PNG" id="2_1vb1b"]
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="2_tsiin"]
-[ext_resource type="Texture2D" uid="uid://01vvf2i53lw4" path="res://assets/ui/main_menu/Buttons/3.PNG" id="3_1vb1b"]
 
 [node name="DaySystem" type="Node" unique_id=2092449202]
 script = ExtResource("1_nrl73")
@@ -10,7 +10,7 @@ script = ExtResource("1_nrl73")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=191321488]
 position = Vector2(163.5, 170)
 scale = Vector2(1.1015626, 0.4)
-texture = ExtResource("3_1vb1b")
+texture = ExtResource("2_1vb1b")
 
 [node name="Label" type="Label" parent="." unique_id=1625430014]
 offset_left = 93.00001

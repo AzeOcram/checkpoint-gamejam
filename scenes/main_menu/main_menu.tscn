@@ -1,28 +1,74 @@
 [gd_scene format=3 uid="uid://bkyiouepfm3r8"]
 
 [ext_resource type="Script" uid="uid://cmx240j35pu6x" path="res://scripts/main_menu/main_menu.gd" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://jgfjv7jes1v0" path="res://assets/ui/main_menu/Art/Bg blurred.PNG" id="2_0ebjn"]
+[ext_resource type="Texture2D" uid="uid://cm6rhm7sw5ii1" path="res://assets/ui/main_menu/Art/1_MALE MC.PNG" id="3_ob46e"]
+[ext_resource type="Texture2D" uid="uid://bh5rtvneqolyq" path="res://assets/ui/main_menu/Art/FEMALE MC.PNG" id="4_3ovsr"]
+[ext_resource type="FontFile" uid="uid://dsew2v2x71tuk" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="4_uqeha"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="5_wem23"]
 
 [node name="MainMenu" type="Control" unique_id=1657732778]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_fsom3")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885433685]
+position = Vector2(157, 86.99999)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_0ebjn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=930406149]
+position = Vector2(74.00001, 96)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_ob46e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2017948730]
+position = Vector2(74, 96)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_3ovsr")
+
+[node name="Label" type="Label" parent="." unique_id=1909876483]
+layout_mode = 0
+offset_left = 178.0
+offset_top = -4.0
+offset_right = 300.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -12
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_uqeha")
+theme_override_font_sizes/font_size = 30
+text = "Friends 
+We Made"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2019212656]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1909876483]
-layout_mode = 2
-text = "Friends We Made"
+offset_left = 172.0
+offset_top = 68.0
+offset_right = 305.0
+offset_bottom = 196.0
+theme = ExtResource("5_wem23")
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=295300122]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Play"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=649411337]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=743543158]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=4275637]
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
