@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b8y10xrbjdsct"]
+
+[ext_resource type="Script" uid="uid://dfuncub5cf2r2" path="res://scripts/main/day_intro_cutscene.gd" id="1_4yxdg"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_tv7bg"]
+[ext_resource type="Shader" uid="uid://dnfdxn8b0re4u" path="res://scenes/main/day_intro_cutscene.gdshader" id="1_vrs63"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yxdg"]
+shader = ExtResource("1_vrs63")
+shader_parameter/radius = 0.5
+shader_parameter/center = Vector2(0.71, 0.4)
+
+[node name="DayIntroCutscene" type="CanvasLayer" unique_id=1452003855]
+script = ExtResource("1_4yxdg")
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=349170487]
+material = SubResource("ShaderMaterial_4yxdg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DayTitle" type="Label" parent="." unique_id=1373237504]
+offset_left = -28.0
+offset_top = 58.0
+offset_right = 356.0
+offset_bottom = 103.0
+theme = ExtResource("1_tv7bg")
+theme_override_font_sizes/font_size = 20
+text = "FIRST DAY OF 
+NEW SCHOOL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1017223355]
+position = Vector2(160, 91)
+zoom = Vector2(3, 3)

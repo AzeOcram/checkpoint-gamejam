@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://bu4sfbhb1lyqp"]
 
 [ext_resource type="Script" uid="uid://dy2fa1g4nauj7" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://d52adani5bg0" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2994.PNG" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://bhbvxmbgqkw14" path="res://assets/art/characters/MC Female/1.PNG" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://ogiut6snsuuq" path="res://scripts/player/player_visual.gd" id="2_lvxji"]
+[ext_resource type="Texture2D" uid="uid://buym6r5yfn66k" path="res://assets/art/characters/MC Female/2.PNG" id="3_gmlin"]
 
 [node name="Player" type="Node2D" unique_id=1239961759]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_8afob")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=50543463]
+[node name="PlayerVisual" type="Node2D" parent="." unique_id=594639489]
+scale = Vector2(1.1, 1.1)
+script = ExtResource("2_lvxji")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerVisual" unique_id=50543463]
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_dovo2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlayerVisual" unique_id=1560291247]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_gmlin")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://csfdcauwigc5m"]
+
+[ext_resource type="Script" uid="uid://dgt04bu6ox588" path="res://scripts/main/day_system.gd" id="1_nrl73"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="2_tsiin"]
+[ext_resource type="Texture2D" uid="uid://01vvf2i53lw4" path="res://assets/ui/main_menu/Buttons/3.PNG" id="3_1vb1b"]
+
+[node name="DaySystem" type="Node" unique_id=2092449202]
+script = ExtResource("1_nrl73")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=191321488]
+position = Vector2(163.5, 170)
+scale = Vector2(1.1015626, 0.4)
+texture = ExtResource("3_1vb1b")
+
+[node name="Label" type="Label" parent="." unique_id=1625430014]
+offset_left = 93.00001
+offset_top = 159.0
+offset_right = 235.0
+offset_bottom = 182.0
+theme = ExtResource("2_tsiin")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "Day 1 - Wednesday"
+horizontal_alignment = 1
+vertical_alignment = 1

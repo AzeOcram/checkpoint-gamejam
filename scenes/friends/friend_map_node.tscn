@@ -9,9 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_c68yb")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1859450345]
 layout_mode = 0
-offset_right = 40.0
+offset_left = 1.5
+offset_right = 41.5
 offset_bottom = 40.0

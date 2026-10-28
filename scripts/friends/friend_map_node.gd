@@ -39,13 +39,17 @@ func update_appearance() -> void:
 
 
 func start_animation() -> void:
+	var showing_sprite_1 := true
+	
 	while true:
 		await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
 
 		if data == null:
 			return
 
-		if randf() < 0.5:
+		showing_sprite_1 = !showing_sprite_1
+
+		if showing_sprite_1:
 			texture_button.texture_normal = data.sprite
 		else:
 			texture_button.texture_normal = data.sprite2
