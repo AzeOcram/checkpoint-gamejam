@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1greaxcblui1" path="res://assets/ui/Shop UI/Upgrade no highlight.png" id="5_wm0b3"]
 [ext_resource type="Texture2D" uid="uid://cue0cjx4acrpy" path="res://assets/ui/Shop UI/Upgrade highlighted.png" id="6_nfrj8"]
 [ext_resource type="Texture2D" uid="uid://bryg3rcjqoi80" path="res://assets/ui/icons/HP heart.png" id="7_duvil"]
+[ext_resource type="Texture2D" uid="uid://dgnw4dxkgvq61" path="res://assets/ui/Shop UI/disabled.png" id="10_1caex"]
 
 [node name="StatsShop" type="Control" unique_id=1259275654]
 layout_mode = 3
@@ -62,6 +63,7 @@ stretch_mode = 5
 layout_mode = 2
 texture_normal = ExtResource("5_wm0b3")
 texture_hover = ExtResource("6_nfrj8")
+texture_disabled = ExtResource("10_1caex")
 
 [node name="LuckStat" type="Control" parent="." unique_id=1478096693]
 anchors_preset = 0
@@ -97,6 +99,7 @@ stretch_mode = 5
 layout_mode = 2
 texture_normal = ExtResource("5_wm0b3")
 texture_hover = ExtResource("6_nfrj8")
+texture_disabled = ExtResource("10_1caex")
 
 [node name="HPStat" type="Control" parent="." unique_id=1157568229]
 anchors_preset = 0
@@ -159,3 +162,4 @@ stretch_mode = 5
 layout_mode = 2
 texture_normal = ExtResource("5_wm0b3")
 texture_hover = ExtResource("6_nfrj8")
+texture_disabled = ExtResource("10_1caex")

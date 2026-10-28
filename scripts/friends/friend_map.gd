@@ -26,7 +26,6 @@ var selected_friend: FriendMapNode = null
 
 func _ready() -> void:
 	friend_info_panel.buy_requested.connect(_on_buy_friend_requested)
-
 	# Update the BUY button whenever Social Battery changes.
 	if social_battery_system:
 		social_battery_system.social_battery_changed.connect(_on_social_battery_changed)

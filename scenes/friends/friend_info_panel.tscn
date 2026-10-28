@@ -2,42 +2,85 @@
 
 [ext_resource type="Script" uid="uid://bxkgug5so5mh6" path="res://scripts/friends/friend_info_panel.gd" id="1_qbpyn"]
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_xasgu"]
+[ext_resource type="Texture2D" uid="uid://bbu3y6ia0db73" path="res://assets/ui/ID (student stats)/ID.png" id="3_5ts7f"]
+[ext_resource type="Texture2D" uid="uid://bhbvxmbgqkw14" path="res://assets/art/characters/MC Female/1.PNG" id="4_ijrra"]
+[ext_resource type="Texture2D" uid="uid://dgnrkc7d7i7g1" path="res://assets/ui/ID (student stats)/Befriend.PNG" id="5_2btxi"]
+[ext_resource type="Texture2D" uid="uid://pp6fxjo4wyat" path="res://assets/ui/ID (student stats)/Close button.png" id="6_2btxi"]
 
-[node name="FriendInfoPanel" type="PanelContainer" unique_id=109858626]
-visible = false
+[node name="FriendInfoPanel" type="Control" unique_id=326827733]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("1_xasgu")
 script = ExtResource("1_qbpyn")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17733509]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=785148523]
+position = Vector2(100, 70)
+scale = Vector2(0.9999994, 0.9999994)
+texture = ExtResource("3_5ts7f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1246725817]
-layout_mode = 2
+[node name="Portrait" type="Sprite2D" parent="." unique_id=1335640874]
+position = Vector2(45, 44.999996)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ijrra")
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=108622647]
-layout_mode = 2
+[node name="InfoContainer" type="VBoxContainer" parent="." unique_id=1955484714]
+layout_mode = 0
+offset_left = 82.5
+offset_top = 17.5
+offset_right = 163.5
+offset_bottom = 197.5
+scale = Vector2(0.7, 0.7)
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=408959326]
+[node name="NameLabel" type="Label" parent="InfoContainer" unique_id=108622647]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
 
-[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=925510756]
+[node name="DescriptionLabel" type="Label" parent="InfoContainer" unique_id=408959326]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
 
-[node name="MoodLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1715742645]
+[node name="GenerationLabel" type="Label" parent="InfoContainer" unique_id=43887772]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "+ 1 SB/Ss"
 
-[node name="ConnectionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=553676790]
+[node name="LuckLabel" type="Label" parent="InfoContainer" unique_id=1647486223]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Luck +1"
 
-[node name="GenerationLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=43887772]
-layout_mode = 2
+[node name="BuyButton" type="TextureButton" parent="." unique_id=289957590]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 92.5
+offset_right = 158.5
+offset_bottom = 117.0
+texture_normal = ExtResource("5_2btxi")
+stretch_mode = 5
 
-[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1056183035]
-layout_mode = 2
-text = "Buy"
+[node name="CostLabel" type="Label" parent="." unique_id=925510756]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 85.0
+offset_right = 138.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "800"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=963704675]
+layout_mode = 0
+offset_left = 185.0
+offset_top = -5.0
+offset_right = 217.0
+offset_bottom = 27.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("6_2btxi")
