@@ -108,8 +108,13 @@ func spawn_random_qte() -> void:
 	
 	print("Selected QTE: ", qte_data.title)
 	
+	# Reserve the slot so the timer can't spawn a second QTE during the intro.
 	active_qte = qte_scene.instantiate()
-	
+
+	var intro := QTEStartingScreen.new_screen()
+	get_tree().root.add_child(intro)
+	await intro.play(qte_data)
+
 	print("QTE instantiated")
 	
 	active_qte.finished.connect(on_qte_finish)
