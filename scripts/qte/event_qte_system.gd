@@ -43,6 +43,9 @@ func calculate_interval() -> float:
 # Start the cycle
 func _ready() -> void:
 	print("========== EVENT QTE SYSTEM READY ==========")
+	# Fallback if the export isn't assigned (e.g. stale scene open in the editor).
+	if recruitment_system == null:
+		recruitment_system = get_node("../RecruitmentSystem")
 	set_next_qte_cycle()
 
 
