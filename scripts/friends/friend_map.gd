@@ -37,9 +37,22 @@ func _ready() -> void:
 		20
 	)
 	friend_info_panel.z_index = 100
-
+	if recruitment_system:
+		recruitment_system.friend_recruited.connect(_on_friend_recruited)
 	spawn_friends()
 
+func _on_friend_recruited(friend_node: FriendNode) -> void:
+	var friend_data: FriendData = friend_node.data
+
+	SFX.play(&"purchase")
+	print("Successfully recruited: ", friend_data.friend_name)
+
+	update_friend_visual(friend_data)
+
+	# Refresh the panel if this friend is currently selected.
+	if selected_friend != null and selected_friend.data == friend_data:
+		friend_info_panel.setup(friend_data)
+		friend_info_panel.set_buyable(false)
 
 func spawn_friends() -> void:
 	if friend_collection == null:
@@ -113,25 +126,25 @@ func _on_social_battery_changed() -> void:
 	update_buy_button()
 
 
+
 func _on_buy_friend_requested(friend_data: FriendData) -> void:
 	if recruitment_system == null:
 		push_error("RecruitmentSystem not found!")
 		return
 
-	var friend_instance: FriendNode = recruitment_system.recruit_friend(friend_data)
+	if recruitment_system.recruitment_in_progress:
+		return
 
-	if friend_instance == null:
+	if not recruitment_system.can_recruit(friend_data):
 		SFX.play(&"cant_afford")
 		return
 
-	SFX.play(&"purchase")
-	print("Successfully recruited: ", friend_data.friend_name)
+	# Start the recruitment QTE.
+	recruitment_system.recruit_friend(friend_data)
 
-	update_friend_visual(friend_data)
-
-	friend_info_panel.setup(friend_data)
-	friend_info_panel.set_buyable(false)
-
+	# Close the panel while the recruitment QTE is active.
+	friend_info_panel.hide()
+	selected_friend = null
 
 func update_friend_visual(friend_data: FriendData) -> void:
 	for child in get_children():

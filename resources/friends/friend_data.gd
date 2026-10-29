@@ -12,7 +12,7 @@ class_name FriendData
 
 # Friend stats
 @export var mood: int = 100
-@export var connection: int = 100
+@export var connection: int = 0
 @export var social_battery_generation: int = 1
 @export var luck: int = 0
 
@@ -28,3 +28,9 @@ class_name FriendData
 
 # Map
 @export var map_position_index: int = 0
+
+#QTE
+# Recruitment QTE
+@export var recruitment_qte_title: String = "Let's Talk"
+@export_multiline var recruitment_qte_description: String = "Will you help me?"
+@export var recruitment_qte_duration: float = 5.0

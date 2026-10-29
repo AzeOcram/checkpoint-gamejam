@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ckuku65i6hhxb"]
+
+[ext_resource type="Script" uid="uid://cvdtj2e63a8or" path="res://scripts/friends/friend_recruitment_qte.gd" id="1_hlhlb"]
+
+[node name="FriendQTE" type="Control" unique_id=1755739529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hlhlb")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=2023605989]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 180.0
+
+[node name="Panel" type="PanelContainer" parent="Overlay" unique_id=408415133]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Content" type="VBoxContainer" parent="Overlay/Panel" unique_id=157896935]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Overlay/Panel/Content" unique_id=2100446417]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1103777907]
+layout_mode = 2
+
+[node name="TimerLabel" type="Label" parent="Overlay/Panel/Content" unique_id=720696358]
+layout_mode = 2
+
+[node name="SuccessButton" type="Button" parent="Overlay/Panel/Content" unique_id=2062045707]
+layout_mode = 2
+text = "SUCCES"
+
+[node name="FailButton" type="Button" parent="Overlay/Panel/Content" unique_id=1678413691]
+layout_mode = 2
+text = "FAIL"
