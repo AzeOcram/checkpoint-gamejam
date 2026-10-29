@@ -137,6 +137,7 @@ func spawn_random_qte() -> void:
 	get_tree().root.add_child(active_qte)
 	print("QTE added to scene tree")
 	
+	active_qte.difficulty = QTEData.difficulty_for_friends(friends_amount())
 	active_qte.start(qte_data)
 	print("QTE started")
 

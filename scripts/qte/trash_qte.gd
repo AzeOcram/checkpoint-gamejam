@@ -14,8 +14,6 @@ class_name TrashQTE
 const TRASH_TEXTURE1: Texture2D = preload("res://assets/art/qte/Trash 1.PNG")
 const TRASH_TEXTURE2: Texture2D = preload("res://assets/art/qte/Trash 2.png")
 
-const MIN_TRASH_COUNT: int = 10
-const MAX_TRASH_COUNT: int = 20
 const TRASH_SCALE: float = 1
 
 # Spawn area, kept clear of the labels at the top.
@@ -32,6 +30,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	super.start(data)
+	time_remaining = pick(15.0, 10.0, 5.0)
 
 	feedback_label.visible = false
 	title_label.text = qte_data.title
@@ -56,7 +55,7 @@ func _spawn_trash() -> void:
 	var item_size: Vector2 = TRASH_TEXTURE1.get_size() * TRASH_SCALE
 	var placed: Array[Rect2] = []
 
-	trash_left = randi_range(MIN_TRASH_COUNT, MAX_TRASH_COUNT)
+	trash_left = pick(randi_range(15, 20), randi_range(10, 15), 10)
 
 	for i in trash_left:
 		var rect := Rect2(Vector2.ZERO, item_size)

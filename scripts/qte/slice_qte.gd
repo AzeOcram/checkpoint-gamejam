@@ -17,7 +17,7 @@ class_name SlicePaperQTE
 
 
 # How far away from the path the player is allowed to cut.
-const PATH_TOLERANCE: float = 25.0
+var path_tolerance: float = 20.0
 
 # How close the player needs to be to the top when starting.
 const START_TOLERANCE: float = 25.0
@@ -27,8 +27,8 @@ const PATH_TOP: float = -60.0
 const PATH_BOTTOM: float = 60.0
 
 # Pacing.
-const MIN_CUT_TIME: float = 0.8
-const MAX_CUT_TIME: float = 3.0
+var min_cut_time: float = 1.0
+var max_cut_time: float = 2.5
 
 
 var is_cutting: bool = false
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 		cut_elapsed += delta
 
 		# Player is cutting too slowly.
-		if cut_elapsed > MAX_CUT_TIME:
+		if cut_elapsed > max_cut_time:
 			_finish(QTEData.Result.FAILURE)
 			return
 
@@ -90,7 +90,10 @@ func _input(event: InputEvent) -> void:
 func start(data: QTEData) -> void:
 	qte_data = data
 
-	time_remaining = qte_data.duration
+	time_remaining = pick(10.0, 7.0, 5.0)
+	path_tolerance = pick(40.0, 30.0, 20.0)
+	min_cut_time = pick(0.5, 0.8, 1.0)
+	max_cut_time = pick(4.0, 3.0, 2.5)
 	is_finished = false
 
 	is_cutting = false
@@ -136,7 +139,7 @@ func _start_cut() -> void:
 	)
 
 	# Must start near the top of the path.
-	if abs(mouse_position.x) > PATH_TOLERANCE:
+	if abs(mouse_position.x) > path_tolerance:
 		_finish(QTEData.Result.FAILURE)
 		return
 
@@ -174,7 +177,7 @@ func _update_cut() -> void:
 	)
 
 	# Too far away from the cutting path.
-	if abs(mouse_position.x) > PATH_TOLERANCE:
+	if abs(mouse_position.x) > path_tolerance:
 		_finish(QTEData.Result.FAILURE)
 		return
 
@@ -200,12 +203,12 @@ func _complete_cut() -> void:
 	is_cutting = false
 
 	# Too fast.
-	if cut_elapsed < MIN_CUT_TIME:
+	if cut_elapsed < min_cut_time:
 		_finish(QTEData.Result.FAILURE)
 		return
 
 	# Too slow.
-	if cut_elapsed > MAX_CUT_TIME:
+	if cut_elapsed > max_cut_time:
 		_finish(QTEData.Result.FAILURE)
 		return
 

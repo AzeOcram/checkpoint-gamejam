@@ -8,6 +8,9 @@ signal finished(result: QTEData.Result)
 var qte_data: QTEData
 
 
+# Hard matches the original tuning; set before start().
+var difficulty: QTEData.Difficulty = QTEData.Difficulty.HARD
+
 var time_remaining: float = 0.0
 var is_finished: bool = false
 
@@ -29,6 +32,16 @@ func start(data: QTEData) -> void:
 	is_finished = false
 
 	set_process(true)
+
+
+# Value for the current difficulty tier.
+func pick(easy, moderate, hard):
+	match difficulty:
+		QTEData.Difficulty.EASY:
+			return easy
+		QTEData.Difficulty.MODERATE:
+			return moderate
+	return hard
 
 
 func _process(delta: float) -> void:
