@@ -26,7 +26,7 @@ func calculate_interval() -> float:
 	var progress = Player.progress_score
 	
 	if progress < 0.2:
-		return randf_range(2.0, 3.0)
+		return randf_range(20.0, 25.0)
 	elif progress < 0.4:
 		return randf_range(20.0, 24.0)
 	elif progress < 0.6:
@@ -108,8 +108,13 @@ func spawn_random_qte() -> void:
 	
 	print("Selected QTE: ", qte_data.title)
 	
+	# Reserve the slot so the timer can't spawn a second QTE during the intro.
 	active_qte = qte_scene.instantiate()
-	
+
+	var intro := QTEStartingScreen.new_screen()
+	get_tree().root.add_child(intro)
+	await intro.play(qte_data)
+
 	print("QTE instantiated")
 	
 	active_qte.finished.connect(on_qte_finish)

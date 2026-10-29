@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Player="*uid://dy2fa1g4nauj7"
+Player="*res://scripts/player/player.gd"
+SFX="*res://scripts/main/sfx.gd"
 
 [display]
 

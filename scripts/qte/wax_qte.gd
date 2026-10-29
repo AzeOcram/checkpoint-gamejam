@@ -36,7 +36,7 @@ func start(data: QTEData) -> void:
 	qte_data = data
 
 	# Make the painting area match the floor map.
-	canvas.size = paint.size
+	canvas.set_deferred("size", paint.size)
 
 	time_remaining = qte_data.duration
 	is_finished = false
