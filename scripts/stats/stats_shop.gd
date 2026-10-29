@@ -43,6 +43,10 @@ var energy_system
 
 
 func _ready() -> void:
+	close_button.set_meta(&"sfx_press", &"menu_close")
+	for button in [energy_upgrade_button, luck_upgrade_button, hp_upgrade_button]:
+		button.set_meta(&"sfx_press", &"")
+		button.set_meta(&"sfx_blocked", &"cant_afford")
 	close_button.pressed.connect(_on_close_pressed)
 	close_button.mouse_entered.connect(_on_close_hover)
 	close_button.mouse_exited.connect(_on_close_unhover)
@@ -160,17 +164,21 @@ func update_hp() -> void:
 
 func _on_energy_upgrade_pressed() -> void:
 	print("ENERGY BUTTON PRESSED")
-	stats_system.upgrade("energy_per_tap")
+	_upgrade("energy_per_tap")
 
 
 func _on_luck_upgrade_pressed() -> void:
 	print("LUCK BUTTON PRESSED")
-	stats_system.upgrade("luck")
+	_upgrade("luck")
 
 
 func _on_hp_upgrade_pressed() -> void:
 	print("HP BUTTON PRESSED")
-	stats_system.upgrade("max_hp")
+	_upgrade("max_hp")
+
+
+func _upgrade(stat_id: String) -> void:
+	SFX.play(&"purchase" if stats_system.upgrade(stat_id) else &"cant_afford")
 
 
 func _on_close_pressed() -> void:

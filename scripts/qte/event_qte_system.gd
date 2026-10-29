@@ -26,7 +26,7 @@ func calculate_interval() -> float:
 	var progress = Player.progress_score
 	
 	if progress < 0.2:
-		return randf_range(2.0, 3.0)
+		return randf_range(20.0, 25.0)
 	elif progress < 0.4:
 		return randf_range(20.0, 24.0)
 	elif progress < 0.6:

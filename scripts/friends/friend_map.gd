@@ -30,9 +30,10 @@ func _ready() -> void:
 	if social_battery_system:
 		social_battery_system.social_battery_changed.connect(_on_social_battery_changed)
 
-	friend_info_panel.size = Vector2(300, 250)
+	var panel_size := Vector2(300, 250)
+	friend_info_panel.set_deferred("size", panel_size)
 	friend_info_panel.position = Vector2(
-		(get_viewport_rect().size.x - friend_info_panel.size.x) / 2.0,
+		(get_viewport_rect().size.x - panel_size.x) / 2.0,
 		20
 	)
 	friend_info_panel.z_index = 100
@@ -66,6 +67,7 @@ func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	if selected_friend == friend_node:
 		friend_info_panel.hide()
 		selected_friend = null
+		SFX.play(&"menu_close")
 		return
 
 	selected_friend = friend_node
@@ -75,6 +77,7 @@ func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	update_buy_button()
 
 	friend_info_panel.show()
+	SFX.play(&"menu_open")
 
 
 func update_buy_button() -> void:
@@ -118,8 +121,10 @@ func _on_buy_friend_requested(friend_data: FriendData) -> void:
 	var friend_instance: FriendNode = recruitment_system.recruit_friend(friend_data)
 
 	if friend_instance == null:
+		SFX.play(&"cant_afford")
 		return
 
+	SFX.play(&"purchase")
 	print("Successfully recruited: ", friend_data.friend_name)
 
 	update_friend_visual(friend_data)
@@ -149,7 +154,7 @@ func get_seat_position(index: int) -> Vector2:
 		start_position = RIGHT_START
 		local_index = index - side_size
 
-	var row := local_index / COLUMNS
+	var row := floori(local_index / float(COLUMNS))
 	var column := local_index % COLUMNS
 
 	return start_position + Vector2(

@@ -22,6 +22,10 @@ var data: FriendData
 
 func _ready() -> void:
 	hide()
+	# The buy handler (friend_map.gd) plays purchase; disabled clicks play cant_afford.
+	buy_button.set_meta(&"sfx_press", &"")
+	buy_button.set_meta(&"sfx_blocked", &"cant_afford")
+	close_button.set_meta(&"sfx_press", &"menu_close")
 	buy_button.pressed.connect(_on_buy_pressed)
 	close_button.pressed.connect(_on_close_pressed)
 

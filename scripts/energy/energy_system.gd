@@ -47,18 +47,18 @@ func can_afford(amount: int) -> bool:
 	return Player.energy >= amount
 
 
-func _on_tapped(position: Vector2) -> void:
+func _on_tapped(tap_position: Vector2) -> void:
 	add(Player.get_energy_per_tap())
 	update_energy_ui()
-	spawn_energy_feedback(position)
+	spawn_energy_feedback(tap_position)
 
 
 func update_energy_ui() -> void:
 	energy_label.text = "Energy: " + str(get_amount())
 
 
-func spawn_energy_feedback(position: Vector2) -> void:
+func spawn_energy_feedback(feedback_position: Vector2) -> void:
 	var feedback = ENERGY_FEEDBACK.instantiate()
 
-	feedback.position = position
+	feedback.position = feedback_position
 	feedback_container.add_child(feedback)
