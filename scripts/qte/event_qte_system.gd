@@ -7,6 +7,7 @@ class_name EventQTESystem
 
 
 @onready var timer: Node = $Timer
+@onready var stats_system: Node = get_node("../StatsSystem")
 
 
 var qte_list = QTEList.new().qte_list
@@ -23,6 +24,8 @@ func play_time() -> float:
 
 
 func calculate_interval() -> float:
+	return 5.0 # TEMP: testing, remove to restore progress-based intervals
+
 	var progress = Player.progress_score
 	
 	if progress < 0.2:
@@ -113,7 +116,15 @@ func spawn_random_qte() -> void:
 
 	var intro := QTEStartingScreen.new_screen()
 	get_tree().root.add_child(intro)
-	await intro.play(qte_data)
+	# Luck skips random event QTEs only; friend-request QTEs never roll.
+	var lucky: bool = stats_system.roll_luck_skip()
+	await intro.play(qte_data, lucky)
+
+	if lucky:
+		active_qte.queue_free()
+		active_qte = null
+		on_qte_finish(QTEData.Result.SUCCESS)
+		return
 
 	print("QTE instantiated")
 	
