@@ -1,3 +1,4 @@
+
 extends BaseQTE
 class_name FriendQTE
 
@@ -9,6 +10,8 @@ class_name FriendQTE
 @onready var success_button: Button = $Overlay/Panel/Content/SuccessButton
 @onready var failure_button: Button = $Overlay/Panel/Content/FailButton
 
+var friend_data: FriendData
+
 
 func _ready() -> void:
 	success_button.pressed.connect(_on_success_pressed)
@@ -19,8 +22,21 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	qte_data = data
-	time_remaining = qte_data.duration
 	is_finished = false
+
+	if friend_data != null:
+		var min_time = minf(
+			friend_data.friend_qte_timer_min,
+			friend_data.friend_qte_timer_max
+		)
+		var max_time = maxf(
+			friend_data.friend_qte_timer_min,
+			friend_data.friend_qte_timer_max
+		)
+
+		time_remaining = randf_range(min_time, max_time)
+	else:
+		time_remaining = qte_data.duration
 
 	title_label.text = qte_data.title
 	description_label.text = qte_data.description
