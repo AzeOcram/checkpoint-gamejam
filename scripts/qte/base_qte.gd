@@ -12,6 +12,12 @@ var time_remaining: float = 0.0
 var is_finished: bool = false
 
 
+func _init() -> void:
+	# Runs while the tree is paused; z above the friend info panel (z 100).
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	z_index = 200
+
+
 func _ready() -> void:
 	if qte_data != null:
 		start(qte_data)

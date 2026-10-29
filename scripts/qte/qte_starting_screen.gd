@@ -48,6 +48,12 @@ static func new_screen() -> QTEStartingScreen:
 	return load(SCENE_PATH).instantiate()
 
 
+func _init() -> void:
+	# Runs while the tree is paused; z above the friend info panel (z 100).
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	z_index = 200
+
+
 func _ready() -> void:
 	_paint_tiles()
 	modulate.a = 0.0

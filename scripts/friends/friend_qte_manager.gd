@@ -15,6 +15,7 @@ func _on_friend_request_qte(friend_node: FriendNode) -> void:
 		push_error("friend_qte.tscn does not contain a FriendQTE!")
 		return
 
+	get_tree().paused = true
 	get_tree().root.add_child(qte_instance)
 
 	qte_instance.finished.connect(
@@ -34,6 +35,8 @@ func _on_qte_finished(
 	result: QTEData.Result,
 	friend_node: FriendNode
 ) -> void:
+
+	get_tree().paused = false
 
 	if result == QTEData.Result.SUCCESS:
 		friend_node.data.mood = min(
