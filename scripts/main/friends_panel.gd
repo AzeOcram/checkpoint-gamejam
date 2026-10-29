@@ -2,8 +2,9 @@ extends PanelContainer
 
 
 # Nodes
-@onready var friend_list: VBoxContainer = $VBoxContainer/FriendList
-@onready var friend_count_label: Label = $VBoxContainer/FriendCountLabel
+# Updated path to point inside ScrollContainer
+@onready var friend_list: VBoxContainer = $VBoxContainer/ScrollContainer/FriendList
+@onready var friend_count_label: Label = $VBoxContainer/MarginContainer/FriendCountLabel
 
 
 # Reference to the Recruitment System.
@@ -39,9 +40,13 @@ func update_friend_list() -> void:
 func add_friend_to_list(friend: FriendNode) -> void:
 	var label := Label.new()
 
+	# Enable auto-wrapping so text stays inside panel bounds
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
 	label.text = (
 		friend.data.friend_name
-		+ " | Mood: " + str(friend.data.mood)
+		+ "\nMood: " + str(friend.data.mood)
 		+ " | Connection: " + str(friend.data.connection)
 		+ " | +" + str(friend.data.social_battery_generation)
 		+ " SB/sec"

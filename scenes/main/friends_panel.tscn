@@ -1,18 +1,56 @@
 [gd_scene format=3 uid="uid://bs6y4k30lyphl"]
 
 [ext_resource type="Script" uid="uid://c5ktth8rywk88" path="res://scripts/main/friends_panel.gd" id="1_7jyo1"]
+[ext_resource type="Texture2D" uid="uid://b5ko4ri43xjis" path="res://assets/ui/social circles/paper_background.PNG" id="1_d54cj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jyo1"]
+content_margin_left = 24.0
+content_margin_top = 30.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_d54cj")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
 [node name="FriendsPanel" type="PanelContainer" unique_id=4352755]
-offset_right = 147.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(288, 400)
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -200.0
+offset_right = 144.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.4, 0.4)
+theme_override_styles/panel = SubResource("StyleBoxTexture_7jyo1")
 script = ExtResource("1_7jyo1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
 layout_mode = 2
 
-[node name="FriendList" type="VBoxContainer" parent="VBoxContainer" unique_id=171448405]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1162937230]
 layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 7
 
-[node name="FriendCountLabel" type="Label" parent="VBoxContainer" unique_id=946841063]
+[node name="FriendCountLabel" type="Label" parent="VBoxContainer/MarginContainer" unique_id=946841063]
 layout_mode = 2
+autowrap_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=342631277]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+scroll_horizontal_by_default = true
+
+[node name="FriendList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1047671954]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
