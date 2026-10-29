@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	super.start(data)
-	time_remaining = pick(15.0, 10.0, 5.0)
+	time_remaining = pick(12.0, 10.0, 5.0)
 
 	feedback_label.visible = false
 	title_label.text = qte_data.title
@@ -55,7 +55,7 @@ func _spawn_trash() -> void:
 	var item_size: Vector2 = TRASH_TEXTURE1.get_size() * TRASH_SCALE
 	var placed: Array[Rect2] = []
 
-	trash_left = pick(randi_range(15, 20), randi_range(10, 15), 10)
+	trash_left = pick(randi_range(12, 15), randi_range(10, 15), 10)
 
 	for i in trash_left:
 		var rect := Rect2(Vector2.ZERO, item_size)

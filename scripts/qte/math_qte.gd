@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	qte_data = data
-	time_remaining = pick(12.0, 8.0, 5.0)
+	time_remaining = pick(10.0, 8.0, 5.0)
 	is_finished = false
 	feedback_showing = false
 

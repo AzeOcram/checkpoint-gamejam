@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	qte_data = data
-	move_speed = pick(250.0, 325.0, 400.0)
+	move_speed = pick(300.0, 340.0, 400.0)
 	is_finished = false
 	feedback_showing = false
 	
@@ -52,7 +52,7 @@ func start(data: QTEData) -> void:
 		
 		if base_zone_width == 0.0:
 			base_zone_width = success_zone.size.x
-		success_zone.size.x = base_zone_width * pick(1.5, 1.25, 1.0)
+		success_zone.size.x = base_zone_width * pick(1.35, 1.2, 1.0)
 
 		# Randomize the green zone's position inside the background bar
 		var max_x = background.size.x - success_zone.size.x
@@ -62,7 +62,7 @@ func start(data: QTEData) -> void:
 	set_process(true)
 	
 	super.start(data)
-	time_remaining = pick(10.0, 7.0, 5.0)
+	time_remaining = pick(8.0, 7.0, 5.0)
 
 
 func _update_qte(delta: float) -> void:

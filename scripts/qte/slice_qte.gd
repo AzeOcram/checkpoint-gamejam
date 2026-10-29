@@ -90,10 +90,10 @@ func _input(event: InputEvent) -> void:
 func start(data: QTEData) -> void:
 	qte_data = data
 
-	time_remaining = pick(10.0, 7.0, 5.0)
-	path_tolerance = pick(40.0, 30.0, 20.0)
-	min_cut_time = pick(0.5, 0.8, 1.0)
-	max_cut_time = pick(4.0, 3.0, 2.5)
+	time_remaining = pick(8.0, 7.0, 5.0)
+	path_tolerance = pick(35.0, 30.0, 20.0)
+	min_cut_time = pick(0.6, 0.8, 1.0)
+	max_cut_time = pick(3.5, 3.0, 2.5)
 	is_finished = false
 
 	is_cutting = false
