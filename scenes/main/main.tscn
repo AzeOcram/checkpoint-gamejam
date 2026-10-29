@@ -93,6 +93,7 @@ script = ExtResource("6_ow5a4")
 script = ExtResource("11_7smn1")
 
 [node name="EventQTESystem" parent="Systems" unique_id=492177173 instance=ExtResource("13_raeie")]
+recruitment_system = NodePath("../RecruitmentSystem")
 
 [node name="DaySystem" parent="Systems" unique_id=2092449202 instance=ExtResource("16_nvumn")]
 

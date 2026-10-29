@@ -15,7 +15,7 @@ extends BaseQTE
 @export var brush_radius: float = 0.05
 @export var brush_color: Color = Color(0.8, 0.15, 0.1, 0.20)
 
-@export_range(0.0, 1.0) var required_coverage: float = 0.8
+var required_coverage: float = 0.8
 
 
 var shader: ShaderMaterial
@@ -38,7 +38,8 @@ func start(data: QTEData) -> void:
 	# Make the painting area match the floor map.
 	canvas.set_deferred("size", paint.size)
 
-	time_remaining = qte_data.duration
+	time_remaining = pick(12.0, 10.0, 7.0)
+	required_coverage = pick(0.6, 0.7, 0.8)
 	is_finished = false
 
 	is_painting = false

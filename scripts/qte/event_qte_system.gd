@@ -43,6 +43,9 @@ func calculate_interval() -> float:
 # Start the cycle
 func _ready() -> void:
 	print("========== EVENT QTE SYSTEM READY ==========")
+	# Fallback if the export isn't assigned (e.g. stale scene open in the editor).
+	if recruitment_system == null:
+		recruitment_system = get_node("../RecruitmentSystem")
 	set_next_qte_cycle()
 
 
@@ -137,6 +140,7 @@ func spawn_random_qte() -> void:
 	get_tree().root.add_child(active_qte)
 	print("QTE added to scene tree")
 	
+	active_qte.difficulty = QTEData.difficulty_for_friends(friends_amount())
 	active_qte.start(qte_data)
 	print("QTE started")
 
