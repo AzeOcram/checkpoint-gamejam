@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bhxj7p3jcoghi" path="res://scenes/friends/recruitment_system.tscn" id="6_hujxm"]
 [ext_resource type="Script" uid="uid://bkwgaojs1e0rl" path="res://scripts/main/game_input.gd" id="6_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://c7ns4amc38k0w" path="res://scenes/main/pause_menu.tscn" id="6_raeie"]
+[ext_resource type="Texture2D" uid="uid://dlgn037ehrf5n" path="res://assets/ui/main_menu/Social Circle 1.PNG" id="8_p8abn"]
+[ext_resource type="Texture2D" uid="uid://t831rkv46wm1" path="res://assets/ui/main_menu/Character Icon 1.PNG" id="8_pg34l"]
+[ext_resource type="Texture2D" uid="uid://ddcb73yfgpgna" path="res://assets/ui/main_menu/Character Icon 2.PNG" id="9_m4h2d"]
+[ext_resource type="Texture2D" uid="uid://cgi8xqu87ohrf" path="res://assets/ui/main_menu/Social Circle 2.PNG" id="9_s17dp"]
 [ext_resource type="Script" uid="uid://b4ml2uu6gt6lo" path="res://scripts/friends/friend_qte_manager.gd" id="11_7smn1"]
 [ext_resource type="PackedScene" path="res://scenes/stats/stats_system.tscn" id="11_statsys"]
 [ext_resource type="PackedScene" uid="uid://cs7j61ssisf55" path="res://scenes/stats/stats_shop.tscn" id="12_statshop"]
@@ -56,23 +60,27 @@ offset_top = 93.0
 offset_right = 292.0
 offset_bottom = 124.0
 
-[node name="SocialCircleButton" type="Button" parent="UI" unique_id=1907078929]
+[node name="SocialCircleButton" type="TextureButton" parent="UI" unique_id=389648934]
 layout_mode = 0
-offset_left = 8.999999
-offset_top = 156.0
-offset_right = 110.0
-offset_bottom = 187.0
+offset_left = 9.000001
+offset_top = 137.0
+offset_right = 89.0
+offset_bottom = 211.5
 scale = Vector2(0.4, 0.4)
-text = "Social Circle"
+texture_normal = ExtResource("8_p8abn")
+texture_hover = ExtResource("9_s17dp")
+stretch_mode = 5
 
-[node name="CharacterButton" type="Button" parent="UI" unique_id=1148299381]
+[node name="CharacterButton" type="TextureButton" parent="UI" unique_id=1483723982]
 layout_mode = 0
-offset_left = 279.0
-offset_top = 154.0
-offset_right = 364.0
-offset_bottom = 185.0
+offset_left = 277.0
+offset_top = 136.0
+offset_right = 357.0
+offset_bottom = 210.5
 scale = Vector2(0.4, 0.4)
-text = "Character"
+texture_normal = ExtResource("8_pg34l")
+texture_hover = ExtResource("9_m4h2d")
+stretch_mode = 5
 
 [node name="PauseMenu" parent="UI" unique_id=186705034 instance=ExtResource("6_raeie")]
 layout_mode = 0

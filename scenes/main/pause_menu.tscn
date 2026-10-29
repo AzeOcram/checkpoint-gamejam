@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://rmr5kq0m0rnw" path="res://scripts/main/pause_menu.gd" id="1_qo3ou"]
 [ext_resource type="Texture2D" uid="uid://1hs02t7tchqb" path="res://assets/ui/main_menu/Setting Board (_)/Setting Board.PNG" id="2_sxsxs"]
+[ext_resource type="Texture2D" uid="uid://ncjj2eb64p3y" path="res://assets/ui/main_menu/Back 1.PNG" id="3_o3hrf"]
+[ext_resource type="Texture2D" uid="uid://dgcf3ey8nqv7s" path="res://assets/ui/main_menu/Back 2.PNG" id="4_xgeum"]
+[ext_resource type="Texture2D" uid="uid://wyai2hd5ptq8" path="res://assets/ui/main_menu/Quit to Menu 1.PNG" id="5_duj7x"]
+[ext_resource type="Texture2D" uid="uid://cwld8x00fqvyx" path="res://assets/ui/main_menu/Quit to Menu 2.PNG" id="6_rd62i"]
 
 [node name="PauseMenu" type="Control" unique_id=186705034]
 process_mode = 2
@@ -28,10 +32,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=824014380]
+[node name="BackButton" type="TextureButton" parent="VBoxContainer" unique_id=763894506]
 layout_mode = 2
-text = "Back"
+texture_normal = ExtResource("3_o3hrf")
+texture_hover = ExtResource("4_xgeum")
+stretch_mode = 5
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1451437078]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=845584367]
 layout_mode = 2
-text = "Quit to Menu"
+texture_normal = ExtResource("5_duj7x")
+texture_hover = ExtResource("6_rd62i")
+stretch_mode = 5
