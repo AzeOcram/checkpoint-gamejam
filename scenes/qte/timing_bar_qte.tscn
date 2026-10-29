@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jql62svbk3n2"]
 
 [ext_resource type="Script" uid="uid://cc6bkcajopw0f" path="res://scripts/qte/timing_bar_qte.gd" id="1_dlhe3"]
+[ext_resource type="Texture2D" uid="uid://codjmn6infgge" path="res://assets/art/qte/Basketball Ring.PNG" id="2_w3lpp"]
 
 [node name="timing_bar_qte" type="Control" unique_id=251787064]
 layout_mode = 3
@@ -11,6 +12,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dlhe3")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1861599494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6078401, 0.16600919, 0, 0.69411767)
+
 [node name="BackgroundBar" type="ColorRect" parent="." unique_id=215864751]
 layout_mode = 1
 anchors_preset = 8
@@ -18,12 +28,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -15.0
-offset_right = 150.0
-offset_bottom = 15.0
+offset_left = -116.907166
+offset_top = -85.0
+offset_right = 45.621536
+offset_bottom = -54.971992
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 1.5707964
 color = Color(0.9358438, 0.09241632, 0, 1)
 
 [node name="SuccessZone" type="ColorRect" parent="BackgroundBar" unique_id=332318068]
@@ -55,15 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9411765, 0.89411765, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1861599494]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.69411767)
-
 [node name="FeedbackLabel" type="Label" parent="." unique_id=2143703082]
 layout_mode = 0
 offset_left = 130.0
@@ -85,3 +87,8 @@ grow_horizontal = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=315142430]
+position = Vector2(168, 75)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_w3lpp")
