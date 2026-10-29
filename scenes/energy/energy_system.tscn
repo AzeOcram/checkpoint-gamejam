@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_2lrqo"]
 [ext_resource type="Script" uid="uid://sl70sbmfpq1l" path="res://scripts/energy/energy_system.gd" id="1_piqoi"]
 [ext_resource type="Texture2D" uid="uid://la24w0afoc7q" path="res://assets/ui/icons/Energy both.PNG" id="2_mf7cw"]
+[ext_resource type="Script" path="res://scripts/main/hide_when_paused.gd" id="9_hidep"]
 
 [node name="EnergySystem" type="Control" unique_id=1746223679]
 layout_mode = 3
@@ -27,6 +28,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnergyFeedbackLayer" type="CanvasLayer" parent="." unique_id=1247906548]
+script = ExtResource("9_hidep")
 
 [node name="FeedbackContainer" type="Control" parent="EnergyFeedbackLayer" unique_id=1182894005]
 layout_mode = 3

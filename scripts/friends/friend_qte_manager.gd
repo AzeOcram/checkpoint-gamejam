@@ -37,7 +37,6 @@ func _on_qte_finished(
 ) -> void:
 	if not is_instance_valid(friend_node):
 		return
-	qte_finished.emit()
 
 	if result == QTEData.Result.SUCCESS:
 		friend_node.data.mood = min(
@@ -66,3 +65,4 @@ func _on_qte_finished(
 		print(friend_node.data.friend_name, " QTE FAILED!")
 
 	friend_node.resume_monitoring()
+	qte_finished.emit()

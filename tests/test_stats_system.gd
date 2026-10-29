@@ -60,10 +60,10 @@ func _initialize() -> void:
 	check(player.luck == 10, "luck never exceeds 10")
 	check(energy.get_amount() == before, "no energy spent at max")
 
-	# Luck chance is 1% per point; roll is deterministic when injected.
-	check(is_equal_approx(stats.get_luck_chance(), 0.10), "luck 10 -> 10% skip chance")
-	check(stats.roll_luck_skip(0.05), "roll below chance skips")
-	check(not stats.roll_luck_skip(0.10), "roll at chance does not skip")
+	# Luck chance is 2.5% per point (25% at max); roll is deterministic when injected.
+	check(is_equal_approx(stats.get_luck_chance(), 0.25), "luck 10 -> 25% skip chance")
+	check(stats.roll_luck_skip(0.24), "roll below chance skips")
+	check(not stats.roll_luck_skip(0.25), "roll at chance does not skip")
 	player.luck = 0
 	check(not stats.roll_luck_skip(0.0), "luck 0 never skips")
 	player.luck = 10

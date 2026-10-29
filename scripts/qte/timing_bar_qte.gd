@@ -11,6 +11,7 @@ class_name TimingBarQTE
 @onready var ball: Sprite2D = $Sprite2D2
 
 var move_speed: float = 400.0
+var base_zone_width: float = 0.0
 var direction: int = 1
 var is_playing: bool = false
 var feedback_showing: bool = false
@@ -27,7 +28,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	qte_data = data
-	time_remaining = qte_data.duration
+	move_speed = pick(300.0, 340.0, 400.0)
 	is_finished = false
 	feedback_showing = false
 	
@@ -49,6 +50,10 @@ func start(data: QTEData) -> void:
 		background.grow_horizontal = Control.GROW_DIRECTION_BOTH
 		background.grow_vertical = Control.GROW_DIRECTION_BOTH
 		
+		if base_zone_width == 0.0:
+			base_zone_width = success_zone.size.x
+		success_zone.size.x = base_zone_width * pick(1.35, 1.2, 1.0)
+
 		# Randomize the green zone's position inside the background bar
 		var max_x = background.size.x - success_zone.size.x
 		success_zone.position.x = randf_range(0, max_x)
@@ -57,6 +62,7 @@ func start(data: QTEData) -> void:
 	set_process(true)
 	
 	super.start(data)
+	time_remaining = pick(8.0, 7.0, 5.0)
 
 
 func _update_qte(delta: float) -> void:

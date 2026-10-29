@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func start(data: QTEData) -> void:
 	qte_data = data
-	time_remaining = qte_data.duration
+	time_remaining = pick(10.0, 8.0, 5.0)
 	is_finished = false
 	feedback_showing = false
 
@@ -49,7 +49,7 @@ func _generate_question() -> void:
 	var first_number := randi_range(1, 9)
 	var second_number := randi_range(1, 9)
 
-	var operation := randi_range(0, 2)
+	var operation := randi_range(0, pick(0, 1, 2))
 
 	match operation:
 		0:

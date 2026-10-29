@@ -8,11 +8,16 @@ class_name QTEStartingScreen
 #   var screen := QTEStartingScreen.new_screen()
 #   add_child(screen)
 #   await screen.play(qte_data)
+#
+# play(data, true) ends the countdown with a "friend saved you" message
+# (Luck skipped this QTE) instead of going straight to the QTE.
 
 const SCENE_PATH := "res://scenes/qte/qte_starting_screen.tscn"
 
 const COUNTDOWN_FROM := 3
 const STEP_SECONDS := 0.7
+const LUCKY_SECONDS := 1.8
+const LUCKY_MESSAGE := "Lucky! Your friend saved you from this one."
 
 # Columns / rows are in 8px tiles (viewport is 40 x 22.5 tiles).
 const PANEL := Rect2i(6, 3, 28, 16)
@@ -43,13 +48,19 @@ static func new_screen() -> QTEStartingScreen:
 	return load(SCENE_PATH).instantiate()
 
 
+func _init() -> void:
+	# Runs while the tree is paused; z above the friend info panel (z 100).
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	z_index = 200
+
+
 func _ready() -> void:
 	_paint_tiles()
 	modulate.a = 0.0
 
 
 # Returns once the countdown has finished and the screen has faded out.
-func play(data: QTEData) -> void:
+func play(data: QTEData, lucky: bool = false) -> void:
 	title_label.text = data.title
 	description_label.text = data.description
 	countdown_label.text = ""
@@ -66,6 +77,11 @@ func play(data: QTEData) -> void:
 		pop.tween_property(countdown_label, "scale", Vector2.ONE, STEP_SECONDS * 0.6) \
 			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		await get_tree().create_timer(STEP_SECONDS).timeout
+
+	if lucky:
+		countdown_label.text = ""
+		description_label.text = LUCKY_MESSAGE
+		await get_tree().create_timer(LUCKY_SECONDS).timeout
 
 	var fade_out := create_tween()
 	fade_out.tween_property(self, "modulate:a", 0.0, 0.2)

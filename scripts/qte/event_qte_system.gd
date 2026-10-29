@@ -9,6 +9,7 @@ class_name EventQTESystem
 
 
 @onready var timer: Timer = $Timer
+@onready var stats_system: Node = get_node("../StatsSystem")
 
 
 var qte_list = QTEList.new().qte_list
@@ -25,6 +26,8 @@ func play_time() -> float:
 
 
 func calculate_interval() -> float:
+	return 5.0 # TEMP: testing, remove to restore progress-based intervals
+
 	var progress = Player.progress_score
 
 	if progress < 0.2:
@@ -43,8 +46,12 @@ func calculate_interval() -> float:
 func _ready() -> void:
 	print("========== EVENT QTE SYSTEM READY ==========")
 
+	if recruitment_system == null:
+		recruitment_system = get_node("../RecruitmentSystem")
+
 	if qte_queue_manager == null:
 		push_error("QTEQueueManager is not assigned in EventQTESystem!")
+		return
 
 	set_next_qte_cycle()
 
@@ -59,15 +66,10 @@ func set_next_qte_cycle() -> void:
 
 	update_progress()
 
-	print("Player progress score: ", Player.progress_score)
-
 	var interval := calculate_interval()
 	print("Calculated QTE interval: ", interval)
-	print("Starting QTE timer...")
 
 	timer.start(interval)
-
-	print("Timer started. Timer time_left: ", timer.time_left)
 
 
 func _on_timer_timeout() -> void:
@@ -79,17 +81,12 @@ func _on_timer_timeout() -> void:
 func update_progress() -> void:
 	print("update_progress() called")
 
-	if not Player or not recruitment_system:
-		print("Progress update aborted!")
-		print("Player exists: ", Player != null)
-		print("Recruitment system exists: ", recruitment_system != null)
+	if not is_instance_valid(recruitment_system):
+		print("Progress update aborted: RecruitmentSystem is missing!")
 		return
 
 	var play_time_factor = min(play_time() / 20.0, 1.0) * 0.6
 	var friends_factor = min(float(friends_amount()) / 10.0, 1.0) * 0.4
-
-	print("Play time factor: ", play_time_factor)
-	print("Friends factor: ", friends_factor)
 
 	Player.progress_score = clamp(
 		play_time_factor + friends_factor,
@@ -125,8 +122,17 @@ func spawn_random_qte() -> void:
 
 	print("Selected QTE: ", qte_data.title)
 
-	# Reserve the event slot while it waits and plays.
+	# Luck skips random event QTEs only.
+	var lucky: bool = stats_system.roll_luck_skip()
+
 	event_qte_pending = true
+
+	if lucky:
+		print("Luck activated! Event QTE skipped.")
+
+		# Treat the skip as a success without showing or running the QTE.
+		on_qte_finish(QTEData.Result.SUCCESS)
+		return
 
 	qte_queue_manager.enqueue_qte(
 		qte_scene,
@@ -143,13 +149,11 @@ func on_qte_finish(result: QTEData.Result) -> void:
 	print("QTE result: ", result)
 
 	if result == QTEData.Result.SUCCESS:
-		# Grant energy.
 		var energy_reward = lerp(20.0, 50.0, Player.progress_score)
 		Player.energy += energy_reward
 
 		print("QTE SUCCESS - Energy gained: ", energy_reward)
 	else:
-		# Deduct HP.
 		Player.take_damage(1)
 
 		print("QTE FAILURE - HP lost. Current HP: ", Player.hp)
