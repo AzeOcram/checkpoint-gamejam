@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bnodx0x7f36tm"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_fo4ag"]
 [ext_resource type="Script" uid="uid://ch56sim8hcokk" path="res://scripts/qte/slice_qte.gd" id="1_rs3x7"]
-[ext_resource type="Texture2D" uid="uid://c0hbwcjvnjwin" path="res://icon.svg" id="3_vthp2"]
+[ext_resource type="Texture2D" uid="uid://b5kmvnq60pkkm" path="res://assets/art/qte/Desk.PNG" id="3_fo4ag"]
+[ext_resource type="Texture2D" uid="uid://fl4jfmie4kcc" path="res://assets/art/qte/Yellow Pad (Horizontal)/1.PNG" id="4_fo4ag"]
+[ext_resource type="Texture2D" uid="uid://crbu0gbtfxtn0" path="res://assets/art/qte/Yellow Pad (Horizontal)/2.PNG" id="5_awi6s"]
+[ext_resource type="Texture2D" uid="uid://qv1p7rekqave" path="res://assets/art/qte/Yellow Pad (Horizontal)/3.PNG" id="6_c631j"]
 
 [node name="SlicePaperQTE" type="Control" unique_id=236236739]
 layout_mode = 3
@@ -10,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_fo4ag")
 script = ExtResource("1_rs3x7")
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=1207760525]
@@ -21,44 +26,60 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.767956, 0.49873406, 0.30676213, 1)
 
+[node name="Background" type="Sprite2D" parent="Overlay" unique_id=1079078584]
+position = Vector2(160, 107)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_fo4ag")
+
 [node name="TitleLabel" type="Label" parent="Overlay" unique_id=1486478305]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 2.0
-offset_right = 225.0
-offset_bottom = 25.0
+offset_left = 99.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 31.0
 text = "Slice the Paper!"
 
 [node name="DescriptionLabel" type="Label" parent="Overlay" unique_id=1339290954]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 149.0
-offset_right = 207.0
-offset_bottom = 172.0
+offset_left = 67.0
+offset_top = 23.0
+offset_right = 436.0
+offset_bottom = 46.0
 scale = Vector2(0.5, 0.5)
-text = "Description"
+text = "Follow the dotted line and cut at a steady pace."
 
 [node name="TimerLabel" type="Label" parent="Overlay" unique_id=1946829861]
 layout_mode = 0
-offset_left = 278.0
-offset_top = 2.0
-offset_right = 318.0
-offset_bottom = 25.0
+offset_left = 285.0
+offset_top = 12.0
+offset_right = 325.0
+offset_bottom = 35.0
 scale = Vector2(0.6, 0.6)
+text = "3.00"
+horizontal_alignment = 1
 
 [node name="FeedbackLabel" type="Label" parent="Overlay" unique_id=569565266]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 75.0
-offset_right = 71.0
-offset_bottom = 98.0
+offset_left = 125.0
+offset_top = 152.0
+offset_right = 185.0
+offset_bottom = 175.0
+text = "SUCCESS"
 
 [node name="Paper" type="Node2D" parent="." unique_id=1383711183]
 position = Vector2(160, 90)
 
 [node name="PaperSprite" type="Sprite2D" parent="Paper" unique_id=1282614067]
 scale = Vector2(0.640625, 0.6953125)
-texture = ExtResource("3_vthp2")
+texture = ExtResource("4_fo4ag")
+
+[node name="PaperSprite2" type="Sprite2D" parent="Paper" unique_id=2064941529]
+scale = Vector2(0.640625, 0.6953125)
+texture = ExtResource("5_awi6s")
+
+[node name="PaperSprite3" type="Sprite2D" parent="Paper" unique_id=1197391028]
+scale = Vector2(0.640625, 0.6953125)
+texture = ExtResource("6_c631j")
 
 [node name="CutPath" type="Line2D" parent="Paper" unique_id=1559416952]
 

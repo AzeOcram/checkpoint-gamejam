@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_8f54t")
-title = "Timing"
+title = "PE Class!"
 description = "Press when indicator is in green!"

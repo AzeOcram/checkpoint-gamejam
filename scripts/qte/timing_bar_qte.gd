@@ -1,12 +1,14 @@
 extends BaseQTE
 class_name TimingBarQTE
 
-@onready var background: ColorRect = $BackgroundBar
+@onready var background: TextureRect = $BackgroundBar
 @onready var success_zone: ColorRect = $BackgroundBar/SuccessZone
 @onready var indicator: ColorRect = $BackgroundBar/Indicator
 @onready var feedback_label: Label = $FeedbackLabel
 @onready var title_label: Label = $TitleLabel
 @onready var timer_label: Label = $TimerLabel
+@onready var description_label: Label = $DescriptionLabel
+@onready var ball: Sprite2D = $Sprite2D2
 
 var move_speed: float = 400.0
 var direction: int = 1
@@ -35,6 +37,9 @@ func start(data: QTEData) -> void:
 	if title_label:
 		title_label.text = qte_data.title
 	
+	if description_label:
+		description_label.text = qte_data.description
+	
 	# Center the main bar on screen dynamically
 	if background:
 		background.anchor_left = 0.5
@@ -56,7 +61,7 @@ func start(data: QTEData) -> void:
 
 func _update_qte(delta: float) -> void:
 	if timer_label and not feedback_showing:
-		timer_label.text = "TIME: %.1f" % time_remaining
+		timer_label.text = "%.2f" % time_remaining
 
 	if not is_playing or feedback_showing:
 		return
@@ -104,11 +109,107 @@ func _show_feedback(result: QTEData.Result) -> void:
 		if result == QTEData.Result.SUCCESS:
 			feedback_label.text = "SUCCESS!"
 			feedback_label.modulate = Color.GREEN
+			_celebrate_ball()
 		else:
 			feedback_label.text = "FAILED!"
 			feedback_label.modulate = Color.RED
+			_shake_ball()
 
 	# Wait 1.5 seconds so player can read the outcome text before closing
 	await get_tree().create_timer(1.5).timeout
 
 	_finish(result)
+
+func _shake_ball() -> void:
+	if not ball:
+		return
+
+	var original_position = ball.position
+	var tween = create_tween()
+
+	tween.tween_property(ball, "position", original_position + Vector2(-4, 0), 0.04)
+	tween.tween_property(ball, "position", original_position + Vector2(4, 0), 0.04)
+	tween.tween_property(ball, "position", original_position + Vector2(-3, 0), 0.04)
+	tween.tween_property(ball, "position", original_position + Vector2(3, 0), 0.04)
+	tween.tween_property(ball, "position", original_position, 0.04)
+
+func _celebrate_ball() -> void:
+	if not ball:
+		return
+
+	var original_position = ball.position
+	var tween = create_tween()
+
+	# Jump upward, then land back at the original position
+	tween.tween_property(
+		ball,
+		"position",
+		original_position + Vector2(0, -28),
+		0.15
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		ball,
+		"position",
+		original_position,
+		0.2
+	).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+	# Shoot stars out of the ball
+	_shoot_stars()
+
+
+func _shoot_stars() -> void:
+	var star_offsets = [
+		Vector2(-25, -25),
+		Vector2(25, -25),
+		Vector2(-32, 5),
+		Vector2(32, 5),
+		Vector2(0, -35)
+	]
+
+	var star_colors = [
+		Color.YELLOW,
+		Color.CYAN,
+		Color.HOT_PINK,
+		Color.GOLD,
+		Color.WHITE
+	]
+
+	for i in range(star_offsets.size()):
+		var star = Label.new()
+		star.text = "✦"
+		star.add_theme_font_size_override("font_size", 20)
+		star.modulate = star_colors[i]
+		star.position = Vector2.ZERO
+		star.size = Vector2(24, 24)
+		star.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		star.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+
+		ball.add_child(star)
+
+		var tween = create_tween()
+		tween.set_parallel(true)
+
+		tween.tween_property(
+			star,
+			"position",
+			star_offsets[i],
+			0.4
+		).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+		tween.tween_property(
+			star,
+			"modulate:a",
+			0.0,
+			0.4
+		)
+
+		tween.tween_property(
+			star,
+			"scale",
+			Vector2.ZERO,
+			0.4
+		)
+
+		tween.chain().tween_callback(star.queue_free)

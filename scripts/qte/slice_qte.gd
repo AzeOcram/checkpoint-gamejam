@@ -11,6 +11,9 @@ class_name SlicePaperQTE
 @onready var feedback_label: Label = $Overlay/FeedbackLabel
 
 @onready var paper: Node2D = $Paper
+@onready var paper_sprite: Sprite2D = $Paper/PaperSprite
+@onready var paper_sprite_success: Sprite2D = $Paper/PaperSprite2
+@onready var paper_sprite_fail: Sprite2D = $Paper/PaperSprite3
 
 
 # How far away from the path the player is allowed to cut.
@@ -35,6 +38,8 @@ var current_y: float = PATH_TOP
 
 func _ready() -> void:
 	_setup_cut_path()
+	paper_sprite_fail.visible = false
+	paper_sprite_success.visible = false
 
 	if qte_data != null:
 		start(qte_data)
@@ -107,7 +112,7 @@ func _apply_data() -> void:
 
 
 func _update_timer() -> void:
-	timer_label.text = "TIME: %.1f" % time_remaining
+	timer_label.text = "%.1f" % time_remaining
 
 
 func _setup_cut_path() -> void:
@@ -218,8 +223,14 @@ func _finish(result: QTEData.Result) -> void:
 
 	if result == QTEData.Result.SUCCESS:
 		feedback_label.text = "SUCCESS!"
+		feedback_label.modulate = Color.GREEN
+		paper_sprite.visible = false
+		paper_sprite_success.visible = true
 	else:
 		feedback_label.text = "FAILURE!"
+		feedback_label.modulate = Color.RED
+		paper_sprite.visible = false
+		paper_sprite_fail.visible = true
 
 	feedback_label.visible = true
 

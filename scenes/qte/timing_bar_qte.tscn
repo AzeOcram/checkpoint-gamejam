@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://jql62svbk3n2"]
 
 [ext_resource type="Script" uid="uid://cc6bkcajopw0f" path="res://scripts/qte/timing_bar_qte.gd" id="1_dlhe3"]
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_wa0bk"]
+[ext_resource type="Texture2D" uid="uid://6mpcr48y80b8" path="res://assets/art/qte/TIMING BAR RED.PNG" id="2_cdlsq"]
 [ext_resource type="Texture2D" uid="uid://codjmn6infgge" path="res://assets/art/qte/Basketball Ring.PNG" id="2_w3lpp"]
+[ext_resource type="Texture2D" uid="uid://bfu5oy1ww4pre" path="res://assets/art/qte/Ball.PNG" id="5_g3i7e"]
 
 [node name="timing_bar_qte" type="Control" unique_id=251787064]
 layout_mode = 3
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wa0bk")
 script = ExtResource("1_dlhe3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1861599494]
@@ -19,23 +23,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6078401, 0.16600919, 0, 0.69411767)
+color = Color(0.016728854, 0.3955728, 0.39715683, 1)
 
-[node name="BackgroundBar" type="ColorRect" parent="." unique_id=215864751]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=315142430]
+position = Vector2(168, 75)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_w3lpp")
+
+[node name="BackgroundBar" type="TextureRect" parent="." unique_id=978975213]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.907166
-offset_top = -85.0
-offset_right = 45.621536
-offset_bottom = -54.971992
+offset_left = 26.0
+offset_top = -91.0
+offset_right = 206.0
+offset_bottom = 229.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5707964
-color = Color(0.9358438, 0.09241632, 0, 1)
+texture = ExtResource("2_cdlsq")
+stretch_mode = 5
 
 [node name="SuccessZone" type="ColorRect" parent="BackgroundBar" unique_id=332318068]
 layout_mode = 1
@@ -44,12 +54,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -30.0
-offset_right = 25.0
+offset_left = -17.872696
+offset_top = -165.7495
+offset_right = 23.598724
+offset_bottom = -154.33951
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.45882353, 1, 0, 1)
+color = Color(0.47843137, 0.83137256, 0.17254902, 1)
 
 [node name="Indicator" type="ColorRect" parent="BackgroundBar" unique_id=683107327]
 layout_mode = 1
@@ -59,36 +70,50 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -2.5
-offset_top = -15.0
+offset_top = -5.8584747
 offset_right = 2.5
-offset_bottom = 15.0
+offset_bottom = 5.590454
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9411765, 0.89411765, 0, 1)
 
 [node name="FeedbackLabel" type="Label" parent="." unique_id=2143703082]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 49.0
-offset_right = 170.0
-offset_bottom = 72.0
+offset_left = 141.0
+offset_top = 125.0
+offset_right = 201.0
+offset_bottom = 148.0
+text = "SUCCESS"
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1114274092]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -23.0
+offset_top = 5.0
+offset_right = 44.0
+offset_bottom = 28.0
 grow_horizontal = 2
+text = "PE CLASS"
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=573604753]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 110.0
+offset_right = 297.0
+offset_bottom = 121.0
+text = "Press when indicator is in green!"
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1143024250]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 285.0
+offset_top = 5.0
+offset_right = 325.0
+offset_bottom = 28.0
+text = "3.00"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=315142430]
-position = Vector2(168, 75)
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1149234333]
+position = Vector2(172, 159)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_w3lpp")
+texture = ExtResource("5_g3i7e")
