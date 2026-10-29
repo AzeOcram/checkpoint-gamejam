@@ -1,3 +1,4 @@
+
 extends BaseQTE
 class_name TrashQTE
 
@@ -10,11 +11,12 @@ class_name TrashQTE
 
 
 # Placeholder sprite until real trash art exists.
-const TRASH_TEXTURE: Texture2D = preload("res://icon.svg")
+const TRASH_TEXTURE1: Texture2D = preload("res://assets/art/qte/Trash 1.PNG")
+const TRASH_TEXTURE2: Texture2D = preload("res://assets/art/qte/Trash 2.png")
 
 const MIN_TRASH_COUNT: int = 10
 const MAX_TRASH_COUNT: int = 20
-const TRASH_SCALE: float = 0.15
+const TRASH_SCALE: float = 1
 
 # Spawn area, kept clear of the labels at the top.
 const SPAWN_AREA: Rect2 = Rect2(10, 40, 280, 110)
@@ -51,7 +53,7 @@ func _update_timer() -> void:
 
 
 func _spawn_trash() -> void:
-	var item_size: Vector2 = TRASH_TEXTURE.get_size() * TRASH_SCALE
+	var item_size: Vector2 = TRASH_TEXTURE1.get_size() * TRASH_SCALE
 	var placed: Array[Rect2] = []
 
 	trash_left = randi_range(MIN_TRASH_COUNT, MAX_TRASH_COUNT)
@@ -71,11 +73,15 @@ func _spawn_trash() -> void:
 
 		placed.append(rect)
 
+		# Randomly choose a texture for each trash item.
+		var trash_texture: Texture2D = [TRASH_TEXTURE1, TRASH_TEXTURE2].pick_random()
+
 		var trash := TextureButton.new()
-		trash.texture_normal = TRASH_TEXTURE
+		trash.texture_normal = trash_texture
 		trash.scale = Vector2.ONE * TRASH_SCALE
+
 		# Rotate around the sprite's center so it stays inside its spawn rect.
-		trash.pivot_offset = TRASH_TEXTURE.get_size() / 2.0
+		trash.pivot_offset = trash_texture.get_size() / 2.0
 		trash.rotation = randf_range(0.0, TAU)
 		trash.position = rect.get_center() - trash.pivot_offset
 		trash.pressed.connect(_on_trash_pressed.bind(trash))
@@ -100,7 +106,13 @@ func _finish(result: QTEData.Result) -> void:
 	is_finished = true
 	set_process(false)
 
-	feedback_label.text = "SUCCESS!" if result == QTEData.Result.SUCCESS else "FAILURE!"
+	if result == QTEData.Result.SUCCESS:
+		feedback_label.text = "SUCCESS!"
+		feedback_label.modulate = Color.GREEN
+	else:
+		feedback_label.text = "FAILURE!"
+		feedback_label.modulate = Color.RED
+
 	feedback_label.visible = true
 
 	await get_tree().create_timer(1.0).timeout
