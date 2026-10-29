@@ -26,7 +26,6 @@ func play_time() -> float:
 
 
 func calculate_interval() -> float:
-	return 5.0 # TEMP: testing, remove to restore progress-based intervals
 
 	var progress = Player.progress_score
 

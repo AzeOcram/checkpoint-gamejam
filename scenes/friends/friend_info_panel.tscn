@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bhbvxmbgqkw14" path="res://assets/art/characters/MC Female/1.PNG" id="4_ijrra"]
 [ext_resource type="Texture2D" uid="uid://dgnrkc7d7i7g1" path="res://assets/ui/ID (student stats)/Befriend.PNG" id="5_2btxi"]
 [ext_resource type="Texture2D" uid="uid://pp6fxjo4wyat" path="res://assets/ui/ID (student stats)/Close button.png" id="6_2btxi"]
+[ext_resource type="Texture2D" uid="uid://dhwtfskckbqbj" path="res://assets/ui/ID (student stats)/friends.PNG" id="6_7niqv"]
+[ext_resource type="Texture2D" uid="uid://c4xsyy7kxc8bw" path="res://assets/ui/ID (student stats)/Befriend Gray.PNG" id="7_nxj7q"]
 
 [node name="FriendInfoPanel" type="Control" unique_id=326827733]
 layout_mode = 3
@@ -62,7 +64,10 @@ offset_left = 85.0
 offset_top = 92.5
 offset_right = 158.5
 offset_bottom = 117.0
+toggle_mode = true
 texture_normal = ExtResource("5_2btxi")
+texture_pressed = ExtResource("6_7niqv")
+texture_disabled = ExtResource("7_nxj7q")
 stretch_mode = 5
 
 [node name="CostLabel" type="Label" parent="." unique_id=925510756]

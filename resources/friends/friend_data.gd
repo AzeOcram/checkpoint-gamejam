@@ -1,3 +1,4 @@
+
 @tool
 extends Resource
 class_name FriendData
@@ -19,8 +20,8 @@ class_name FriendData
 # Friend interaction
 @export var mood_decrease_rate: float = 1.0
 @export var connection_gain: int = 1
-@export var friend_qte_timer_min: float = 3.0
-@export var friend_qte_timer_max: float = 7.0
+@export var friend_qte_timer_min: float = 5.0
+@export var friend_qte_timer_max: float = 10.0
 
 # Friend appearance
 @export var sprite: Texture2D
@@ -29,8 +30,12 @@ class_name FriendData
 # Map
 @export var map_position_index: int = 0
 
-#QTE
+# QTE
 # Recruitment QTE
 @export var recruitment_qte_title: String = "Let's Talk"
 @export_multiline var recruitment_qte_description: String = "Will you help me?"
 @export var recruitment_qte_duration: float = 5.0
+
+# Friend QTE
+@export_multiline var friend_qte_success_text: String = "Let's talk!"
+@export_multiline var friend_qte_failure_text: String = "No!"

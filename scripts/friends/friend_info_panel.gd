@@ -47,21 +47,19 @@ func setup(friend_data: FriendData) -> void:
 	cost_label.text = str(data.recruitment_cost) + " SB"
 
 	if data.unlocked:
-		buy_button.disabled = true
+		buy_button.button_pressed = true
 	else:
-		buy_button.disabled = false
+		buy_button.button_pressed = false
 
 
 func set_buyable(can_buy: bool) -> void:
 	if data == null:
 		return
 
-	# Already recruited.
 	if data.unlocked:
-		buy_button.disabled = true
+		buy_button.button_pressed = true
 		return
 
-	# Not recruited yet.
 	buy_button.disabled = not can_buy
 
 

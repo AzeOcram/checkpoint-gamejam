@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_2lrqo"]
 [ext_resource type="Script" uid="uid://sl70sbmfpq1l" path="res://scripts/energy/energy_system.gd" id="1_piqoi"]
 [ext_resource type="Texture2D" uid="uid://la24w0afoc7q" path="res://assets/ui/icons/Energy both.PNG" id="2_mf7cw"]
-[ext_resource type="Script" path="res://scripts/main/hide_when_paused.gd" id="9_hidep"]
+[ext_resource type="Script" uid="uid://dom1py1boffe5" path="res://scripts/main/hide_when_paused.gd" id="9_hidep"]
 
 [node name="EnergySystem" type="Control" unique_id=1746223679]
 layout_mode = 3
@@ -17,10 +17,10 @@ texture = ExtResource("2_mf7cw")
 
 [node name="EnergyLabel" type="Label" parent="." unique_id=1223879756]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 6.0
-offset_right = 375.0
-offset_bottom = 36.0
+offset_left = 267.0
+offset_top = 9.0
+offset_right = 361.0
+offset_bottom = 25.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Energy: 0"

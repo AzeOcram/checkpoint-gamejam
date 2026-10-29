@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpuhcihyfrdnm"
-path="res://.godot/imported/Failed.PNG-861c1fe67ae573ee2c230e0d5ff124b4.ctex"
+uid="uid://cf2u446hbthqw"
+path="res://.godot/imported/2.PNG-ecbbf823fb35e102d8c47a673e097e62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/qte/POP UPS/Failed.PNG"
-dest_files=["res://.godot/imported/Failed.PNG-861c1fe67ae573ee2c230e0d5ff124b4.ctex"]
+source_file="res://assets/art/qte/POP UPS_cropped/chopped up choice bar/2.PNG"
+dest_files=["res://.godot/imported/2.PNG-ecbbf823fb35e102d8c47a673e097e62.ctex"]
 
 [params]
 

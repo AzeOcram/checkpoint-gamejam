@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ckuku65i6hhxb"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_7kutl"]
 [ext_resource type="Script" uid="uid://cvdtj2e63a8or" path="res://scripts/friends/friend_recruitment_qte.gd" id="1_hlhlb"]
+[ext_resource type="Texture2D" uid="uid://bsr4e8o88rwgf" path="res://assets/art/qte/POP UPS_cropped/Pop-up.png" id="3_wgtk1"]
+[ext_resource type="Texture2D" uid="uid://bp75gs6jd85rq" path="res://assets/art/qte/POP UPS_cropped/choice bar.png" id="4_wgtk1"]
 
 [node name="FriendQTE" type="Control" unique_id=1755739529]
 layout_mode = 3
@@ -9,34 +12,91 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7kutl")
 script = ExtResource("1_hlhlb")
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=2023605989]
 layout_mode = 0
 offset_right = 319.0
 offset_bottom = 180.0
+color = Color(0.71472126, 0.7097986, 0.5059248, 1)
 
-[node name="Panel" type="PanelContainer" parent="Overlay" unique_id=408415133]
+[node name="Panel" type="TextureRect" parent="Overlay" unique_id=487638344]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 105.0
+offset_top = 11.0
+offset_right = 219.0
+offset_bottom = 162.0
+texture = ExtResource("3_wgtk1")
+stretch_mode = 5
 
-[node name="Content" type="VBoxContainer" parent="Overlay/Panel" unique_id=157896935]
-layout_mode = 2
+[node name="TitleLabel" type="Label" parent="Overlay/Panel" unique_id=2100446417]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 72.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Title"
+vertical_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Overlay/Panel/Content" unique_id=2100446417]
-layout_mode = 2
+[node name="DescriptionLabel" type="Label" parent="Overlay/Panel" unique_id=1103777907]
+custom_minimum_size = Vector2(101, 0)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 22.0
+offset_right = 107.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Question"
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="DescriptionLabel" type="Label" parent="Overlay/Panel/Content" unique_id=1103777907]
-layout_mode = 2
+[node name="TimerLabel" type="Label" parent="Overlay/Panel" unique_id=720696358]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 74.0
+offset_right = 92.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "5.00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TimerLabel" type="Label" parent="Overlay/Panel/Content" unique_id=720696358]
-layout_mode = 2
+[node name="SuccessButton" type="TextureButton" parent="Overlay/Panel" unique_id=1890722927]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 96.0
+offset_right = 99.0
+offset_bottom = 115.0
+texture_normal = ExtResource("4_wgtk1")
 
-[node name="SuccessButton" type="Button" parent="Overlay/Panel/Content" unique_id=2062045707]
-layout_mode = 2
-text = "SUCCES"
+[node name="SuccessLabel" type="Label" parent="Overlay/Panel/SuccessButton" unique_id=1938890928]
+custom_minimum_size = Vector2(77, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 64.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "SUCCESS"
+autowrap_mode = 3
 
-[node name="FailButton" type="Button" parent="Overlay/Panel/Content" unique_id=1678413691]
-layout_mode = 2
-text = "FAIL"
+[node name="FailButton" type="TextureButton" parent="Overlay/Panel" unique_id=2005742361]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 116.0
+offset_right = 100.0
+offset_bottom = 135.0
+texture_normal = ExtResource("4_wgtk1")
+
+[node name="FailLabel" type="Label" parent="Overlay/Panel/FailButton" unique_id=447807198]
+custom_minimum_size = Vector2(77, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 81.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "FAILURE"
+autowrap_mode = 3
