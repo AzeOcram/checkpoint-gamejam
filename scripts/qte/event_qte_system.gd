@@ -114,6 +114,9 @@ func spawn_random_qte() -> void:
 	# Reserve the slot so the timer can't spawn a second QTE during the intro.
 	active_qte = qte_scene.instantiate()
 
+	# Freeze the main game (SB generation, taps) until the QTE ends.
+	get_tree().paused = true
+
 	var intro := QTEStartingScreen.new_screen()
 	get_tree().root.add_child(intro)
 	# Luck skips random event QTEs only; friend-request QTEs never roll.
@@ -142,7 +145,10 @@ func spawn_random_qte() -> void:
 func on_qte_finish(result: QTEData.Result) -> void:
 	print("========== EVENT QTE FINISHED ==========")
 	print("QTE result: ", result)
-	
+
+	# Unpause first: take_damage() may change scene to game over.
+	get_tree().paused = false
+
 	if result == QTEData.Result.SUCCESS:
 		# Grant energy
 		var energy_reward = lerp(20, 50, Player.progress_score)
