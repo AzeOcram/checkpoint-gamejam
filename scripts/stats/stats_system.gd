@@ -36,7 +36,7 @@ const STATS := {
 }
 
 # Each Luck point gives this chance to skip a QTE.
-const LUCK_CHANCE_PER_POINT := 0.01
+const LUCK_CHANCE_PER_POINT := 0.025
 
 var energy_system
 
