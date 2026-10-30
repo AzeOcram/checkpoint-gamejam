@@ -9,8 +9,17 @@
 script = ExtResource("1_0bn7d")
 friend_name = "Abigail Linette Castro"
 desc = "Campus Journalist"
+recruitment_cost = 300
+connection = 45
+social_battery_generation = 5
+luck = 0.05
+mood_decrease_rate = 25.0
+connection_gain = 20
+friend_qte_timer_min = 50.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_hmqyn")
 sprite2 = ExtResource("3_oa1ho")
+map_position_index = 37
 duration = null
 friend_qtes = Array[ExtResource("1_otsph")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

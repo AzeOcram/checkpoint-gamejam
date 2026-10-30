@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dmof7ki3tv4us"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_ngtij"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_yijwy"]
 [ext_resource type="Texture2D" uid="uid://bbeloy3t20yml" path="res://assets/art/characters/CLASSMATES/Dancer/IMG_2990.PNG" id="2_gyr04"]
 [ext_resource type="Texture2D" uid="uid://dtkynwy43xckt" path="res://assets/art/characters/CLASSMATES/Dancer/IMG_2991.PNG" id="3_hxqg6"]
 
@@ -8,7 +9,17 @@
 script = ExtResource("1_ngtij")
 friend_name = "Judyline Marques"
 desc = "Dancer"
+recruitment_cost = 2000
+connection = 40
+social_battery_generation = 35
+luck = 0.05
+mood_decrease_rate = 20.0
+connection_gain = 30
+friend_qte_timer_min = 40.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_gyr04")
 sprite2 = ExtResource("3_hxqg6")
-map_position_index = 22
+map_position_index = 8
+duration = null
+friend_qtes = Array[ExtResource("1_yijwy")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

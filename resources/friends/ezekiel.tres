@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://lgc34eonercr"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_76toe"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_q03h2"]
 [ext_resource type="Texture2D" uid="uid://dvfuirtc37n40" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3013.PNG" id="2_3lt8k"]
 [ext_resource type="Texture2D" uid="uid://fpgupiqgk012" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3014.PNG" id="3_q03h2"]
 
@@ -8,7 +9,17 @@
 script = ExtResource("1_76toe")
 friend_name = "Ezekiel Padilla"
 desc = "Voleyball Varsity"
+recruitment_cost = 2500
+connection = 20
+social_battery_generation = 30
+luck = 0.12
+mood_decrease_rate = 10.0
+connection_gain = 50
+friend_qte_timer_min = 40.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_3lt8k")
 sprite2 = ExtResource("3_q03h2")
 map_position_index = 14
+duration = null
+friend_qtes = Array[ExtResource("1_q03h2")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

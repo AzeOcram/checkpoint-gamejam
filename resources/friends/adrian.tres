@@ -12,5 +12,6 @@ friend_name = "Adrian Louis Llorca"
 desc = "Boys at the back"
 sprite = ExtResource("2_v34go")
 sprite2 = ExtResource("3_6giri")
-map_position_index = 1
+map_position_index = 27
+duration = null
 metadata/_custom_type_script = "uid://chluj6iek0are"

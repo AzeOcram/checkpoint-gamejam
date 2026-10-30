@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cg47jyqe8cgvp"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_3bfsn"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_4eat4"]
 [ext_resource type="Texture2D" uid="uid://cwmoyy61ik8v1" path="res://assets/art/characters/CLASSMATES/Secretary/IMG_2966.PNG" id="2_6pht2"]
 [ext_resource type="Texture2D" uid="uid://cgiomsq4v4b5r" path="res://assets/art/characters/CLASSMATES/Secretary/IMG_2967.PNG" id="3_nllig"]
 
@@ -8,7 +9,16 @@
 script = ExtResource("1_3bfsn")
 friend_name = "Mary Jane Portacio"
 desc = "The Class Secretary"
+recruitment_cost = 700
+connection = 20
+social_battery_generation = 5
+luck = 0.08
+connection_gain = 50
+friend_qte_timer_min = 70.0
+friend_qte_timer_max = 80.0
 sprite = ExtResource("2_6pht2")
 sprite2 = ExtResource("3_nllig")
-map_position_index = 29
+map_position_index = 38
+duration = null
+friend_qtes = Array[ExtResource("1_4eat4")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

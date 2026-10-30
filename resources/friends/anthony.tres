@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://qgybiibvb8s3"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_1suum"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_qvoxt"]
 [ext_resource type="Texture2D" uid="uid://74k23ixkelx7" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2961.PNG" id="2_yogbl"]
 [ext_resource type="Texture2D" uid="uid://cp614rmv2hdfc" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2962.PNG" id="3_1suum"]
@@ -8,8 +9,17 @@
 script = ExtResource("1_qvoxt")
 friend_name = "Anthony Pimentel"
 desc = "A Chess Varsity"
-social_battery_generation = 3
+recruitment_cost = 1500
+connection = 45
+social_battery_generation = 20
+luck = 0.12
+mood_decrease_rate = 15.0
+connection_gain = 20
+friend_qte_timer_min = 100.0
+friend_qte_timer_max = 120.0
 sprite = ExtResource("2_yogbl")
 sprite2 = ExtResource("3_1suum")
-map_position_index = 3
+map_position_index = 9
+duration = null
+friend_qtes = Array[ExtResource("1_1suum")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

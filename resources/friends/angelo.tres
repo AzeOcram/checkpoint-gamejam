@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b7eue0o1aaulr"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_d6ng0"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sv43k"]
 [ext_resource type="Texture2D" uid="uid://clw2605mttni8" path="res://assets/art/characters/CLASSMATES/Bully Guy/1.PNG" id="2_d02nl"]
 [ext_resource type="Texture2D" uid="uid://dmbav6ufvedy8" path="res://assets/art/characters/CLASSMATES/Bully Guy/2.PNG" id="3_d6ng0"]
@@ -8,7 +9,16 @@
 script = ExtResource("1_sv43k")
 friend_name = "Angelo Bautista"
 desc = "Bully Guy"
+recruitment_cost = 5000
+connection = 10
+social_battery_generation = 50
+mood_decrease_rate = 30.0
+connection_gain = 10
+friend_qte_timer_min = 50.0
+friend_qte_timer_max = 80.0
 sprite = ExtResource("2_d02nl")
 sprite2 = ExtResource("3_d6ng0")
-map_position_index = 2
+map_position_index = 26
+duration = null
+friend_qtes = Array[ExtResource("1_d6ng0")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

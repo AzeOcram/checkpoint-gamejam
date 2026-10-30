@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dv2ktf70kyn5o"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_1g863"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wi3c5"]
 [ext_resource type="Texture2D" uid="uid://ba47cstm0d6ep" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2963.PNG" id="2_wi3c5"]
 [ext_resource type="Texture2D" uid="uid://drr77f8menm52" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2965.PNG" id="3_eq63m"]
@@ -8,8 +9,17 @@
 script = ExtResource("1_wi3c5")
 friend_name = "Princess Thea Angeles"
 desc = "A Renowned Vlogger"
-social_battery_generation = 2
+recruitment_cost = 1000
+connection = 10
+social_battery_generation = 40
+luck = 0.03
+mood_decrease_rate = 30.0
+connection_gain = 30
+friend_qte_timer_min = 60.0
+friend_qte_timer_max = 70.0
 sprite = ExtResource("2_wi3c5")
 sprite2 = ExtResource("3_eq63m")
-map_position_index = 37
+map_position_index = 12
+duration = null
+friend_qtes = Array[ExtResource("1_1g863")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bxq0npbmosyqt"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_elae8"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_n5r15"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_80c5m"]
 [ext_resource type="Texture2D" uid="uid://nlpacd4pbd0p" path="res://assets/art/characters/CLASSMATES/Popular Kids #2/1.PNG" id="2_eyb1y"]
 [ext_resource type="Texture2D" uid="uid://dmd636uf78w2e" path="res://assets/art/characters/CLASSMATES/Popular Kids #2/2.PNG" id="3_wqh4b"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_n5r15")
 friend_name = "Mareez Ysulat"
 desc = "Popular Girl"
+recruitment_cost = 7000
+connection = 20
+social_battery_generation = 25
+luck = 0.2
+mood_decrease_rate = 35.0
+connection_gain = 20
+friend_qte_timer_min = 50.0
+friend_qte_timer_max = 70.0
 sprite = ExtResource("2_eyb1y")
 sprite2 = ExtResource("3_wqh4b")
-map_position_index = 28
+map_position_index = 17
 metadata/_custom_type_script = "uid://chluj6iek0are"

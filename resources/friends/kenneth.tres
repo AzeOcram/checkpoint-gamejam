@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cs1qvpxb6p41m"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nh5ws"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_ulbp7"]
 [ext_resource type="Texture2D" uid="uid://btun7lfde04pe" path="res://assets/art/characters/CLASSMATES/PIO/IMG_2984.PNG" id="2_obj4d"]
 [ext_resource type="Texture2D" uid="uid://cm4phcrx1nfde" path="res://assets/art/characters/CLASSMATES/PIO/IMG_2985.PNG" id="3_q1aaa"]
 
@@ -8,7 +9,17 @@
 script = ExtResource("1_nh5ws")
 friend_name = "Kenneth Salvacion"
 desc = "The Class PIO"
+recruitment_cost = 1000
+connection = 50
+social_battery_generation = 20
+luck = 0.08
+mood_decrease_rate = 15.0
+connection_gain = 15
+friend_qte_timer_min = 100.0
+friend_qte_timer_max = 120.0
 sprite = ExtResource("2_obj4d")
 sprite2 = ExtResource("3_q1aaa")
-map_position_index = 23
+map_position_index = 22
+duration = null
+friend_qtes = Array[ExtResource("1_ulbp7")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

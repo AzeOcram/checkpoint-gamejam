@@ -1,14 +1,23 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cjt8h7kauqfm0"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_aav8a"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_li6tl"]
 [ext_resource type="Texture2D" uid="uid://c8b7e1bm3afxi" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2974.PNG" id="2_oybd8"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_r36hk"]
 [ext_resource type="Texture2D" uid="uid://d031bgmmkqd4g" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2975.PNG" id="3_h00w4"]
 
 [resource]
 script = ExtResource("1_li6tl")
 friend_name = "Zei Pascual"
 desc = "Lover"
+recruitment_cost = 4000
+social_battery_generation = 60
+luck = 0.1
+mood_decrease_rate = 70.0
+connection_gain = 100
+friend_qte_timer_min = 20.0
+friend_qte_timer_max = 30.0
 sprite = ExtResource("2_oybd8")
 sprite2 = ExtResource("3_h00w4")
-map_position_index = 38
+map_position_index = 40
 metadata/_custom_type_script = "uid://chluj6iek0are"

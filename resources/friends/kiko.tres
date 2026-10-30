@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://ctejro4etk3fo"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_jqjnc"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_v31x0"]
 [ext_resource type="Texture2D" uid="uid://b7sdcurv3ujfv" path="res://assets/art/characters/CLASSMATES/Escort/IMG_2982.PNG" id="2_aobaw"]
 [ext_resource type="Texture2D" uid="uid://bk006tovlf0ef" path="res://assets/art/characters/CLASSMATES/Escort/IMG_2983.PNG" id="3_jqjnc"]
@@ -8,7 +9,17 @@
 script = ExtResource("1_v31x0")
 friend_name = "Kiko Buenaventura"
 desc = "Escort"
+recruitment_cost = 1500
+connection = 10
+social_battery_generation = 20
+luck = 0.08
+mood_decrease_rate = 20.0
+connection_gain = 50
+friend_qte_timer_min = 100.0
+friend_qte_timer_max = 120.0
 sprite = ExtResource("2_aobaw")
 sprite2 = ExtResource("3_jqjnc")
-map_position_index = 25
+map_position_index = 45
+duration = null
+friend_qtes = Array[ExtResource("1_jqjnc")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

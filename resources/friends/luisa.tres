@@ -1,14 +1,24 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cgor7sehn5h42"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_l1ad8"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wv2vf"]
 [ext_resource type="Texture2D" uid="uid://cqdb6rrvtadlr" path="res://assets/art/characters/CLASSMATES/Fastest Campus Leaver/1.PNG" id="2_6vje7"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_jiffu"]
 [ext_resource type="Texture2D" uid="uid://dipkys5gb433k" path="res://assets/art/characters/CLASSMATES/Fastest Campus Leaver/2.PNG" id="3_oeo4i"]
 
 [resource]
 script = ExtResource("1_wv2vf")
 friend_name = "Luisa Warde"
 desc = "Fastest Campus Leaver"
+recruitment_cost = 6500
+connection = 10
+social_battery_generation = 30
+luck = 0.07
+mood_decrease_rate = 5.0
+connection_gain = 15
+friend_qte_timer_min = 150.0
+friend_qte_timer_max = 170.0
 sprite = ExtResource("2_6vje7")
 sprite2 = ExtResource("3_oeo4i")
-map_position_index = 26
+map_position_index = 1
 metadata/_custom_type_script = "uid://chluj6iek0are"

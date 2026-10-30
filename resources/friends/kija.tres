@@ -1,14 +1,24 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://uce0nwy4cdjj"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2huyd"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_4sf56"]
 [ext_resource type="Texture2D" uid="uid://cojo2hfqnpr44" path="res://assets/art/characters/CLASSMATES/Introvert Girl/1.PNG" id="2_ddv55"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_fg1u6"]
 [ext_resource type="Texture2D" uid="uid://cm77h80gpwppv" path="res://assets/art/characters/CLASSMATES/Introvert Girl/2.PNG" id="3_fgpxc"]
 
 [resource]
 script = ExtResource("1_2huyd")
 friend_name = "Kira Jacqueline Tiamzon"
 desc = "Introvert Girl"
+recruitment_cost = 900
+connection = 10
+social_battery_generation = 30
+luck = 0.07
+mood_decrease_rate = 5.0
+connection_gain = 15
+friend_qte_timer_min = 150.0
+friend_qte_timer_max = 170.0
 sprite = ExtResource("2_ddv55")
 sprite2 = ExtResource("3_fgpxc")
-map_position_index = 24
+map_position_index = 6
 metadata/_custom_type_script = "uid://chluj6iek0are"

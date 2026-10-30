@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d0gv2cpxaqqb6"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_33h5e"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_370tl"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_bxfqt"]
 [ext_resource type="Texture2D" uid="uid://bsqkbi604y76r" path="res://assets/art/characters/CLASSMATES/Nerd Girl/1.PNG" id="2_qaf2e"]
 [ext_resource type="Texture2D" uid="uid://4t4yqu5aj3q2" path="res://assets/art/characters/CLASSMATES/Nerd Girl/2.PNG" id="3_yvaqy"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_33h5e")
 friend_name = "Catherine Page Mendoza"
 desc = "Nerd Girl"
+recruitment_cost = 200
+connection = 60
+social_battery_generation = 10
+luck = 0.15
+mood_decrease_rate = 20.0
+connection_gain = 20
+friend_qte_timer_min = 120.0
+friend_qte_timer_max = 140.0
 sprite = ExtResource("2_qaf2e")
 sprite2 = ExtResource("3_yvaqy")
-map_position_index = 6
+map_position_index = 33
 metadata/_custom_type_script = "uid://chluj6iek0are"

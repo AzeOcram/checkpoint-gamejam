@@ -6,7 +6,7 @@ signal day_changed(day: int, day_name: String)
 signal game_won # Optional signal for modular listeners
 
 
-const MINUTES_PER_DAY: float = 1.5
+const MINUTES_PER_DAY: float = 1.0
 
 var current_day: int = 1
 

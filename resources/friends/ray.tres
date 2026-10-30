@@ -1,14 +1,24 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dykq2rxtc0v11"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_5bxoy"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_aoq54"]
 [ext_resource type="Texture2D" uid="uid://dow6m38uwgppr" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2976.PNG" id="2_2kkm7"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_d2rpf"]
 [ext_resource type="Texture2D" uid="uid://osja1gkjasu0" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2977.PNG" id="3_ox8mm"]
 
 [resource]
 script = ExtResource("1_aoq54")
 friend_name = "Ray Marquez Jr."
 desc = "Lover"
+recruitment_cost = 4000
+connection = 50
+social_battery_generation = 20
+luck = 0.1
+mood_decrease_rate = 10.0
+connection_gain = 50
+friend_qte_timer_min = 100.0
+friend_qte_timer_max = 120.0
 sprite = ExtResource("2_2kkm7")
 sprite2 = ExtResource("3_ox8mm")
-map_position_index = 33
+map_position_index = 41
 metadata/_custom_type_script = "uid://chluj6iek0are"

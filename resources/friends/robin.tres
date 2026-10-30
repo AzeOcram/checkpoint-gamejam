@@ -10,7 +10,7 @@
 script = ExtResource("1_r8pvq")
 friend_name = "Robin Tolentino"
 desc = "The Class President"
-recruitment_cost = 2000
+recruitment_cost = 1000
 social_battery_generation = 20
 luck = 0.05
 mood_decrease_rate = 20.0

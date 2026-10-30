@@ -10,7 +10,15 @@
 script = ExtResource("1_ne72l")
 friend_name = "Mikael dela Paz"
 desc = "Artist Girl"
+recruitment_cost = 1000
+connection = 45
+social_battery_generation = 15
+luck = 0.1
+mood_decrease_rate = 25.0
+connection_gain = 20
+friend_qte_timer_min = 80.0
+friend_qte_timer_max = 100.0
 sprite = ExtResource("2_triay")
 sprite2 = ExtResource("3_neq63")
-map_position_index = 43
+map_position_index = 16
 metadata/_custom_type_script = "uid://chluj6iek0are"

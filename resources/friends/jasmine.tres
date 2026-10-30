@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://c47hl1ir2ma"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_8cscd"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_cflt8"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_6eyuu"]
 [ext_resource type="Texture2D" uid="uid://b6hfqa2t8bict" path="res://assets/art/characters/CLASSMATES/Gamer Girl/1.PNG" id="2_wmine"]
 [ext_resource type="Texture2D" uid="uid://dmoe4vrba55mn" path="res://assets/art/characters/CLASSMATES/Gamer Girl/2.PNG" id="3_xk584"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_cflt8")
 friend_name = "Jasmine Marie Villanueva "
 desc = "Gamer Girl"
+recruitment_cost = 500
+connection = 30
+social_battery_generation = 25
+luck = 0.15
+mood_decrease_rate = 35.0
+connection_gain = 50
+friend_qte_timer_min = 40.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_wmine")
 sprite2 = ExtResource("3_xk584")
-map_position_index = 16
+map_position_index = 34
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://oovvo5bmigb2"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_aqf5u"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_l3a3v"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_rw7ad"]
 [ext_resource type="Texture2D" uid="uid://cft4bnr8w4heq" path="res://assets/art/characters/CLASSMATES/Boys at the Back #2/1.PNG" id="2_uwg7b"]
 [ext_resource type="Texture2D" uid="uid://cp87sl1w3ftbi" path="res://assets/art/characters/CLASSMATES/Boys at the Back #2/2.PNG" id="3_u7on5"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_l3a3v")
 friend_name = "Marlon Jorge Mercado "
 desc = "Boys at the back 2"
+recruitment_cost = 1500
+connection = 60
+social_battery_generation = 20
+luck = 0.06
+mood_decrease_rate = 10.0
+connection_gain = 30
+friend_qte_timer_min = 20.0
+friend_qte_timer_max = 30.0
 sprite = ExtResource("2_uwg7b")
 sprite2 = ExtResource("3_u7on5")
-map_position_index = 19
+map_position_index = 25
 metadata/_custom_type_script = "uid://chluj6iek0are"

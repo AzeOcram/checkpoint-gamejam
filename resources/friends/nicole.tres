@@ -1,14 +1,24 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://d4krblfivjrhd"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_6m24t"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_f0b53"]
 [ext_resource type="Texture2D" uid="uid://dcwbe5y2bblgh" path="res://assets/art/characters/CLASSMATES/Muse/IMG_2980.PNG" id="2_juk0n"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_t7dhl"]
 [ext_resource type="Texture2D" uid="uid://ddq4dhmj1uup1" path="res://assets/art/characters/CLASSMATES/Muse/IMG_2981.PNG" id="3_i1x28"]
 
 [resource]
 script = ExtResource("1_f0b53")
 friend_name = "Nicole Joy Santos"
 desc = "Muse"
+recruitment_cost = 4000
+connection = 40
+social_battery_generation = 40
+luck = 0.1
+mood_decrease_rate = 40.0
+connection_gain = 20
+friend_qte_timer_min = 50.0
+friend_qte_timer_max = 70.0
 sprite = ExtResource("2_juk0n")
 sprite2 = ExtResource("3_i1x28")
-map_position_index = 32
+map_position_index = 39
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://ch4jm0id2j5c3"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_r1bgl"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_svbpk"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_5tlsj"]
 [ext_resource type="Texture2D" uid="uid://bs4k0v4qqcn6o" path="res://assets/art/characters/CLASSMATES/Bully Girl/1.PNG" id="2_euvq4"]
 [ext_resource type="Texture2D" uid="uid://jciiuy1f7omh" path="res://assets/art/characters/CLASSMATES/Bully Girl/2.PNG" id="3_p1dku"]
 
@@ -8,7 +10,14 @@
 script = ExtResource("1_r1bgl")
 friend_name = "Emily Francheska Garcia"
 desc = "Bully Girl"
+recruitment_cost = 5000
+connection = 70
+luck = 0.3
+mood_decrease_rate = 30.0
+connection_gain = 20
+friend_qte_timer_min = 10.0
+friend_qte_timer_max = 20.0
 sprite = ExtResource("2_euvq4")
 sprite2 = ExtResource("3_p1dku")
-map_position_index = 12
+map_position_index = 3
 metadata/_custom_type_script = "uid://chluj6iek0are"

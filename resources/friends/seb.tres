@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b6ai04gikyj4b"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nhrg8"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_sc2v8"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_d0kjy"]
 [ext_resource type="Texture2D" uid="uid://cxau0lesamxfc" path="res://assets/art/characters/CLASSMATES/Artist Guy/1.PNG" id="2_jdajp"]
 [ext_resource type="Texture2D" uid="uid://i7h6btox4e6n" path="res://assets/art/characters/CLASSMATES/Artist Guy/2.PNG" id="3_dxxs5"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_nhrg8")
 friend_name = "Andrei Sebastian Arcega"
 desc = "Artist Guy"
+recruitment_cost = 1000
+connection = 35
+social_battery_generation = 15
+luck = 0.1
+mood_decrease_rate = 20.0
+connection_gain = 45
+friend_qte_timer_min = 60.0
+friend_qte_timer_max = 100.0
 sprite = ExtResource("2_jdajp")
 sprite2 = ExtResource("3_dxxs5")
-map_position_index = 36
+map_position_index = 13
 metadata/_custom_type_script = "uid://chluj6iek0are"

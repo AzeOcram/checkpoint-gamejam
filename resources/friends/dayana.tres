@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://c1wevfv7rc7ln"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_e356n"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_whua6"]
 [ext_resource type="Texture2D" uid="uid://77jnu5h37jwk" path="res://assets/art/characters/CLASSMATES/Vice President/IMG_2970.PNG" id="2_n731d"]
 [ext_resource type="Texture2D" uid="uid://cedj7hfidgkno" path="res://assets/art/characters/CLASSMATES/Vice President/IMG_2971.PNG" id="3_e356n"]
@@ -8,12 +9,17 @@
 script = ExtResource("1_whua6")
 friend_name = "Dayana Florez"
 desc = "The Class VP"
+recruitment_cost = 150
+connection = 60
+social_battery_generation = 3
+luck = 0.03
+mood_decrease_rate = 10.0
+connection_gain = 60
+friend_qte_timer_min = 80.0
+friend_qte_timer_max = 90.0
 sprite = ExtResource("2_n731d")
 sprite2 = ExtResource("3_e356n")
-map_position_index = 9
-recruitment_question = null
-recruitment_success_label = null
-recruitment_failure_label = null
-recruitment_success_feedback = null
-recruitment_failure_feedback = null
+map_position_index = 11
+duration = null
+friend_qtes = Array[ExtResource("1_e356n")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

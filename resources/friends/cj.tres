@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://b3t3rsyh5uw0j"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jeaxe"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_vbki8"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_cvbm0"]
 [ext_resource type="Texture2D" uid="uid://tgw7ahilr4o2" path="res://assets/art/characters/CLASSMATES/Gamer Guy/1.PNG" id="2_yi5at"]
 [ext_resource type="Texture2D" uid="uid://tbmesqv6ikfc" path="res://assets/art/characters/CLASSMATES/Gamer Guy/2.PNG" id="3_akrxw"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_jeaxe")
 friend_name = "Christian James Lunario"
 desc = "Gamer Guy"
+recruitment_cost = 800
+connection = 50
+social_battery_generation = 25
+luck = 0.12
+mood_decrease_rate = 20.0
+connection_gain = 50
+friend_qte_timer_min = 40.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_yi5at")
 sprite2 = ExtResource("3_akrxw")
-map_position_index = 8
+map_position_index = 21
 metadata/_custom_type_script = "uid://chluj6iek0are"

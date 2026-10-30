@@ -1,14 +1,24 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dplvgbqoj74qn"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jrs5p"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_oqy56"]
 [ext_resource type="Texture2D" uid="uid://c25b4vpfc2hhn" path="res://assets/art/characters/CLASSMATES/Popular Kids #1/1.PNG" id="2_8c70f"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_xv73b"]
 [ext_resource type="Texture2D" uid="uid://dxly4cpu77t1a" path="res://assets/art/characters/CLASSMATES/Popular Kids #1/2.PNG" id="3_8y35r"]
 
 [resource]
 script = ExtResource("1_jrs5p")
 friend_name = "Ashley Corrine Sanchez"
 desc = "Popular Kid"
+recruitment_cost = 5000
+connection = 20
+social_battery_generation = 20
+luck = 0.2
+mood_decrease_rate = 40.0
+connection_gain = 20
+friend_qte_timer_min = 50.0
+friend_qte_timer_max = 70.0
 sprite = ExtResource("2_8c70f")
 sprite2 = ExtResource("3_8y35r")
-map_position_index = 4
+map_position_index = 20
 metadata/_custom_type_script = "uid://chluj6iek0are"

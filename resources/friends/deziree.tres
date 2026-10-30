@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bgum3c124mi30"]
 
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_54c71"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_y0qpp"]
 [ext_resource type="Texture2D" uid="uid://c4spleq0ps0m2" path="res://assets/art/characters/CLASSMATES/Auditor/IMG_2986.PNG" id="2_qfn75"]
 [ext_resource type="Texture2D" uid="uid://cbv3ityxok6sd" path="res://assets/art/characters/CLASSMATES/Auditor/IMG_2987.PNG" id="3_tyt0v"]
@@ -8,7 +9,17 @@
 script = ExtResource("1_y0qpp")
 friend_name = "Deziree Cariaga"
 desc = "The Auditor"
+recruitment_cost = 1000
+connection = 55
+social_battery_generation = 25
+luck = 0.05
+mood_decrease_rate = 15.0
+connection_gain = 25
+friend_qte_timer_min = 80.0
+friend_qte_timer_max = 100.0
 sprite = ExtResource("2_qfn75")
 sprite2 = ExtResource("3_tyt0v")
-map_position_index = 10
+map_position_index = 23
+duration = null
+friend_qtes = Array[ExtResource("1_54c71")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

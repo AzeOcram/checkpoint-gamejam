@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://bxbqe1m12cs71"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_bcx1g"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_mtwks"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_5ab25"]
 [ext_resource type="Texture2D" uid="uid://c3nd7rnnjeke0" path="res://assets/art/characters/CLASSMATES/Sleepyhead/1.PNG" id="2_yawj3"]
 [ext_resource type="Texture2D" uid="uid://ruldkjfr10wg" path="res://assets/art/characters/CLASSMATES/Sleepyhead/2.PNG" id="3_88nqs"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_bcx1g")
 friend_name = "Alexandrei Jann Bajado"
 desc = "Sleepyhead"
+recruitment_cost = 50
+connection = 10
+social_battery_generation = 8
+luck = 0.02
+mood_decrease_rate = 35.0
+connection_gain = 30
+friend_qte_timer_min = 110.0
+friend_qte_timer_max = 140.0
 sprite = ExtResource("2_yawj3")
 sprite2 = ExtResource("3_88nqs")
-map_position_index = 15
+map_position_index = 32
 metadata/_custom_type_script = "uid://chluj6iek0are"

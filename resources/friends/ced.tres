@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://cn3v76f5ymfx6"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jb02x"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_l1b3t"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_3apbf"]
 [ext_resource type="Texture2D" uid="uid://fn48mg0fgbmt" path="res://assets/art/characters/CLASSMATES/Basketball Varsity/1.PNG" id="2_25dva"]
 [ext_resource type="Texture2D" uid="uid://bvrb82pha6g33" path="res://assets/art/characters/CLASSMATES/Basketball Varsity/2.PNG" id="3_shmrd"]
 
@@ -8,7 +10,15 @@
 script = ExtResource("1_jb02x")
 friend_name = "Cedric Torres"
 desc = "Basketball Varsity"
+recruitment_cost = 3000
+connection = 50
+social_battery_generation = 30
+luck = 0.15
+mood_decrease_rate = 10.0
+connection_gain = 20
+friend_qte_timer_min = 40.0
+friend_qte_timer_max = 60.0
 sprite = ExtResource("2_25dva")
 sprite2 = ExtResource("3_shmrd")
-map_position_index = 7
+map_position_index = 4
 metadata/_custom_type_script = "uid://chluj6iek0are"
