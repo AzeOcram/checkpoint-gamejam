@@ -28,18 +28,9 @@ func _ready() -> void:
 func get_amount() -> int:
 	return Player.social_battery
 
-
-# Returns the player's maximum Social Battery.
-func get_max() -> int:
-	return Player.max_social_battery
-
-
 # Adds Social Battery to the player.
 func add(amount: int) -> void:
-	Player.social_battery = min(
-		Player.social_battery + amount,
-		Player.max_social_battery
-	)
+	Player.social_battery += amount
 
 	update_social_battery_ui()
 	social_battery_changed.emit()
@@ -69,8 +60,6 @@ func update_social_battery_ui() -> void:
 	social_battery_label.text = (
 		"Social Battery: "
 		+ NumberFormatter.format_number(get_amount())
-		+ "/"
-		+ NumberFormatter.format_number(get_max())
 	)
 
 # Generates Social Battery.

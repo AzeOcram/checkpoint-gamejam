@@ -55,7 +55,7 @@ func setup(friend_data: FriendData) -> void:
 	generation_label.text = "Generation: +" + str(data.social_battery_generation) + " SB/sec"
 	luck_label.text = "Luck: " + str(data.luck)
 
-	cost_label.text = str(data.recruitment_cost) + " SB"
+	cost_label.text = NumberFormatter.format_number(data.recruitment_cost) + " SB"
 
 	if data.unlocked:
 		buy_button.button_pressed = true

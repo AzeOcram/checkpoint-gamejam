@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6q2cx6jrmm2u" path="res://assets/ui/icons/Socbatt bar.png" id="2_05jmf"]
 [ext_resource type="Texture2D" uid="uid://cs44ms4qgfnvk" path="res://assets/ui/icons/Socbatt both.PNG" id="2_jrpxo"]
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="3_t650j"]
-[ext_resource type="Script" path="res://scripts/main/hide_when_paused.gd" id="9_hidep"]
+[ext_resource type="Script" uid="uid://dom1py1boffe5" path="res://scripts/main/hide_when_paused.gd" id="9_hidep"]
 
 [node name="SocialBatterySystem" type="Node" unique_id=257091885]
 script = ExtResource("1_ssfca")
@@ -15,10 +15,10 @@ texture = ExtResource("2_jrpxo")
 
 [node name="SocialBatteryLabel" type="Label" parent="." unique_id=1786502703]
 offset_left = 27.0
-offset_top = 8.0
+offset_top = 7.0
 offset_right = 219.0
-offset_bottom = 31.0
-scale = Vector2(0.25, 0.25)
+offset_bottom = 30.0
+scale = Vector2(0.3, 0.3)
 theme = ExtResource("3_t650j")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
