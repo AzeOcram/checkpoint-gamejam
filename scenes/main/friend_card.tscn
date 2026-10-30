@@ -99,4 +99,5 @@ custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme_override_styles/background = SubResource("bar_bg")
 theme_override_styles/fill = SubResource("sb_fill")
+step = 0.01
 show_percentage = false

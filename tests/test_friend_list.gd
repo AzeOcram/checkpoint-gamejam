@@ -43,10 +43,21 @@ func _initialize() -> void:
 	check(card.name_label.text == data.friend_name.get_slice(" ", 0), "card shows first name only")
 	check(card.mood_bar.value == 40, "mood bar reflects mood")
 	check(card.connection_bar.value == 25, "connection bar reflects connection")
-	check(card.sb_bar.value == 4, "SB bar reflects SB generation")
+	check(card.sb_label.text.ends_with("+4"), "SB label shows the friend's SB generation")
+
+	var battery = main.get_node("Systems/SocialBatterySystem")
+	button.pressed.emit()
+	await process_frame
+	var first: float = card.sb_bar.value
+	await create_timer(0.3).timeout
+	var second: float = card.sb_bar.value
+	check(absf(second - battery.generation_progress_bar.value) < 5.0, "SB bar follows the generation cycle")
+	check(second != first, "SB bar moves while the screen is open")
+	button.pressed.emit()
 
 	data.mood = 10
 	button.pressed.emit()
+	await process_frame
 	await process_frame
 	check(card.mood_bar.value == 10, "open screen follows live mood changes")
 

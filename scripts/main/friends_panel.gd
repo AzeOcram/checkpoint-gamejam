@@ -9,14 +9,24 @@ const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
 @onready var close_button: TextureButton = $VBoxContainer/Header/HBoxContainer/CloseButton
 
 
+const CLOSE_NORMAL_SCALE := Vector2.ONE
+const CLOSE_HOVER_SCALE := Vector2(1.3, 1.3)
+
+
 # Reference to the Recruitment System.
 @onready var recruitment_system = $"../../Systems/RecruitmentSystem"
+@onready var social_battery_system = $"../../Systems/SocialBatterySystem"
+
+
+var close_tween: Tween
 
 
 func _ready() -> void:
 	add_to_group(&"blocks_tap")
 	close_button.set_meta(&"sfx_press", &"menu_close")
 	close_button.pressed.connect(_on_close_pressed)
+	close_button.mouse_entered.connect(_scale_close_button.bind(CLOSE_HOVER_SCALE))
+	close_button.mouse_exited.connect(_scale_close_button.bind(CLOSE_NORMAL_SCALE))
 	recruitment_system.friend_recruited.connect(_on_friend_recruited)
 
 	call_deferred("update_ui")
@@ -53,8 +63,10 @@ func _process(_delta: float) -> void:
 	if not visible:
 		return
 
+	var progress: float = social_battery_system.generation_progress_bar.value
+
 	for card: FriendCard in friend_list.get_children():
-		card.refresh()
+		card.refresh(progress)
 
 
 func _on_friend_recruited(_friend: FriendNode) -> void:
@@ -63,3 +75,13 @@ func _on_friend_recruited(_friend: FriendNode) -> void:
 
 func _on_close_pressed() -> void:
 	hide()
+
+
+func _scale_close_button(target: Vector2) -> void:
+	close_button.pivot_offset = close_button.size / 2.0
+
+	if close_tween:
+		close_tween.kill()
+
+	close_tween = create_tween()
+	close_tween.tween_property(close_button, "scale", target, 0.08)
