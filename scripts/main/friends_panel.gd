@@ -11,6 +11,7 @@ extends PanelContainer
 
 
 func _ready() -> void:
+	add_to_group(&"blocks_tap")
 	recruitment_system.friend_recruited.connect(_on_friend_recruited)
 
 	call_deferred("update_ui")

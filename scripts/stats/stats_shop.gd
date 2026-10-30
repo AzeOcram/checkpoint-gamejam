@@ -43,6 +43,7 @@ var energy_system
 
 
 func _ready() -> void:
+	add_to_group(&"blocks_tap")
 	close_button.set_meta(&"sfx_press", &"menu_close")
 	for button in [energy_upgrade_button, luck_upgrade_button, hp_upgrade_button]:
 		button.set_meta(&"sfx_press", &"")
