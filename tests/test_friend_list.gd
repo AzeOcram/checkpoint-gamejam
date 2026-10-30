@@ -20,7 +20,7 @@ func _initialize() -> void:
 	var panel: PanelContainer = main.get_node("UI/FriendsPanel")
 	var button: TextureButton = main.get_node("UI/SocialCircleButton")
 	var recruitment = main.get_node("Systems/RecruitmentSystem")
-	var cards: GridContainer = panel.get_node("VBoxContainer/ScrollContainer/FriendList")
+	var cards: GridContainer = panel.get_node("Pad/VBoxContainer/ScrollContainer/FriendList")
 
 	check(not panel.visible, "friend list starts hidden")
 	button.pressed.emit()
@@ -28,7 +28,7 @@ func _initialize() -> void:
 	button.pressed.emit()
 	check(not panel.visible, "friend list button closes the screen")
 	button.pressed.emit()
-	panel.get_node("VBoxContainer/Header/HBoxContainer/CloseButton").pressed.emit()
+	panel.get_node("Pad/VBoxContainer/Header/HBoxContainer/CloseButton").pressed.emit()
 	check(not panel.visible, "close button closes the screen")
 
 	var data: FriendData = recruitment.available_friends[0]
@@ -55,6 +55,22 @@ func _initialize() -> void:
 	check(second != first, "SB bar moves while the screen is open")
 	button.pressed.emit()
 
+	var longest: FriendData = data
+	for candidate: FriendData in recruitment.available_friends:
+		if candidate.friend_name.get_slice(" ", 0).length() > longest.friend_name.get_slice(" ", 0).length():
+			longest = candidate
+	recruitment._complete_recruitment(longest)
+	button.pressed.emit()
+	await process_frame
+	await process_frame
+	var stats_x := []
+	for c: FriendCard in cards.get_children():
+		stats_x.append(c.get_node("HBoxContainer/Stats").global_position.x)
+	check(stats_x.size() == 2 and stats_x[0] == stats_x[1], "stats line up across short and long names")
+	check(cards.get_child(1).name_label.get_theme_font_size(&"font_size") < FriendCard.NAME_FONT_SIZE, "long name uses a smaller font")
+	button.pressed.emit()
+
+	card = cards.get_child(0)
 	data.mood = 10
 	button.pressed.emit()
 	await process_frame

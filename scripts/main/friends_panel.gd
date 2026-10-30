@@ -4,9 +4,9 @@ extends PanelContainer
 # Nodes
 const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
 
-@onready var friend_list: GridContainer = $VBoxContainer/ScrollContainer/FriendList
-@onready var friend_count_label: Label = $VBoxContainer/Header/HBoxContainer/FriendCountLabel
-@onready var close_button: TextureButton = $VBoxContainer/Header/HBoxContainer/CloseButton
+@onready var friend_list: GridContainer = $Pad/VBoxContainer/ScrollContainer/FriendList
+@onready var friend_count_label: Label = $Pad/VBoxContainer/Header/HBoxContainer/FriendCountLabel
+@onready var close_button: TextureButton = $Pad/VBoxContainer/Header/HBoxContainer/CloseButton
 
 
 const CLOSE_NORMAL_SCALE := Vector2.ONE

@@ -3,11 +3,20 @@
 [ext_resource type="Script" uid="uid://c5ktth8rywk88" path="res://scripts/main/friends_panel.gd" id="1_7jyo1"]
 [ext_resource type="Texture2D" uid="uid://fl4jfmie4kcc" path="res://assets/art/qte/Yellow Pad (Horizontal)/1.PNG" id="2_pad"]
 [ext_resource type="Texture2D" uid="uid://f0nobh7kped7" path="res://assets/ui/Shop UI/Close button.png" id="3_close"]
+[ext_resource type="Texture2D" uid="uid://ivdeidsjya1c" path="res://assets/art/tilemaps/clasroom.PNG" id="4_floor"]
+
+[sub_resource type="StyleBoxTexture" id="floor_style"]
+content_margin_left = 32.0
+content_margin_right = 32.0
+texture = ExtResource("4_floor")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(96, 96, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="pad_style"]
-content_margin_left = 24.0
+content_margin_left = 14.0
 content_margin_top = 14.0
-content_margin_right = 24.0
+content_margin_right = 14.0
 content_margin_bottom = 14.0
 texture = ExtResource("2_pad")
 region_rect = Rect2(41, 11, 240, 161)
@@ -25,48 +34,51 @@ border_color = Color(0.55, 0.35, 0.15, 1)
 z_index = 10
 offset_right = 320.0
 offset_bottom = 180.0
-theme_override_styles/panel = SubResource("pad_style")
+theme_override_styles/panel = SubResource("floor_style")
 script = ExtResource("1_7jyo1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
+[node name="Pad" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("pad_style")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pad" unique_id=715070115]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+[node name="Header" type="PanelContainer" parent="Pad/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("header_style")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pad/VBoxContainer/Header"]
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+[node name="TitleLabel" type="Label" parent="Pad/VBoxContainer/Header/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 10
 text = "My Friends"
 
-[node name="FriendCountLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer" unique_id=946841063]
+[node name="FriendCountLabel" type="Label" parent="Pad/VBoxContainer/Header/HBoxContainer" unique_id=946841063]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 7
 horizontal_alignment = 2
 
-[node name="CloseButton" type="TextureButton" parent="VBoxContainer/Header/HBoxContainer"]
+[node name="CloseButton" type="TextureButton" parent="Pad/VBoxContainer/Header/HBoxContainer"]
 custom_minimum_size = Vector2(34, 12)
 layout_mode = 2
 texture_normal = ExtResource("3_close")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Pad/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="FriendList" type="GridContainer" parent="VBoxContainer/ScrollContainer" unique_id=171448405]
+[node name="FriendList" type="GridContainer" parent="Pad/VBoxContainer/ScrollContainer" unique_id=171448405]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 4
-columns = 2
+columns = 1
