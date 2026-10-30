@@ -36,6 +36,9 @@ func _ready() -> void:
 		recruitment_system.friend_recruited.connect(_on_friend_recruited)
 	spawn_friends()
 
+	# Mouse picking follows tree order, not z_index: keep the panel after the friends so they can't steal its clicks.
+	move_child(friend_info_panel, -1)
+
 func _on_friend_recruited(friend_node: FriendNode) -> void:
 	var friend_data: FriendData = friend_node.data
 
