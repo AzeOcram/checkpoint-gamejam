@@ -48,10 +48,8 @@ script = ExtResource("3_hxu8e")
 
 [node name="FriendsPanel" parent="UI" unique_id=4352755 instance=ExtResource("3_yyfjg")]
 layout_mode = 0
-offset_left = 127.0
-offset_top = 11.0
-offset_right = 274.0
-offset_bottom = 51.0
+offset_right = 320.0
+offset_bottom = 180.0
 
 [node name="StatsShop" parent="UI" unique_id=475658977 instance=ExtResource("12_statshop")]
 layout_mode = 0
