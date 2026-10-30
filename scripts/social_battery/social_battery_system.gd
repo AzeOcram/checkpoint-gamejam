@@ -66,8 +66,12 @@ func can_afford(amount: int) -> bool:
 
 # Updates the Social Battery UI.
 func update_social_battery_ui() -> void:
-	social_battery_label.text = "Social Battery: " + str(get_amount()) + "/" + str(get_max())
-
+	social_battery_label.text = (
+		"Social Battery: "
+		+ NumberFormatter.format_number(get_amount())
+		+ "/"
+		+ NumberFormatter.format_number(get_max())
+	)
 
 # Generates Social Battery.
 func generate() -> void:

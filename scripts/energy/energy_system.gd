@@ -54,7 +54,7 @@ func _on_tapped(tap_position: Vector2) -> void:
 
 
 func update_energy_ui() -> void:
-	energy_label.text = "Energy: " + str(get_amount())
+	energy_label.text = "Energy: " + NumberFormatter.format_number(get_amount())
 
 
 func spawn_energy_feedback(feedback_position: Vector2) -> void:
