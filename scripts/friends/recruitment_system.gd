@@ -99,9 +99,7 @@ func _on_recruitment_qte_finished(result: QTEData.Result, friend_data: FriendDat
 		print("Not enough Social Battery to recruit ", friend_data.friend_name)
 		return
 
-	if result == QTEData.Result.SUCCESS:
-		friend_data.connection = friend_data.connection_gain
-	else:
+	if result == QTEData.Result.FAILURE:
 		friend_data.connection = 0
 
 	_complete_recruitment(friend_data)

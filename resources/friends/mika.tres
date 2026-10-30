@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://jqnq3kc6a32y"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2tdk8"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_g6d0n"]
 [ext_resource type="Texture2D" uid="uid://lwfgsa2oiu36" path="res://assets/art/characters/CLASSMATES/Kikay/1.PNG" id="2_4rvbq"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_sxkdw"]
 [ext_resource type="Texture2D" uid="uid://cqo6jcninqrmv" path="res://assets/art/characters/CLASSMATES/Kikay/2.PNG" id="3_7tpb4"]
 
 [resource]
@@ -10,5 +12,5 @@ friend_name = "Mikaela May Lopez"
 desc = "Kikay"
 sprite = ExtResource("2_4rvbq")
 sprite2 = ExtResource("3_7tpb4")
-map_position_index = 30
+map_position_index = 45
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -17,3 +17,4 @@ layout_mode = 0
 offset_left = 1.5
 offset_right = 41.5
 offset_bottom = 40.0
+ignore_texture_size = true

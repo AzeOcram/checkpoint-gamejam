@@ -53,7 +53,7 @@ func setup(friend_data: FriendData) -> void:
 	description_label.text = data.desc
 
 	generation_label.text = "Generation: +" + str(data.social_battery_generation) + " SB/sec"
-	luck_label.text = "Luck: " + str(data.luck)
+	luck_label.text = "Luck: " + str(data.luck * 100) + "%"
 
 	cost_label.text = NumberFormatter.format_number(data.recruitment_cost) + " SB"
 

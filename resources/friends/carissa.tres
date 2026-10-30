@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://dx2dedhg18ocq"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_0py30"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_cygnl"]
 [ext_resource type="Texture2D" uid="uid://du6cyq73jd0q3" path="res://assets/art/characters/CLASSMATES/National Bookstore/IMG_2988.PNG" id="2_r34xo"]
 [ext_resource type="Texture2D" uid="uid://bm4nwneewbey" path="res://assets/art/characters/CLASSMATES/National Bookstore/IMG_2989.PNG" id="3_cygnl"]
 
@@ -8,7 +9,16 @@
 script = ExtResource("1_0py30")
 friend_name = "Carissa Genevieve Alfonso"
 desc = "National Bookstore"
+connection = 20
+social_battery_generation = 2
+luck = 0.02
+mood_decrease_rate = 5.0
+connection_gain = 25
+friend_qte_timer_min = 90.0
+friend_qte_timer_max = 110.0
 sprite = ExtResource("2_r34xo")
 sprite2 = ExtResource("3_cygnl")
-map_position_index = 5
+map_position_index = 31
+duration = null
+friend_qtes = Array[ExtResource("1_cygnl")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

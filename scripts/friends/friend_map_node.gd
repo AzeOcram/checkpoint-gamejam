@@ -22,9 +22,9 @@ func setup(friend_data: FriendData) -> void:
 		return
 
 	texture_button.texture_normal = data.sprite
+	texture_button.size = data.sprite.get_size()
 
 	update_appearance()
-
 	start_animation()
 
 

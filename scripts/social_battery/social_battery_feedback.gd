@@ -1,5 +1,11 @@
 extends Sprite2D
 
+@onready var amount_label: Label = $AmountLabel
+
+
+func set_amount(amount: int) -> void:
+	amount_label.text = "+" + NumberFormatter.format_number(amount) + " SB"
+
 
 func _ready() -> void:
 	var tween := create_tween()

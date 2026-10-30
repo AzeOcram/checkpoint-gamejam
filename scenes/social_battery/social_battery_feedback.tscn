@@ -9,7 +9,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_0y06i")
 script = ExtResource("1_eorla")
 
-[node name="Label" type="Label" parent="." unique_id=1147591622]
+[node name="AmountLabel" type="Label" parent="." unique_id=1147591622]
 offset_left = 15.0
 offset_top = -7.0000005
 offset_right = 135.0

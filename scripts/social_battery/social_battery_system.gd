@@ -1,3 +1,4 @@
+
 extends Node
 
 signal social_battery_changed
@@ -8,6 +9,7 @@ const SOCIAL_BATTERY_FEEDBACK = preload("res://scenes/social_battery/social_batt
 @onready var social_battery_timer: Timer = $SocialBatteryTimer
 @onready var feedback_container: Control = $SocialBatteryFeedbackLayer/FeedbackContainer
 @onready var generation_progress_bar: TextureProgressBar = $GenerationProgressBar
+@onready var recruitment_system = get_node("../RecruitmentSystem")
 
 
 # NOTE: This is the API you will need to call for all
@@ -27,6 +29,7 @@ func _ready() -> void:
 # Returns the player's current Social Battery.
 func get_amount() -> int:
 	return Player.social_battery
+
 
 # Adds Social Battery to the player.
 func add(amount: int) -> void:
@@ -62,24 +65,37 @@ func update_social_battery_ui() -> void:
 		+ NumberFormatter.format_number(get_amount())
 	)
 
+
 # Generates Social Battery.
 func generate() -> void:
-	add(Player.social_battery_per_second)
-	spawn_social_battery_feedback()
+	var generation := get_total_generation()
+	add(generation)
+	spawn_social_battery_feedback(generation)
 	generation_progress_bar.value = 0.0
 
 
+# Gets the player's total Social Battery generation.
+func get_total_generation() -> int:
+	var total_generation := Player.social_battery_per_second
+
+	for friend in recruitment_system.friends:
+		if friend.data != null:
+			total_generation += friend.data.social_battery_generation
+
+	return total_generation
+
+
 # Spawns the +SB feedback at the right side of the progress bar.
-func spawn_social_battery_feedback() -> void:
+func spawn_social_battery_feedback(amount: int) -> void:
 	var feedback = SOCIAL_BATTERY_FEEDBACK.instantiate()
 
-	# Position the feedback at the right tip of the progress bar.
 	feedback.position = Vector2(
 		generation_progress_bar.position.x + generation_progress_bar.size.x,
 		generation_progress_bar.position.y
 	)
 
 	feedback_container.add_child(feedback)
+	feedback.set_amount(amount)
 
 
 # Updates the generation progress bar.
