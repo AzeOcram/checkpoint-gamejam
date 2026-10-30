@@ -43,6 +43,9 @@ func _initialize() -> void:
 	var card: FriendCard = cards.get_child(0)
 	check(card.name_label.text == data.friend_name.get_slice(" ", 0), "card shows first name only")
 	check(card.mood_bar.value == 40, "mood bar reflects mood")
+	check(card.mood_icon.texture == FriendCard.mood_texture(40), "mood icon reflects mood")
+	check(FriendCard.mood_texture(0) != FriendCard.mood_texture(100), "low and high mood use different icons")
+	check(FriendCard.mood_texture(24) != FriendCard.mood_texture(25), "mood icon changes at the angry threshold")
 	check(card.connection_bar.value == 25, "connection bar reflects connection")
 	check(card.sb_label.text.ends_with("+4"), "SB label shows the friend's SB generation")
 
