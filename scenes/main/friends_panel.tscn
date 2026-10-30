@@ -8,10 +8,11 @@
 [sub_resource type="StyleBoxTexture" id="floor_style"]
 content_margin_left = 32.0
 content_margin_right = 32.0
+modulate_color = Color(0.72, 0.6, 0.55, 1)
 texture = ExtResource("4_floor")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-region_rect = Rect2(96, 96, 16, 16)
+region_rect = Rect2(72, 52, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="pad_style"]
 content_margin_left = 14.0

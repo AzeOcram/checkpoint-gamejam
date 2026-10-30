@@ -9,6 +9,7 @@ const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
 @onready var close_button: TextureButton = $Pad/VBoxContainer/Header/HBoxContainer/CloseButton
 
 
+const MAX_FRIENDS := 39
 const CLOSE_NORMAL_SCALE := Vector2.ONE
 const CLOSE_HOVER_SCALE := Vector2(1.3, 1.3)
 
@@ -39,9 +40,8 @@ func update_ui() -> void:
 
 func update_friend_count() -> void:
 	var current: int = recruitment_system.friends.size()
-	var total: int = recruitment_system.available_friends.size() + current
 
-	friend_count_label.text = "Friends: " + str(current) + " / " + str(total)
+	friend_count_label.text = "Friends: " + str(current) + "/" + str(MAX_FRIENDS)
 
 
 func update_friend_list() -> void:

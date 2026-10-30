@@ -39,6 +39,7 @@ func _initialize() -> void:
 	await process_frame
 
 	check(cards.get_child_count() == 1, "recruiting adds one friend card")
+	check(panel.friend_count_label.text == "Friends: 1/39", "header shows recruited friends out of 39")
 	var card: FriendCard = cards.get_child(0)
 	check(card.name_label.text == data.friend_name.get_slice(" ", 0), "card shows first name only")
 	check(card.mood_bar.value == 40, "mood bar reflects mood")
