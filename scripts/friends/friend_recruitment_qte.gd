@@ -1,13 +1,13 @@
 extends FriendQTE
 class_name FriendRecruitmentQTE
 
+func start(data: QTEData) -> void:
+	friend_qte_data = FriendQTEData.new()
 
-func start_recruitment(data: FriendData) -> void:
-	friend_data = null
+	friend_qte_data.question = friend_data.recruitment_question
+	friend_qte_data.success_label = friend_data.recruitment_success_label
+	friend_qte_data.failure_label = friend_data.recruitment_failure_label
+	friend_qte_data.success_feedback = friend_data.recruitment_success_feedback
+	friend_qte_data.failure_feedback = friend_data.recruitment_failure_feedback
 
-	var qte_data := QTEData.new()
-	qte_data.title = data.recruitment_qte_title
-	qte_data.description = data.recruitment_question
-	qte_data.duration = data.recruitment_qte_duration
-
-	start(qte_data)
+	super.start(data)

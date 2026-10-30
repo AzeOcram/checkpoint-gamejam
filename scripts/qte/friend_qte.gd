@@ -57,9 +57,10 @@ func start(data: QTEData) -> void:
 
 		time_remaining = randf_range(min_time, max_time)
 
-		if not friend_data.friend_qtes.is_empty():
+		if friend_qte_data == null and not friend_data.friend_qtes.is_empty():
 			friend_qte_data = friend_data.friend_qtes.pick_random()
 
+		if friend_qte_data != null:
 			description_label.text = friend_qte_data.question
 			success_label.text = friend_qte_data.success_label
 			failure_label.text = friend_qte_data.failure_label

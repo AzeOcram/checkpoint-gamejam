@@ -8,6 +8,7 @@ signal qte_finished
 
 
 @onready var qte_queue_manager: QTEQueueManager = get_node("../QTEQueueManager")
+@onready var recruitment_system = $"../RecruitmentSystem"
 
 
 func _on_friend_request_qte(friend_node: FriendNode) -> void:
@@ -31,6 +32,31 @@ func _on_friend_request_qte(friend_node: FriendNode) -> void:
 	)
 
 
+# Permanently reduces other friends' QTE timers.
+func apply_friend_crisis(crisis_friend: FriendData) -> void:
+	for friend_node in recruitment_system.friends:
+		if not is_instance_valid(friend_node):
+			continue
+
+		var friend_data: FriendData = friend_node.data
+
+		# Exclude the friend who triggered the crisis.
+		if friend_data == crisis_friend:
+			continue
+
+		friend_data.friend_qte_timer_min = maxf(
+			0.0,
+			friend_data.friend_qte_timer_min - 5.0
+		)
+
+		friend_data.friend_qte_timer_max = maxf(
+			0.0,
+			friend_data.friend_qte_timer_max - 5.0
+		)
+
+	print("FRIEND CRISIS! Other friends' timers permanently reduced by 5 seconds.")
+
+
 func _on_qte_finished(
 	result: QTEData.Result,
 	friend_node: FriendNode
@@ -52,6 +78,9 @@ func _on_qte_finished(
 		print(friend_node.data.friend_name, " QTE SUCCESS!")
 
 	else:
+		# Remember the mood before applying the penalty.
+		var previous_mood: int = friend_node.data.mood
+
 		friend_node.data.mood = max(
 			friend_node.data.mood - friend_node.data.mood_decrease_rate,
 			0
@@ -63,6 +92,11 @@ func _on_qte_finished(
 		)
 
 		print(friend_node.data.friend_name, " QTE FAILED!")
+
+		# Trigger a crisis whenever mood newly reaches zero.
+		if previous_mood > 0 and friend_node.data.mood == 0:
+			print(friend_node.data.friend_name, " triggered a FRIEND CRISIS!")
+			apply_friend_crisis(friend_node.data)
 
 	friend_node.resume_monitoring()
 	qte_finished.emit()
