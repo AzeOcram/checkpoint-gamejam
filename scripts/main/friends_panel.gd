@@ -2,7 +2,9 @@ extends PanelContainer
 
 
 # Nodes
-@onready var friend_list: VBoxContainer = $VBoxContainer/FriendList
+const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
+
+@onready var friend_list: VBoxContainer = $VBoxContainer/ScrollContainer/FriendList
 @onready var friend_count_label: Label = $VBoxContainer/FriendCountLabel
 
 
@@ -38,17 +40,18 @@ func update_friend_list() -> void:
 
 
 func add_friend_to_list(friend: FriendNode) -> void:
-	var label := Label.new()
+	var card: FriendCard = FRIEND_CARD_SCENE.instantiate()
 
-	label.text = (
-		friend.data.friend_name
-		+ " | Mood: " + str(friend.data.mood)
-		+ " | Connection: " + str(friend.data.connection)
-		+ " | +" + str(friend.data.social_battery_generation)
-		+ " SB/sec"
-	)
+	friend_list.add_child(card)
+	card.setup(friend.data)
 
-	friend_list.add_child(label)
+
+func _process(_delta: float) -> void:
+	if not visible:
+		return
+
+	for card: FriendCard in friend_list.get_children():
+		card.refresh()
 
 
 func _on_friend_recruited(_friend: FriendNode) -> void:

@@ -2,17 +2,39 @@
 
 [ext_resource type="Script" uid="uid://c5ktth8rywk88" path="res://scripts/main/friends_panel.gd" id="1_7jyo1"]
 
+[sub_resource type="StyleBoxFlat" id="notepad_style"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.98, 0.85, 0.6, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.5, 0.2, 1)
+
 [node name="FriendsPanel" type="PanelContainer" unique_id=4352755]
-offset_right = 147.0
-offset_bottom = 40.0
-scale = Vector2(0.4, 0.4)
+custom_minimum_size = Vector2(150, 98)
+offset_right = 150.0
+offset_bottom = 98.0
+theme_override_styles/panel = SubResource("notepad_style")
 script = ExtResource("1_7jyo1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
 layout_mode = 2
 
-[node name="FriendList" type="VBoxContainer" parent="VBoxContainer" unique_id=171448405]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="FriendList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=171448405]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
 
 [node name="FriendCountLabel" type="Label" parent="VBoxContainer" unique_id=946841063]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_font_sizes/font_size = 6
