@@ -11,12 +11,13 @@
 
 [node name="FriendInfoPanel" type="Control" unique_id=326827733]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.994
+offset_right = 138.57141
+offset_bottom = 76.794266
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 theme = ExtResource("1_xasgu")
 script = ExtResource("1_qbpyn")
 
@@ -32,21 +33,25 @@ texture = ExtResource("4_ijrra")
 
 [node name="InfoContainer" type="VBoxContainer" parent="." unique_id=1955484714]
 layout_mode = 0
-offset_left = 82.5
-offset_top = 17.5
-offset_right = 163.5
-offset_bottom = 197.5
-scale = Vector2(0.7, 0.7)
+offset_left = 81.42857
+offset_top = 17.142857
+offset_right = 181.42857
+offset_bottom = 197.14285
+scale = Vector2(0.6, 0.6)
 
 [node name="NameLabel" type="Label" parent="InfoContainer" unique_id=108622647]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Name"
+autowrap_mode = 2
 
 [node name="DescriptionLabel" type="Label" parent="InfoContainer" unique_id=408959326]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Description"
+autowrap_mode = 3
 
 [node name="GenerationLabel" type="Label" parent="InfoContainer" unique_id=43887772]
 layout_mode = 2

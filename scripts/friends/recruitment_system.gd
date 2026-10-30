@@ -32,13 +32,26 @@ func load_friend_data() -> void:
 		push_error("Could not open friends resource folder.")
 		return
 
-	for file_name in directory.get_files():
+	var files = directory.get_files()
+
+	print("========== FRIEND DATA DIAGNOSTICS ==========")
+	print("Total files found: ", files.size())
+
+	for file_name in files:
 		if file_name.ends_with(".tres"):
-			var friend_data = load("res://resources/friends/" + file_name) as FriendData
+			var path = "res://resources/friends/" + file_name
+			var resource = load(path)
 
-			if friend_data != null:
-				available_friends.append(friend_data)
+			if resource == null:
+				print("[FAILED TO LOAD] ", file_name)
+			elif resource is FriendData:
+				available_friends.append(resource)
+				print("[LOADED] ", resource.friend_name)
+			else:
+				print("[WRONG RESOURCE TYPE] ", file_name, " | ", resource.get_class())
 
+	print("=============================================")
+	print("Total .tres loaded: ", available_friends.size())
 
 func can_recruit(friend_data: FriendData) -> bool:
 	if friend_data == null:

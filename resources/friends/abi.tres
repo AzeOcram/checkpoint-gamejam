@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_0bn7d"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_otsph"]
 [ext_resource type="Texture2D" uid="uid://dtm3fihwjwpe1" path="res://assets/art/characters/CLASSMATES/Campus Journalist/1.PNG" id="2_hmqyn"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_ul0wc"]
 [ext_resource type="Texture2D" uid="uid://6v3ggkmkr43l" path="res://assets/art/characters/CLASSMATES/Campus Journalist/2.PNG" id="3_oa1ho"]
 
 [resource]
@@ -12,4 +11,6 @@ friend_name = "Abigail Linette Castro"
 desc = "Campus Journalist"
 sprite = ExtResource("2_hmqyn")
 sprite2 = ExtResource("3_oa1ho")
+duration = null
+friend_qtes = Array[ExtResource("1_otsph")]([])
 metadata/_custom_type_script = "uid://chluj6iek0are"

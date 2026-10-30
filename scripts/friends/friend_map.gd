@@ -26,16 +26,11 @@ var selected_friend: FriendMapNode = null
 
 func _ready() -> void:
 	friend_info_panel.buy_requested.connect(_on_buy_friend_requested)
+	print("FRIEND MAP PANEL RECT: ", friend_info_panel.get_global_rect())
 	# Update the BUY button whenever Social Battery changes.
 	if social_battery_system:
 		social_battery_system.social_battery_changed.connect(_on_social_battery_changed)
 
-	var panel_size := Vector2(300, 250)
-	friend_info_panel.set_deferred("size", panel_size)
-	friend_info_panel.position = Vector2(
-		(get_viewport_rect().size.x - panel_size.x) / 2.0,
-		20
-	)
 	friend_info_panel.z_index = 100
 	if recruitment_system:
 		recruitment_system.friend_recruited.connect(_on_friend_recruited)

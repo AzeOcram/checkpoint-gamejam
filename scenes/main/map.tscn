@@ -395,7 +395,7 @@ script = ExtResource("3_av8ma")
 friend_collection = ExtResource("4_diq8l")
 
 [node name="FriendInfoPanel" parent="FriendMap" unique_id=109858626 instance=ExtResource("5_nbn0q")]
-offset_left = 119.999985
-offset_top = 62.999992
-offset_right = 157.99998
-offset_bottom = 175.0
+offset_left = 92.0
+offset_top = 42.0
+offset_right = 302.0
+offset_bottom = 163.42856

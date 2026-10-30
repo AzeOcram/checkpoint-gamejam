@@ -21,8 +21,16 @@ var data: FriendData
 
 
 func _ready() -> void:
+	print("PANEL RECT: ", get_global_rect())
+	print("PANEL SIZE: ", size)
+	print("BUY RECT: ", buy_button.get_global_rect())
+	print("BUY POSITION: ", buy_button.position)
+	print("BUY SIZE: ", buy_button.size)
 	add_to_group(&"blocks_tap")
 	hide()
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	buy_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	close_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	default_disabled_texture = buy_button.texture_disabled
 
@@ -70,6 +78,8 @@ func set_buyable(can_buy: bool) -> void:
 	buy_button.disabled = not can_buy
 
 func _on_buy_pressed() -> void:
+	print("========== BEFRIEND BUTTON CLICKED ==========")
+
 	if data == null:
 		return
 
