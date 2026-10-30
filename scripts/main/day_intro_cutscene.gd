@@ -8,6 +8,9 @@ class_name DayIntroCutscene
 
 
 func _ready() -> void:
+	# The CanvasLayer never hides; the black screen does when the intro ends.
+	black_screen.add_to_group(&"blocks_tap")
+
 	# Initial camera close-up
 	camera.zoom = Vector2(3.0, 3.0)
 	
