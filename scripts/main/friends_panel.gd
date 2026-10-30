@@ -4,8 +4,9 @@ extends PanelContainer
 # Nodes
 const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
 
-@onready var friend_list: VBoxContainer = $VBoxContainer/ScrollContainer/FriendList
-@onready var friend_count_label: Label = $VBoxContainer/FriendCountLabel
+@onready var friend_list: GridContainer = $VBoxContainer/ScrollContainer/FriendList
+@onready var friend_count_label: Label = $VBoxContainer/Header/HBoxContainer/FriendCountLabel
+@onready var close_button: TextureButton = $VBoxContainer/Header/HBoxContainer/CloseButton
 
 
 # Reference to the Recruitment System.
@@ -14,6 +15,8 @@ const FRIEND_CARD_SCENE := preload("res://scenes/main/friend_card.tscn")
 
 func _ready() -> void:
 	add_to_group(&"blocks_tap")
+	close_button.set_meta(&"sfx_press", &"menu_close")
+	close_button.pressed.connect(_on_close_pressed)
 	recruitment_system.friend_recruited.connect(_on_friend_recruited)
 
 	call_deferred("update_ui")

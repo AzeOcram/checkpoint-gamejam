@@ -20,13 +20,16 @@ func _initialize() -> void:
 	var panel: PanelContainer = main.get_node("UI/FriendsPanel")
 	var button: TextureButton = main.get_node("UI/SocialCircleButton")
 	var recruitment = main.get_node("Systems/RecruitmentSystem")
-	var cards: VBoxContainer = panel.get_node("VBoxContainer/ScrollContainer/FriendList")
+	var cards: GridContainer = panel.get_node("VBoxContainer/ScrollContainer/FriendList")
 
 	check(not panel.visible, "friend list starts hidden")
 	button.pressed.emit()
 	check(panel.visible, "friend list button opens the screen")
 	button.pressed.emit()
 	check(not panel.visible, "friend list button closes the screen")
+	button.pressed.emit()
+	panel.get_node("VBoxContainer/Header/HBoxContainer/CloseButton").pressed.emit()
+	check(not panel.visible, "close button closes the screen")
 
 	var data: FriendData = recruitment.available_friends[0]
 	data.mood = 40

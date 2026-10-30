@@ -1,40 +1,71 @@
 [gd_scene format=3 uid="uid://bs6y4k30lyphl"]
 
 [ext_resource type="Script" uid="uid://c5ktth8rywk88" path="res://scripts/main/friends_panel.gd" id="1_7jyo1"]
+[ext_resource type="Texture2D" uid="uid://fl4jfmie4kcc" path="res://assets/art/qte/Yellow Pad (Horizontal)/1.PNG" id="2_pad"]
+[ext_resource type="Texture2D" uid="uid://f0nobh7kped7" path="res://assets/ui/Shop UI/Close button.png" id="3_close"]
 
-[sub_resource type="StyleBoxFlat" id="notepad_style"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.98, 0.85, 0.6, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.85, 0.5, 0.2, 1)
+[sub_resource type="StyleBoxTexture" id="pad_style"]
+content_margin_left = 42.0
+content_margin_top = 36.0
+content_margin_right = 42.0
+content_margin_bottom = 20.0
+texture = ExtResource("2_pad")
+region_rect = Rect2(41, 11, 240, 161)
+
+[sub_resource type="StyleBoxFlat" id="header_style"]
+content_margin_left = 4.0
+content_margin_top = 1.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(0.93, 0.8, 0.55, 1)
+border_width_bottom = 1
+border_color = Color(0.55, 0.35, 0.15, 1)
 
 [node name="FriendsPanel" type="PanelContainer" unique_id=4352755]
-custom_minimum_size = Vector2(150, 98)
-offset_right = 150.0
-offset_bottom = 98.0
-theme_override_styles/panel = SubResource("notepad_style")
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("pad_style")
 script = ExtResource("1_7jyo1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715070115]
 layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("header_style")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_font_sizes/font_size = 10
+text = "My Friends"
+
+[node name="FriendCountLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer" unique_id=946841063]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 2
+
+[node name="CloseButton" type="TextureButton" parent="VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(34, 12)
+layout_mode = 2
+texture_normal = ExtResource("3_close")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="FriendList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=171448405]
+[node name="FriendList" type="GridContainer" parent="VBoxContainer/ScrollContainer" unique_id=171448405]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 3
-
-[node name="FriendCountLabel" type="Label" parent="VBoxContainer" unique_id=946841063]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
-theme_override_font_sizes/font_size = 6
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+columns = 2
