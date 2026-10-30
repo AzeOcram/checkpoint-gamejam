@@ -1,45 +1,75 @@
+
 extends BaseQTE
 class_name FriendQTE
 
-@onready var title_label: Label = $Overlay/Panel/TitleLabel
-@onready var description_label: Label = $Overlay/Panel/DescriptionLabel
-@onready var timer_label: Label = $Overlay/Panel/TimerLabel
+@onready var description_label: Label = $Overlay/DescriptionLabel
+@onready var timer_label: Label = $Overlay/TimerLabel
 
-@onready var success_button: BaseButton = $Overlay/Panel/SuccessButton
-@onready var failure_button: BaseButton = $Overlay/Panel/FailButton
+@onready var success_button: BaseButton = $Overlay/SuccessButton
+@onready var failure_button: BaseButton = $Overlay/FailButton
 
-@onready var success_label: Label = $Overlay/Panel/SuccessButton/SuccessLabel
-@onready var failure_label: Label = $Overlay/Panel/FailButton/FailLabel
+@onready var success_label: Label = $Overlay/SuccessButton/SuccessLabel
+@onready var failure_label: Label = $Overlay/FailButton/FailLabel
+
+@onready var feedback_label: Label = $Overlay/FeedbackLabel
+@onready var friend_sprite: Sprite2D = $Sprite2D
 
 var friend_data: FriendData
+var friend_qte_data: FriendQTEData
+
 var success_button_position: Vector2
 var failure_button_position: Vector2
+
+var feedback_showing: bool = false
 
 
 func _ready() -> void:
 	success_button_position = success_button.position
 	failure_button_position = failure_button.position
+
 	success_button.pressed.connect(_on_success_pressed)
 	failure_button.pressed.connect(_on_failure_pressed)
+
 	super._ready()
 
 
 func start(data: QTEData) -> void:
 	print("Success label: ", success_label)
 	print("Failure label: ", failure_label)
+	print("Friend data: ", friend_data)
+	print("Friend name: ", friend_data.friend_name if friend_data != null else "NULL")
+	print("Friend sprite: ", friend_data.sprite if friend_data != null else "NULL")
 
 	qte_data = data
 	is_finished = false
+	feedback_showing = false
+
+	feedback_label.text = ""
+
+	success_button.disabled = false
+	failure_button.disabled = false
 
 	if friend_data != null:
+		friend_sprite.texture = friend_data.sprite
+
 		var min_time = minf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)
 		var max_time = maxf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)
 
 		time_remaining = randf_range(min_time, max_time)
-		success_label.text = friend_data.friend_qte_success_text
-		failure_label.text = friend_data.friend_qte_failure_text
+
+		if not friend_data.friend_qtes.is_empty():
+			friend_qte_data = friend_data.friend_qtes.pick_random()
+
+			description_label.text = friend_qte_data.question
+			success_label.text = friend_qte_data.success_label
+			failure_label.text = friend_qte_data.failure_label
+		else:
+			description_label.text = qte_data.description
+			success_label.text = "Let's talk!"
+			failure_label.text = "Not now"
 	else:
 		time_remaining = qte_data.duration
+		description_label.text = qte_data.description
 		success_label.text = "Let's talk!"
 		failure_label.text = "Not now"
 
@@ -50,8 +80,6 @@ func start(data: QTEData) -> void:
 		success_button.position = failure_button_position
 		failure_button.position = success_button_position
 
-	title_label.text = qte_data.title
-	description_label.text = qte_data.description
 	timer_label.text = "TIME: %.1f" % time_remaining
 
 	set_process(true)
@@ -62,8 +90,34 @@ func _update_qte(_delta: float) -> void:
 
 
 func _on_success_pressed() -> void:
-	_finish(QTEData.Result.SUCCESS)
+	_show_feedback(QTEData.Result.SUCCESS)
 
 
 func _on_failure_pressed() -> void:
-	_finish(QTEData.Result.FAILURE)
+	_show_feedback(QTEData.Result.FAILURE)
+
+
+func _show_feedback(result: QTEData.Result) -> void:
+	if feedback_showing or is_finished:
+		return
+
+	feedback_showing = true
+	set_process(false)
+
+	success_button.disabled = true
+	failure_button.disabled = true
+
+	if friend_qte_data != null:
+		if result == QTEData.Result.SUCCESS:
+			feedback_label.text = friend_qte_data.success_feedback
+		else:
+			feedback_label.text = friend_qte_data.failure_feedback
+	else:
+		if result == QTEData.Result.SUCCESS:
+			feedback_label.text = "Good job!"
+		else:
+			feedback_label.text = "Maybe next time..."
+
+	await get_tree().create_timer(2.0).timeout
+
+	_finish(result)

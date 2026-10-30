@@ -63,14 +63,14 @@ func recruit_friend(friend_data: FriendData) -> FriendNode:
 	recruitment_in_progress = true
 
 	var qte_data := QTEData.new()
-	qte_data.title = friend_data.recruitment_qte_title
-	qte_data.description = friend_data.recruitment_qte_description
-	qte_data.duration = friend_data.recruitment_qte_duration
+	qte_data.description = friend_data.recruitment_question
+	qte_data.duration = friend_data.duration
 
 	qte_queue_manager.enqueue_qte(
 		FRIEND_RECRUITMENT_QTE_SCENE,
 		qte_data,
-		_on_recruitment_qte_finished.bind(friend_data)
+		_on_recruitment_qte_finished.bind(friend_data),
+		friend_data
 	)
 
 	return null

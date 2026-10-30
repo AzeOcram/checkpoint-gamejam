@@ -30,12 +30,17 @@ class_name FriendData
 # Map
 @export var map_position_index: int = 0
 
-# QTE
-# Recruitment QTE
-@export var recruitment_qte_title: String = "Let's Talk"
-@export_multiline var recruitment_qte_description: String = "Will you help me?"
-@export var recruitment_qte_duration: float = 5.0
+# Recruitment QTE - Unique to each friend
+@export_group("Recruitment QTE")
+@export var duration: float = 10.0
+@export_multiline var recruitment_question: String = "Will you help me?"
+@export var recruitment_success_label: String = "Yes!"
+@export var recruitment_failure_label: String = "No!"
+@export_multiline var recruitment_success_feedback: String = "I'm glad!"
+@export_multiline var recruitment_failure_feedback: String = "Oh..."
 
-# Friend QTE
-@export_multiline var friend_qte_success_text: String = "Let's talk!"
-@export_multiline var friend_qte_failure_text: String = "No!"
+# Friend QTEs - Shared resources
+@export_group("Friend QTEs")
+@export var friend_qtes: Array[FriendQTEData] = [
+	preload("res://resources/friend_qna/test.tres")
+]

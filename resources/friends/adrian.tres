@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="FriendData" format=3 uid="uid://df6oyavgohfyd"]
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_pq5e7"]
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_q45er"]
+[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_qtyi1"]
 [ext_resource type="Texture2D" uid="uid://cef6ckt3s4fwy" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/1.PNG" id="2_v34go"]
 [ext_resource type="Texture2D" uid="uid://dqlcfvg8fyq7p" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/2.PNG" id="3_6giri"]
 

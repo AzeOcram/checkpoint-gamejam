@@ -4,7 +4,7 @@ class_name FriendInfoPanel
 
 signal buy_requested(friend_data: FriendData)
 
-
+var default_disabled_texture: Texture2D
 @onready var portrait: Sprite2D = $Portrait
 
 @onready var name_label: Label = $InfoContainer/NameLabel
@@ -23,13 +23,15 @@ var data: FriendData
 func _ready() -> void:
 	add_to_group(&"blocks_tap")
 	hide()
+
+	default_disabled_texture = buy_button.texture_disabled
+
 	# The buy handler (friend_map.gd) plays purchase; disabled clicks play cant_afford.
 	buy_button.set_meta(&"sfx_press", &"")
 	buy_button.set_meta(&"sfx_blocked", &"cant_afford")
 	close_button.set_meta(&"sfx_press", &"menu_close")
 	buy_button.pressed.connect(_on_buy_pressed)
 	close_button.pressed.connect(_on_close_pressed)
-
 
 func setup(friend_data: FriendData) -> void:
 	data = friend_data
@@ -59,10 +61,13 @@ func set_buyable(can_buy: bool) -> void:
 
 	if data.unlocked:
 		buy_button.button_pressed = true
+		buy_button.disabled = true
+		buy_button.texture_disabled = buy_button.texture_pressed
 		return
 
+	buy_button.button_pressed = false
+	buy_button.texture_disabled = default_disabled_texture
 	buy_button.disabled = not can_buy
-
 
 func _on_buy_pressed() -> void:
 	if data == null:
