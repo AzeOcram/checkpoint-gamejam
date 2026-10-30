@@ -67,11 +67,16 @@ func spawn_friends() -> void:
 
 		friend_map_node.friend_clicked.connect(_on_friend_clicked)
 
+	# Ensure FriendInfoPanel is processed LAST in scene tree (top priority for inputs)
+	move_child(friend_info_panel, -1)
+
 
 func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	print("MAP RECEIVED CLICK: ", friend_node.data.friend_name)
 
-	# Clicking the same friend again closes the panel.
+	# Ensure panel is on top of input hierarchy when opened
+	move_child(friend_info_panel, -1)
+
 	if selected_friend == friend_node:
 		friend_info_panel.hide()
 		selected_friend = null
