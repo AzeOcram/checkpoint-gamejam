@@ -29,6 +29,9 @@ func enqueue_qte(
 
 
 func _start_next_qte() -> void:
+	if not is_inside_tree():
+		return
+
 	if is_instance_valid(active_qte):
 		return
 
