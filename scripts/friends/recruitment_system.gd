@@ -58,7 +58,7 @@ func can_recruit(friend_data: FriendData) -> bool:
 	if friend_data == null:
 		return false
 
-	if friend_data.unlocked:
+	if friend_data.unlocked or recruitment_in_progress:
 		return false
 
 	return social_battery_system.can_afford(friend_data.recruitment_cost)

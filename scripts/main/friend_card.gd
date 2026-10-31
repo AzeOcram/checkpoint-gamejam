@@ -2,6 +2,9 @@ extends PanelContainer
 class_name FriendCard
 
 
+signal buy_requested(friend_data: FriendData)
+
+
 const MAX_MOOD := 100
 const MAX_CONNECTION := 100
 # Ordered from lowest mood up, the first threshold the mood is under picks the icon.
@@ -13,6 +16,8 @@ const MOOD_ICONS := [
 const MOOD_ICON_MAX := preload("res://assets/art/moods/Happy.PNG")
 const NAME_FONT_SIZE := 7
 const MIN_NAME_FONT_SIZE := 4
+const LOCKED_SHADE := Color(0.35, 0.35, 0.35, 1.0)
+const PRESS_SCALE := Vector2(0.96, 0.96)
 
 
 @onready var identity: VBoxContainer = $HBoxContainer/Identity
@@ -23,6 +28,8 @@ const MIN_NAME_FONT_SIZE := 4
 @onready var connection_bar: ProgressBar = $HBoxContainer/Stats/ConnectionBar
 @onready var sb_label: Label = $HBoxContainer/Stats/SBLabel
 @onready var sb_bar: ProgressBar = $HBoxContainer/Stats/SBBar
+@onready var stats: VBoxContainer = $HBoxContainer/Stats
+@onready var buy_button: Button = $HBoxContainer/BuyButton
 
 
 var data: FriendData
@@ -36,7 +43,45 @@ func setup(friend_data: FriendData) -> void:
 	mood_bar.max_value = MAX_MOOD
 	connection_bar.max_value = MAX_CONNECTION
 	sb_label.text = "SB Generation +" + str(data.social_battery_generation)
+
+	var locked := is_locked()
+	var shade := LOCKED_SHADE if locked else Color.WHITE
+	identity.modulate = shade
+	stats.modulate = shade
+	buy_button.visible = locked
+	mood_icon.visible = not locked
+
+	# Bars mean nothing until bought: keep only the SB line.
+	for node: Control in [mood_bar, connection_bar, sb_bar, $HBoxContainer/Stats/MoodLabel, $HBoxContainer/Stats/ConnectionLabel]:
+		node.visible = not locked
+
+	if locked:
+		buy_button.text = "Befriend\n" + NumberFormatter.format_number(data.recruitment_cost) + " SB"
+		buy_button.set_meta(&"sfx_press", &"")
+		buy_button.set_meta(&"sfx_blocked", &"cant_afford")
+		if not buy_button.pressed.is_connected(_on_buy_pressed):
+			buy_button.pressed.connect(_on_buy_pressed)
+			buy_button.button_down.connect(_scale_button.bind(PRESS_SCALE))
+			buy_button.button_up.connect(_scale_button.bind(Vector2.ONE))
+
 	refresh()
+
+
+func is_locked() -> bool:
+	return not data.unlocked
+
+
+func set_buyable(can_buy: bool) -> void:
+	buy_button.disabled = not can_buy
+
+
+func _on_buy_pressed() -> void:
+	buy_requested.emit(data)
+
+
+func _scale_button(target: Vector2) -> void:
+	buy_button.pivot_offset = buy_button.size / 2.0
+	create_tween().tween_property(buy_button, "scale", target, 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
 # generation_progress is 0-100, the fill of the shared Social Battery cycle.
