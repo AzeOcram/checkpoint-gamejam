@@ -110,6 +110,7 @@ func _update_qte(_delta: float) -> void:
 
 	if painting_now and not is_painting:
 		prev_uv = uv
+		SFX.play(&"bunot")
 
 	shader.set_shader_parameter("is_drawing", painting_now)
 	shader.set_shader_parameter("prev_pos", prev_uv)

@@ -106,8 +106,6 @@ func _finish(result: QTEData.Result) -> void:
 	is_finished = true
 	set_process(false)
 	_play_result_sfx(result)
-	if result == QTEData.Result.SUCCESS:
-		SFX.play(&"bunot")
 
 	if result == QTEData.Result.SUCCESS:
 		feedback_label.text = "SUCCESS!"
