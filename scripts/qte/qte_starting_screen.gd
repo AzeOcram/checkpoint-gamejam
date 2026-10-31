@@ -11,15 +11,12 @@ class_name QTEStartingScreen
 #
 # play(data, true) ends the countdown with a "friend saved you" message
 # (Luck skipped this QTE) instead of going straight to the QTE.
-# play(data, false, true) ends it with "not lucky" (Luck rolled and missed).
 
 const SCENE_PATH := "res://scenes/qte/qte_starting_screen.tscn"
 
 const COUNTDOWN_FROM := 3
 const STEP_SECONDS := 0.7
 const LUCKY_SECONDS := 1.8
-const UNLUCKY_SECONDS := 1.0
-const NOT_LUCKY_MESSAGE := "Not lucky this time."
 const LUCKY_MESSAGE := "Lucky! Your friend saved you from this one."
 
 # Columns / rows are in 8px tiles (viewport is 40 x 22.5 tiles).
@@ -63,7 +60,7 @@ func _ready() -> void:
 
 
 # Returns once the countdown has finished and the screen has faded out.
-func play(data: QTEData, lucky: bool = false, rolled: bool = false) -> void:
+func play(data: QTEData, lucky: bool = false) -> void:
 	title_label.text = data.title
 	description_label.text = data.description
 	countdown_label.text = ""
@@ -85,10 +82,6 @@ func play(data: QTEData, lucky: bool = false, rolled: bool = false) -> void:
 		countdown_label.text = ""
 		description_label.text = LUCKY_MESSAGE
 		await get_tree().create_timer(LUCKY_SECONDS).timeout
-	elif rolled:
-		countdown_label.text = ""
-		description_label.text = NOT_LUCKY_MESSAGE
-		await get_tree().create_timer(UNLUCKY_SECONDS).timeout
 
 	var fade_out := create_tween()
 	fade_out.tween_property(self, "modulate:a", 0.0, 0.2)

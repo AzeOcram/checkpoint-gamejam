@@ -1,6 +1,6 @@
 extends SceneTree
 
-# Headless check: Luck skips event QTEs only, and the intro says whether the player was lucky. Run:
+# Headless check: Luck skips event QTEs only, and the intro says when the player was lucky. Run:
 #   /Applications/Godot.app/Contents/MacOS/Godot --headless --path . --script tests/test_luck_skip.gd
 
 var failures := 0
@@ -80,19 +80,6 @@ func _initialize() -> void:
 	await screen.tree_exited
 	check(player.energy > 0, "the skip pays the success reward")
 	check(not events.event_qte_pending and not events.timer.is_stopped(), "the next event QTE is scheduled after the skip")
-
-	# A rolled-but-missed event QTE says so before it starts.
-	queue.enqueue_qte(events.qte_list[0]["scene"], slice_data, Callable(), null, true, true)
-	await process_frame
-	screens = lucky_screens()
-	check(screens.size() == 1, "an unlucky event QTE shows its intro")
-	var seen := false
-	for i in 400:
-		if screens[0].description_label.text == QTEStartingScreen.NOT_LUCKY_MESSAGE:
-			seen = true
-			break
-		await process_frame
-	check(seen, "the intro says the player was not lucky")
 
 	print("test_luck_skip: %d failure(s)" % failures)
 	quit(1 if failures > 0 else 0)
