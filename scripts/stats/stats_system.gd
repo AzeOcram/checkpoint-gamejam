@@ -39,6 +39,9 @@ const STATS := {
 # Each Luck point gives this chance to skip a QTE.
 const LUCK_CHANCE_PER_POINT := 0.025
 
+# Friend and shop Luck stack; the skip chance stops here so event QTEs keep appearing.
+const MAX_SKIP_CHANCE := 0.5
+
 # Shop Luck
 const MAX_SHOP_LUCK: float = 0.25
 const LUCK_UPGRADE_AMOUNT: float = 0.025
@@ -122,7 +125,7 @@ func get_luck_chance() -> float:
 # Returns true if the QTE should be skipped (treat it as SUCCESS).
 # The roll can be passed in for testing.
 func roll_luck_skip() -> bool:
-	return randf() < Player.luck
+	return randf() < minf(Player.luck, MAX_SKIP_CHANCE)
 
 
 # Resets shop upgrade tracking when starting a new game.

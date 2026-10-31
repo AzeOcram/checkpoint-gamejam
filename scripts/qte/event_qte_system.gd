@@ -128,9 +128,7 @@ func spawn_random_qte() -> void:
 
 	if lucky:
 		print("Luck activated! Event QTE skipped.")
-
-		# Treat the skip as a success without showing or running the QTE.
-		on_qte_finish(QTEData.Result.SUCCESS)
+		skip_qte(qte_data)
 		return
 
 	qte_queue_manager.enqueue_qte(
@@ -140,6 +138,14 @@ func spawn_random_qte() -> void:
 		null,
 		true
 	)
+
+
+# Shows the Lucky screen, then treats the skip as a success without running the QTE.
+func skip_qte(qte_data: QTEData) -> void:
+	var intro := QTEStartingScreen.new_screen()
+	get_tree().root.add_child(intro)
+	await intro.play(qte_data, true)
+	on_qte_finish(QTEData.Result.SUCCESS)
 
 
 # Called when the event QTE finishes.

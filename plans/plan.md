@@ -1,6 +1,30 @@
 # Plan
 
-## Current batch (2026-10-31, 5th)
+## Current batch (2026-11-01, 6th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Luck skip is visible, and stacked Luck can no longer swallow event QTEs | `fix/luck-skip-feedback` | 🔵 PR open | PR_URL |
+
+### What I found
+- **Item 1 and 2 share one cause.** `EventQTESystem.spawn_random_qte` rolled Luck and, on a skip, called `on_qte_finish(SUCCESS)` at once: no screen, no sound, energy paid silently. The "Lucky! Your friend saved you" screen (`QTEStartingScreen.play(data, true)`) already existed but nothing called it.
+- **Late game hides QTEs.** `roll_luck_skip` used `Player.luck` as the raw chance. Shop Luck (up to 25%) stacks with each friend's bonus at 100 connection (2-50% each), capped at 90%. A long game ends with most event QTEs skipped silently, so they "stop appearing".
+- The event timer and the pending flag are fine: no path leaves `event_qte_pending` stuck.
+
+### Decisions (change if you disagree)
+- Skip chance is capped at 50% (`StatsSystem.MAX_SKIP_CHANCE`). `Player.luck` itself still goes to 0.9.
+- A skip shows the Lucky screen, then pays the normal success reward.
+
+### Milestone 1
+- **Test:** `tests/test_luck_skip.gd` (headless): Luck 0.9 skips about 50% over 2000 rolls; a skip shows the Lucky screen, stays pending until it closes, pays energy, and schedules the next QTE.
+- **Files:** `scripts/qte/event_qte_system.gd`, `scripts/stats/stats_system.gd`, `tests/test_luck_skip.gd`.
+
+### Not checked
+- Not played by hand in the editor, so the Lucky screen look and timing in a live run are unverified.
+- `tests/test_stats_system.gd` already fails on main (6 checks about Luck level and `roll_luck_skip(roll)`); left alone.
+- Balance of the 50% cap.
+
+## Previous batch (2026-10-31, 5th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
@@ -35,7 +59,7 @@
 - Game balance at 10s: it is much shorter than today's 20-140s, so friend QTEs get far harder until you tune `duration` per friend.
 - Whether anything else in the scene relied on the old long countdown (for example the timer label width at "TIME: 10.0").
 
-## Previous batch (2026-10-31, 4th)
+## Earlier batch (2026-10-31, 4th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
