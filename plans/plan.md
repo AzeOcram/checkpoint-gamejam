@@ -4,7 +4,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Friend `!` + 10s timer popup; click the friend to start their QTE | `feat/ui-alert-and-timer` | 🟡 in progress (code + test done, UI awaiting approval, not pushed) | — |
+| 1 | Friend `!` + 10s timer popup; click the friend to start their QTE | `feat/ui-alert-and-timer` | 🔵 PR open (UI awaiting approval) | [#31](https://github.com/AzeOcram/checkpoint-gamejam/pull/31) |
 
 ### Decisions
 - A friend QTE no longer starts by itself. When a friend's mood timer fires, an alert (`!` + countdown) appears over that friend on the map for 10s; clicking the friend enqueues the QTE.
@@ -50,7 +50,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Implement the newly added SFX | `implementing-sfx` | 🟡 in progress (code + test done, committed locally, not pushed) | — |
+| 1 | Implement the newly added SFX | `implementing-sfx` | 🟡 in progress (code + test done, committed locally, not pushed) | [#31](https://github.com/AzeOcram/checkpoint-gamejam/pull/31) |
 
 ### Decisions
 - Branch cut from `main` at `727fc87` after a pull. Local debug edits (QTE timers 5–10s, stale `main_scene` uid / 4.6 tag) were dropped in favour of upstream; they remain in `stash@{0}`.
