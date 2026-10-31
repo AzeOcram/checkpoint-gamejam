@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_8k3yk")
 title = "Slice the Paper!"
-description = "Follow the dotted line and cut at a steady pace."
+description = "Follow the line and cut at a steady pace."
 metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

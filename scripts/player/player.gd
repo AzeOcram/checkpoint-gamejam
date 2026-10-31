@@ -4,6 +4,7 @@ extends Node2D
 # Attributes
 signal hp_changed
 signal game_over
+signal luck_changed
 
 # Gender
 enum Gender { MALE, FEMALE }

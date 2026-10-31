@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ncjj2eb64p3y" path="res://assets/ui/main_menu/Back 1.PNG" id="6_4avdf"]
 [ext_resource type="Texture2D" uid="uid://dym7tfqefn7ad" path="res://assets/ui/main_menu/Buttons/Base2-dark.PNG" id="6_gvx0j"]
 [ext_resource type="Texture2D" uid="uid://dgcf3ey8nqv7s" path="res://assets/ui/main_menu/Back 2.PNG" id="7_032c5"]
+[ext_resource type="AudioStream" uid="uid://ccvsfsryxdo2e" path="res://assets/audio/Music/main_menu_bgm.ogg" id="10_4avdf"]
 
 [node name="GenderSelection" type="Control" unique_id=525316696]
 layout_mode = 3
@@ -132,3 +133,7 @@ texture_normal = ExtResource("6_4avdf")
 texture_hover = ExtResource("7_032c5")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1487847416]
+stream = ExtResource("10_4avdf")
+autoplay = true

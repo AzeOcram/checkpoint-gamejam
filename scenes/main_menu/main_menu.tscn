@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c612q0gcy74sm" path="res://assets/ui/main_menu/Quit 1.PNG" id="9_thkx5"]
 [ext_resource type="Texture2D" uid="uid://dvxxf0vjos5gc" path="res://assets/ui/main_menu/Credits 2.PNG" id="10_qel0l"]
 [ext_resource type="Texture2D" uid="uid://qrknaf8b6eju" path="res://assets/ui/main_menu/Quit 2.PNG" id="12_rrgl4"]
+[ext_resource type="AudioStream" uid="uid://ccvsfsryxdo2e" path="res://assets/audio/Music/main_menu_bgm.ogg" id="13_rrgl4"]
 
 [node name="MainMenu" type="Control" unique_id=1657732778]
 layout_mode = 3
@@ -77,6 +78,7 @@ texture_hover = ExtResource("12_rrgl4")
 stretch_mode = 5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=4275637]
+stream = ExtResource("13_rrgl4")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -67,25 +67,15 @@ func apply_friend_crisis(crisis_friend: FriendData) -> void:
 
 # Gives the player the friend's luck bonus upon reaching 100 connection.
 func check_luck_reward(friend_data: FriendData) -> void:
-	if friend_data.connection < 100:
-		return
+	if friend_data.connection < 100: return
+	if friend_data.luck_bonus_claimed: return
 
-	if friend_data.luck_bonus_claimed:
-		return
-
-	Player.luck = minf(
-		Player.luck + friend_data.luck,
-		Player.MAX_LUCK
-	)
-
+	Player.luck = minf(Player.luck + friend_data.luck, 0.9)
 	friend_data.luck_bonus_claimed = true
 
-	print(
-		friend_data.friend_name,
-		" reached 100 connection! Player luck: ",
-		Player.luck * 100,
-		"%"
-	)
+	Player.luck_changed.emit()
+
+	print(friend_data.friend_name, " reached 100 connection! Player luck: ", Player.luck * 100, "%")
 
 func _on_qte_finished(
 	result: QTEData.Result,

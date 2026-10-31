@@ -57,6 +57,7 @@ func _ready() -> void:
 	hp_upgrade_button.pressed.connect(_on_hp_upgrade_pressed)
 
 	Player.hp_changed.connect(update_ui)
+	Player.luck_changed.connect(update_luck)
 
 	# Make sure cost labels are visible.
 	energy_cost_label.visible = true
