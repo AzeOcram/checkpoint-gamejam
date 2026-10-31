@@ -13,7 +13,6 @@ const ALERT_DURATION := 10.0
 
 @onready var qte_queue_manager: QTEQueueManager = get_node("../QTEQueueManager")
 @onready var recruitment_system = $"../RecruitmentSystem"
-@onready var stats_system: Node = get_node("../StatsSystem")
 
 var alerts: Dictionary = {} # FriendData -> seconds left
 var alert_nodes: Dictionary = {} # FriendData -> FriendNode
@@ -87,29 +86,12 @@ func start_qte(friend_data: FriendData) -> void:
 	qte_data.description = "Respond quickly to help them!"
 	qte_data.duration = friend_data.duration
 
-	# Luck skips friend QTEs only, never event QTEs.
-	if stats_system.roll_luck_skip():
-		skip_qte(friend_data, friend_node, qte_data)
-		return
-
 	qte_queue_manager.enqueue_qte(
 		FRIEND_QTE_SCENE,
 		qte_data,
 		_on_qte_finished.bind(friend_node),
 		friend_data
 	)
-
-
-# Shows the Lucky screen, then counts the QTE as a success without running it.
-func skip_qte(friend_data: FriendData, friend_node: FriendNode, qte_data: QTEData = null) -> void:
-	if qte_data == null:
-		qte_data = QTEData.new()
-		qte_data.title = friend_data.friend_name + " NEEDS YOU"
-
-	var intro := QTEStartingScreen.new_screen()
-	get_tree().root.add_child(intro)
-	await intro.play(qte_data, true)
-	_on_qte_finished(QTEData.Result.SUCCESS, friend_node)
 
 
 func _close_alert(friend_data: FriendData) -> FriendNode:
