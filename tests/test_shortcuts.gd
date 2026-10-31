@@ -61,6 +61,17 @@ func _initialize() -> void:
 	queue.active_qte.free()
 	queue.active_qte = null
 
+	var pause_menu: Control = main.get_node("UI/PauseMenu")
+	for open_key in [KEY_S, KEY_F]:
+		press(open_key)
+		press(KEY_ESCAPE)
+		check(not shop.visible and not friends.visible, "Esc closes the open screen")
+		check(not pause_menu.visible and not paused, "Esc on an open screen does not pause the game")
+	press(KEY_ESCAPE)
+	check(pause_menu.visible and paused, "Esc with no screen open still pauses")
+	press(KEY_ESCAPE)
+	check(not pause_menu.visible and not paused, "Esc again resumes")
+
 	var badges: Array = hint.get_children()
 	check(badges.size() == 2 and badges.all(func(b): return b.visible), "hint shows an S and an F badge")
 	hint.elapsed = 0.0
