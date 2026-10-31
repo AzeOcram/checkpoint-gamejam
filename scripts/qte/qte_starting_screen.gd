@@ -17,6 +17,8 @@ const SCENE_PATH := "res://scenes/qte/qte_starting_screen.tscn"
 const COUNTDOWN_FROM := 3
 const STEP_SECONDS := 0.7
 const LUCKY_SECONDS := 1.8
+const TITLE_HEIGHT := 30.0
+const TITLE_MIN_SIZE := 8
 const LUCKY_MESSAGE := "Lucky! Your friend saved you from this one."
 
 # Columns / rows are in 8px tiles (viewport is 40 x 22.5 tiles).
@@ -62,6 +64,7 @@ func _ready() -> void:
 # Returns once the countdown has finished and the screen has faded out.
 func play(data: QTEData, lucky: bool = false) -> void:
 	title_label.text = data.title
+	_fit_title()
 	description_label.text = data.description
 	countdown_label.text = ""
 
@@ -87,6 +90,15 @@ func play(data: QTEData, lucky: bool = false) -> void:
 	fade_out.tween_property(self, "modulate:a", 0.0, 0.2)
 	await fade_out.finished
 	queue_free()
+
+
+# Long friend names wrap, and shrink if they still do not fit above the divider.
+func _fit_title() -> void:
+	var size := 14
+	title_label.add_theme_font_size_override("font_size", size)
+	while size > TITLE_MIN_SIZE and title_label.get_minimum_size().y > TITLE_HEIGHT:
+		size -= 1
+		title_label.add_theme_font_size_override("font_size", size)
 
 
 func _paint_tiles() -> void:

@@ -9,6 +9,8 @@
 
 One branch and one PR for both, as asked.
 
+Follow-up bug (same PR): a friend's intro title ("<full name> NEEDS YOU") ran past the panel frame. `QTEStartingScreen` now wraps the title to two lines and shrinks the font until it fits above the divider. Test: `tests/test_starting_screen.gd`.
+
 ### What I found
 - **Item 2 root cause.** `QTEData.difficulty_for_friends` was set on the event QTE in the old direct-spawn code (`4e72c8a`). That line was lost when `QTEQueueManager` took over starting QTEs, so nothing set `difficulty` and every QTE ran at the `BaseQTE` default, HARD. At 0 friends the math QTE therefore rolled multiplication.
 - **Item 1.** The Luck roll lived in `EventQTESystem`. It moves to `FriendQTEManager.start_qte`.
