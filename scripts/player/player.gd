@@ -4,6 +4,10 @@ extends Node2D
 signal hp_changed
 signal game_over # Add this new signal
 
+# Gender
+enum Gender { MALE, FEMALE }
+var gender: Gender = Gender.MALE
+
 # Stats
 var energy_per_tap: int = 1
 var luck: int = 0
