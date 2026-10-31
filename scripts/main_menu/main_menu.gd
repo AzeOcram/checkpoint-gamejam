@@ -37,6 +37,9 @@ func _on_play_pressed() -> void:
 	# Routes to Gender Selection first
 	get_tree().change_scene_to_file("res://scenes/main_menu/gender_selection.tscn")
 
+func _on_credits_pressed() -> void:
+	# Change this path to match your actual credits scene file location
+	get_tree().change_scene_to_file("res://scenes/main_menu/credit.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

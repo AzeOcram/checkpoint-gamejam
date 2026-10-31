@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dfhbep5jjvnvf"]
+
+[ext_resource type="Texture2D" uid="uid://jgfjv7jes1v0" path="res://assets/ui/main_menu/Art/Bg blurred.PNG" id="1_838oo"]
+[ext_resource type="Texture2D" uid="uid://ncjj2eb64p3y" path="res://assets/ui/main_menu/Back 1.PNG" id="1_de0jb"]
+[ext_resource type="Script" uid="uid://b58j2024edv4o" path="res://scripts/main_menu/credit.gd" id="1_w40ar"]
+[ext_resource type="Texture2D" uid="uid://dgcf3ey8nqv7s" path="res://assets/ui/main_menu/Back 2.PNG" id="2_5b0ac"]
+[ext_resource type="FontFile" uid="uid://dsew2v2x71tuk" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_w40ar"]
+[ext_resource type="AudioStream" uid="uid://ccvsfsryxdo2e" path="res://assets/audio/Music/main_menu_bgm.ogg" id="6_o5g1f"]
+
+[node name="Credit" type="Control" unique_id=1971361150]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w40ar")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=702449182]
+position = Vector2(157, 87)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("1_838oo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2115458808]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 10.0
+offset_right = 296.0
+offset_bottom = 168.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1715492408]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=801118916]
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_w40ar")
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=151680892]
+layout_mode = 2
+
+[node name="Programmers" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1145298248]
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_w40ar")
+theme_override_font_sizes/font_size = 13
+text = "Game Director
+- Marc Odon 
+
+Programmers
+- Jann Bajade
+- Jorge Paguirigan    
+- Geo Rufo"
+
+[node name="AssetsAndSound" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1969832901]
+layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_w40ar")
+theme_override_font_sizes/font_size = 13
+text = "Assets
+- Luisa Dalluay
+- Shakira Crisanto
+
+Sound Design
+- Adrian Llorca
+"
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1086024692]
+custom_minimum_size = Vector2(53, 14)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 106.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_de0jb")
+texture_hover = ExtResource("2_5b0ac")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1535858872]
+stream = ExtResource("6_o5g1f")
+autoplay = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
