@@ -16,6 +16,7 @@ const ALERT_DURATION := 10.0
 
 var alerts: Dictionary = {} # FriendData -> seconds left
 var alert_nodes: Dictionary = {} # FriendData -> FriendNode
+var open_qtes: Dictionary = {} # FriendData -> true, from the click until the QTE finishes
 
 
 func _on_friend_request_qte(friend_node: FriendNode) -> void:
@@ -33,6 +34,11 @@ func _on_friend_request_qte(friend_node: FriendNode) -> void:
 	alerts[friend_node.data] = ALERT_DURATION
 	alert_nodes[friend_node.data] = friend_node
 	alert_changed.emit(friend_node.data, ALERT_DURATION)
+
+
+# True from the moment a friend asks for help until their QTE is finished.
+func warning_active() -> bool:
+	return not alerts.is_empty() or not open_qtes.is_empty()
 
 
 func has_alert(friend_data: FriendData) -> bool:
@@ -62,9 +68,13 @@ func tick_alerts(delta: float) -> void:
 
 # Called when the player clicks a friend with an open alert.
 func start_qte(friend_data: FriendData) -> void:
+	# Marked before the alert closes so the warning never blinks off in between.
+	open_qtes[friend_data] = true
+
 	var friend_node: FriendNode = _close_alert(friend_data)
 
 	if not is_instance_valid(friend_node):
+		open_qtes.erase(friend_data)
 		return
 
 	print("========== QUEUING FRIEND QTE ==========")
@@ -74,7 +84,7 @@ func start_qte(friend_data: FriendData) -> void:
 
 	qte_data.title = friend_data.friend_name + " NEEDS YOU"
 	qte_data.description = "Respond quickly to help them!"
-	qte_data.duration = 5.0
+	qte_data.duration = friend_data.duration
 
 	qte_queue_manager.enqueue_qte(
 		FRIEND_QTE_SCENE,
@@ -137,6 +147,8 @@ func _on_qte_finished(
 ) -> void:
 	if not is_instance_valid(friend_node):
 		return
+
+	open_qtes.erase(friend_node.data)
 
 	if result == QTEData.Result.SUCCESS:
 		friend_node.data.mood = min(

@@ -1,12 +1,41 @@
 # Plan
 
-## Current batch (2026-10-31, 4th)
+## Current batch (2026-10-31, 5th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🔵 PR open (UI awaiting approval) | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
-| 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | ⚪ not started | — |
-| 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | 🔵 PR open (UI awaiting approval) | [#34](https://github.com/AzeOcram/checkpoint-gamejam/pull/34) |
+| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | 🔵 PR open | [#35](https://github.com/AzeOcram/checkpoint-gamejam/pull/35) |
+
+### What I found
+- **The two settings are mixed up in the code.** `FriendQTE.start` (`scripts/qte/friend_qte.gd`) sets the on-screen countdown with `randf_range(friend_qte_timer_min, friend_qte_timer_max)`. Those fields are the *frequency* range (20-140s in the data), so a friend QTE can count down for up to 140 seconds.
+- **The manager's value is ignored.** `FriendQTEManager.start_qte` sets `qte_data.duration = 5.0`, but `FriendQTE` only reads `qte_data.duration` when it has no friend, which never happens in game.
+- **Frequency is already right.** `FriendNode.start_mood_timer` (`friend.gd`) rolls `randf_range(friend_qte_timer_min, friend_qte_timer_max)` per cycle, and `apply_friend_crisis` shifts the same two fields. Nothing else uses them, so item 2 needs no code change once item 1 removes the mix-up; it gets a test that pins it.
+- **`duration` today:** `FriendData.duration` (default 10.0, in the "Recruitment QTE" export group) is only used by the recruitment QTE. No friend `.tres` overrides it, so every friend's countdown becomes 10s until you set a per-friend value.
+
+### Decisions
+- Reuse the existing `FriendData.duration` for both the recruitment QTE and the friend QTE, as asked (one field, one meaning: "how long the QTE countdown runs"). Open question: do you want a separate field later so the two can differ?
+- The manager sets `qte_data.duration = friend_data.duration`, and `FriendQTE` always counts down from `qte_data.duration`, so the rule sits in one place.
+- No change to the 10s alert timer, the warning banner or the frequency logic.
+
+### 1. Countdown and frequency
+- **Backend / data:** `friend_qte_manager.gd`: `qte_data.duration = friend_data.duration` (was 5.0). `friend_qte.gd`: delete the `randf_range(min, max)` block, use `time_remaining = qte_data.duration` for both branches.
+- **UI:** none. The "TIME: x" label shows the new value.
+- **Test:** `tests/test_friend_qte_timing.gd` (headless, real `main.tscn`): set a friend's `duration` to 7 and `friend_qte_timer_min/max` to 100/140, click the alert, assert the QTE `time_remaining` is 7; change `duration` to 3 for a second friend and assert 3. Frequency: for a friend with min 20 and max 40, assert every started mood timer `wait_time` is within 20..40 over 200 rolls, and that after `apply_friend_crisis` the range shifts down by 5. Run red first (it fails today: `time_remaining` would be 100-140).
+- **Skills used:** diagnosing-bugs (reproduce the 100-140s countdown), tdd (red test first), blast-radius (other readers of `duration`, `friend_qte_timer_*`), run (frame capture of the timer), pr (PR body).
+- **Files:** `scripts/friends/friend_qte_manager.gd`, `scripts/qte/friend_qte.gd`, `tests/test_friend_qte_timing.gd`.
+- **Order:** one branch from an up-to-date `main`, one PR. It does not depend on #33 or #34.
+
+### Not checked
+- Game balance at 10s: it is much shorter than today's 20-140s, so friend QTEs get far harder until you tune `duration` per friend.
+- Whether anything else in the scene relied on the old long countdown (for example the timer label width at "TIME: 10.0").
+
+## Previous batch (2026-10-31, 4th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | ✅ merged | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
+| 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | 🔵 PR open (UI awaiting approval) | [#33](https://github.com/AzeOcram/checkpoint-gamejam/pull/33) |
+| 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | ⚪ not started | — |
 
 ### Answer first: how often does a friend QTE fire?
 - **It is a per-friend random timer, not a fixed interval and not a trigger condition.** `FriendNode.start_mood_timer` rolls `randf_range(friend_qte_timer_min, friend_qte_timer_max)` seconds (`friend.gd`). The roll is new every cycle.
@@ -18,7 +47,7 @@
 
 ### Decisions
 - 3 branches, 3 PRs, in this order. Each starts from an up-to-date `main`. 2 and 3 do not depend on 1.
-- Warning (2): shown while any friend alert is open or a friend QTE is queued/active, hidden when none remain. Text "A FRIEND NEEDS YOU!". Size: about 15% of the screen height, width fits the text (open to change, one constant). Sits top-centre between the Social Battery and Energy HUD, on its own `CanvasLayer` above the classroom, friend list, shop, friend QTE and event QTE.
+- Warning (2): shown while any friend alert is open or a friend QTE is queued/active, hidden when none remain. Text "A FRIEND NEEDS YOU!". Size: about 15% of the screen height, width fits the text (open to change, one constant). Sits bottom-centre (top-centre hid the QTE prompt text), on its own `CanvasLayer` above the classroom, friend list, shop, friend QTE and event QTE.
 - Warning excluded from the day intro cutscene. The game over, victory and main menu screens are separate scenes, so it is gone there without extra code.
 - Shortcuts (3): `S` toggles the shop, `F` toggles the friend list, same open/close/swap behaviour and sounds as the two buttons. Ignored during any QTE, the intro and while paused.
 - Hint (3): small `S` and `F` key badges next to the shop (bottom-right) and friend-list (bottom-left) buttons. Full opacity for 60s after the intro ends, then fade out over 4s (opacity only). The brief says "gradually disappear or fade after one minute": I read it as 60s shown, then a fade.
