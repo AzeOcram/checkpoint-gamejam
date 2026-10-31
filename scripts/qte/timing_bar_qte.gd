@@ -110,6 +110,9 @@ func _check_timing() -> void:
 func _show_feedback(result: QTEData.Result) -> void:
 	feedback_showing = true
 	set_process(false)
+	_play_result_sfx(result)
+	if result == QTEData.Result.SUCCESS:
+		SFX.play(&"swish")
 
 	if feedback_label:
 		if result == QTEData.Result.SUCCESS:

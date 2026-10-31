@@ -106,6 +106,7 @@ func _show_feedback(result: QTEData.Result) -> void:
 
 	feedback_showing = true
 	set_process(false)
+	_play_result_sfx(result)
 
 	success_button.disabled = true
 	failure_button.disabled = true

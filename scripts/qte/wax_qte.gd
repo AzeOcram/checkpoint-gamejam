@@ -110,6 +110,7 @@ func _update_qte(_delta: float) -> void:
 
 	if painting_now and not is_painting:
 		prev_uv = uv
+		SFX.play(&"bunot")
 
 	shader.set_shader_parameter("is_drawing", painting_now)
 	shader.set_shader_parameter("prev_pos", prev_uv)
@@ -128,6 +129,7 @@ func _show_result(result: QTEData.Result) -> void:
 	is_painting = false
 
 	set_process(false)
+	_play_result_sfx(result)
 
 	cursor.visible = false
 

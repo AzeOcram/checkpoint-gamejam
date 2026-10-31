@@ -16,6 +16,11 @@ const CLOSE_HOVER_SCALE := Vector2(1.15, 1.15)
 
 const MAX_SHOP_LUCK: float = 0.25
 const MAX_HEARTS: int = 5
+const UPGRADE_SOUNDS := {
+	"energy_per_tap": [&"energy_up_1", &"energy_up_2", &"energy_up_3"],
+	"luck": [&"luck_up"],
+	"max_hp": [&"health_up"],
+}
 
 
 # Energy
@@ -172,7 +177,10 @@ func _on_hp_upgrade_pressed() -> void:
 
 
 func _upgrade(stat_id: String) -> void:
-	SFX.play(&"purchase" if stats_system.upgrade(stat_id) else &"cant_afford")
+	if stats_system.upgrade(stat_id):
+		SFX.play_random(UPGRADE_SOUNDS[stat_id])
+	else:
+		SFX.play(&"cant_afford")
 	update_ui()
 
 
