@@ -79,12 +79,6 @@ texture_normal = ExtResource("8_pg34l")
 texture_hover = ExtResource("9_m4h2d")
 stretch_mode = 5
 
-[node name="KeyHint" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-mouse_filter = 2
-script = ExtResource("98_khint")
-
 [node name="PauseMenu" parent="UI" unique_id=186705034 instance=ExtResource("6_raeie")]
 layout_mode = 0
 
