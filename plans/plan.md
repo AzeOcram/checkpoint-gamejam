@@ -4,7 +4,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🟡 in progress (code + test done, UI awaiting approval) | — |
+| 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🔵 PR open (UI awaiting approval) | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
 | 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | ⚪ not started | — |
 | 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | ⚪ not started | — |
 
