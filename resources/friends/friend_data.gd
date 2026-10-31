@@ -42,6 +42,4 @@ var luck_bonus_claimed: bool = false
 
 # Friend QTEs - Shared resources
 @export_group("Friend QTEs")
-@export var friend_qtes: Array[FriendQTEData] = [
-	preload("res://resources/friend_qna/test.tres")
-]
+@export var friend_qtes: Array[FriendQTEData] = []

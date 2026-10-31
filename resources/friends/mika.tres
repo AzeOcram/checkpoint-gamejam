@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2tdk8"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_g6d0n"]
 [ext_resource type="Texture2D" uid="uid://lwfgsa2oiu36" path="res://assets/art/characters/CLASSMATES/Kikay/1.PNG" id="2_4rvbq"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_sxkdw"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="2_d6o0j"]
 [ext_resource type="Texture2D" uid="uid://cqo6jcninqrmv" path="res://assets/art/characters/CLASSMATES/Kikay/2.PNG" id="3_7tpb4"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_fnbph"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="4_qaq5k"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="5_ej1tj"]
 
 [resource]
 script = ExtResource("1_2tdk8")
@@ -21,4 +24,10 @@ friend_qte_timer_max = 70.0
 sprite = ExtResource("2_4rvbq")
 sprite2 = ExtResource("3_7tpb4")
 map_position_index = 10
+recruitment_question = "Hi hi! Do you have a sanrio band? I wanted to tie my hair but the one I have snapped."
+recruitment_success_label = "I have some in my bag, let me get it for you."
+recruitment_failure_label = "Nopes, just use a pencil to twist your hair or something. "
+recruitment_success_feedback = "You’re a life saver! I thought I had to endure this heat with my hair down."
+recruitment_failure_feedback = "I could do that, but I’d rather not. Thanks anyway, I guess."
+friend_qtes = Array[ExtResource("1_g6d0n")]([ExtResource("2_d6o0j"), ExtResource("3_fnbph"), ExtResource("4_qaq5k"), ExtResource("5_ej1tj")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

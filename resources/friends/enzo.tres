@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_cl2hm"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sq6yk"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_ip0vf"]
 [ext_resource type="Texture2D" uid="uid://yvai407pmck8" path="res://assets/art/characters/CLASSMATES/Boys at the Back #1 (Class Clown)/1.PNG" id="2_kufdl"]
+[ext_resource type="Resource" uid="uid://bd3kh6o8rsrrs" path="res://resources/friend_qna/ditch.tres" id="2_kwr0a"]
 [ext_resource type="Texture2D" uid="uid://ci8k2kycu3dxn" path="res://assets/art/characters/CLASSMATES/Boys at the Back #1 (Class Clown)/2.PNG" id="3_n5dqf"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_td6ed"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="4_lfplw"]
 
 [resource]
 script = ExtResource("1_sq6yk")
@@ -21,4 +23,5 @@ friend_qte_timer_max = 50.0
 sprite = ExtResource("2_kufdl")
 sprite2 = ExtResource("3_n5dqf")
 map_position_index = 24
+friend_qtes = Array[ExtResource("1_cl2hm")]([ExtResource("2_kwr0a"), ExtResource("3_td6ed"), ExtResource("4_lfplw")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_8cscd"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_cflt8"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_6eyuu"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_olth1"]
 [ext_resource type="Texture2D" uid="uid://b6hfqa2t8bict" path="res://assets/art/characters/CLASSMATES/Gamer Girl/1.PNG" id="2_wmine"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_ij0bh"]
 [ext_resource type="Texture2D" uid="uid://dmoe4vrba55mn" path="res://assets/art/characters/CLASSMATES/Gamer Girl/2.PNG" id="3_xk584"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="4_bd174"]
 
 [resource]
 script = ExtResource("1_cflt8")
@@ -21,4 +23,10 @@ friend_qte_timer_max = 60.0
 sprite = ExtResource("2_wmine")
 sprite2 = ExtResource("3_xk584")
 map_position_index = 34
+recruitment_question = "Hi! Omg, sorry to ask this of you but can you please do my dailies for me?"
+recruitment_success_label = "Sure, I didn’t know that you played this game too!"
+recruitment_failure_label = "Sorry, but I still have to do some homeworks."
+recruitment_success_feedback = "YES! My main is Chandrone-"
+recruitment_failure_feedback = "Oh… Don’t worry, thanks anyways!"
+friend_qtes = Array[ExtResource("1_8cscd")]([ExtResource("2_olth1"), ExtResource("3_ij0bh"), ExtResource("4_bd174")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

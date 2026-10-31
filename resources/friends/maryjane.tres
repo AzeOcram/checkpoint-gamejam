@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_3bfsn"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_4eat4"]
 [ext_resource type="Texture2D" uid="uid://cwmoyy61ik8v1" path="res://assets/art/characters/CLASSMATES/Secretary/IMG_2966.PNG" id="2_6pht2"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_n702n"]
 [ext_resource type="Texture2D" uid="uid://cgiomsq4v4b5r" path="res://assets/art/characters/CLASSMATES/Secretary/IMG_2967.PNG" id="3_nllig"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_t3351"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="4_nrn8o"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="5_thq8k"]
 
 [resource]
 script = ExtResource("1_3bfsn")
@@ -19,6 +23,10 @@ friend_qte_timer_max = 80.0
 sprite = ExtResource("2_6pht2")
 sprite2 = ExtResource("3_nllig")
 map_position_index = 38
-duration = null
-friend_qtes = Array[ExtResource("1_4eat4")]([])
+recruitment_question = "Can you help me count how many are absent today?"
+recruitment_success_label = "Of course. 1…2…"
+recruitment_failure_label = "Just count again. It’s not that hard"
+recruitment_success_feedback = "Thanks! I keep miscounting."
+recruitment_failure_feedback = "Okay… no need to be so rude."
+friend_qtes = Array[ExtResource("1_4eat4")]([ExtResource("2_n702n"), ExtResource("3_t3351"), ExtResource("4_nrn8o"), ExtResource("5_thq8k")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

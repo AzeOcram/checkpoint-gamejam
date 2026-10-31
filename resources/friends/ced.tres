@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jb02x"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_l1b3t"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_3apbf"]
 [ext_resource type="Texture2D" uid="uid://fn48mg0fgbmt" path="res://assets/art/characters/CLASSMATES/Basketball Varsity/1.PNG" id="2_25dva"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_iwtou"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_dug8k"]
 [ext_resource type="Texture2D" uid="uid://bvrb82pha6g33" path="res://assets/art/characters/CLASSMATES/Basketball Varsity/2.PNG" id="3_shmrd"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="4_uywot"]
+[ext_resource type="Resource" uid="uid://ceomor2vadh1g" path="res://resources/friend_qna/varsity.tres" id="5_fkx2j"]
+[ext_resource type="Resource" uid="uid://bd3kh6o8rsrrs" path="res://resources/friend_qna/ditch.tres" id="6_rmck4"]
 
 [resource]
 script = ExtResource("1_jb02x")
@@ -21,4 +25,10 @@ friend_qte_timer_max = 60.0
 sprite = ExtResource("2_25dva")
 sprite2 = ExtResource("3_shmrd")
 map_position_index = 4
+recruitment_question = "Let’s play! Best of three, yeah?"
+recruitment_success_label = "You’re on! "
+recruitment_failure_label = "I’d rather not."
+recruitment_success_feedback = "That’s the spirit!"
+recruitment_failure_feedback = "Well, that’s too bad."
+friend_qtes = Array[ExtResource("1_l1b3t")]([ExtResource("2_iwtou"), ExtResource("3_dug8k"), ExtResource("4_uywot"), ExtResource("5_fkx2j"), ExtResource("6_rmck4")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

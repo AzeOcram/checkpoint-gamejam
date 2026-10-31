@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nh5ws"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_ulbp7"]
 [ext_resource type="Texture2D" uid="uid://btun7lfde04pe" path="res://assets/art/characters/CLASSMATES/PIO/IMG_2984.PNG" id="2_obj4d"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="2_y0051"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_egglc"]
 [ext_resource type="Texture2D" uid="uid://cm4phcrx1nfde" path="res://assets/art/characters/CLASSMATES/PIO/IMG_2985.PNG" id="3_q1aaa"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="4_upw0p"]
 
 [resource]
 script = ExtResource("1_nh5ws")
@@ -20,6 +23,11 @@ friend_qte_timer_max = 120.0
 sprite = ExtResource("2_obj4d")
 sprite2 = ExtResource("3_q1aaa")
 map_position_index = 22
-duration = null
-friend_qtes = Array[ExtResource("1_ulbp7")]([])
+recruitment_question = "Can you help me count these permits?"
+recruitment_success_label = "Sure, I don’t mind."
+recruitment_failure_label = "But that’s your job."
+recruitment_success_feedback = "Thank you!"
+recruitment_failure_feedback = "Come on, I just wanted a bit of help.
+"
+friend_qtes = Array[ExtResource("1_ulbp7")]([ExtResource("2_y0051"), ExtResource("3_egglc"), ExtResource("4_upw0p")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

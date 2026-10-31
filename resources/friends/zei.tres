@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_aav8a"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_li6tl"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="2_40wq6"]
 [ext_resource type="Texture2D" uid="uid://c8b7e1bm3afxi" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2974.PNG" id="2_oybd8"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_r36hk"]
 [ext_resource type="Texture2D" uid="uid://d031bgmmkqd4g" path="res://assets/art/characters/CLASSMATES/Jowa 1/IMG_2975.PNG" id="3_h00w4"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="3_q77r7"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="4_auf1r"]
 
 [resource]
 script = ExtResource("1_li6tl")
@@ -20,4 +22,10 @@ friend_qte_timer_max = 30.0
 sprite = ExtResource("2_oybd8")
 sprite2 = ExtResource("3_h00w4")
 map_position_index = 40
+recruitment_question = "Hey, do you think Ray would like this gift? I’m just not sure…"
+recruitment_success_label = "I’m sure he’d love that a lot!"
+recruitment_failure_label = "I don’t care, really."
+recruitment_success_feedback = "Since you say so! Thank you!"
+recruitment_failure_feedback = "Uhm, okay…"
+friend_qtes = Array[ExtResource("1_aav8a")]([ExtResource("2_40wq6"), ExtResource("3_q77r7"), ExtResource("4_auf1r")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FriendQTEData" format=3 uid="uid://bd3kh6o8rsrrs"]
+
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_qcmg0"]
+
+[resource]
+script = ExtResource("1_qcmg0")
+question = "They want you to ditch class with them"
+success_label = "Ditch with them"
+failure_label = "Stay in class"
+success_feedback = "Let's go to the canteen!"
+failure_feedback = "Why do you even listen to our boring teacher"
+metadata/_custom_type_script = "uid://pj5qbrx8uar2"

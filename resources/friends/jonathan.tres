@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_05f5a"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_mru2a"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="2_kmrhd"]
 [ext_resource type="Texture2D" uid="uid://cl7xocf2uovgx" path="res://assets/art/characters/CLASSMATES/Guitarist/IMG_2992.PNG" id="2_vf4ly"]
 [ext_resource type="Texture2D" uid="uid://b3h75k307w8wg" path="res://assets/art/characters/CLASSMATES/Guitarist/IMG_2993.PNG" id="3_05f5a"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_723tu"]
 
 [resource]
 script = ExtResource("1_mru2a")
@@ -20,6 +22,10 @@ friend_qte_timer_max = 80.0
 sprite = ExtResource("2_vf4ly")
 sprite2 = ExtResource("3_05f5a")
 map_position_index = 5
-duration = null
-friend_qtes = Array[ExtResource("1_05f5a")]([])
+recruitment_question = "Hey, dude! Let’s jam to the classics!"
+recruitment_success_label = " Sure, I want to sing along!"
+recruitment_failure_label = " You’re too loud."
+recruitment_success_feedback = "Hell yeah, sing your heart out!"
+recruitment_failure_feedback = "Boo. You’re killing the mood."
+friend_qtes = Array[ExtResource("1_05f5a")]([ExtResource("2_kmrhd"), ExtResource("3_723tu")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

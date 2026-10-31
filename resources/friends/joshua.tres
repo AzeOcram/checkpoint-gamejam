@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_adxw5"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_c71ob"]
 [ext_resource type="Texture2D" uid="uid://ct6q7f2l6g8p8" path="res://assets/art/characters/CLASSMATES/Nerd Guy/IMG_2996.PNG" id="2_wcfuj"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="2_yr4lc"]
 [ext_resource type="Texture2D" uid="uid://cscpq0o4abeak" path="res://assets/art/characters/CLASSMATES/Nerd Guy/IMG_2997.PNG" id="3_adxw5"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="3_unkn2"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="4_2ri7l"]
 
 [resource]
 script = ExtResource("1_c71ob")
@@ -20,6 +23,10 @@ friend_qte_timer_max = 140.0
 sprite = ExtResource("2_wcfuj")
 sprite2 = ExtResource("3_adxw5")
 map_position_index = 18
-duration = null
-friend_qtes = Array[ExtResource("1_adxw5")]([])
+recruitment_question = "Do you have an extra pen? Mine ran out of ink."
+recruitment_success_label = "I got one here."
+recruitment_failure_label = "Buy a new one later."
+recruitment_success_feedback = "Thank you. I can share my notes with you later."
+recruitment_failure_feedback = "Right, okay, sorry for bothering."
+friend_qtes = Array[ExtResource("1_adxw5")]([ExtResource("2_yr4lc"), ExtResource("3_unkn2"), ExtResource("4_2ri7l")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_1g863"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_wi3c5"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_b27xd"]
 [ext_resource type="Texture2D" uid="uid://ba47cstm0d6ep" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2963.PNG" id="2_wi3c5"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_21tuh"]
 [ext_resource type="Texture2D" uid="uid://drr77f8menm52" path="res://assets/art/characters/CLASSMATES/Vlogger/IMG_2965.PNG" id="3_eq63m"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="4_nhvp8"]
 
 [resource]
 script = ExtResource("1_wi3c5")
@@ -20,6 +23,10 @@ friend_qte_timer_max = 70.0
 sprite = ExtResource("2_wi3c5")
 sprite2 = ExtResource("3_eq63m")
 map_position_index = 12
-duration = null
-friend_qtes = Array[ExtResource("1_1g863")]([])
+recruitment_question = "Hey! Do you want to join this TikTak trend? I can teach you the steps!"
+recruitment_success_label = "Yeah! What do I do exactly?"
+recruitment_failure_label = "Uhm… that’s not my thing."
+recruitment_success_feedback = "OMG Perfect! Okay, step one goes like this…"
+recruitment_failure_feedback = "Aww that’s alright! I’ll ask another time."
+friend_qtes = Array[ExtResource("1_1g863")]([ExtResource("2_b27xd"), ExtResource("3_21tuh"), ExtResource("4_nhvp8")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

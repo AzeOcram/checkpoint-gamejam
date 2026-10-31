@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_572h5"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_r8pvq"]
 [ext_resource type="Texture2D" uid="uid://ka5s5uo68ale" path="res://assets/art/characters/CLASSMATES/President/IMG_2959.PNG" id="2_hntb7"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_yoiom"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_yoiom"]
 [ext_resource type="Texture2D" uid="uid://dlxoixwxeyx8r" path="res://assets/art/characters/CLASSMATES/President/IMG_2960.PNG" id="3_20vlf"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_iwxpk"]
 
 [resource]
 script = ExtResource("1_r8pvq")
@@ -20,4 +21,10 @@ friend_qte_timer_max = 60.0
 sprite = ExtResource("2_hntb7")
 sprite2 = ExtResource("3_20vlf")
 map_position_index = 42
+recruitment_question = "Oh, can you help me bring our activities to the faculty room?"
+recruitment_success_label = "Yeah, give me half of them."
+recruitment_failure_label = "Can’t you ask the others?"
+recruitment_success_feedback = "Thanks for helping me! You’re really reliable."
+recruitment_failure_feedback = "Sure… I’m sorry for asking."
+friend_qtes = Array[ExtResource("1_572h5")]([ExtResource("2_yoiom"), ExtResource("3_iwxpk")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_23yt4"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nxyup"]
 [ext_resource type="Texture2D" uid="uid://co6lxts116gwu" path="res://assets/art/characters/CLASSMATES/Singer/1.PNG" id="2_2sa7t"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_yghd2"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="2_uhkhm"]
 [ext_resource type="Texture2D" uid="uid://bqxe6oms5fefx" path="res://assets/art/characters/CLASSMATES/Singer/2.PNG" id="3_fmpy3"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="3_tw00u"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="4_t75ma"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="5_dv8pm"]
 
 [resource]
 script = ExtResource("1_nxyup")
@@ -21,4 +24,10 @@ friend_qte_timer_max = 40.0
 sprite = ExtResource("2_2sa7t")
 sprite2 = ExtResource("3_fmpy3")
 map_position_index = 44
+recruitment_question = "Hi hello! Do you happen to have some Lola Remedios? I feel like I have a sore throat but I have an upcoming gig later."
+recruitment_success_label = " Luckily, I have one right here! Good luck with your gig."
+recruitment_failure_label = "Sadly, no. Some other students might have some of those."
+recruitment_success_feedback = "Thanks! I hope you can drop by if you’re free later."
+recruitment_failure_feedback = "You’re probably right, I’ll ask other people too. Thanks though!"
+friend_qtes = Array[ExtResource("1_23yt4")]([ExtResource("2_uhkhm"), ExtResource("3_tw00u"), ExtResource("4_t75ma"), ExtResource("5_dv8pm")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

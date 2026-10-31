@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FriendQTEData" format=3 uid="uid://dvvp8wk042vsd"]
+
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_thi1p"]
+
+[resource]
+script = ExtResource("1_thi1p")
+question = "This friend invites you to prank Geo"
+success_label = "Join them"
+failure_label = "Tell them to stop"
+success_feedback = "That's what I like!"
+failure_feedback = "You do not belong to this group. You're such a killjoy"
+metadata/_custom_type_script = "uid://pj5qbrx8uar2"

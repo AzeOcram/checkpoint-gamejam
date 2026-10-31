@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_nhrg8"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_sc2v8"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_d0kjy"]
 [ext_resource type="Texture2D" uid="uid://cxau0lesamxfc" path="res://assets/art/characters/CLASSMATES/Artist Guy/1.PNG" id="2_jdajp"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_li7xm"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_a5fph"]
 [ext_resource type="Texture2D" uid="uid://i7h6btox4e6n" path="res://assets/art/characters/CLASSMATES/Artist Guy/2.PNG" id="3_dxxs5"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="4_acs74"]
 
 [resource]
 script = ExtResource("1_nhrg8")
@@ -21,4 +23,10 @@ friend_qte_timer_max = 100.0
 sprite = ExtResource("2_jdajp")
 sprite2 = ExtResource("3_dxxs5")
 map_position_index = 13
+recruitment_question = "Hi bro! Do you have any extra oil pastels? I completely forgot that I was running out of art supplies."
+recruitment_success_label = " Yup! Is this one good?"
+recruitment_failure_label = "Nuh uh, I’m gonna win this poster contest this time."
+recruitment_success_feedback = "Yes that’s perfect, thank you!"
+recruitment_failure_feedback = "Oh, uhh, okay?"
+friend_qtes = Array[ExtResource("1_sc2v8")]([ExtResource("2_li7xm"), ExtResource("3_a5fph"), ExtResource("4_acs74")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

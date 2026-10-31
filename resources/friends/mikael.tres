@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_cceuh"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_ne72l"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_id5bx"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_evoaa"]
 [ext_resource type="Texture2D" uid="uid://d52adani5bg0" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2994.PNG" id="2_triay"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_8fn64"]
 [ext_resource type="Texture2D" uid="uid://bfav0bnc3sn8v" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2995.PNG" id="3_neq63"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="4_ldrde"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="5_ktdko"]
 
 [resource]
 script = ExtResource("1_ne72l")
@@ -21,4 +24,10 @@ friend_qte_timer_max = 100.0
 sprite = ExtResource("2_triay")
 sprite2 = ExtResource("3_neq63")
 map_position_index = 16
+recruitment_question = "What do you think of my new art?"
+recruitment_success_label = "It looks amazing! "
+recruitment_failure_label = " It’s bad."
+recruitment_success_feedback = "Thank you! You better wait for the next one."
+recruitment_failure_feedback = "You didn’t have to be so direct."
+friend_qtes = Array[ExtResource("1_cceuh")]([ExtResource("2_evoaa"), ExtResource("3_8fn64"), ExtResource("4_ldrde"), ExtResource("5_ktdko")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_2gws6"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_i1ink"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_qqlsa"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="2_abowd"]
 [ext_resource type="Texture2D" uid="uid://cvu3camocfert" path="res://assets/art/characters/CLASSMATES/Introvert Guy/IMG_2998.PNG" id="2_xoos8"]
 [ext_resource type="Texture2D" uid="uid://boymlqsqd8hg4" path="res://assets/art/characters/CLASSMATES/Introvert Guy/IMG_2999.PNG" id="3_mes88"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="3_saea3"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="4_0outh"]
 
 [resource]
 script = ExtResource("1_2gws6")
@@ -21,4 +23,10 @@ friend_qte_timer_max = 140.0
 sprite = ExtResource("2_xoos8")
 sprite2 = ExtResource("3_mes88")
 map_position_index = 35
+recruitment_question = "H-h-hey, do you want to partner up for the project? I thought you’d be chill to be with…"
+recruitment_success_label = " I don’t have a partner yet, let’s team up!"
+recruitment_failure_label = " Find someone else."
+recruitment_success_feedback = "Let’s do our best."
+recruitment_failure_feedback = "Forget I asked… I didn’t want to be your partner anyway."
+friend_qtes = Array[ExtResource("1_i1ink")]([ExtResource("2_abowd"), ExtResource("3_saea3"), ExtResource("4_0outh")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

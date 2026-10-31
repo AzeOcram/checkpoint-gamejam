@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_pq5e7"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_q45er"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_qtyi1"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="2_3gxb0"]
 [ext_resource type="Texture2D" uid="uid://cef6ckt3s4fwy" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/1.PNG" id="2_v34go"]
 [ext_resource type="Texture2D" uid="uid://dqlcfvg8fyq7p" path="res://assets/art/characters/CLASSMATES/Boys at the Back #3/2.PNG" id="3_6giri"]
+[ext_resource type="Resource" uid="uid://bd3kh6o8rsrrs" path="res://resources/friend_qna/ditch.tres" id="3_sltui"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="4_hfwfl"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="5_k5ajs"]
 
 [resource]
 script = ExtResource("1_pq5e7")
@@ -13,5 +16,5 @@ desc = "Boys at the back"
 sprite = ExtResource("2_v34go")
 sprite2 = ExtResource("3_6giri")
 map_position_index = 27
-duration = null
+friend_qtes = Array[ExtResource("1_q45er")]([ExtResource("2_3gxb0"), ExtResource("3_sltui"), ExtResource("4_hfwfl"), ExtResource("5_k5ajs"), ExtResource("2_3gxb0")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

@@ -1,3 +1,4 @@
+
 extends Node
 
 signal friend_recruited(friend_node: FriendNode)
@@ -101,6 +102,10 @@ func _on_recruitment_qte_finished(result: QTEData.Result, friend_data: FriendDat
 
 	if result == QTEData.Result.FAILURE:
 		friend_data.connection = 0
+		friend_data.mood = max(
+			friend_data.mood - friend_data.mood_decrease_rate,
+			0
+		)
 
 	_complete_recruitment(friend_data)
 

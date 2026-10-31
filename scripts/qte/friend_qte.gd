@@ -4,6 +4,7 @@ class_name FriendQTE
 
 @onready var description_label: Label = $Overlay/DescriptionLabel
 @onready var timer_label: Label = $Overlay/TimerLabel
+@onready var name_label: Label = $Overlay/NameLabel
 
 @onready var success_button: BaseButton = $Overlay/SuccessButton
 @onready var failure_button: BaseButton = $Overlay/FailButton
@@ -51,6 +52,7 @@ func start(data: QTEData) -> void:
 
 	if friend_data != null:
 		friend_sprite.texture = friend_data.sprite
+		name_label.text = friend_data.friend_name.split(" ")[0]
 
 		var min_time = minf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)
 		var max_time = maxf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)

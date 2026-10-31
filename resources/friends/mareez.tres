@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_elae8"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_n5r15"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_80c5m"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="2_5n6dv"]
 [ext_resource type="Texture2D" uid="uid://nlpacd4pbd0p" path="res://assets/art/characters/CLASSMATES/Popular Kids #2/1.PNG" id="2_eyb1y"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_ic038"]
 [ext_resource type="Texture2D" uid="uid://dmd636uf78w2e" path="res://assets/art/characters/CLASSMATES/Popular Kids #2/2.PNG" id="3_wqh4b"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="4_thp4r"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="5_2xvl6"]
 
 [resource]
 script = ExtResource("1_n5r15")
@@ -21,4 +24,5 @@ friend_qte_timer_max = 70.0
 sprite = ExtResource("2_eyb1y")
 sprite2 = ExtResource("3_wqh4b")
 map_position_index = 17
+friend_qtes = Array[ExtResource("1_elae8")]([ExtResource("2_5n6dv"), ExtResource("3_ic038"), ExtResource("4_thp4r"), ExtResource("5_2xvl6")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

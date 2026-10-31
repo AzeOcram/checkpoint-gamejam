@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_5bxoy"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_aoq54"]
 [ext_resource type="Texture2D" uid="uid://dow6m38uwgppr" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2976.PNG" id="2_2kkm7"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_d2rpf"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="2_d2rpf"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="3_cpi80"]
 [ext_resource type="Texture2D" uid="uid://osja1gkjasu0" path="res://assets/art/characters/CLASSMATES/Jowa 2/IMG_2977.PNG" id="3_ox8mm"]
 
 [resource]
@@ -21,4 +22,10 @@ friend_qte_timer_max = 120.0
 sprite = ExtResource("2_2kkm7")
 sprite2 = ExtResource("3_ox8mm")
 map_position_index = 41
+recruitment_question = "Hey, sorry to ask you this, but can you pass these flowers to Zei?"
+recruitment_success_label = "Those flowers look pretty, sure!"
+recruitment_failure_label = "Can’t you give it yourself?"
+recruitment_success_feedback = "Awesome, thanks!"
+recruitment_failure_feedback = "Right… sorry I asked."
+friend_qtes = Array[ExtResource("1_5bxoy")]([ExtResource("2_d2rpf"), ExtResource("3_cpi80")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

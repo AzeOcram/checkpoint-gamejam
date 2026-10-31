@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_76toe"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_q03h2"]
+[ext_resource type="Resource" uid="uid://ceomor2vadh1g" path="res://resources/friend_qna/varsity.tres" id="2_3eu6j"]
 [ext_resource type="Texture2D" uid="uid://dvfuirtc37n40" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3013.PNG" id="2_3lt8k"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_p8o6v"]
 [ext_resource type="Texture2D" uid="uid://fpgupiqgk012" path="res://assets/art/characters/CLASSMATES/Volleyball Varsity/IMG_3014.PNG" id="3_q03h2"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="4_ve6sl"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="5_rva47"]
 
 [resource]
 script = ExtResource("1_76toe")
@@ -20,6 +24,10 @@ friend_qte_timer_max = 60.0
 sprite = ExtResource("2_3lt8k")
 sprite2 = ExtResource("3_q03h2")
 map_position_index = 14
-duration = null
-friend_qtes = Array[ExtResource("1_q03h2")]([])
+recruitment_question = "Do you like volleyball? Let’s play after school."
+recruitment_success_label = " I’m down!"
+recruitment_failure_label = "I don’t want to play that game."
+recruitment_success_feedback = "Let’s go! See you later."
+recruitment_failure_feedback = "Bummer. Just come up to me if you want to play."
+friend_qtes = Array[ExtResource("1_q03h2")]([ExtResource("2_3eu6j"), ExtResource("3_p8o6v"), ExtResource("4_ve6sl"), ExtResource("5_rva47")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

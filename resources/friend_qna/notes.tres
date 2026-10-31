@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FriendQTEData" format=3 uid="uid://b4jgjjf7e6ssj"]
+
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_7wrp5"]
+
+[resource]
+script = ExtResource("1_7wrp5")
+question = "Your friend needs notes for the upcoming test."
+success_label = "Share your notes"
+failure_label = "Don’t share them."
+success_feedback = "Thank you so much! You're a lifesaver"
+failure_feedback = "Maybe next time.."
+metadata/_custom_type_script = "uid://pj5qbrx8uar2"

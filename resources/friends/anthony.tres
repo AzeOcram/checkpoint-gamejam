@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_1suum"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_qvoxt"]
+[ext_resource type="Resource" uid="uid://ceomor2vadh1g" path="res://resources/friend_qna/varsity.tres" id="2_mwh52"]
 [ext_resource type="Texture2D" uid="uid://74k23ixkelx7" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2961.PNG" id="2_yogbl"]
 [ext_resource type="Texture2D" uid="uid://cp614rmv2hdfc" path="res://assets/art/characters/CLASSMATES/Chess Varsity/IMG_2962.PNG" id="3_1suum"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_4nvws"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="4_18rsb"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="5_oj6ru"]
 
 [resource]
 script = ExtResource("1_qvoxt")
@@ -20,6 +24,10 @@ friend_qte_timer_max = 120.0
 sprite = ExtResource("2_yogbl")
 sprite2 = ExtResource("3_1suum")
 map_position_index = 9
-duration = null
-friend_qtes = Array[ExtResource("1_1suum")]([])
+recruitment_question = "Hey! Want to play chess with me?"
+recruitment_success_label = "Sure!"
+recruitment_failure_label = " I don’t want to play that."
+recruitment_success_feedback = "Great! I’ll set up the board."
+recruitment_failure_feedback = "Oh, okay then."
+friend_qtes = Array[ExtResource("1_1suum")]([ExtResource("2_mwh52"), ExtResource("3_4nvws"), ExtResource("4_18rsb"), ExtResource("5_oj6ru")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

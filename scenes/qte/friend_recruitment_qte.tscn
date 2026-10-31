@@ -34,16 +34,19 @@ texture = ExtResource("3_wgtk1")
 stretch_mode = 5
 
 [node name="FeedbackLabel" type="Label" parent="Overlay" unique_id=831938590]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
-offset_left = 110.0
-offset_top = 107.0
-offset_right = 179.0
-offset_bottom = 118.0
+offset_left = 107.0
+offset_top = 102.00001
+offset_right = 257.0
+offset_bottom = 113.00001
+scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Feedback"
+autowrap_mode = 3
 
 [node name="DescriptionLabel" type="Label" parent="Overlay" unique_id=1103777907]
-custom_minimum_size = Vector2(101, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 63.0
 offset_top = 18.0
@@ -65,45 +68,56 @@ text = "5.00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="NameLabel" type="Label" parent="Overlay" unique_id=872157989]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 157.0
+offset_right = 105.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
 [node name="FailButton" type="TextureButton" parent="Overlay" unique_id=2005742361]
 layout_mode = 0
 offset_left = 181.0
 offset_top = 142.0
 offset_right = 265.0
-offset_bottom = 161.0
+offset_bottom = 155.0
 texture_normal = ExtResource("4_wgtk1")
 
 [node name="FailLabel" type="Label" parent="Overlay/FailButton" unique_id=447807198]
-custom_minimum_size = Vector2(77, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 2.0
 offset_right = 81.0
 offset_bottom = 13.0
+scale = Vector2(0.6, 0.6)
 theme_override_font_sizes/font_size = 7
 text = "FAILURE"
 autowrap_mode = 3
 
 [node name="SuccessButton" type="TextureButton" parent="Overlay" unique_id=1890722927]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 122.0
-offset_right = 264.0
-offset_bottom = 141.0
+offset_left = 181.0
+offset_top = 123.0
+offset_right = 265.0
+offset_bottom = 136.0
 texture_normal = ExtResource("4_wgtk1")
 
 [node name="SuccessLabel" type="Label" parent="Overlay/SuccessButton" unique_id=1938890928]
-custom_minimum_size = Vector2(77, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 0
 offset_left = 4.0
 offset_top = 2.0
 offset_right = 64.0
 offset_bottom = 13.0
+scale = Vector2(0.6, 0.6)
 theme_override_font_sizes/font_size = 7
 text = "SUCCESS"
 autowrap_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=434638046]
-position = Vector2(84, 141)
+position = Vector2(82, 129)
 scale = Vector2(2, 2)
 texture = ExtResource("5_sq3p6")

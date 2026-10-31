@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_jeaxe"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_vbki8"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_cvbm0"]
 [ext_resource type="Texture2D" uid="uid://tgw7ahilr4o2" path="res://assets/art/characters/CLASSMATES/Gamer Guy/1.PNG" id="2_yi5at"]
+[ext_resource type="Resource" uid="uid://bd3kh6o8rsrrs" path="res://resources/friend_qna/ditch.tres" id="2_yyxgh"]
 [ext_resource type="Texture2D" uid="uid://tbmesqv6ikfc" path="res://assets/art/characters/CLASSMATES/Gamer Guy/2.PNG" id="3_akrxw"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_iahrl"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="4_6yqej"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="5_d30by"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="6_ej6kv"]
 
 [resource]
 script = ExtResource("1_jeaxe")
@@ -21,4 +25,10 @@ friend_qte_timer_max = 60.0
 sprite = ExtResource("2_yi5at")
 sprite2 = ExtResource("3_akrxw")
 map_position_index = 21
+recruitment_question = "Hey, you! Yes— you. Wanna play CODN?"
+recruitment_success_label = " Bet. Let me open up my phone"
+recruitment_failure_label = "Don’t you have anything better to do?"
+recruitment_success_feedback = "Nice nice"
+recruitment_failure_feedback = "Yes, but who even wants to do school work right now?"
+friend_qtes = Array[ExtResource("1_vbki8")]([ExtResource("2_yyxgh"), ExtResource("3_iahrl"), ExtResource("4_6yqej"), ExtResource("5_d30by"), ExtResource("6_ej6kv")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

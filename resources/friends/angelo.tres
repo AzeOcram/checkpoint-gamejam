@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_d6ng0"]
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_sv43k"]
 [ext_resource type="Texture2D" uid="uid://clw2605mttni8" path="res://assets/art/characters/CLASSMATES/Bully Guy/1.PNG" id="2_d02nl"]
+[ext_resource type="Resource" uid="uid://dvvp8wk042vsd" path="res://resources/friend_qna/bully.tres" id="2_v3ckk"]
 [ext_resource type="Texture2D" uid="uid://dmbav6ufvedy8" path="res://assets/art/characters/CLASSMATES/Bully Guy/2.PNG" id="3_d6ng0"]
+[ext_resource type="Resource" uid="uid://bd3kh6o8rsrrs" path="res://resources/friend_qna/ditch.tres" id="3_enhke"]
 
 [resource]
 script = ExtResource("1_sv43k")
@@ -19,6 +21,5 @@ friend_qte_timer_max = 80.0
 sprite = ExtResource("2_d02nl")
 sprite2 = ExtResource("3_d6ng0")
 map_position_index = 26
-duration = null
-friend_qtes = Array[ExtResource("1_d6ng0")]([])
+friend_qtes = Array[ExtResource("1_d6ng0")]([ExtResource("2_v3ckk"), ExtResource("3_enhke")])
 metadata/_custom_type_script = "uid://chluj6iek0are"

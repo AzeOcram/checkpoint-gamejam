@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FriendQTEData" format=3 uid="uid://bly3n7n822msg"]
+
+[ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_7k1lv"]
+
+[resource]
+script = ExtResource("1_7k1lv")
+question = "I need someone to talk to"
+success_label = "Talk about each other’s interests"
+failure_label = " Ignore them"
+success_feedback = "*yaps*"
+failure_feedback = "hmp.."
+metadata/_custom_type_script = "uid://pj5qbrx8uar2"

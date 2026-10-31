@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chluj6iek0are" path="res://resources/friends/friend_data.gd" id="1_33h5e"]
 [ext_resource type="Script" uid="uid://pj5qbrx8uar2" path="res://resources/friends/friend_qte_data.gd" id="1_370tl"]
-[ext_resource type="Resource" uid="uid://m606qmy4wwfn" path="res://resources/friend_qna/test.tres" id="2_bxfqt"]
+[ext_resource type="Resource" uid="uid://b4jgjjf7e6ssj" path="res://resources/friend_qna/notes.tres" id="2_637xp"]
 [ext_resource type="Texture2D" uid="uid://bsqkbi604y76r" path="res://assets/art/characters/CLASSMATES/Nerd Girl/1.PNG" id="2_qaf2e"]
+[ext_resource type="Resource" uid="uid://bly3n7n822msg" path="res://resources/friend_qna/talk.tres" id="3_lggg4"]
 [ext_resource type="Texture2D" uid="uid://4t4yqu5aj3q2" path="res://assets/art/characters/CLASSMATES/Nerd Girl/2.PNG" id="3_yvaqy"]
+[ext_resource type="Resource" uid="uid://dp0dda2oopvao" path="res://resources/friend_qna/bullied.tres" id="4_ty2xs"]
+[ext_resource type="Resource" uid="uid://clej7k1cjuvb5" path="res://resources/friend_qna/down.tres" id="5_hbq5y"]
 
 [resource]
 script = ExtResource("1_33h5e")
@@ -21,4 +24,10 @@ friend_qte_timer_max = 140.0
 sprite = ExtResource("2_qaf2e")
 sprite2 = ExtResource("3_yvaqy")
 map_position_index = 33
+recruitment_question = "Hello, uhm, do you have an eyeglass cloth by any chance? I think my glasses are a bit fogged up but I forgot mine at home."
+recruitment_success_label = " Sure, here you go."
+recruitment_failure_label = "No, I don’t want to share mine."
+recruitment_success_feedback = "Thanks a lot!"
+recruitment_failure_feedback = "Oh, okay…"
+friend_qtes = Array[ExtResource("1_370tl")]([ExtResource("2_637xp"), ExtResource("3_lggg4"), ExtResource("4_ty2xs"), ExtResource("5_hbq5y")])
 metadata/_custom_type_script = "uid://chluj6iek0are"
