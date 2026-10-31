@@ -1,6 +1,29 @@
 # Plan
 
-## Current batch (2026-11-01, 7th)
+## Current batch (2026-11-01, 8th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Luck back on event QTEs only; the intro shows the event QTE's title and says Lucky or Not lucky; no friend name | `fix/luck-event-only` | 🔵 PR open | PR_URL |
+
+### What I found
+- **Why the friend name showed:** #38 moved the Luck roll to `FriendQTEManager`, and its `skip_qte` titled the Lucky screen "<friend name> NEEDS YOU". Before that the screen was event-only, so it showed the event QTE's title.
+- You then chose: Luck on event QTEs only.
+
+### Decisions
+- Friend QTEs never roll Luck. Event QTEs roll it (cap 50% kept). The intro shows the event QTE's title.
+- "Indicate whether lucky or not": a skip says "Lucky! Your friend saved you from this one."; a roll that missed says "Not lucky this time." for 1s before the QTE starts. The missed message only shows when the player has any Luck (at 0 Luck nothing was rolled).
+- The title-wrap fix from `fix/luck-skip-feedback` was left out: friend QTEs have no intro, so a friend name can no longer reach the title.
+
+### Milestone 1
+- **Files:** `event_qte_system.gd`, `friend_qte_manager.gd`, `qte_queue_manager.gd` (new `luck_rolled` flag), `qte_starting_screen.gd`, `tests/test_luck_skip.gd`.
+- **Test:** `tests/test_luck_skip.gd`: friend QTEs never skipped over 30 tries at Luck 0.9; an event skip uses the event title and pays the reward; a missed roll shows "Not lucky this time." Red first.
+- **Skills used:** diagnosing-bugs (traced the name to `skip_qte`), tdd, blast-radius (callers of `enqueue_qte` and `play`), pr.
+
+### Not checked
+- Not played in a live run; the missed-roll message was checked in a rendered frame.
+
+## Previous batch (2026-11-01, 7th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
@@ -28,7 +51,7 @@ One branch and one PR for both, as asked.
 - The Lucky screen on a friend QTE was not rendered in a live run (the screen itself was checked last batch).
 - `tests/test_stats_system.gd` still fails 6 checks it already failed on main.
 
-## Previous batch (2026-11-01, 6th)
+## Earlier batch (2026-11-01, 6th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
