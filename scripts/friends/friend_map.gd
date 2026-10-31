@@ -81,6 +81,32 @@ func spawn_friends() -> void:
 	move_child(friend_info_panel, -1)
 
 
+# Any input outside the open friend info closes it: S/F shortcuts, taps and clicks.
+func _input(event: InputEvent) -> void:
+	if not friend_info_panel.visible:
+		return
+
+	if event.is_action_pressed(&"open_shop") or event.is_action_pressed(&"open_friends"):
+		_close_info()
+	elif event.is_action_pressed(&"tap"):
+		var hovered := get_viewport().gui_get_hovered_control()
+
+		if hovered == friend_info_panel or friend_info_panel.is_ancestor_of(hovered):
+			return
+
+		_close_info()
+
+		# Buttons (S/F icons) still act on this click; anything else only dismisses.
+		if not hovered is BaseButton:
+			get_viewport().set_input_as_handled()
+
+
+func _close_info() -> void:
+	friend_info_panel.hide()
+	selected_friend = null
+	SFX.play(&"menu_close")
+
+
 func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	print("MAP RECEIVED CLICK: ", friend_node.data.friend_name)
 
