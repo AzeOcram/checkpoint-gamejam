@@ -54,10 +54,10 @@ func _initialize() -> void:
 	check(locked == 39, "only the recruited friend is unlocked")
 	var sb_order := []
 	for c: FriendCard in cards.get_children():
-		sb_order.append(c.data.social_battery_generation)
+		sb_order.append(c.data.recruitment_cost)
 	var sorted_sb := sb_order.duplicate()
 	sorted_sb.sort()
-	check(sb_order == sorted_sb, "cards sort from least to most SB")
+	check(sb_order == sorted_sb, "cards sort from cheapest to most expensive")
 	var other: FriendCard = null
 	for c: FriendCard in cards.get_children():
 		if c.is_locked():

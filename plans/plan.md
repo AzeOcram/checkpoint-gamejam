@@ -7,7 +7,7 @@
 | 1 | Full friend list: all 39 friends, sorted by SB, locked ones shaded, buy from the list | `friend-list-buy` | 🔵 PR open (UI approved) | [#29](https://github.com/AzeOcram/checkpoint-gamejam/pull/29) |
 
 ### Decisions
-- "SB" = `social_battery_generation` (what the card already labels "SB Generation"). Ties break by `recruitment_cost`, then name. Order is static, so a purchase never reshuffles the list.
+- Sorted by SB price (`recruitment_cost`), cheapest first (changed from SB generation after PR review). Ties break by `social_battery_generation`, then name. Order is static, so a purchase never reshuffles the list.
 - Locked friends get a dark overlay on the whole card (portrait, text), a "Befriend · N SB" button instead of the three stat bars.
 - Buy-from-list reuses `RecruitmentSystem.can_recruit` / `recruit_friend` (rules stay there); unaffordable press plays `cant_afford`.
 - There are 40 friends (not 39); the header now reads `x/40` from `available_friends` instead of the stale `MAX_FRIENDS := 39`.

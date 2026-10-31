@@ -48,7 +48,7 @@ func update_friend_list() -> void:
 		child.queue_free()
 
 	var all: Array[FriendData] = recruitment_system.available_friends.duplicate()
-	all.sort_custom(_sb_ascending)
+	all.sort_custom(_price_ascending)
 
 	for friend_data in all:
 		var card: FriendCard = FRIEND_CARD_SCENE.instantiate()
@@ -58,12 +58,12 @@ func update_friend_list() -> void:
 		card.buy_requested.connect(_on_buy_requested)
 
 
-func _sb_ascending(a: FriendData, b: FriendData) -> bool:
-	if a.social_battery_generation != b.social_battery_generation:
-		return a.social_battery_generation < b.social_battery_generation
-
+func _price_ascending(a: FriendData, b: FriendData) -> bool:
 	if a.recruitment_cost != b.recruitment_cost:
 		return a.recruitment_cost < b.recruitment_cost
+
+	if a.social_battery_generation != b.social_battery_generation:
+		return a.social_battery_generation < b.social_battery_generation
 
 	return a.friend_name < b.friend_name
 
