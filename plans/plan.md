@@ -6,7 +6,7 @@
 |---|-----------|--------|--------|----|
 | 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🔵 PR open (UI awaiting approval) | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
 | 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | ⚪ not started | — |
-| 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | ⚪ not started | — |
+| 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | 🟡 in progress (code + test done, UI awaiting approval) | — |
 
 ### Answer first: how often does a friend QTE fire?
 - **It is a per-friend random timer, not a fixed interval and not a trigger condition.** `FriendNode.start_mood_timer` rolls `randf_range(friend_qte_timer_min, friend_qte_timer_max)` seconds (`friend.gd`). The roll is new every cycle.
