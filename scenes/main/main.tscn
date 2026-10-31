@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://csfdcauwigc5m" path="res://scenes/main/day_system.tscn" id="16_nvumn"]
 [ext_resource type="Script" uid="uid://cbms81ymqljp6" path="res://scripts/qte/qte_queue_manager.gd" id="17_necax"]
 [ext_resource type="PackedScene" uid="uid://b8y10xrbjdsct" path="res://scenes/main/day_intro_cutscene.tscn" id="18_ou6is"]
+[ext_resource type="PackedScene" path="res://scenes/main/friend_warning.tscn" id="99_fwarn"]
 
 [node name="Main" type="Control" unique_id=487311497]
 layout_mode = 3
@@ -112,6 +113,8 @@ autoplay = true
 parameters/looping = true
 
 [node name="DayIntroCutscene" parent="." unique_id=1452003855 instance=ExtResource("18_ou6is")]
+
+[node name="FriendWarning" parent="." instance=ExtResource("99_fwarn")]
 
 [connection signal="pressed" from="UI/SocialCircleButton" to="UI" method="_on_social_circle_button_pressed"]
 [connection signal="pressed" from="UI/CharacterButton" to="UI" method="_on_character_button_pressed"]

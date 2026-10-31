@@ -5,7 +5,7 @@
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
 | 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🔵 PR open (UI awaiting approval) | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
-| 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | ⚪ not started | — |
+| 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | 🟡 in progress (code + test done, UI awaiting approval) | — |
 | 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | ⚪ not started | — |
 
 ### Answer first: how often does a friend QTE fire?
@@ -18,7 +18,7 @@
 
 ### Decisions
 - 3 branches, 3 PRs, in this order. Each starts from an up-to-date `main`. 2 and 3 do not depend on 1.
-- Warning (2): shown while any friend alert is open or a friend QTE is queued/active, hidden when none remain. Text "A FRIEND NEEDS YOU!". Size: about 15% of the screen height, width fits the text (open to change, one constant). Sits top-centre between the Social Battery and Energy HUD, on its own `CanvasLayer` above the classroom, friend list, shop, friend QTE and event QTE.
+- Warning (2): shown while any friend alert is open or a friend QTE is queued/active, hidden when none remain. Text "A FRIEND NEEDS YOU!". Size: about 15% of the screen height, width fits the text (open to change, one constant). Sits bottom-centre (top-centre hid the QTE prompt text), on its own `CanvasLayer` above the classroom, friend list, shop, friend QTE and event QTE.
 - Warning excluded from the day intro cutscene. The game over, victory and main menu screens are separate scenes, so it is gone there without extra code.
 - Shortcuts (3): `S` toggles the shop, `F` toggles the friend list, same open/close/swap behaviour and sounds as the two buttons. Ignored during any QTE, the intro and while paused.
 - Hint (3): small `S` and `F` key badges next to the shop (bottom-right) and friend-list (bottom-left) buttons. Full opacity for 60s after the intro ends, then fade out over 4s (opacity only). The brief says "gradually disappear or fade after one minute": I read it as 60s shown, then a fade.

@@ -80,3 +80,7 @@ func _update_reveal(progress: float) -> void:
 	# Circle expansion
 	var radius: float= lerp(0.18, 4.0, progress)
 	black_screen.material.set_shader_parameter("radius", radius)
+
+
+func is_playing() -> bool:
+	return not is_queued_for_deletion() and black_screen.visible
