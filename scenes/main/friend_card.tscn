@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cdb24657ww4o5"]
 
-[ext_resource type="Script" path="res://scripts/main/friend_card.gd" id="1_card"]
+[ext_resource type="Script" uid="uid://3xm26i5wrjl4" path="res://scripts/main/friend_card.gd" id="1_card"]
 
 [sub_resource type="StyleBoxFlat" id="card_style"]
 content_margin_left = 3.0
@@ -30,26 +30,25 @@ bg_color = Color(0.2, 0.67, 0.93, 1)
 [sub_resource type="StyleBoxFlat" id="sb_fill"]
 bg_color = Color(0.22, 0.55, 0.3, 1)
 
-[node name="FriendCard" type="PanelContainer"]
-layout_mode = 2
+[node name="FriendCard" type="PanelContainer" unique_id=122865212]
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("card_style")
 script = ExtResource("1_card")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=438850827]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Identity" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Identity" type="VBoxContainer" parent="HBoxContainer" unique_id=1449460766]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="PortraitBox" type="Control" parent="HBoxContainer/Identity"]
+[node name="PortraitBox" type="Control" parent="HBoxContainer/Identity" unique_id=1588189720]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="Portrait" type="TextureRect" parent="HBoxContainer/Identity/PortraitBox"]
+[node name="Portrait" type="TextureRect" parent="HBoxContainer/Identity/PortraitBox" unique_id=599465640]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +58,7 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MoodIcon" type="TextureRect" parent="HBoxContainer/Identity/PortraitBox"]
+[node name="MoodIcon" type="TextureRect" parent="HBoxContainer/Identity/PortraitBox" unique_id=886797111]
 layout_mode = 0
 offset_left = 30.0
 offset_top = -2.0
@@ -68,60 +67,59 @@ offset_bottom = 12.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="HBoxContainer/Identity"]
+[node name="NameLabel" type="Label" parent="HBoxContainer/Identity" unique_id=1958360770]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 7
+text = "Name"
 horizontal_alignment = 1
 clip_text = true
-text = "Name"
 
-[node name="Stats" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer" unique_id=447328993]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="MoodLabel" type="Label" parent="HBoxContainer/Stats"]
+[node name="MoodLabel" type="Label" parent="HBoxContainer/Stats" unique_id=1794929910]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 6
 text = "Mood"
 
-[node name="MoodBar" type="ProgressBar" parent="HBoxContainer/Stats"]
+[node name="MoodBar" type="ProgressBar" parent="HBoxContainer/Stats" unique_id=1523893183]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme_override_styles/background = SubResource("bar_bg")
 theme_override_styles/fill = SubResource("mood_fill")
 show_percentage = false
 
-[node name="ConnectionLabel" type="Label" parent="HBoxContainer/Stats"]
+[node name="ConnectionLabel" type="Label" parent="HBoxContainer/Stats" unique_id=1323511925]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 6
 text = "Connection"
 
-[node name="ConnectionBar" type="ProgressBar" parent="HBoxContainer/Stats"]
+[node name="ConnectionBar" type="ProgressBar" parent="HBoxContainer/Stats" unique_id=465957031]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme_override_styles/background = SubResource("bar_bg")
 theme_override_styles/fill = SubResource("connection_fill")
 show_percentage = false
 
-[node name="SBLabel" type="Label" parent="HBoxContainer/Stats"]
+[node name="SBLabel" type="Label" parent="HBoxContainer/Stats" unique_id=1660067150]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
 theme_override_font_sizes/font_size = 6
 text = "SB Generation"
 
-[node name="SBBar" type="ProgressBar" parent="HBoxContainer/Stats"]
+[node name="SBBar" type="ProgressBar" parent="HBoxContainer/Stats" unique_id=1219506291]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 theme_override_styles/background = SubResource("bar_bg")
 theme_override_styles/fill = SubResource("sb_fill")
-step = 0.01
 show_percentage = false
 
-[node name="BuyButton" type="Button" parent="HBoxContainer"]
+[node name="BuyButton" type="Button" parent="HBoxContainer" unique_id=1993606325]
 visible = false
 layout_mode = 2
 size_flags_vertical = 4

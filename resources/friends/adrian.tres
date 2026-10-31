@@ -13,6 +13,13 @@
 script = ExtResource("1_pq5e7")
 friend_name = "Adrian Louis Llorca"
 desc = "Boys at the back"
+recruitment_cost = 1500
+social_battery_generation = 50
+luck = 0.05
+mood_decrease_rate = 100.0
+connection_gain = 50
+friend_qte_timer_min = 20.0
+friend_qte_timer_max = 30.0
 sprite = ExtResource("2_v34go")
 sprite2 = ExtResource("3_6giri")
 map_position_index = 27

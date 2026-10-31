@@ -74,6 +74,12 @@ func is_locked() -> bool:
 func set_buyable(can_buy: bool) -> void:
 	buy_button.disabled = not can_buy
 
+	if can_buy:
+		var style := buy_button.get_theme_stylebox("normal").duplicate()
+		style.bg_color = Color("#D8B4FE")
+		buy_button.add_theme_stylebox_override("normal", style)
+	else:
+		buy_button.remove_theme_stylebox_override("normal")
 
 func _on_buy_pressed() -> void:
 	buy_requested.emit(data)
