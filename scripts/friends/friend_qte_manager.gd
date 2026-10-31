@@ -5,10 +5,17 @@ class_name FriendQTEManager
 
 const FRIEND_QTE_SCENE = preload("res://scenes/qte/friend_qte.tscn")
 signal qte_finished
+signal alert_changed(friend_data: FriendData, time_left: float)
+signal alert_ended(friend_data: FriendData)
+
+const ALERT_DURATION := 10.0
 
 
 @onready var qte_queue_manager: QTEQueueManager = get_node("../QTEQueueManager")
 @onready var recruitment_system = $"../RecruitmentSystem"
+
+var alerts: Dictionary = {} # FriendData -> seconds left
+var alert_nodes: Dictionary = {} # FriendData -> FriendNode
 
 
 func _on_friend_request_qte(friend_node: FriendNode) -> void:
@@ -20,15 +27,52 @@ func _on_friend_request_qte(friend_node: FriendNode) -> void:
 		friend_node.pause_monitoring()
 		return
 
-	print("========== QUEUING FRIEND QTE ==========")
-	print("Friend: ", friend_node.data.friend_name)
-
-	# Prevent another request from this friend while waiting.
+	# Prevent another request from this friend while the alert is open.
 	friend_node.pause_monitoring()
+
+	alerts[friend_node.data] = ALERT_DURATION
+	alert_nodes[friend_node.data] = friend_node
+	alert_changed.emit(friend_node.data, ALERT_DURATION)
+
+
+func has_alert(friend_data: FriendData) -> bool:
+	return alerts.has(friend_data)
+
+
+func alert_time_left(friend_data: FriendData) -> float:
+	return alerts.get(friend_data, 0.0)
+
+
+func _process(delta: float) -> void:
+	tick_alerts(delta)
+
+
+# Unclicked alerts that run out count as a failed QTE.
+func tick_alerts(delta: float) -> void:
+	for friend_data: FriendData in alerts.keys():
+		alerts[friend_data] -= delta
+
+		if alerts[friend_data] > 0.0:
+			alert_changed.emit(friend_data, alerts[friend_data])
+			continue
+
+		var friend_node: FriendNode = _close_alert(friend_data)
+		_on_qte_finished(QTEData.Result.FAILURE, friend_node)
+
+
+# Called when the player clicks a friend with an open alert.
+func start_qte(friend_data: FriendData) -> void:
+	var friend_node: FriendNode = _close_alert(friend_data)
+
+	if not is_instance_valid(friend_node):
+		return
+
+	print("========== QUEUING FRIEND QTE ==========")
+	print("Friend: ", friend_data.friend_name)
 
 	var qte_data := QTEData.new()
 
-	qte_data.title = friend_node.data.friend_name + " NEEDS YOU"
+	qte_data.title = friend_data.friend_name + " NEEDS YOU"
 	qte_data.description = "Respond quickly to help them!"
 	qte_data.duration = 5.0
 
@@ -36,8 +80,18 @@ func _on_friend_request_qte(friend_node: FriendNode) -> void:
 		FRIEND_QTE_SCENE,
 		qte_data,
 		_on_qte_finished.bind(friend_node),
-		friend_node.data
+		friend_data
 	)
+
+
+func _close_alert(friend_data: FriendData) -> FriendNode:
+	var friend_node: FriendNode = alert_nodes.get(friend_data)
+
+	alerts.erase(friend_data)
+	alert_nodes.erase(friend_data)
+	alert_ended.emit(friend_data)
+
+	return friend_node
 
 
 # Permanently reduces other friends' QTE timers.

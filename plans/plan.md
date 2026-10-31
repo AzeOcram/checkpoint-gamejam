@@ -1,6 +1,29 @@
 # Plan
 
-## Current batch (2026-10-31, 2nd)
+## Current batch (2026-10-31, 3rd)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Friend `!` + 10s timer popup; click the friend to start their QTE | `feat/ui-alert-and-timer` | 🟡 in progress (code + test done, UI awaiting approval, not pushed) | — |
+
+### Decisions
+- A friend QTE no longer starts by itself. When a friend's mood timer fires, an alert (`!` + countdown) appears over that friend on the map for 10s; clicking the friend enqueues the QTE.
+- Clicking an alerted friend starts the QTE and does not open the info panel. Unalerted friends behave as today.
+- Alerts run concurrently, one per friend (a friend with an open alert has its mood timer paused, as now). Alerts keep counting while another QTE is on screen.
+- Expiry (user's answer): counts as a failed QTE, same penalty path as failing (mood/connection drop, crisis check), then the friend's mood timer restarts.
+- Clicking again after the QTE is queued does nothing (alert is cleared on click).
+
+### 1. Friend alert popup
+- **Found:** `FriendNode.request_friend_qte` → `FriendQTEManager._on_friend_request_qte` enqueues the QTE immediately. `FriendMapNode` (the seat sprite on the map) has no link to the recruited `FriendNode`; both share `FriendData`. Map clicks go through `FriendMap._on_friend_clicked`.
+- **Backend / data:** `FriendQTEManager` owns alert state (`alerts: Dictionary` of `FriendData` → time left, `ALERT_DURATION := 10.0`), ticks it in `_process`, emits `alert_started/alert_ended(friend_data)`. New `start_qte(friend_data)` enqueues the QTE (existing code moved out of the request handler). Expiry calls the existing `_on_qte_finished(FAILURE, node)`. Rules stay in the manager.
+- **UI:** `FriendMapNode` gets a small `Label` child (`! 9`) above the sprite, hidden by default, shown on `alert_started`, updated each second, hidden on end. Pop-in scale/opacity tween (150-200ms ease-out), press scale 0.96 on the sprite while alerted, text turns red under 3s. `FriendMap` routes an alerted click to `start_qte` instead of the panel, and connects the manager signals to the matching map node.
+- **Test:** `tests/test_friend_alert.gd` (headless, same pattern as `test_friend_list.gd`): request makes an alert and enqueues no QTE; two friends alert concurrently; clicking enqueues exactly that friend's QTE; unclicked alert after 10s applies the failure penalty and restarts the timer; alerted click does not open the info panel.
+- **Files:** `scripts/friends/friend_qte_manager.gd`, `scripts/friends/friend_map.gd`, `scripts/friends/friend_map_node.gd`, `scenes/friends/friend_map_node.tscn`, `tests/test_friend_alert.gd`.
+
+### Not checked
+- Visual fit of the `!` at 320x180 with 16px seat spacing (screenshot after build); alert behaviour while the map is hidden by another screen.
+
+## Previous batch (2026-10-31, 2nd)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
