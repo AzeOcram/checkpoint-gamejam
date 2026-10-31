@@ -54,11 +54,6 @@ func start(data: QTEData) -> void:
 		friend_sprite.texture = friend_data.sprite
 		name_label.text = friend_data.friend_name.split(" ")[0]
 
-		var min_time = minf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)
-		var max_time = maxf(friend_data.friend_qte_timer_min, friend_data.friend_qte_timer_max)
-
-		time_remaining = randf_range(min_time, max_time)
-
 		if friend_qte_data == null and not friend_data.friend_qtes.is_empty():
 			friend_qte_data = friend_data.friend_qtes.pick_random()
 
@@ -71,10 +66,11 @@ func start(data: QTEData) -> void:
 			success_label.text = "Let's talk!"
 			failure_label.text = "Not now"
 	else:
-		time_remaining = qte_data.duration
 		description_label.text = qte_data.description
 		success_label.text = "Let's talk!"
 		failure_label.text = "Not now"
+
+	time_remaining = qte_data.duration
 
 	if randf() < 0.5:
 		success_button.position = success_button_position

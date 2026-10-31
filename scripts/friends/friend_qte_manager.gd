@@ -74,7 +74,7 @@ func start_qte(friend_data: FriendData) -> void:
 
 	qte_data.title = friend_data.friend_name + " NEEDS YOU"
 	qte_data.description = "Respond quickly to help them!"
-	qte_data.duration = 5.0
+	qte_data.duration = friend_data.duration
 
 	qte_queue_manager.enqueue_qte(
 		FRIEND_QTE_SCENE,
