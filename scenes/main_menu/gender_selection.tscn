@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dc8dhqesh262y"]
+
+[ext_resource type="Script" uid="uid://svntcpcsgt88" path="res://scripts/main_menu/gender_selection.gd" id="1_cjy4u"]
+[ext_resource type="FontFile" uid="uid://dsew2v2x71tuk" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_qpa5x"]
+[ext_resource type="Texture2D" uid="uid://jgfjv7jes1v0" path="res://assets/ui/main_menu/Art/Bg blurred.PNG" id="2_y61eu"]
+[ext_resource type="Texture2D" uid="uid://cm6rhm7sw5ii1" path="res://assets/ui/main_menu/Art/1_MALE MC.PNG" id="4_t0736"]
+[ext_resource type="Texture2D" uid="uid://bh5rtvneqolyq" path="res://assets/ui/main_menu/Art/FEMALE MC.PNG" id="5_gvx0j"]
+[ext_resource type="Texture2D" uid="uid://c0ua7w6qegt6b" path="res://assets/ui/main_menu/Buttons/Base3.PNG" id="5_t0736"]
+[ext_resource type="Texture2D" uid="uid://ncjj2eb64p3y" path="res://assets/ui/main_menu/Back 1.PNG" id="6_4avdf"]
+[ext_resource type="Texture2D" uid="uid://dym7tfqefn7ad" path="res://assets/ui/main_menu/Buttons/Base2-dark.PNG" id="6_gvx0j"]
+[ext_resource type="Texture2D" uid="uid://dgcf3ey8nqv7s" path="res://assets/ui/main_menu/Back 2.PNG" id="7_032c5"]
+
+[node name="GenderSelection" type="Control" unique_id=525316696]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjy4u")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1937691953]
+position = Vector2(157, 86.99999)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_y61eu")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1863274504]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 9.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1306159967]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2050927839]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -12
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_qpa5x")
+theme_override_font_sizes/font_size = 21
+text = "Choose your Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=812441636]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Male" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1839619979]
+layout_mode = 2
+theme_override_constants/separation = -50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Male" unique_id=141244515]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("4_t0736")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MaleButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/Male" unique_id=1411365410]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("5_t0736")
+texture_hover = ExtResource("6_gvx0j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Male/MaleButton" unique_id=81106887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_qpa5x")
+text = "Boy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Female" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1612616663]
+layout_mode = 2
+theme_override_constants/separation = -50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/HBoxContainer/Female" unique_id=102144240]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("5_gvx0j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FemaleButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/Female" unique_id=2115421002]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture_normal = ExtResource("5_t0736")
+texture_hover = ExtResource("6_gvx0j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Female/FemaleButton" unique_id=333700299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_qpa5x")
+text = "Girl"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=551120118]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 17.0
+texture_normal = ExtResource("6_4avdf")
+texture_hover = ExtResource("7_032c5")
+ignore_texture_size = true
+stretch_mode = 4

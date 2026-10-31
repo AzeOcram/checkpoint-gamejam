@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bhbvxmbgqkw14" path="res://assets/art/characters/MC Female/1.PNG" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://ogiut6snsuuq" path="res://scripts/player/player_visual.gd" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://buym6r5yfn66k" path="res://assets/art/characters/MC Female/2.PNG" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://dufen2nfc4nvw" path="res://assets/art/characters/MC Male/1.PNG" id="5_75vfm"]
+[ext_resource type="Texture2D" uid="uid://dp7dd4cupng0c" path="res://assets/art/characters/MC Male/2.PNG" id="6_0owmy"]
 
 [node name="Player" type="Node2D" unique_id=1239961759]
 scale = Vector2(0.8, 0.8)
@@ -13,10 +15,17 @@ script = ExtResource("1_8afob")
 scale = Vector2(1.1, 1.1)
 script = ExtResource("2_lvxji")
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerVisual" unique_id=50543463]
+[node name="Female1" type="Sprite2D" parent="PlayerVisual" unique_id=50543463]
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_dovo2")
 
-[node name="Sprite2D2" type="Sprite2D" parent="PlayerVisual" unique_id=1560291247]
+[node name="Female2" type="Sprite2D" parent="PlayerVisual" unique_id=1560291247]
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("3_gmlin")
+
+[node name="Male1" type="Sprite2D" parent="PlayerVisual" unique_id=436910704]
+texture = ExtResource("5_75vfm")
+
+[node name="Male2" type="Sprite2D" parent="PlayerVisual" unique_id=1403984496]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_0owmy")
