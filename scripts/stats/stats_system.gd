@@ -104,5 +104,5 @@ func get_luck_chance() -> float:
 # Luck check for the QTE system. Call before showing a QTE.
 # Returns true if the QTE should be skipped (treat it as SUCCESS).
 # The roll can be passed in for testing.
-func roll_luck_skip(roll: float = randf()) -> bool:
-	return roll < get_luck_chance()
+func roll_luck_skip() -> bool:
+	return randf() < Player.luck

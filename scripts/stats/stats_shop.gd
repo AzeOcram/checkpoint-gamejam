@@ -110,16 +110,13 @@ func update_energy() -> void:
 
 
 func update_luck() -> void:
-	var value: int = stats_system.get_value("luck")
+	var value: float = Player.luck * 100.0
 	var level: int = stats_system.get_level("luck")
 	var cost = stats_system.get_cost("luck")
 
 	print("LUCK COST: ", cost, " | TYPE: ", typeof(cost))
 
-	luck_label.text = "%d (Lv %d)  " % [
-		value,
-		level,
-	]
+	luck_label.text = str(value) + "% (Lv " + str(level) + ")"
 
 	if stats_system.is_maxed("luck"):
 		luck_cost_label.text = "MAX"
@@ -127,7 +124,6 @@ func update_luck() -> void:
 		luck_cost_label.text = str(cost)
 
 	luck_upgrade_button.disabled = not stats_system.can_upgrade("luck")
-
 
 func update_hp() -> void:
 	var current_hp: int = Player.hp

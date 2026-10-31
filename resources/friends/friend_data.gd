@@ -16,6 +16,7 @@ class_name FriendData
 @export var connection: int = 0
 @export var social_battery_generation: int = 1
 @export var luck: float = 0
+var luck_bonus_claimed: bool = false
 
 # Friend interaction
 @export var mood_decrease_rate: float = 1.0

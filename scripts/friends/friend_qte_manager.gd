@@ -12,6 +12,14 @@ signal qte_finished
 
 
 func _on_friend_request_qte(friend_node: FriendNode) -> void:
+	if not is_instance_valid(friend_node):
+		return
+
+	# Friends with maximum connection no longer trigger QTEs.
+	if friend_node.data.connection >= 100:
+		friend_node.pause_monitoring()
+		return
+
 	print("========== QUEUING FRIEND QTE ==========")
 	print("Friend: ", friend_node.data.friend_name)
 
@@ -57,6 +65,28 @@ func apply_friend_crisis(crisis_friend: FriendData) -> void:
 	print("FRIEND CRISIS! Other friends' timers permanently reduced by 5 seconds.")
 
 
+# Gives the player the friend's luck bonus upon reaching 100 connection.
+func check_luck_reward(friend_data: FriendData) -> void:
+	if friend_data.connection < 100:
+		return
+
+	if friend_data.luck_bonus_claimed:
+		return
+
+	Player.luck = minf(
+		Player.luck + friend_data.luck,
+		Player.MAX_LUCK
+	)
+
+	friend_data.luck_bonus_claimed = true
+
+	print(
+		friend_data.friend_name,
+		" reached 100 connection! Player luck: ",
+		Player.luck * 100,
+		"%"
+	)
+
 func _on_qte_finished(
 	result: QTEData.Result,
 	friend_node: FriendNode
@@ -76,6 +106,9 @@ func _on_qte_finished(
 		)
 
 		print(friend_node.data.friend_name, " QTE SUCCESS!")
+
+		# Check whether the friend has reached maximum connection.
+		check_luck_reward(friend_node.data)
 
 	else:
 		# Remember the mood before applying the penalty.
@@ -98,5 +131,10 @@ func _on_qte_finished(
 			print(friend_node.data.friend_name, " triggered a FRIEND CRISIS!")
 			apply_friend_crisis(friend_node.data)
 
-	friend_node.resume_monitoring()
+	# Stop monitoring if the friend has reached maximum connection.
+	if friend_node.data.connection >= 100:
+		friend_node.pause_monitoring()
+	else:
+		friend_node.resume_monitoring()
+
 	qte_finished.emit()
