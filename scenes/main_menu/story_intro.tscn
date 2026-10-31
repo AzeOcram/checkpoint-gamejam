@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_2vkxn"]
 [ext_resource type="Script" uid="uid://3j8284gxs2xu" path="res://scripts/main_menu/story_intro.gd" id="1_a22yr"]
 [ext_resource type="Texture2D" uid="uid://cio2aaabnpvi6" path="res://assets/cutscenes/INTRO/1.png" id="1_mr2bk"]
+[ext_resource type="AudioStream" uid="uid://kl1lq5j37d6v" path="res://assets/audio/SFX/intro_sfx.ogg" id="4_838io"]
 
 [node name="StoryIntro" type="Control" unique_id=1250635175]
 layout_mode = 3
@@ -25,8 +26,6 @@ texture = ExtResource("1_mr2bk")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=761121121]
-
 [node name="SkipButton" type="Button" parent="." unique_id=795250207]
 layout_mode = 0
 offset_left = 303.0
@@ -37,3 +36,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.45286757, 0.45212483, 0, 1)
 text = "Skip"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1243360090]
+stream = ExtResource("4_838io")
+autoplay = true
