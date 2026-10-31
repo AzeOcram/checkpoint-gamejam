@@ -33,7 +33,7 @@ offset_right = 133.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU SURVIVED 14 DAYS! YOU WIN!"
+text = "YOU SURVIVED 2 WEEKS! YOU WIN!"
 
 [node name="PlayAgainButton" type="Button" parent="." unique_id=1163951716]
 layout_mode = 1
@@ -48,5 +48,4 @@ offset_right = 25.5
 offset_bottom = 51.630066
 grow_horizontal = 2
 grow_vertical = 2
-text = "Reset
-"
+text = "Continue"

@@ -91,3 +91,29 @@ func get_energy() -> int:
 
 func get_play_time() -> float:
 	return play_time
+
+# Restart Functions
+func restart() -> void:
+	# Gender
+	gender = Gender.MALE
+
+	# Stats
+	energy_per_tap = 1
+	luck = 0.0
+	hp = 3
+	max_hp = 3
+
+	# Consumables
+	energy = 0
+	social_battery = 0
+	social_battery_per_second = 1
+
+	# Game Stats
+	play_time = 0.0
+	progress_score = 0.0
+
+	# Notify UI
+	hp_changed.emit()
+	luck_changed.emit()
+
+	print("PLAYER STATS RESET!")

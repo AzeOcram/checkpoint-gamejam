@@ -6,7 +6,7 @@ signal day_changed(day: int, day_name: String)
 signal game_won # Optional signal for modular listeners
 
 
-const MINUTES_PER_DAY: float = 1.0
+const MINUTES_PER_DAY: float = 1.5
 
 var current_day: int = 1
 
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		day_changed.emit(current_day, get_day_name())
 		
 		# Win Condition Check
-		if current_day >= 14:
+		if current_day >= 10:
 			_handle_victory()
 
 

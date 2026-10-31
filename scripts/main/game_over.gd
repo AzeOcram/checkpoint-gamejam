@@ -7,9 +7,7 @@ func _ready() -> void:
 
 func _on_retry_pressed() -> void:
 	# Reset player stats before restarting
-	Player.hp = Player.max_hp
-	Player.play_time = 0.0
-	Player.progress_score = 0.0
+	Player.restart()
 	
 	# Reload your main game scene
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

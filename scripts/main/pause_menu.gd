@@ -44,4 +44,5 @@ func _on_back_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
+	Player.restart()
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
