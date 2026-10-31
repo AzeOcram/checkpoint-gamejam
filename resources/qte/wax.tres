@@ -6,5 +6,4 @@
 script = ExtResource("1_6efqx")
 title = "Wax the Floor!"
 description = "Hold the button and spread the wax evenly."
-duration = 10.0
 metadata/_custom_type_script = "uid://b6rnq6lwahl7u"

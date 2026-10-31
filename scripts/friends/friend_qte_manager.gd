@@ -174,6 +174,8 @@ func _on_qte_finished(
 		if previous_mood > 0 and friend_node.data.mood == 0:
 			print(friend_node.data.friend_name, " triggered a FRIEND CRISIS!")
 			apply_friend_crisis(friend_node.data)
+			Player.hp = maxi(Player.hp - 1, 0)
+			Player.hp_changed.emit()
 
 	# Stop monitoring if the friend has reached maximum connection.
 	if friend_node.data.connection >= 100:
