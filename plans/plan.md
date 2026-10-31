@@ -4,7 +4,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Luck back on event QTEs only; the intro shows the event QTE's title and says Lucky or Not lucky; no friend name | `fix/luck-event-only` | 🔵 PR open | PR_URL |
+| 1 | Luck back on event QTEs only; the intro shows the event QTE's title and says Lucky or Not lucky; no friend name | `fix/luck-event-only` | 🔵 PR open | [#39](https://github.com/AzeOcram/checkpoint-gamejam/pull/39) |
 
 ### What I found
 - **Why the friend name showed:** #38 moved the Luck roll to `FriendQTEManager`, and its `skip_qte` titled the Lucky screen "<friend name> NEEDS YOU". Before that the screen was event-only, so it showed the event QTE's title.
