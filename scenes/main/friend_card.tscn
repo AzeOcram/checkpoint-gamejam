@@ -120,3 +120,12 @@ theme_override_styles/background = SubResource("bar_bg")
 theme_override_styles/fill = SubResource("sb_fill")
 step = 0.01
 show_percentage = false
+
+[node name="BuyButton" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.3, 0.18, 0.08, 1)
+theme_override_colors/font_disabled_color = Color(0.45, 0.4, 0.33, 1)
+theme_override_font_sizes/font_size = 6
+text = "Befriend"
