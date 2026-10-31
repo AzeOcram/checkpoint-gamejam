@@ -4,7 +4,8 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | 🔵 PR open | [#35](https://github.com/AzeOcram/checkpoint-gamejam/pull/35) |
+| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | ✅ merged | [#35](https://github.com/AzeOcram/checkpoint-gamejam/pull/35) |
+| 2 | Re-apply keyboard shortcuts (#34) after revert #36; restore the dropped `key_hint.gd` ext_resource in `main.tscn` | `feat/keyboard-shortcuts-v2` | 🔵 PR open | [#37](https://github.com/AzeOcram/checkpoint-gamejam/pull/37) |
 
 ### What I found
 - **The two settings are mixed up in the code.** `FriendQTE.start` (`scripts/qte/friend_qte.gd`) sets the on-screen countdown with `randf_range(friend_qte_timer_min, friend_qte_timer_max)`. Those fields are the *frequency* range (20-140s in the data), so a friend QTE can count down for up to 140 seconds.
@@ -24,6 +25,11 @@
 - **Skills used:** diagnosing-bugs (reproduce the 100-140s countdown), tdd (red test first), blast-radius (other readers of `duration`, `friend_qte_timer_*`), run (frame capture of the timer), pr (PR body).
 - **Files:** `scripts/friends/friend_qte_manager.gd`, `scripts/qte/friend_qte.gd`, `tests/test_friend_qte_timing.gd`.
 - **Order:** one branch from an up-to-date `main`, one PR. It does not depend on #33 or #34.
+
+### 2. Re-apply keyboard shortcuts
+- **Found:** #34 was merged, then reverted by #36. The merge commit that resolved the #33 conflict (`dbfafbd`) kept the `KeyHint` node in `main.tscn` but dropped its `ext_resource` line for `key_hint.gd`, so the `KeyHint` script reference was dangling. The likely reason for the revert.
+- **Fix:** revert the revert on a fresh branch from `main`, add the missing `ext_resource` line, rerun `test_shortcuts.gd` plus the warning, alert, timing and friend-list tests (all pass).
+- **Files:** same as #34 (`ui.gd`, `pause_menu.gd`, `key_hint.gd`, `main.tscn`, `project.godot` input actions, `tests/test_shortcuts.gd`).
 
 ### Not checked
 - Game balance at 10s: it is much shorter than today's 20-140s, so friend QTEs get far harder until you tune `duration` per friend.

@@ -21,6 +21,10 @@ func _input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 				return
 
+			# Esc closes an open friend list or shop first (handled by UI).
+			if not visible and get_parent().has_panel_open():
+				return
+
 			toggle_pause()
 
 
