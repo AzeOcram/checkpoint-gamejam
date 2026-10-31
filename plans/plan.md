@@ -4,7 +4,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | 🟡 in progress (code + test done) | — |
+| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | 🔵 PR open | [#35](https://github.com/AzeOcram/checkpoint-gamejam/pull/35) |
 
 ### What I found
 - **The two settings are mixed up in the code.** `FriendQTE.start` (`scripts/qte/friend_qte.gd`) sets the on-screen countdown with `randf_range(friend_qte_timer_min, friend_qte_timer_max)`. Those fields are the *frequency* range (20-140s in the data), so a friend QTE can count down for up to 140 seconds.
