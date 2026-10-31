@@ -36,7 +36,8 @@ func _on_character_button_pressed() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_instance_valid(qte_queue_manager.active_qte) or intro.is_playing():
+	if (is_instance_valid(qte_queue_manager) and is_instance_valid(qte_queue_manager.active_qte)) \
+	or (is_instance_valid(intro) and intro.is_playing()):
 		return
 
 	if event.is_action_pressed(&"pause") and has_panel_open():

@@ -121,7 +121,7 @@ func _update_qte(_delta: float) -> void:
 
 
 func _update_timer() -> void:
-	timer_label.text = "TIME: %.1f" % time_remaining
+	timer_label.text = "%.2f" % time_remaining
 
 
 func _show_result(result: QTEData.Result) -> void:
