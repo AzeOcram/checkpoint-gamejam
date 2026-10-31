@@ -12,8 +12,7 @@ func enqueue_qte(
 	qte_data: QTEData,
 	on_finished: Callable = Callable(),
 	friend_data: FriendData = null,
-	show_intro: bool = false,
-	luck_rolled: bool = false
+	show_intro: bool = false
 ) -> void:
 	if qte_scene == null or qte_data == null:
 		push_error("Cannot queue a QTE without a scene and QTEData.")
@@ -24,8 +23,7 @@ func enqueue_qte(
 		"data": qte_data,
 		"callback": on_finished,
 		"friend_data": friend_data,
-		"show_intro": show_intro,
-		"luck_rolled": luck_rolled
+		"show_intro": show_intro
 	})
 
 	print("QTE queued. Waiting: ", qte_queue.size())
@@ -59,7 +57,7 @@ func _start_next_qte() -> void:
 	if request["show_intro"]:
 		var intro := QTEStartingScreen.new_screen()
 		get_tree().root.add_child(intro)
-		await intro.play(request["data"], false, request["luck_rolled"])
+		await intro.play(request["data"])
 
 	if not is_instance_valid(qte_instance):
 		active_qte = null

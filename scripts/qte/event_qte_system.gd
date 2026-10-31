@@ -136,8 +136,7 @@ func spawn_random_qte() -> void:
 		qte_data,
 		on_qte_finish,
 		null,
-		true,
-		Player.luck > 0.0
+		true
 	)
 
 
