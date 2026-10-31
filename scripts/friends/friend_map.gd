@@ -20,6 +20,7 @@ const ROW_SPACING := 16.0
 @onready var friend_info_panel: FriendInfoPanel = $FriendInfoPanel
 @onready var recruitment_system = $"../../Systems/RecruitmentSystem"
 @onready var social_battery_system = $"../../Systems/SocialBatterySystem"
+@onready var friend_qte_manager: FriendQTEManager = $"../../Systems/FriendQTEManager"
 
 var selected_friend: FriendMapNode = null
 
@@ -30,6 +31,9 @@ func _ready() -> void:
 	# Update the BUY button whenever Social Battery changes.
 	if social_battery_system:
 		social_battery_system.social_battery_changed.connect(_on_social_battery_changed)
+
+	friend_qte_manager.alert_changed.connect(_on_alert_changed)
+	friend_qte_manager.alert_ended.connect(_on_alert_ended)
 
 	friend_info_panel.z_index = 100
 	if recruitment_system:
@@ -76,6 +80,11 @@ func spawn_friends() -> void:
 
 func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	print("MAP RECEIVED CLICK: ", friend_node.data.friend_name)
+
+	# An alerted friend's click answers them instead of opening the panel.
+	if friend_qte_manager.has_alert(friend_node.data):
+		friend_qte_manager.start_qte(friend_node.data)
+		return
 
 	# Ensure panel is on top of input hierarchy when opened
 	move_child(friend_info_panel, -1)
@@ -148,6 +157,28 @@ func _on_buy_friend_requested(friend_data: FriendData) -> void:
 	# Close the panel while the recruitment QTE is active.
 	friend_info_panel.hide()
 	selected_friend = null
+
+func _on_alert_changed(friend_data: FriendData, time_left: float) -> void:
+	var seat := _seat_for(friend_data)
+
+	if seat != null:
+		seat.show_alert(time_left)
+
+
+func _on_alert_ended(friend_data: FriendData) -> void:
+	var seat := _seat_for(friend_data)
+
+	if seat != null:
+		seat.hide_alert()
+
+
+func _seat_for(friend_data: FriendData) -> FriendMapNode:
+	for child in get_children():
+		if child is FriendMapNode and child.data == friend_data:
+			return child
+
+	return null
+
 
 func update_friend_visual(friend_data: FriendData) -> void:
 	for child in get_children():
