@@ -30,6 +30,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="." unique_id=1796368978]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 60.0
 offset_top = 76.0
