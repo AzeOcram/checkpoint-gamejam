@@ -1,6 +1,35 @@
 # Plan
 
-## Current batch (2026-10-31, 4th)
+## Current batch (2026-10-31, 5th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Friend QTE countdown = `friend_data.duration`; frequency stays `friend_qte_timer_min/max` | `fix/friend-qte-duration` | 🔵 PR open | [#35](https://github.com/AzeOcram/checkpoint-gamejam/pull/35) |
+
+### What I found
+- **The two settings are mixed up in the code.** `FriendQTE.start` (`scripts/qte/friend_qte.gd`) sets the on-screen countdown with `randf_range(friend_qte_timer_min, friend_qte_timer_max)`. Those fields are the *frequency* range (20-140s in the data), so a friend QTE can count down for up to 140 seconds.
+- **The manager's value is ignored.** `FriendQTEManager.start_qte` sets `qte_data.duration = 5.0`, but `FriendQTE` only reads `qte_data.duration` when it has no friend, which never happens in game.
+- **Frequency is already right.** `FriendNode.start_mood_timer` (`friend.gd`) rolls `randf_range(friend_qte_timer_min, friend_qte_timer_max)` per cycle, and `apply_friend_crisis` shifts the same two fields. Nothing else uses them, so item 2 needs no code change once item 1 removes the mix-up; it gets a test that pins it.
+- **`duration` today:** `FriendData.duration` (default 10.0, in the "Recruitment QTE" export group) is only used by the recruitment QTE. No friend `.tres` overrides it, so every friend's countdown becomes 10s until you set a per-friend value.
+
+### Decisions
+- Reuse the existing `FriendData.duration` for both the recruitment QTE and the friend QTE, as asked (one field, one meaning: "how long the QTE countdown runs"). Open question: do you want a separate field later so the two can differ?
+- The manager sets `qte_data.duration = friend_data.duration`, and `FriendQTE` always counts down from `qte_data.duration`, so the rule sits in one place.
+- No change to the 10s alert timer, the warning banner or the frequency logic.
+
+### 1. Countdown and frequency
+- **Backend / data:** `friend_qte_manager.gd`: `qte_data.duration = friend_data.duration` (was 5.0). `friend_qte.gd`: delete the `randf_range(min, max)` block, use `time_remaining = qte_data.duration` for both branches.
+- **UI:** none. The "TIME: x" label shows the new value.
+- **Test:** `tests/test_friend_qte_timing.gd` (headless, real `main.tscn`): set a friend's `duration` to 7 and `friend_qte_timer_min/max` to 100/140, click the alert, assert the QTE `time_remaining` is 7; change `duration` to 3 for a second friend and assert 3. Frequency: for a friend with min 20 and max 40, assert every started mood timer `wait_time` is within 20..40 over 200 rolls, and that after `apply_friend_crisis` the range shifts down by 5. Run red first (it fails today: `time_remaining` would be 100-140).
+- **Skills used:** diagnosing-bugs (reproduce the 100-140s countdown), tdd (red test first), blast-radius (other readers of `duration`, `friend_qte_timer_*`), run (frame capture of the timer), pr (PR body).
+- **Files:** `scripts/friends/friend_qte_manager.gd`, `scripts/qte/friend_qte.gd`, `tests/test_friend_qte_timing.gd`.
+- **Order:** one branch from an up-to-date `main`, one PR. It does not depend on #33 or #34.
+
+### Not checked
+- Game balance at 10s: it is much shorter than today's 20-140s, so friend QTEs get far harder until you tune `duration` per friend.
+- Whether anything else in the scene relied on the old long countdown (for example the timer label width at "TIME: 10.0").
+
+## Previous batch (2026-10-31, 4th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
