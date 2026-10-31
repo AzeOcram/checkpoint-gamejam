@@ -1,10 +1,69 @@
 # Plan
 
-## Current batch (2026-10-31, 3rd)
+## Current batch (2026-10-31, 4th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Friend `!` + 10s timer popup; click the friend to start their QTE | `feat/ui-alert-and-timer` | 🔵 PR open (UI awaiting approval) | [#31](https://github.com/AzeOcram/checkpoint-gamejam/pull/31) |
+| 1 | Fix alert/timer popups covered by other friends | `fix/alert-popup-overlap` | 🔵 PR open (UI awaiting approval) | [#32](https://github.com/AzeOcram/checkpoint-gamejam/pull/32) |
+| 2 | Persistent "A FRIEND NEEDS YOU!" warning | `feat/friend-warning` | ⚪ not started | — |
+| 3 | Keyboard shortcuts (S shop, F friends) + fading hint | `feat/keyboard-shortcuts` | ⚪ not started | — |
+
+### Answer first: how often does a friend QTE fire?
+- **It is a per-friend random timer, not a fixed interval and not a trigger condition.** `FriendNode.start_mood_timer` rolls `randf_range(friend_qte_timer_min, friend_qte_timer_max)` seconds (`friend.gd`). The roll is new every cycle.
+- **Starts** the moment the friend is recruited (`_complete_recruitment` -> `setup`). Each friend's clock is independent.
+- **Ranges** in `resources/friends/*.tres` run from 20-60s up to 100-140s (min 20-100, max 60-140). Friends with a short range alert often; the shy ones rarely.
+- **Pauses** while that friend has an open alert (10s) or a QTE queued/active. **Restarts** only when the QTE finishes or the alert expires, so the real gap is wait + reaction + QTE time.
+- **Only two things change it:** (1) connection reaches 100 -> that friend never alerts again (`pause_monitoring`); (2) a friend crisis (mood hits 0 after a failed QTE) permanently subtracts 5s from min and max of every other friend (floored at 0). Mood itself does not change the frequency.
+- **Risk found:** repeated crises can push min and max to 0, so those friends alert again almost instantly. Not part of this batch.
+
+### Decisions
+- 3 branches, 3 PRs, in this order. Each starts from an up-to-date `main`. 2 and 3 do not depend on 1.
+- Warning (2): shown while any friend alert is open or a friend QTE is queued/active, hidden when none remain. Text "A FRIEND NEEDS YOU!". Size: about 15% of the screen height, width fits the text (open to change, one constant). Sits top-centre between the Social Battery and Energy HUD, on its own `CanvasLayer` above the classroom, friend list, shop, friend QTE and event QTE.
+- Warning excluded from the day intro cutscene. The game over, victory and main menu screens are separate scenes, so it is gone there without extra code.
+- Shortcuts (3): `S` toggles the shop, `F` toggles the friend list, same open/close/swap behaviour and sounds as the two buttons. Ignored during any QTE, the intro and while paused.
+- Hint (3): small `S` and `F` key badges next to the shop (bottom-right) and friend-list (bottom-left) buttons. Full opacity for 60s after the intro ends, then fade out over 4s (opacity only). The brief says "gradually disappear or fade after one minute": I read it as 60s shown, then a fade.
+
+### 1. Fix alert/timer popups covered by other friends
+- **Reproduced:** recruited all 40 and alerted all. In the screenshot the `! 10` labels of the lower rows are cut by the sprites of the seats after them (`all_alerts.png`, scratchpad).
+- **Diagnosis (cause A, confirmed):** the label is a child of its own `FriendMapNode`. Seats draw in tree order (spawn order), and each sprite is 36px on a 16px grid so it overlaps the neighbours. Any later seat paints over an earlier seat's label. The label also sits one row up, over the friend in front, so it is unclear whose it is.
+- **Diagnosis (cause B, likely, not reproduced):** clicks have the same problem. Each `TextureButton` is a full square and picking follows tree order (`friend_map.gd` already notes this), so a later seat's rectangle can swallow a click meant for an alerted friend behind it. My scripted hover test pointed at the Social Battery bar instead (coordinate mapping), so this is unconfirmed until step 1 below.
+- **Step-by-step fix:**
+  1. (done, cause B confirmed: 11 of 40 clicks on the lower body went to another friend before the fix) Test first in `tests/test_friend_alert.gd`: alert every friend, assert each alerted seat is drawn above all non-alerted seats and a click on each alerted seat's centre reaches that seat (synthetic mouse events through the viewport). Run it red.
+  2. `FriendMapNode.show_alert`: set `z_index = 90` (above all seats and the labels, below the info panel at 100 and QTEs at 200). `hide_alert` resets it.
+  3. `FriendMap._on_alert_changed` (first time only): `move_child(seat, info_panel.get_index() - 1)` so picking order matches draw order; remember the old index and restore it in `_on_alert_ended`.
+  4. Anchor the label to the alerted friend's own head (centred over the sprite top), keep the outline.
+  5. If cause B stays unreproducible after step 1, keep steps 2 and 4 only and say so in the PR.
+  6. Rerun alert, friend list and SFX tests; screenshot with all 40 alerted.
+- **Skills used:** diagnosing-bugs (reproduce, hypothesis, fix loop), tdd (red test first), blast-radius (who else relies on seat order: friend panel click, `update_friend_visual`), run (scripted frame capture), pr (PR body).
+- **Files:** `scripts/friends/friend_map_node.gd`, `scripts/friends/friend_map.gd`, `tests/test_friend_alert.gd`.
+
+### 2. Persistent friend warning
+- **Found:** QTE scenes are `Control`s at `z_index = 200` added to the root; the day intro is a `CanvasLayer`; game over and victory are `change_scene_to_file`, so a `CanvasLayer` in `main.tscn` never shows there. `FriendQTEManager` already knows when an alert is open and when a QTE is active.
+- **Backend / data:** `FriendQTEManager` gains `warning_active() -> bool` (any alert open, or a queued/active friend QTE) and a `warning_changed(active: bool)` signal, emitted from alert open/close and `_on_qte_finished`. The rule stays in the manager.
+- **UI:** new `scenes/main/friend_warning.tscn` + `scripts/main/friend_warning.gd` on a `CanvasLayer` (layer 60) in `main.tscn`. Red text with outline on a dark rounded bar, 15% of viewport height, top-centre. Pop in/out by opacity and scale, 200ms ease-out, `PROCESS_MODE_ALWAYS` so it shows over the paused QTE. Hidden while the intro plays.
+- **Test:** `tests/test_friend_warning.gd`: hidden at start; shown on an alert; stays shown while the QTE runs and while the friends and shop panels are open; hidden when the last alert/QTE finishes; stays up with two alerts until both are done; hidden during the intro.
+- **Skills used:** tdd, domain-modeling (name "alert" vs "warning" consistently), blast-radius (QTE queue and finish paths), run, pr.
+- **Files:** `scripts/friends/friend_qte_manager.gd`, `scripts/main/friend_warning.gd`, `scenes/main/friend_warning.tscn`, `scenes/main/main.tscn`, `tests/test_friend_warning.gd`.
+
+### 3. Keyboard shortcuts
+- **Found:** `ui.gd` already toggles the two panels from `_on_social_circle_button_pressed` and `_on_character_button_pressed`. The only input actions are `tap` (mouse, space) and `pause` (Esc). `S` and `F` are free.
+- **Backend / data:** two new input actions in `project.godot`: `open_shop` (S), `open_friends` (F). `project.godot` has your local uncommitted edits, so I stage only my lines.
+- **UI:** `ui.gd._unhandled_input` calls the existing two handlers. Ignored while a QTE is active, the intro is playing or the tree is paused. New `key_hint.gd` on two small key badges by the buttons: full opacity 60s after the intro, then an opacity-only fade over 4s, then hidden. No animation on the key presses themselves (keyboard-driven).
+- **Test:** `tests/test_shortcuts.gd`: `S` opens the shop, again closes; `F` opens the friend list; `S` while friends is open swaps; both ignored during a QTE; hint at full opacity at 59s, fading after 60s, hidden after 64s.
+- **Skills used:** tdd, blast-radius (`tap` also binds space; make sure `S`/`F` do not add energy or double-fire the tap), run, pr.
+- **Files:** `project.godot` (my lines only), `scripts/main/ui.gd`, `scripts/main/key_hint.gd`, `scenes/main/main.tscn`, `tests/test_shortcuts.gd`.
+
+### Not checked
+- Cause B (click picking) is unconfirmed until step 1 of milestone 1.
+- Whether the banner at 15% height covers the "Honesty" sign or the top HUD in a way you dislike (a screenshot will show it).
+- Controller/touch input for shortcuts (not asked).
+- `test_stats_system.gd` fails and hangs; I have not checked whether it also does on `main`.
+
+## Previous batch (2026-10-31, 3rd)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Friend `!` + 10s timer popup; click the friend to start their QTE | `feat/ui-alert-and-timer` | ✅ merged (UI approved) | [#31](https://github.com/AzeOcram/checkpoint-gamejam/pull/31) |
 
 ### Decisions
 - A friend QTE no longer starts by itself. When a friend's mood timer fires, an alert (`!` + countdown) appears over that friend on the map for 10s; clicking the friend enqueues the QTE.

@@ -76,4 +76,49 @@ func _initialize() -> void:
 	seat_b.texture_button.pressed.emit()
 	check(panel.visible, "an unalerted friend still opens the info panel")
 
+	queue.active_qte.queue_free() # its overlay would swallow the clicks below
+	queue.active_qte = null
+	await create_timer(4.5).timeout # day intro and camera settle
+
+	# Crowded rows: an alerted friend must stay visible and clickable above the friends behind it.
+	for d: FriendData in recruitment.available_friends:
+		if not d.unlocked:
+			recruitment._complete_recruitment(d).check_timer.stop()
+	await process_frame
+	panel.hide()
+	var clicked := []
+	var seats := []
+	for c in map.get_children():
+		if "alert_label" in c:
+			seats.append(c)
+			c.friend_clicked.disconnect(map._on_friend_clicked)
+			c.friend_clicked.connect(func(n): clicked.append(n))
+	var wrong := 0
+	var hidden := 0
+	for seat in seats:
+		var order: int = seat.get_index()
+		var ev_node = recruitment.friends[recruitment.friends.map(func(f): return f.data).find(seat.data)]
+		ev_node.request_friend_qte.emit(ev_node)
+		for other in seats:
+			if other != seat and other.z_index >= seat.z_index:
+				hidden += 1
+		var center: Vector2 = root.get_final_transform() * (seat.texture_button.get_global_transform_with_canvas() * (seat.texture_button.size * Vector2(0.5, 0.85)))
+		clicked.clear()
+		var hover := InputEventMouseMotion.new()
+		hover.position = center
+		root.push_input(hover)
+		await process_frame
+		for pressed in [true, false]:
+			var click := InputEventMouseButton.new()
+			click.button_index = MOUSE_BUTTON_LEFT
+			click.pressed = pressed
+			click.position = center
+			root.push_input(click)
+		if clicked.is_empty() or clicked[0] != seat:
+			wrong += 1
+		manager.tick_alerts(10.0)
+		check(seat.get_index() == order, "%s goes back to its seat order after the alert" % seat.data.friend_name)
+	check(hidden == 0, "an alerted seat is drawn above every other seat")
+	check(wrong == 0, "clicking an alerted friend reaches that friend (%d of %d went elsewhere)" % [wrong, seats.size()])
+
 	quit(1 if failures > 0 else 0)
