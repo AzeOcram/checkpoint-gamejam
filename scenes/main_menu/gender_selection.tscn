@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bh5rtvneqolyq" path="res://assets/ui/main_menu/Art/FEMALE MC.PNG" id="5_gvx0j"]
 [ext_resource type="Texture2D" uid="uid://c0ua7w6qegt6b" path="res://assets/ui/main_menu/Buttons/Base3.PNG" id="5_t0736"]
 [ext_resource type="Texture2D" uid="uid://ncjj2eb64p3y" path="res://assets/ui/main_menu/Back 1.PNG" id="6_4avdf"]
+[ext_resource type="Texture2D" uid="uid://dym7tfqefn7ad" path="res://assets/ui/main_menu/Buttons/Base2-dark.PNG" id="6_gvx0j"]
 [ext_resource type="Texture2D" uid="uid://dgcf3ey8nqv7s" path="res://assets/ui/main_menu/Back 2.PNG" id="7_032c5"]
 
 [node name="GenderSelection" type="Control" unique_id=525316696]
@@ -45,7 +46,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -12
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_qpa5x")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 21
 text = "Choose your Character"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -72,6 +73,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture_normal = ExtResource("5_t0736")
+texture_hover = ExtResource("6_gvx0j")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -103,6 +105,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture_normal = ExtResource("5_t0736")
+texture_hover = ExtResource("6_gvx0j")
 ignore_texture_size = true
 stretch_mode = 0
 

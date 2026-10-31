@@ -1,8 +1,10 @@
 extends Node2D
 
 # Nodes
-@onready var sprite_1: Sprite2D = $Sprite2D
-@onready var sprite_2: Sprite2D = $Sprite2D2
+@onready var female_1: Sprite2D = $Female1
+@onready var female_2: Sprite2D = $Female2
+@onready var male_1: Sprite2D = $Male1
+@onready var male_2: Sprite2D = $Male2
 
 # Animation
 var animation_timer: float = 0.0
@@ -11,8 +13,16 @@ var showing_sprite_1: bool = true
 
 
 func _ready() -> void:
-	sprite_1.visible = true
-	sprite_2.visible = false
+	if Player.gender == Player.Gender.FEMALE:
+		female_1.visible = true
+		female_2.visible = false
+		male_1.visible = false
+		male_2.visible = false
+	else:
+		male_1.visible = true
+		male_2.visible = false
+		female_1.visible = false
+		female_2.visible = false
 
 
 func _process(delta: float) -> void:
@@ -22,5 +32,9 @@ func _process(delta: float) -> void:
 		animation_timer = 0.0
 		showing_sprite_1 = !showing_sprite_1
 		
-		sprite_1.visible = showing_sprite_1
-		sprite_2.visible = !showing_sprite_1
+		if Player.gender == Player.Gender.FEMALE:
+			female_1.visible = showing_sprite_1
+			female_2.visible = !showing_sprite_1
+		else:
+			male_1.visible = showing_sprite_1
+			male_2.visible = !showing_sprite_1
