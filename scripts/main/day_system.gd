@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		day_changed.emit(current_day, get_day_name())
 		
 		# Win Condition Check
-		if current_day >= 10:
+		if current_day >= 2:
 			_handle_victory()
 
 

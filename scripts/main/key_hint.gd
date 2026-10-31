@@ -18,8 +18,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not intro.is_playing():
-		advance(delta)
+	if is_instance_valid(intro) and intro.is_playing():
+		return
+
+	advance(delta)
 
 
 func advance(delta: float) -> void:
