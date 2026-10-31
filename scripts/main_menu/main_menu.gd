@@ -20,27 +20,22 @@ func start_sprite_animation() -> void:
 	while true:
 		await get_tree().create_timer(4.0).timeout
 		
-		# Fade Sprite2D2 out and Sprite2D3 in
 		var tween := create_tween().set_parallel(true)
-		
 		tween.tween_property(sprite_2d_2, "modulate:a", 0.0, 0.5)
 		tween.tween_property(sprite_2d_3, "modulate:a", 1.0, 0.5)
-		
 		await tween.finished
 		
 		await get_tree().create_timer(4.0).timeout
 		
-		# Fade Sprite2D3 out and Sprite2D2 in
 		tween = create_tween().set_parallel(true)
-		
 		tween.tween_property(sprite_2d_3, "modulate:a", 0.0, 0.5)
 		tween.tween_property(sprite_2d_2, "modulate:a", 1.0, 0.5)
-		
 		await tween.finished
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	# Routes to Gender Selection first
+	get_tree().change_scene_to_file("res://scenes/main_menu/gender_selection.tscn")
 
 
 func _on_quit_pressed() -> void:
