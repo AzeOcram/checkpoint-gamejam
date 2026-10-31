@@ -4,7 +4,7 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Full friend list: all 39 friends, sorted by SB, locked ones shaded, buy from the list | `friend-list-buy` | 🟡 in progress (built, tests green, committed locally, not pushed; UI awaiting your approval) | — |
+| 1 | Full friend list: all 39 friends, sorted by SB, locked ones shaded, buy from the list | `friend-list-buy` | 🔵 PR open (UI approved) | [#29](https://github.com/AzeOcram/checkpoint-gamejam/pull/29) |
 
 ### Decisions
 - "SB" = `social_battery_generation` (what the card already labels "SB Generation"). Ties break by `recruitment_cost`, then name. Order is static, so a purchase never reshuffles the list.
