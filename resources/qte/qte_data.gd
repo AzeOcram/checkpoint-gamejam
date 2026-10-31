@@ -17,9 +17,9 @@ enum Difficulty {
 
 # More friends, harder QTEs.
 static func difficulty_for_friends(friends: int) -> Difficulty:
-	if friends >= 6:
+	if friends >= 20:
 		return Difficulty.HARD
-	if friends >= 3:
+	if friends >= 5:
 		return Difficulty.MODERATE
 	return Difficulty.EASY
 

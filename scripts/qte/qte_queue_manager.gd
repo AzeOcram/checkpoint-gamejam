@@ -1,6 +1,8 @@
 extends Node
 class_name QTEQueueManager
 
+@onready var recruitment_system: Node = get_node("../RecruitmentSystem")
+
 var qte_queue: Array[Dictionary] = []
 var active_qte: BaseQTE = null
 
@@ -47,6 +49,7 @@ func _start_next_qte() -> void:
 		return
 
 	active_qte = qte_instance
+	qte_instance.difficulty = QTEData.difficulty_for_friends(recruitment_system.get_friends_amount())
 
 	if qte_instance is FriendQTE:
 		qte_instance.friend_data = request["friend_data"]

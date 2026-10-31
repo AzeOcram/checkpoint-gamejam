@@ -38,8 +38,8 @@ func start(data: QTEData) -> void:
 	# Make the painting area match the floor map.
 	canvas.set_deferred("size", paint.size)
 
-	time_remaining = pick(12.0, 10.0, 7.0)
-	required_coverage = pick(0.6, 0.7, 0.8)
+	time_remaining = pick(9.6, 8.0, 5.6)
+	required_coverage = pick(0.72, 0.84, 0.95)
 	is_finished = false
 
 	is_painting = false
