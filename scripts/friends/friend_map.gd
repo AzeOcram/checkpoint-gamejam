@@ -17,6 +17,7 @@ const ROW_SPACING := 16.0
 
 @export var friend_collection: FriendCollection
 
+@onready var stats_shop: Control = $"../../UI/StatsShop"
 @onready var friend_info_panel: FriendInfoPanel = $FriendInfoPanel
 @onready var recruitment_system = $"../../Systems/RecruitmentSystem"
 @onready var social_battery_system = $"../../Systems/SocialBatterySystem"
@@ -86,6 +87,10 @@ func _on_friend_clicked(friend_node: FriendMapNode) -> void:
 	# An alerted friend's click answers them instead of opening the panel.
 	if friend_qte_manager.has_alert(friend_node.data):
 		friend_qte_manager.start_qte(friend_node.data)
+		return
+
+	# The shop covers the map, so friends behind it are not clickable.
+	if stats_shop.visible:
 		return
 
 	# Ensure panel is on top of input hierarchy when opened
