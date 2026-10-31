@@ -9,7 +9,6 @@ class_name EventQTESystem
 
 
 @onready var timer: Timer = $Timer
-@onready var stats_system: Node = get_node("../StatsSystem")
 
 
 var qte_list = QTEList.new().qte_list
@@ -121,20 +120,7 @@ func spawn_random_qte() -> void:
 
 	print("Selected QTE: ", qte_data.title)
 
-	# Luck skips random event QTEs only.
-	var lucky: bool = stats_system.roll_luck_skip()
-
 	event_qte_pending = true
-
-	if lucky:
-		print("Luck activated! Event QTE skipped.")
-
-		var starting_screen := QTEStartingScreen.new_screen()
-		get_tree().root.add_child(starting_screen)
-		await starting_screen.play(qte_data, true)
-
-		on_qte_finish(QTEData.Result.SUCCESS)
-		return
 
 	qte_queue_manager.enqueue_qte(
 		qte_scene,

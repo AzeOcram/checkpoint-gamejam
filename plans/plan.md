@@ -1,6 +1,59 @@
 # Plan
 
-## Current batch (2026-10-31, 5th)
+## Current batch (2026-11-01, 7th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Luck (and the Lucky screen) applies to friend QTEs only, not event QTEs | `fix/luck-skip-feedback` | 🔵 PR open | [#38](https://github.com/AzeOcram/checkpoint-gamejam/pull/38) |
+| 2 | QTE difficulty follows friend count again (Easy < 5, Moderate < 20, Hard after) and every tier is 20% tighter | `fix/luck-skip-feedback` | 🔵 PR open | [#38](https://github.com/AzeOcram/checkpoint-gamejam/pull/38) |
+
+One branch and one PR for both, as asked.
+
+### What I found
+- **Item 2 root cause.** `QTEData.difficulty_for_friends` was set on the event QTE in the old direct-spawn code (`4e72c8a`). That line was lost when `QTEQueueManager` took over starting QTEs, so nothing set `difficulty` and every QTE ran at the `BaseQTE` default, HARD. At 0 friends the math QTE therefore rolled multiplication.
+- **Item 1.** The Luck roll lived in `EventQTESystem`. It moves to `FriendQTEManager.start_qte`.
+
+### Decisions
+- Tiers: Easy below 5 friends, Moderate below 20, Hard from 20 (there are 41 friends in the data, so Hard is reachable).
+- "Tighter numbers": time limits x0.8; amounts the player must reach x1.2 (wax coverage, trash count, timing-bar speed, slice minimum cut time); zones and tolerances x0.8. Wax Hard coverage is capped at 95% (96% would be near impossible). The math operations per tier are unchanged.
+- Luck: friend QTEs only, skip chance capped at 50% (kept from before; you did not pick, so this is my default). A skip shows the Lucky screen, then counts as a success for that friend.
+
+### Milestones
+- **1 Luck, friend only:** `FriendQTEManager.start_qte` rolls Luck, `skip_qte` shows the screen and calls the normal finish; the roll and `skip_qte` are gone from `EventQTESystem`. Test: `tests/test_luck_skip.gd`.
+- **2 Difficulty:** `QTEQueueManager._start_next_qte` sets `difficulty` from the friend count; thresholds in `qte_data.gd`; tuned numbers in the five QTE scripts. Test: `tests/test_difficulty.gd` (0 friends: no multiplication).
+- **Skills used:** diagnosing-bugs (found the lost wiring through git history), tdd (tests red first), blast-radius (other readers of `difficulty` and `roll_luck_skip`), pr (PR body).
+
+### Not checked
+- Feel of the new numbers (the Hard tier is tight: 4s on several QTEs); not play-tested.
+- The Lucky screen on a friend QTE was not rendered in a live run (the screen itself was checked last batch).
+- `tests/test_stats_system.gd` still fails 6 checks it already failed on main.
+
+## Previous batch (2026-11-01, 6th)
+
+| # | Milestone | Branch | Status | PR |
+|---|-----------|--------|--------|----|
+| 1 | Luck skip is visible, and stacked Luck can no longer swallow event QTEs | `fix/luck-skip-feedback` | 🔵 PR open | [#38](https://github.com/AzeOcram/checkpoint-gamejam/pull/38) |
+
+### What I found
+- **Item 1 and 2 share one cause.** `EventQTESystem.spawn_random_qte` rolled Luck and, on a skip, called `on_qte_finish(SUCCESS)` at once: no screen, no sound, energy paid silently. The "Lucky! Your friend saved you" screen (`QTEStartingScreen.play(data, true)`) already existed but nothing called it.
+- **Late game hides QTEs.** `roll_luck_skip` used `Player.luck` as the raw chance. Shop Luck (up to 25%) stacks with each friend's bonus at 100 connection (2-50% each), capped at 90%. A long game ends with most event QTEs skipped silently, so they "stop appearing".
+- `main` got a parallel "fix luck skip" (Lucky screen inline, shorter intervals, a 200px minimum width on the description label so the text shows) while this was open. Merged: their intervals and label fix kept, the screen call moved into `skip_qte`.
+- The event timer and the pending flag are fine: no path leaves `event_qte_pending` stuck.
+
+### Decisions (change if you disagree)
+- Skip chance is capped at 50% (`StatsSystem.MAX_SKIP_CHANCE`). `Player.luck` itself still goes to 0.9.
+- A skip shows the Lucky screen, then pays the normal success reward.
+
+### Milestone 1
+- **Test:** `tests/test_luck_skip.gd` (headless): Luck 0.9 skips about 50% over 2000 rolls; a skip shows the Lucky screen, stays pending until it closes, pays energy, and schedules the next QTE.
+- **Files:** `scripts/qte/event_qte_system.gd`, `scripts/stats/stats_system.gd`, `tests/test_luck_skip.gd`.
+
+### Not checked
+- Lucky screen checked in a rendered frame (text readable); not played through in a live run.
+- `tests/test_stats_system.gd` already fails on main (6 checks about Luck level and `roll_luck_skip(roll)`); left alone.
+- Balance of the 50% cap.
+
+## Earlier batch (2026-10-31, 5th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
@@ -35,7 +88,7 @@
 - Game balance at 10s: it is much shorter than today's 20-140s, so friend QTEs get far harder until you tune `duration` per friend.
 - Whether anything else in the scene relied on the old long countdown (for example the timer label width at "TIME: 10.0").
 
-## Previous batch (2026-10-31, 4th)
+## Earlier batch (2026-10-31, 4th)
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
