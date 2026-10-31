@@ -1,4 +1,3 @@
-
 extends Node2D
 
 # Attributes
@@ -28,6 +27,7 @@ var play_time: float = 0.0 # MINUTES
 var progress_score: float = 0.0
 var day_intro_played: bool = false
 
+var ending_title: String = ""
 
 # Main Functions
 func _process(delta: float) -> void:
@@ -95,6 +95,7 @@ func get_play_time() -> float:
 
 # Restart Functions
 func restart() -> void:
+	ending_title = ""
 	day_intro_played = false
 	# Stats
 	energy_per_tap = 1

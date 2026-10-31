@@ -12,7 +12,7 @@
 [resource]
 script = ExtResource("1_pq5e7")
 friend_name = "Adrian Louis Llorca"
-desc = "Boys at the back"
+desc = "Boys at the Back"
 recruitment_cost = 1500
 social_battery_generation = 50
 luck = 0.05

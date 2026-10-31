@@ -13,6 +13,7 @@ friend_name = "Emily Francheska Garcia"
 desc = "Bully Girl"
 recruitment_cost = 5000
 connection = 70
+social_battery_generation = 1000
 luck = 0.3
 mood_decrease_rate = 30.0
 connection_gain = 20

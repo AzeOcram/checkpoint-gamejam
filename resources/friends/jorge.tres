@@ -11,7 +11,7 @@
 [resource]
 script = ExtResource("1_l3a3v")
 friend_name = "Marlon Jorge Mercado "
-desc = "Boys at the back 2"
+desc = "Boys at the Back"
 recruitment_cost = 1500
 connection = 60
 social_battery_generation = 20
