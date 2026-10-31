@@ -14,6 +14,9 @@ extends Control
 const CLOSE_NORMAL_SCALE := Vector2(1.0, 1.0)
 const CLOSE_HOVER_SCALE := Vector2(1.15, 1.15)
 
+const MAX_SHOP_LUCK: float = 0.25
+const MAX_HEARTS: int = 5
+
 
 # Energy
 @onready var energy_label: Label = $EnergyStat/HBoxContainer/Label
@@ -45,9 +48,11 @@ var energy_system
 func _ready() -> void:
 	add_to_group(&"blocks_tap")
 	close_button.set_meta(&"sfx_press", &"menu_close")
+
 	for button in [energy_upgrade_button, luck_upgrade_button, hp_upgrade_button]:
 		button.set_meta(&"sfx_press", &"")
 		button.set_meta(&"sfx_blocked", &"cant_afford")
+
 	close_button.pressed.connect(_on_close_pressed)
 	close_button.mouse_entered.connect(_on_close_hover)
 	close_button.mouse_exited.connect(_on_close_unhover)
@@ -59,7 +64,6 @@ func _ready() -> void:
 	Player.hp_changed.connect(update_ui)
 	Player.luck_changed.connect(update_luck)
 
-	# Make sure cost labels are visible.
 	energy_cost_label.visible = true
 	luck_cost_label.visible = true
 	hp_cost_label.visible = true
@@ -74,6 +78,7 @@ func _on_close_unhover() -> void:
 	var tween := create_tween()
 	tween.tween_property(close_button, "scale", CLOSE_NORMAL_SCALE, 0.02)
 
+
 func setup(stats_system_ref, energy_system_ref) -> void:
 	stats_system = stats_system_ref
 	energy_system = energy_system_ref
@@ -85,6 +90,9 @@ func setup(stats_system_ref, energy_system_ref) -> void:
 
 
 func update_ui() -> void:
+	if stats_system == null:
+		return
+
 	update_energy()
 	update_luck()
 	update_hp()
@@ -92,46 +100,39 @@ func update_ui() -> void:
 
 func update_energy() -> void:
 	var value: int = stats_system.get_value("energy_per_tap")
-	var level: int = stats_system.get_level("energy_per_tap")
 	var cost = stats_system.get_cost("energy_per_tap")
+	var is_maxed: bool = stats_system.is_maxed("energy_per_tap")
 
-	print("ENERGY COST: ", cost, " | TYPE: ", typeof(cost))
+	# No level display for Energy.
+	energy_label.text = str(value)
 
-	energy_label.text = "%d (Lv %d)  " % [
-		value,
-		level,
-	]
-
-	if stats_system.is_maxed("energy_per_tap"):
+	if is_maxed:
 		energy_cost_label.text = "MAX"
 	else:
 		energy_cost_label.text = str(cost)
 
-	energy_upgrade_button.disabled = not stats_system.can_upgrade("energy_per_tap")
+	energy_upgrade_button.disabled = is_maxed or not stats_system.can_upgrade("energy_per_tap")
 
 
 func update_luck() -> void:
 	var value: float = Player.luck * 100.0
-	var level: int = stats_system.get_level("luck")
 	var cost = stats_system.get_cost("luck")
+	var is_maxed: bool = stats_system.is_maxed("luck")
 
-	print("LUCK COST: ", cost, " | TYPE: ", typeof(cost))
+	luck_label.text = "%.1f%%" % value
 
-	luck_label.text = str(value) + "% (Lv " + str(level) + ")"
-
-	if stats_system.is_maxed("luck"):
+	if is_maxed:
 		luck_cost_label.text = "MAX"
 	else:
 		luck_cost_label.text = str(cost)
 
-	luck_upgrade_button.disabled = not stats_system.can_upgrade("luck")
+	luck_upgrade_button.disabled = is_maxed or not stats_system.can_upgrade("luck")
+
 
 func update_hp() -> void:
 	var current_hp: int = Player.hp
-	var max_hp: int = stats_system.get_value("max_hp")
+	var max_hp: int = min(stats_system.get_value("max_hp"), MAX_HEARTS)
 	var cost = stats_system.get_cost("max_hp")
-
-	print("HP COST: ", cost, " | TYPE: ", typeof(cost))
 
 	var hearts: Array[TextureRect] = [
 		heart1,
@@ -142,22 +143,17 @@ func update_hp() -> void:
 	]
 
 	for i in range(hearts.size()):
+		hearts[i].visible = i < max_hp
+
 		if i < max_hp:
-			hearts[i].visible = true
+			hearts[i].texture = heart_texture if i < current_hp else grey_heart_texture
 
-			if i < current_hp:
-				hearts[i].texture = heart_texture
-			else:
-				hearts[i].texture = grey_heart_texture
-		else:
-			hearts[i].visible = false
-
-	if stats_system.is_maxed("max_hp"):
+	if max_hp >= MAX_HEARTS:
 		hp_cost_label.text = "MAX"
 	else:
 		hp_cost_label.text = str(cost)
 
-	hp_upgrade_button.disabled = not stats_system.can_upgrade("max_hp")
+	hp_upgrade_button.disabled = max_hp >= MAX_HEARTS or not stats_system.can_upgrade("max_hp")
 
 
 func _on_energy_upgrade_pressed() -> void:
@@ -177,6 +173,7 @@ func _on_hp_upgrade_pressed() -> void:
 
 func _upgrade(stat_id: String) -> void:
 	SFX.play(&"purchase" if stats_system.upgrade(stat_id) else &"cant_afford")
+	update_ui()
 
 
 func _on_close_pressed() -> void:

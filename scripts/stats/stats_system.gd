@@ -1,3 +1,4 @@
+
 extends Node
 
 signal stats_changed
@@ -29,7 +30,7 @@ const STATS := {
 	"max_hp": {
 		"name": "Max HP",
 		"start": 3,
-		"max": 10,
+		"max": 5,
 		"base_cost": 50,
 		"upgrade": "upgrade_max_hp",
 	},
@@ -38,6 +39,11 @@ const STATS := {
 # Each Luck point gives this chance to skip a QTE.
 const LUCK_CHANCE_PER_POINT := 0.025
 
+# Shop Luck
+const MAX_SHOP_LUCK: float = 0.25
+const LUCK_UPGRADE_AMOUNT: float = 0.025
+
+var shop_luck: float = 0.0
 var energy_system
 
 
@@ -55,10 +61,12 @@ func get_stat_name(stat_id: String) -> String:
 
 # Returns the stat's current value, stored in Player.
 func get_value(stat_id: String) -> int:
+	if stat_id == "luck":
+		return int(round(shop_luck / LUCK_UPGRADE_AMOUNT))
+
 	return Player.get(stat_id)
 
 
-# Returns how many times the stat has been upgraded.
 func get_level(stat_id: String) -> int:
 	return get_value(stat_id) - STATS[stat_id].start
 
@@ -69,6 +77,9 @@ func get_cost(stat_id: String) -> int:
 
 
 func is_maxed(stat_id: String) -> bool:
+	if stat_id == "luck":
+		return shop_luck >= MAX_SHOP_LUCK
+
 	return get_value(stat_id) >= STATS[stat_id].max
 
 
@@ -91,7 +102,13 @@ func upgrade(stat_id: String) -> bool:
 	if not energy_system.spend(get_cost(stat_id)):
 		return false
 
-	Player.call(STATS[stat_id].upgrade)
+	if stat_id == "luck":
+		shop_luck = minf(shop_luck + LUCK_UPGRADE_AMOUNT, MAX_SHOP_LUCK)
+		Player.upgrade_luck(LUCK_UPGRADE_AMOUNT)
+		Player.luck_changed.emit()
+	else:
+		Player.call(STATS[stat_id].upgrade)
+
 	stats_changed.emit()
 	return true
 
@@ -106,3 +123,9 @@ func get_luck_chance() -> float:
 # The roll can be passed in for testing.
 func roll_luck_skip() -> bool:
 	return randf() < Player.luck
+
+
+# Resets shop upgrade tracking when starting a new game.
+func restart() -> void:
+	shop_luck = 0.0
+	stats_changed.emit()

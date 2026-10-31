@@ -26,6 +26,7 @@ var social_battery_per_second: int = 1
 # Game Stats
 var play_time: float = 0.0 # MINUTES
 var progress_score: float = 0.0
+var day_intro_played: bool = false
 
 
 # Main Functions
@@ -94,9 +95,7 @@ func get_play_time() -> float:
 
 # Restart Functions
 func restart() -> void:
-	# Gender
-	gender = Gender.MALE
-
+	day_intro_played = false
 	# Stats
 	energy_per_tap = 1
 	luck = 0.0

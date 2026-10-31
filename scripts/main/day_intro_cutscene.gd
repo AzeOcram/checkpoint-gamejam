@@ -8,18 +8,24 @@ class_name DayIntroCutscene
 
 
 func _ready() -> void:
+	if Player.day_intro_played:
+		queue_free()
+		return
+
+	Player.day_intro_played = true
+
 	# The CanvasLayer never hides; the black screen does when the intro ends.
 	black_screen.add_to_group(&"blocks_tap")
 
 	# Initial camera close-up
 	camera.zoom = Vector2(3.0, 3.0)
-	
+
 	# Initial black screen
 	black_screen.material.set_shader_parameter("radius", 0.0)
-	
+
 	# Show day title
 	day_title.modulate.a = 1.0
-	
+
 	start_cutscene()
 
 

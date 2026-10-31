@@ -137,3 +137,4 @@ stretch_mode = 4
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1487847416]
 stream = ExtResource("10_4avdf")
 autoplay = true
+parameters/looping = true
