@@ -4,11 +4,12 @@
 
 | # | Milestone | Branch | Status | PR |
 |---|-----------|--------|--------|----|
-| 1 | Luck skip is visible, and stacked Luck can no longer swallow event QTEs | `fix/luck-skip-feedback` | 🔵 PR open | PR_URL |
+| 1 | Luck skip is visible, and stacked Luck can no longer swallow event QTEs | `fix/luck-skip-feedback` | 🔵 PR open | [#38](https://github.com/AzeOcram/checkpoint-gamejam/pull/38) |
 
 ### What I found
 - **Item 1 and 2 share one cause.** `EventQTESystem.spawn_random_qte` rolled Luck and, on a skip, called `on_qte_finish(SUCCESS)` at once: no screen, no sound, energy paid silently. The "Lucky! Your friend saved you" screen (`QTEStartingScreen.play(data, true)`) already existed but nothing called it.
 - **Late game hides QTEs.** `roll_luck_skip` used `Player.luck` as the raw chance. Shop Luck (up to 25%) stacks with each friend's bonus at 100 connection (2-50% each), capped at 90%. A long game ends with most event QTEs skipped silently, so they "stop appearing".
+- `main` got a parallel "fix luck skip" (Lucky screen inline, shorter intervals, a 200px minimum width on the description label so the text shows) while this was open. Merged: their intervals and label fix kept, the screen call moved into `skip_qte`.
 - The event timer and the pending flag are fine: no path leaves `event_qte_pending` stuck.
 
 ### Decisions (change if you disagree)
@@ -20,7 +21,7 @@
 - **Files:** `scripts/qte/event_qte_system.gd`, `scripts/stats/stats_system.gd`, `tests/test_luck_skip.gd`.
 
 ### Not checked
-- Not played by hand in the editor, so the Lucky screen look and timing in a live run are unverified.
+- Lucky screen checked in a rendered frame (text readable); not played through in a live run.
 - `tests/test_stats_system.gd` already fails on main (6 checks about Luck level and `roll_luck_skip(roll)`); left alone.
 - Balance of the 50% cap.
 

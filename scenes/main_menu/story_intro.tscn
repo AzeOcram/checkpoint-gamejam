@@ -10,6 +10,12 @@ anchors_preset = 0
 theme = ExtResource("1_2vkxn")
 script = ExtResource("1_a22yr")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=699048391]
+layout_mode = 0
+offset_right = 321.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
 [node name="Image" type="TextureRect" parent="." unique_id=502222168]
 layout_mode = 0
 offset_right = 384.0

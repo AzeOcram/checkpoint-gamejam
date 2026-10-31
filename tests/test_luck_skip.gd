@@ -39,7 +39,8 @@ func _initialize() -> void:
 	var screens := root.get_children().filter(func(n): return n is QTEStartingScreen)
 	check(screens.size() == 1, "a Luck skip shows the Lucky screen")
 	check(events.event_qte_pending, "the event stays pending while the Lucky screen shows")
-	await screens[0].tree_exited
+	var screen: QTEStartingScreen = screens[0]
+	await screen.tree_exited
 	check(player.energy > 0, "the skip still pays the success reward")
 	check(not events.event_qte_pending and not events.timer.is_stopped(), "the next event QTE is scheduled after the skip")
 
