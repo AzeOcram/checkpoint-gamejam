@@ -128,6 +128,7 @@ func _show_result(result: QTEData.Result) -> void:
 	is_painting = false
 
 	set_process(false)
+	_play_result_sfx(result)
 
 	cursor.visible = false
 

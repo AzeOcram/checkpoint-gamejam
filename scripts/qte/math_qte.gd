@@ -107,6 +107,8 @@ func _check_answer() -> void:
 	if answer_text == "":
 		return
 
+	SFX.play(&"chalk")
+
 	if not answer_text.is_valid_int():
 		_show_feedback(QTEData.Result.FAILURE)
 		return
@@ -125,6 +127,7 @@ func _show_feedback(result: QTEData.Result) -> void:
 
 	feedback_showing = true
 	set_process(false)
+	_play_result_sfx(result)
 
 	answer_input.editable = false
 

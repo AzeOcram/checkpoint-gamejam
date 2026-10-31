@@ -223,6 +223,8 @@ func _finish(result: QTEData.Result) -> void:
 	is_finished = true
 	is_cutting = false
 	set_process(false)
+	_play_result_sfx(result)
+	SFX.play(&"paper_rip")
 
 	if result == QTEData.Result.SUCCESS:
 		feedback_label.text = "SUCCESS!"

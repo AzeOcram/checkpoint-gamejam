@@ -91,6 +91,7 @@ func _on_trash_pressed(trash: TextureButton) -> void:
 	if is_finished:
 		return
 
+	SFX.play_random([&"paper_pickup_1", &"paper_pickup_2", &"paper_pickup_3", &"paper_pickup_4"])
 	trash.queue_free()
 	trash_left -= 1
 
@@ -104,6 +105,9 @@ func _finish(result: QTEData.Result) -> void:
 
 	is_finished = true
 	set_process(false)
+	_play_result_sfx(result)
+	if result == QTEData.Result.SUCCESS:
+		SFX.play(&"bunot")
 
 	if result == QTEData.Result.SUCCESS:
 		feedback_label.text = "SUCCESS!"

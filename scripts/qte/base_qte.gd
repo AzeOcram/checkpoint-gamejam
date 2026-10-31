@@ -62,6 +62,10 @@ func _update_qte(_delta: float) -> void:
 	pass
 
 
+func _play_result_sfx(result: QTEData.Result) -> void:
+	SFX.play(&"qte_success" if result == QTEData.Result.SUCCESS else &"qte_fail")
+
+
 func _on_timeout() -> void:
 	_finish(QTEData.Result.FAILURE)
 
