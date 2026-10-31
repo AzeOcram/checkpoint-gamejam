@@ -63,7 +63,8 @@ func _initialize() -> void:
 	await process_frame
 	check(queue.active_qte != null, "clicking starts the friend QTE")
 	check(manager.warning_active(), "warning continues while the friend QTE runs")
-	check(banner.visible, "warning shows over the friend QTE")
+	await create_timer(0.4).timeout
+	check(not banner.visible, "warning is gone while the friend QTE screen is up")
 
 	queue.active_qte.finished.emit(0)
 	await create_timer(0.4).timeout

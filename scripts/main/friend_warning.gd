@@ -11,6 +11,7 @@ const POP_TIME := 0.2
 @onready var banner: PanelContainer = $Banner
 @onready var manager: FriendQTEManager = $"../Systems/FriendQTEManager"
 @onready var intro: DayIntroCutscene = $"../DayIntroCutscene"
+@onready var queue: QTEQueueManager = $"../Systems/QTEQueueManager"
 
 var shown := false
 var tween: Tween
@@ -27,7 +28,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var want := manager.warning_active() and not _intro_playing()
+	var want := manager.warning_active() and not _intro_playing() and not _friend_qte_open()
 
 	if want != shown:
 		_set_shown(want)
@@ -35,6 +36,11 @@ func _process(_delta: float) -> void:
 
 func _intro_playing() -> bool:
 	return is_instance_valid(intro) and intro.is_playing()
+
+
+# The banner has done its job once the friend QTE screen is up.
+func _friend_qte_open() -> bool:
+	return is_instance_valid(queue.active_qte) and queue.active_qte is FriendQTE
 
 
 func _set_shown(value: bool) -> void:
