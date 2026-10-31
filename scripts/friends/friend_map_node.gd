@@ -11,6 +11,8 @@ signal friend_clicked(friend_node: FriendMapNode)
 const ALERT_COLOR := Color(1.0, 0.85, 0.2)
 const ALERT_URGENT_COLOR := Color(1.0, 0.25, 0.2)
 const ALERT_URGENT_SECONDS := 3.0
+# Above every seat, below the friend info panel (z 100).
+const ALERT_Z_INDEX := 90
 
 var data: FriendData
 var alert_label: Label
@@ -60,6 +62,7 @@ func show_alert(time_left: float) -> void:
 		ALERT_URGENT_COLOR if time_left <= ALERT_URGENT_SECONDS else ALERT_COLOR
 	)
 	alert_label.visible = true
+	z_index = ALERT_Z_INDEX
 	alert_label.size = alert_label.get_minimum_size()
 	alert_label.position = Vector2(
 		(texture_button.size.x - alert_label.size.x) / 2.0 + texture_button.position.x,
@@ -77,6 +80,7 @@ func show_alert(time_left: float) -> void:
 
 func hide_alert() -> void:
 	alert_label.visible = false
+	z_index = 0
 
 
 func start_animation() -> void:

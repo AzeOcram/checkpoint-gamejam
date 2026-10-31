@@ -23,6 +23,7 @@ const ROW_SPACING := 16.0
 @onready var friend_qte_manager: FriendQTEManager = $"../../Systems/FriendQTEManager"
 
 var selected_friend: FriendMapNode = null
+var seats: Array[FriendMapNode] = []
 
 
 func _ready() -> void:
@@ -65,6 +66,7 @@ func spawn_friends() -> void:
 		var friend_map_node := FRIEND_MAP_SCENE.instantiate() as FriendMapNode
 
 		add_child(friend_map_node)
+		seats.append(friend_map_node)
 
 		friend_map_node.position = get_seat_position(
 			friend_data.map_position_index
@@ -161,8 +163,15 @@ func _on_buy_friend_requested(friend_data: FriendData) -> void:
 func _on_alert_changed(friend_data: FriendData, time_left: float) -> void:
 	var seat := _seat_for(friend_data)
 
-	if seat != null:
-		seat.show_alert(time_left)
+	if seat == null:
+		return
+
+	var opening := not seat.alert_label.visible
+
+	seat.show_alert(time_left)
+
+	if opening:
+		_restack()
 
 
 func _on_alert_ended(friend_data: FriendData) -> void:
@@ -170,6 +179,20 @@ func _on_alert_ended(friend_data: FriendData) -> void:
 
 	if seat != null:
 		seat.hide_alert()
+		_restack()
+
+
+# Mouse picking follows tree order, so alerted seats go last (before the panel) to match their z_index. Others keep spawn order.
+func _restack() -> void:
+	var index := 0
+
+	for alerted in [false, true]:
+		for seat: FriendMapNode in seats:
+			if seat.alert_label.visible == alerted:
+				move_child(seat, index)
+				index += 1
+
+	move_child(friend_info_panel, -1)
 
 
 func _seat_for(friend_data: FriendData) -> FriendMapNode:
