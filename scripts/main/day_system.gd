@@ -12,6 +12,7 @@ var current_day: int = 1
 @onready var day_label: Label = $Label
 
 @onready var recruitment_system: Node = get_node("../RecruitmentSystem")
+@onready var qte_queue_manager: QTEQueueManager = get_node("../QTEQueueManager")
 
 
 func _ready() -> void:
@@ -39,7 +40,9 @@ func _process(_delta: float) -> void:
 
 func _handle_victory() -> void:
 	print("VICTORY! Player survived until Day 10!")
-
+	while is_instance_valid(qte_queue_manager.active_qte) or not qte_queue_manager.qte_queue.is_empty():
+		await get_tree().process_frame
+	
 	var ending := determine_ending()
 	print("PLAYER ENDING: ", ending)
 
