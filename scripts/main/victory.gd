@@ -3,7 +3,7 @@ extends Control
 
 const GAME_SCENE := "res://scenes/main/main.tscn"
 
-@export var image_duration: float = 2.0
+@export var image_duration: float = 3.0
 @export var fade_duration: float = 0.5
 
 @onready var ending_image: TextureRect = $EndingImage
@@ -31,18 +31,32 @@ func get_ending_images() -> Array[Texture2D]:
 	var gender := "male" if Player.gender == Player.Gender.MALE else "female"
 
 	var folder_path := "res://assets/art/ending/%s_%s/" % [ending, gender]
+	var directory := DirAccess.open(folder_path)
 
 	var images: Array[Texture2D] = []
 
-	for i in range(1, 4):
-		var image_path := folder_path + str(i) + ".PNG"
+	if directory == null:
+		push_error("Could not open ending folder: " + folder_path)
+		return images
+
+	var file_names := directory.get_files()
+	file_names.sort()
+
+	for file_name in file_names:
+		if file_name.get_extension().to_upper() != "PNG":
+			continue
+
+		var image_path := folder_path + file_name
 		var texture := load(image_path) as Texture2D
 
 		if texture == null:
 			push_error("Could not load ending image: " + image_path)
-			return []
+			continue
 
 		images.append(texture)
+
+	if images.is_empty():
+		push_error("No ending images found in: " + folder_path)
 
 	return images
 
@@ -102,7 +116,7 @@ func _show_final_ending() -> void:
 		"Delinquent":
 			ending_description.text = "You've joined and blindly followed bullies"
 		"No Friends":
-			ending_description.text = "You ended your journey without making any friends."
+			ending_description.text = "Rough start."
 		"Few Friends":
 			ending_description.text = "You made a few friends along the way."
 		"Social Butterfly":
@@ -118,6 +132,7 @@ func _show_final_ending() -> void:
 	ending_title.show()
 	ending_description.show()
 	play_again_button.show()
+
 
 func _on_play_again_pressed() -> void:
 	get_tree().change_scene_to_file(GAME_SCENE)

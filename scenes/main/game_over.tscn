@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cv1j2uv1qggsh"]
 
+[ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_kyrlp"]
 [ext_resource type="Script" uid="uid://dgt1x2pkqdxw3" path="res://scripts/main/game_over.gd" id="1_wgtjm"]
+[ext_resource type="Texture2D" uid="uid://oxfbbins7lsl" path="res://assets/art/ending/game_over/female.PNG" id="2_sqi03"]
 
 [node name="GameOver" type="Control" unique_id=25744262]
 layout_mode = 3
@@ -9,18 +11,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kyrlp")
 script = ExtResource("1_wgtjm")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1353530040]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 1)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=411993952]
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 179.0
+color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="." unique_id=805698458]
+[node name="Image" type="TextureRect" parent="." unique_id=1111399525]
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 180.0
+texture = ExtResource("2_sqi03")
+expand_mode = 1
+
+[node name="GameOver" type="Label" parent="." unique_id=805698458]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,12 +35,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -46.0
-offset_top = -11.5
+offset_top = -86.0
 offset_right = 46.0
-offset_bottom = 11.5
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1212725500]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -73.0
+offset_right = 117.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "You're out of hearts"
+horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="." unique_id=179383795]
 layout_mode = 1
@@ -42,10 +69,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -74.0
-offset_top = -49.0
-offset_right = 83.0
-offset_bottom = -18.0
+offset_left = -67.0
+offset_top = -23.0
+offset_right = 82.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back to Main Menu"
