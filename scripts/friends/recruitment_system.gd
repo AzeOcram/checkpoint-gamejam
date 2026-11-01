@@ -28,32 +28,21 @@ func _ready() -> void:
 func load_friend_data() -> void:
 	available_friends.clear()
 
-	var directory := DirAccess.open("res://resources/friends")
+	var collection := load("res://resources/friends/collection.tres") as FriendCollection
 
-	if directory == null:
-		push_error("Could not open friends resource folder.")
+	if collection == null:
+		push_error("Failed to load FriendCollection!")
 		return
 
-	var files = directory.get_files()
+	available_friends = collection.friends.duplicate()
 
 	print("========== FRIEND DATA DIAGNOSTICS ==========")
-	print("Total files found: ", files.size())
+	print("Total friends loaded: ", available_friends.size())
 
-	for file_name in files:
-		if file_name.ends_with(".tres"):
-			var path = "res://resources/friends/" + file_name
-			var resource = load(path)
-
-			if resource == null:
-				print("[FAILED TO LOAD] ", file_name)
-			elif resource is FriendData:
-				available_friends.append(resource)
-				print("[LOADED] ", resource.friend_name)
-			else:
-				print("[WRONG RESOURCE TYPE] ", file_name, " | ", resource.get_class())
+	for friend_data in available_friends:
+		print("[LOADED] ", friend_data.friend_name)
 
 	print("=============================================")
-	print("Total .tres loaded: ", available_friends.size())
 
 func can_recruit(friend_data: FriendData) -> bool:
 	if friend_data == null:

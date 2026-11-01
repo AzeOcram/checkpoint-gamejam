@@ -12,7 +12,7 @@ class_name TrashQTE
 
 # Placeholder sprite until real trash art exists.
 const TRASH_TEXTURE1: Texture2D = preload("res://assets/art/qte/Trash 1.PNG")
-const TRASH_TEXTURE2: Texture2D = preload("res://assets/art/qte/Trash 2.PNG")
+const TRASH_TEXTURE2: Texture2D = preload("res://assets/art/qte/Trash 2.png")
 
 const TRASH_SCALE: float = 1
 

@@ -10,16 +10,15 @@ config_version=5
 
 [application]
 
-config/name="friend-game"
+config/name="friends-we-made"
 run/main_scene="uid://bkyiouepfm3r8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://p5hv27jfmfap"
 
 [autoload]
 
 Player="*res://scripts/player/player.gd"
 SFX="*res://scripts/main/sfx.gd"
-MCPRuntime="*uid://vm45gif4yrcf"
 
 [display]
 
@@ -31,7 +30,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -67,6 +66,7 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 textures/stretch/mode="viewport"
 textures/size/window_height_override=720
 textures/size/window_width_override=1280

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dlmmea40m53"
-path="res://.godot/imported/IMG_5749.PNG-fd4bff5cb9fdca77012d1308eeaf196e.ctex"
+uid="uid://p5hv27jfmfap"
+path="res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ending/no_friends_female/IMG_5749.PNG"
-dest_files=["res://.godot/imported/IMG_5749.PNG-fd4bff5cb9fdca77012d1308eeaf196e.ctex"]
+source_file="res://assets/icon.png"
+dest_files=["res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"]
 
 [params]
 

@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://ci2awbvgnfkxm" path="res://resources/themes/main_theme.tres" id="1_afdr7"]
 [ext_resource type="Script" uid="uid://mdkwd54r04d0" path="res://scripts/main/victory.gd" id="1_wti0w"]
 [ext_resource type="Texture2D" uid="uid://dne01pn1llr8x" path="res://assets/art/ending/delinquent_male/1.PNG" id="3_jxo7s"]
+[ext_resource type="AudioStream" uid="uid://ccvsfsryxdo2e" path="res://assets/audio/Music/main_menu_bgm.ogg" id="4_xr4hx"]
 
 [node name="Victory" type="Control" unique_id=369921846]
 layout_mode = 3
@@ -16,7 +17,7 @@ script = ExtResource("1_wti0w")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=953675370]
 layout_mode = 0
-offset_right = 319.0
+offset_right = 323.0
 offset_bottom = 182.0
 color = Color(0, 0, 0, 1)
 
@@ -60,6 +61,7 @@ text = "SOCIAL BUTTERFLY ENDING"
 horizontal_alignment = 1
 
 [node name="EndingDescription" type="Label" parent="." unique_id=1402013550]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,3 +77,8 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 text = "You've built a wide circle of meaningful friendships."
 horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2070325602]
+stream = ExtResource("4_xr4hx")
+parameters/looping = true
