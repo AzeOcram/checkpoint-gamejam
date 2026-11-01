@@ -19,9 +19,10 @@ func _ready() -> void:
 	load_friend_data()
 	print("========== RECRUITMENT SYSTEM READY ==========")
 	print("QTE Manager: ", qte_manager)
-
 	if qte_manager == null:
 		push_error("FriendQTEManager NOT FOUND!")
+
+	call_deferred("_restore_recruited_friends")
 
 
 func load_friend_data() -> void:
@@ -113,21 +114,37 @@ func _on_recruitment_qte_finished(result: QTEData.Result, friend_data: FriendDat
 func _complete_recruitment(friend_data: FriendData) -> FriendNode:
 	friend_data.unlocked = true
 
-	var friend_instance: FriendNode = FRIEND_SCENE.instantiate()
+	if not Player.recruited_friends.has(friend_data):
+		Player.recruited_friends.append(friend_data)
 
+	var friend_instance: FriendNode = FRIEND_SCENE.instantiate()
 	if qte_manager:
 		friend_instance.request_friend_qte.connect(qte_manager._on_friend_request_qte)
-
 	add_child(friend_instance)
 	friend_instance.setup(friend_data)
-
 	friends.append(friend_instance)
 	friend_recruited.emit(friend_instance)
-
 	print("RECRUITED: ", friend_data.friend_name, " | Initial connection: ", friend_data.connection)
-
 	return friend_instance
 
 
 func get_friends_amount() -> int:
 	return friends.size()
+
+func _restore_recruited_friends() -> void:
+	for friend_data in Player.recruited_friends:
+		if friend_data == null:
+			continue
+
+		friend_data.unlocked = true
+
+		var friend_instance: FriendNode = FRIEND_SCENE.instantiate()
+
+		if qte_manager:
+			friend_instance.request_friend_qte.connect(qte_manager._on_friend_request_qte)
+
+		add_child(friend_instance)
+		friend_instance.setup(friend_data)
+		friends.append(friend_instance)
+
+		print("RESTORED: ", friend_data.friend_name)

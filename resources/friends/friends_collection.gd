@@ -33,3 +33,12 @@ func update_collection() -> void:
 	emit_changed()
 
 	print("Friend collection updated! Found ", friends.size(), " friends.")
+
+func reset_friends() -> void:
+	for friend_data in friends:
+		friend_data.unlocked = false
+		friend_data.mood = 100
+		friend_data.connection = 0
+		friend_data.luck_bonus_claimed = false
+
+	emit_changed()

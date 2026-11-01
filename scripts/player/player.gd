@@ -5,6 +5,8 @@ signal hp_changed
 signal game_over
 signal luck_changed
 
+const FRIEND_COLLECTION: FriendCollection = preload("res://resources/friends/collection.tres")
+
 # Gender
 enum Gender { MALE, FEMALE }
 var gender: Gender = Gender.MALE
@@ -26,6 +28,9 @@ var social_battery_per_second: int = 1
 var play_time: float = 0.0 # MINUTES
 var progress_score: float = 0.0
 var day_intro_played: bool = false
+
+# Friends
+var recruited_friends: Array[FriendData] = []
 
 var ending_title: String = ""
 
@@ -95,6 +100,8 @@ func get_play_time() -> float:
 
 # Restart Functions
 func restart() -> void:
+	FRIEND_COLLECTION.reset_friends()
+	recruited_friends.clear()
 	ending_title = ""
 	day_intro_played = false
 	# Stats
