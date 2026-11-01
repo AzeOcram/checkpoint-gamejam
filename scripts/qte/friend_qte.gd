@@ -6,11 +6,8 @@ class_name FriendQTE
 @onready var timer_label: Label = $Overlay/TimerLabel
 @onready var name_label: Label = $Overlay/NameLabel
 
-@onready var success_button: BaseButton = $Overlay/SuccessButton
-@onready var failure_button: BaseButton = $Overlay/FailButton
-
-@onready var success_label: Label = $Overlay/SuccessButton/SuccessLabel
-@onready var failure_label: Label = $Overlay/FailButton/FailLabel
+@onready var success_button: Button = $Overlay/SuccessButton
+@onready var failure_button: Button = $Overlay/FailButton
 
 @onready var feedback_label: Label = $Overlay/FeedbackLabel
 @onready var friend_sprite: Sprite2D = $Sprite2D
@@ -35,8 +32,6 @@ func _ready() -> void:
 
 
 func start(data: QTEData) -> void:
-	print("Success label: ", success_label)
-	print("Failure label: ", failure_label)
 	print("Friend data: ", friend_data)
 	print("Friend name: ", friend_data.friend_name if friend_data != null else "NULL")
 	print("Friend sprite: ", friend_data.sprite if friend_data != null else "NULL")
@@ -59,16 +54,16 @@ func start(data: QTEData) -> void:
 
 		if friend_qte_data != null:
 			description_label.text = friend_qte_data.question
-			success_label.text = friend_qte_data.success_label
-			failure_label.text = friend_qte_data.failure_label
+			success_button.text = friend_qte_data.success_label
+			failure_button.text = friend_qte_data.failure_label
 		else:
 			description_label.text = qte_data.description
-			success_label.text = "Let's talk!"
-			failure_label.text = "Not now"
+			success_button.text = "Let's talk!"
+			failure_button.text = "Not now"
 	else:
 		description_label.text = qte_data.description
-		success_label.text = "Let's talk!"
-		failure_label.text = "Not now"
+		success_button.text = "Let's talk!"
+		failure_button.text = "Not now"
 
 	time_remaining = qte_data.duration
 

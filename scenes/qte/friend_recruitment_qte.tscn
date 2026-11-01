@@ -6,6 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://bp75gs6jd85rq" path="res://assets/art/qte/POP UPS_cropped/choice bar.png" id="4_wgtk1"]
 [ext_resource type="Texture2D" uid="uid://d52adani5bg0" path="res://assets/art/characters/CLASSMATES/Artist Girl/IMG_2994.PNG" id="5_sq3p6"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s7wsd"]
+texture = ExtResource("4_wgtk1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jxfl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch0dh"]
+bg_color = Color(0.7019608, 0.5686275, 0.5686275, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ch0dh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23it2"]
+bg_color = Color(0.7022786, 0.56853276, 0.56870085, 1)
+
 [node name="FriendQTE" type="Control" unique_id=1755739529]
 layout_mode = 3
 anchors_preset = 15
@@ -77,44 +90,30 @@ offset_bottom = 168.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Name"
 
-[node name="FailButton" type="TextureButton" parent="Overlay" unique_id=2005742361]
+[node name="SuccessButton" type="Button" parent="Overlay" unique_id=514913935]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 142.0
-offset_right = 265.0
-offset_bottom = 155.0
-texture_normal = ExtResource("4_wgtk1")
-
-[node name="FailLabel" type="Label" parent="Overlay/FailButton" unique_id=447807198]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 81.0
-offset_bottom = 13.0
+offset_left = 169.0
+offset_top = 116.00001
+offset_right = 329.0
+offset_bottom = 135.0
 scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/font_size = 7
-text = "FAILURE"
+theme_override_styles/normal = SubResource("StyleBoxTexture_s7wsd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3jxfl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ch0dh")
+text = "SUCCESS"
 autowrap_mode = 3
 
-[node name="SuccessButton" type="TextureButton" parent="Overlay" unique_id=1890722927]
+[node name="FailButton" type="Button" parent="Overlay" unique_id=1838560358]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 123.0
-offset_right = 265.0
-offset_bottom = 136.0
-texture_normal = ExtResource("4_wgtk1")
-
-[node name="SuccessLabel" type="Label" parent="Overlay/SuccessButton" unique_id=1938890928]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 0
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 64.0
-offset_bottom = 13.0
+offset_left = 168.0
+offset_top = 148.0
+offset_right = 329.66666
+offset_bottom = 167.0
 scale = Vector2(0.6, 0.6)
-theme_override_font_sizes/font_size = 7
-text = "SUCCESS"
+theme_override_styles/normal = SubResource("StyleBoxTexture_s7wsd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ch0dh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_23it2")
+text = "FAILURE"
 autowrap_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=434638046]
